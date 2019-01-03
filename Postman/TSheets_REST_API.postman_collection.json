@@ -1,0 +1,3092 @@
+{
+	"info": {
+		"_postman_id": "7eb67dd7-b00b-468b-a025-ba7a823f1413",
+		"name": "TSheets REST API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GET STARTED",
+			"item": [
+				{
+					"name": "Environment Setup: 1) Create New Environment (top right), 2) Select Pre-req tab & set bearer token, 3) Click Send",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "72b4a38f-b2c0-4bc3-a050-999700d6e376",
+								"exec": [
+									"//set your bearer token here\r",
+									"postman.setEnvironmentVariable(\"tsheets-bearer-token\", \"<SET_VALUE_HERE>\");\r",
+									"\r",
+									"//leave this value as-is\r",
+									"postman.setEnvironmentVariable(\"base-api-url\", \"https://rest.tsheets.com/api/v1\");\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "5b99228d-49dd-43b9-a2b3-dbd94a2cd95e",
+								"exec": [
+									"let tsheets_bearer_token = postman.getEnvironmentVariable(\"tsheets-bearer-token\");",
+									"let base_api_url = postman.getEnvironmentVariable(\"base-api-url\");",
+									"",
+									"pm.test(`tsheets-bearer-token successfully set to ${tsheets_bearer_token}`, function() {",
+									"   pm.expect(tsheets_bearer_token).to.not.be.undefined; ",
+									"});",
+									"",
+									"pm.test(`base_api_url successfully set to ${base_api_url}`, function() {",
+									"   pm.expect(base_api_url).to.not.be.undefined; ",
+									"});",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://postman-echo.com/get",
+							"protocol": "https",
+							"host": [
+								"postman-echo",
+								"com"
+							],
+							"path": [
+								"get"
+							]
+						},
+						"description": "<p>\nSetup your access token for all further requests.  Don't have one?  Contact <a href=\"help@tsheets.com\">(mailto:help@tsheets.com)</a>.  You should only need to run this one time as these values will be stored in your Postman environment.\n</p>\n<p>\nSelect the <em>Pre-request Script</em> tab in the middle of the screen and replace <code>{{tsheets-bearer-token}}</code> with your access token value.  Click the <em>Send</em> button at top left and then select <em>Test Results</em> mid-screen to confirm success.  Now your access token will automatically be added as an HTTP header to the API method calls to authenticate to your account. (See <a href=\"https://documenter.getpostman.com/view/5586094/RzfasCN5#authentication\">Authentication</a> for details). e.g.:<br/><br/>\n<code>postman.setEnvironmentVariable(&quot;tsheets-bearer-token&quot;, &quot;<strong>S.7__645f34c0...</strong>&quot;);</code></p>"
+					},
+					"response": []
+				}
+			],
+			"description": "Run first to setup environment\n",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "f6613d67-a081-45a5-8ac5-682e482871bd",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "5c5168f2-83ed-473e-a6e3-34e8a6e2765e",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Current User",
+			"item": [
+				{
+					"name": "List Current User",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{tsheets-bearer-token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{base-api-url}}/current_user",
+							"host": [
+								"{{base-api-url}}"
+							],
+							"path": [
+								"current_user"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "d1185877-d60a-439c-b356-04bb0e7c8b1f",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "f0f20828-b0d3-4ca9-a5c4-1a848b21959b",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Custom Fields",
+			"item": [
+				{
+					"name": "Custom Fields",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{tsheets-bearer-token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{base-api-url}}/customfields",
+							"host": [
+								"{{base-api-url}}"
+							],
+							"path": [
+								"customfields"
+							],
+							"query": [
+								{
+									"key": "ids",
+									"value": "<value>",
+									"disabled": true
+								},
+								{
+									"key": "active",
+									"value": "<value>",
+									"disabled": true
+								},
+								{
+									"key": "applies_to",
+									"value": "<value>",
+									"disabled": true
+								},
+								{
+									"key": "value_type",
+									"value": "<value>",
+									"disabled": true
+								},
+								{
+									"key": "modified_before",
+									"value": "<value>",
+									"disabled": true
+								},
+								{
+									"key": "modified_since",
+									"value": "<value>",
+									"disabled": true
+								},
+								{
+									"key": "supplemental_data",
+									"value": "<value>",
+									"disabled": true
+								},
+								{
+									"key": "per_page",
+									"value": "<value>",
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": "<value>",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Custom Fields",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{tsheets-bearer-token}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{base-api-url}}/customfields",
+							"host": [
+								"{{base-api-url}}"
+							],
+							"path": [
+								"customfields"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "72cb5248-2ce1-45a7-8dd4-1ca2cbb8e872",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "df2eac27-aec2-4075-ad82-bd0099c478b0",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Custom Field Items",
+			"item": [
+				{
+					"name": "List Custom Field Items",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{tsheets-bearer-token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{base-api-url}}/customfielditems?customfield_id=<value>",
+							"host": [
+								"{{base-api-url}}"
+							],
+							"path": [
+								"customfielditems"
+							],
+							"query": [
+								{
+									"key": "customfield_id",
+									"value": "<value>"
+								},
+								{
+									"key": "ids",
+									"value": "<value>",
+									"disabled": true
+								},
+								{
+									"key": "modified_before",
+									"value": "<value>",
+									"disabled": true
+								},
+								{
+									"key": "modified_since",
+									"value": "<value>",
+									"disabled": true
+								},
+								{
+									"key": "supplemental_data",
+									"value": "<value>",
+									"disabled": true
+								},
+								{
+									"key": "per_page",
+									"value": "<value>",
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": "<value>",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Custom Field Items",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{tsheets-bearer-token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "# Note: structure is not complete.  Add\r\n# properties as needed, per documentation.\r\n\r\n{\r\n \"data\":\r\n  [\r\n    {\r\n     \"name\": \"<value>\",\r\n     \"customfield_id\": \"<value>\"\r\n    }\r\n  ]\r\n}"
+						},
+						"url": {
+							"raw": "{{base-api-url}}/customfielditems",
+							"host": [
+								"{{base-api-url}}"
+							],
+							"path": [
+								"customfielditems"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit Custom Field Items",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{tsheets-bearer-token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "# Note: structure is not complete.  Add\r\n# properties as needed, per documentation.\r\n\r\n{\r\n \"data\":\r\n  [\r\n    {\r\n     \"customfield_id\": \"<value>\"\r\n    }\r\n  ]\r\n}"
+						},
+						"url": {
+							"raw": "{{base-api-url}}/customfielditems",
+							"host": [
+								"{{base-api-url}}"
+							],
+							"path": [
+								"customfielditems"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "62f0be9e-2f8e-4c04-9188-2852af345840",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "c6b75464-4415-43e4-afc5-a90fc52bfcbe",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Effective Settings",
+			"item": [
+				{
+					"name": "List Effective Settings",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{tsheets-bearer-token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{base-api-url}}/effective_settings",
+							"host": [
+								"{{base-api-url}}"
+							],
+							"path": [
+								"effective_settings"
+							],
+							"query": [
+								{
+									"key": "user_id",
+									"value": "<value>",
+									"disabled": true
+								},
+								{
+									"key": "modified_before",
+									"value": "<value>",
+									"disabled": true
+								},
+								{
+									"key": "modified_since",
+									"value": "<value>",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "a9dff62e-2a38-450e-b15f-53aecdb2ed75",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "d46fe5e6-7dca-4888-8552-96abee9e9378",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Files",
+			"item": [
+				{
+					"name": "List Files",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{tsheets-bearer-token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{base-api-url}}/files",
+							"host": [
+								"{{base-api-url}}"
+							],
+							"path": [
+								"files"
+							],
+							"query": [
+								{
+									"key": "ids",
+									"value": "<value>",
+									"disabled": true
+								},
+								{
+									"key": "uploaded_by_user_ids",
+									"value": "<value>",
+									"disabled": true
+								},
+								{
+									"key": "linked_object_type",
+									"value": "<value>",
+									"disabled": true
+								},
+								{
+									"key": "object_ids",
+									"value": "<value>",
+									"disabled": true
+								},
+								{
+									"key": "active",
+									"value": "<value>",
+									"disabled": true
+								},
+								{
+									"key": "modified_before",
+									"value": "<value>",
+									"disabled": true
+								},
+								{
+									"key": "modified_since",
+									"value": "<value>",
+									"disabled": true
+								},
+								{
+									"key": "supplemental_data",
+									"value": "<value>",
+									"disabled": true
+								},
+								{
+									"key": "per_page",
+									"value": "<value>",
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": "<value>",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Files",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{tsheets-bearer-token}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Length",
+								"value": "{{length}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "# Note: structure is not complete.  Add\r\n# properties as needed, per documentation.\r\n\r\n{\r\n \"data\":\r\n  [\r\n    {\r\n      \"file_name\":\"<value>\",  \r\n      \"file_data\":\"<value>\"\r\n    }\r\n  ]\r\n}"
+						},
+						"url": {
+							"raw": "{{base-api-url}}/files",
+							"host": [
+								"{{base-api-url}}"
+							],
+							"path": [
+								"files"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit Files",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{tsheets-bearer-token}}"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "# See documentation for examples"
+						},
+						"url": {
+							"raw": "{{base-api-url}}/files?id=<value>",
+							"host": [
+								"{{base-api-url}}"
+							],
+							"path": [
+								"files"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "<value>"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Download File",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{tsheets-bearer-token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{base-api-url}}/files/raw?",
+							"host": [
+								"{{base-api-url}}"
+							],
+							"path": [
+								"files",
+								"raw"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "<value>",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Files",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{tsheets-bearer-token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{base-api-url}}/files",
+							"host": [
+								"{{base-api-url}}"
+							],
+							"path": [
+								"files"
+							],
+							"query": [
+								{
+									"key": "ids",
+									"value": "<value>",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "79adbb86-acc6-4120-93a8-0554cbc3b7e5",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "f1546583-f2bd-4c74-a400-81a988329d7c",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Geofence Configs",
+			"item": [
+				{
+					"name": "List Geofence Configs",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{tsheets-bearer-token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{base-api-url}}/geofence_configs",
+							"host": [
+								"{{base-api-url}}"
+							],
+							"path": [
+								"geofence_configs"
+							],
+							"query": [
+								{
+									"key": "ids",
+									"value": "<value>",
+									"disabled": true
+								},
+								{
+									"key": "type",
+									"value": "<value>",
+									"disabled": true
+								},
+								{
+									"key": "type_ids",
+									"value": "<value>",
+									"disabled": true
+								},
+								{
+									"key": "enabled",
+									"value": "<value>",
+									"disabled": true
+								},
+								{
+									"key": "active",
+									"value": "<value>",
+									"disabled": true
+								},
+								{
+									"key": "modified_before",
+									"value": "<value>",
+									"disabled": true
+								},
+								{
+									"key": "modified_since",
+									"value": "<value>",
+									"disabled": true
+								},
+								{
+									"key": "supplemental_data",
+									"value": "<value>",
+									"disabled": true
+								},
+								{
+									"key": "per_page",
+									"value": "<value>",
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": "<value>",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "a8eb996d-9adc-45e3-a185-b11ddb146460",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "e858e395-5ebb-4157-ac14-86a73476259b",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Geolocations",
+			"item": [
+				{
+					"name": "List Geolocations",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{tsheets-bearer-token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{base-api-url}}/geolocations?ids=<value>&modified_before=<value>&modified_since=<value>",
+							"host": [
+								"{{base-api-url}}"
+							],
+							"path": [
+								"geolocations"
+							],
+							"query": [
+								{
+									"key": "ids",
+									"value": "<value>"
+								},
+								{
+									"key": "modified_before",
+									"value": "<value>"
+								},
+								{
+									"key": "modified_since",
+									"value": "<value>"
+								},
+								{
+									"key": "user_ids",
+									"value": "<value>",
+									"disabled": true
+								},
+								{
+									"key": "group_ids",
+									"value": "<value>",
+									"disabled": true
+								},
+								{
+									"key": "supplemental_data",
+									"value": "<value>",
+									"disabled": true
+								},
+								{
+									"key": "per_page",
+									"value": "<value>",
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": "<value>",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Geolocations",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{tsheets-bearer-token}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "# Note: structure is not complete.  Add\r\n# properties as needed, per documentation.\r\n\r\n{\r\n  \"data\":\r\n  [\r\n    {\r\n      \"id\": \"<value>\",\r\n      \"user_id\": <value>,\r\n      \"accuracy\": <value>,\r\n      \"altitude\": <value>,      \r\n      \"latitude\": <value>,\r\n      \"longitude\": <value>,\r\n      \"created\": \"<value>\",      \r\n      \"device_identifier\": \"<value>\"\r\n    }\r\n  ]\r\n}"
+						},
+						"url": {
+							"raw": "{{base-api-url}}/geolocations",
+							"host": [
+								"{{base-api-url}}"
+							],
+							"path": [
+								"geolocations"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "005ff3b6-ded5-4ad4-bc93-0f5123b1ccd3",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "47caab7f-49cb-4288-9e75-60b3cbe0378c",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Groups",
+			"item": [
+				{
+					"name": "List Groups",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{tsheets-bearer-token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{base-api-url}}/groups",
+							"host": [
+								"{{base-api-url}}"
+							],
+							"path": [
+								"groups"
+							],
+							"query": [
+								{
+									"key": "ids",
+									"value": "<value>",
+									"disabled": true
+								},
+								{
+									"key": "active",
+									"value": "<value>",
+									"disabled": true
+								},
+								{
+									"key": "manager_ids",
+									"value": "<value>",
+									"disabled": true
+								},
+								{
+									"key": "name",
+									"value": "<value>",
+									"disabled": true
+								},
+								{
+									"key": "modified_before",
+									"value": "<value>",
+									"disabled": true
+								},
+								{
+									"key": "modified_since",
+									"value": "<value>",
+									"disabled": true
+								},
+								{
+									"key": "supplemental_data",
+									"value": "<value>",
+									"disabled": true
+								},
+								{
+									"key": "per_page",
+									"value": "<value>",
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": "<value>",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Groups",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{tsheets-bearer-token}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "# Note: structure is not complete.  Add\r\n# properties as needed, per documentation.\r\n\r\n{\r\n \"data\":\r\n  [\r\n    {\r\n      \"name\": \"<value>\"\r\n    }\r\n  ]\r\n}"
+						},
+						"url": {
+							"raw": "{{base-api-url}}/groups",
+							"host": [
+								"{{base-api-url}}"
+							],
+							"path": [
+								"groups"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit Groups",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{tsheets-bearer-token}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "# Note: structure is not complete.  Add\r\n# properties as needed, per documentation.\r\n\r\n{\r\n  \"data\":\r\n  [\r\n    {\r\n      \"id\": <value>\r\n    }\r\n  ]\r\n}"
+						},
+						"url": {
+							"raw": "{{base-api-url}}/groups",
+							"host": [
+								"{{base-api-url}}"
+							],
+							"path": [
+								"groups"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "f12c57b9-6e1b-4c55-9d33-b42319bc5825",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "e42bcd55-1ede-4ced-a07a-6197da4e9d2c",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Jobcodes",
+			"item": [
+				{
+					"name": "List Jobcodes",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{tsheets-bearer-token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{base-api-url}}/jobcodes",
+							"host": [
+								"{{base-api-url}}"
+							],
+							"path": [
+								"jobcodes"
+							],
+							"query": [
+								{
+									"key": "ids",
+									"value": "<value>",
+									"disabled": true
+								},
+								{
+									"key": "parent_ids",
+									"value": "<value>",
+									"disabled": true
+								},
+								{
+									"key": "type",
+									"value": "<value>",
+									"disabled": true
+								},
+								{
+									"key": "active",
+									"value": "<value>",
+									"disabled": true
+								},
+								{
+									"key": "modified_before",
+									"value": "<value>",
+									"disabled": true
+								},
+								{
+									"key": "modified_since",
+									"value": "<value>",
+									"disabled": true
+								},
+								{
+									"key": "supplemental_data",
+									"value": "<value>",
+									"disabled": true
+								},
+								{
+									"key": "per_page",
+									"value": "<value>",
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": "<value>",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Jobcodes",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{tsheets-bearer-token}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "# Note: structure is not complete.  Add\r\n# properties as needed, per documentation.\r\n\r\n{\r\n  \"data\":\r\n  [\r\n    {\r\n      \"name\": \"<value>\"\r\n    }\r\n  ]\r\n}"
+						},
+						"url": {
+							"raw": "{{base-api-url}}/jobcodes",
+							"host": [
+								"{{base-api-url}}"
+							],
+							"path": [
+								"jobcodes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit Jobcodes",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{tsheets-bearer-token}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "# Note: structure is not complete.  Add\r\n# properties as needed, per documentation.\r\n\r\n{\r\n  \"data\":\r\n  [\r\n    {\r\n      \"id\": <value>,\r\n    }\r\n  ]\r\n}"
+						},
+						"url": {
+							"raw": "{{base-api-url}}/jobcodes",
+							"host": [
+								"{{base-api-url}}"
+							],
+							"path": [
+								"jobcodes"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "8a2423db-218f-418a-9184-cb5f363ada49",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "c133edd1-5fdc-4e83-af78-a034aa744b0c",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Jobcode Assignments",
+			"item": [
+				{
+					"name": "List Jobcode Assignments",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{tsheets-bearer-token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{base-api-url}}/jobcode_assignments",
+							"host": [
+								"{{base-api-url}}"
+							],
+							"path": [
+								"jobcode_assignments"
+							],
+							"query": [
+								{
+									"key": "user_ids",
+									"value": "<value>",
+									"disabled": true
+								},
+								{
+									"key": "type",
+									"value": "<value>",
+									"disabled": true
+								},
+								{
+									"key": "jobcode_id",
+									"value": "<value>",
+									"disabled": true
+								},
+								{
+									"key": "jobcode_parent_id",
+									"value": "<value>",
+									"disabled": true
+								},
+								{
+									"key": "active",
+									"value": "<value>",
+									"disabled": true
+								},
+								{
+									"key": "modified_before",
+									"value": "<value>",
+									"disabled": true
+								},
+								{
+									"key": "modified_since",
+									"value": "<value>",
+									"disabled": true
+								},
+								{
+									"key": "supplemental_data",
+									"value": "<value>",
+									"disabled": true
+								},
+								{
+									"key": "per_page",
+									"value": "<value>",
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": "<value>",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Jobcode Assignments",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{tsheets-bearer-token}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "# Note: structure is not complete.  Add\r\n# properties as needed, per documentation.\r\n\r\n{\r\n \"data\":\r\n  [\r\n    {\r\n      \"user_id\": \"<value>\",\r\n      \"jobcode_id\": \"<value>\"\r\n    }\r\n  ]\r\n}"
+						},
+						"url": {
+							"raw": "{{base-api-url}}/jobcode_assignments",
+							"host": [
+								"{{base-api-url}}"
+							],
+							"path": [
+								"jobcode_assignments"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Jobcode Assignments",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{tsheets-bearer-token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{base-api-url}}/jobcode_assignments?ids=<value>",
+							"host": [
+								"{{base-api-url}}"
+							],
+							"path": [
+								"jobcode_assignments"
+							],
+							"query": [
+								{
+									"key": "ids",
+									"value": "<value>"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "57a00eb4-c49b-4429-9b0e-f54cd3a9eae7",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "b34992ed-437c-4c81-839e-3601878a72f1",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Last Modified",
+			"item": [
+				{
+					"name": "List Last Modified Timestamps",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{tsheets-bearer-token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{base-api-url}}/last_modified_timestamps",
+							"host": [
+								"{{base-api-url}}"
+							],
+							"path": [
+								"last_modified_timestamps"
+							],
+							"query": [
+								{
+									"key": "endpoints",
+									"value": "<value>",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "6b908249-e6f4-458d-9e55-a6ce61893e93",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "92658ef2-69d7-474e-887c-d85ae1a96215",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Locations",
+			"item": [
+				{
+					"name": "List Locations",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{tsheets-bearer-token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{base-api-url}}/locations",
+							"host": [
+								"{{base-api-url}}"
+							],
+							"path": [
+								"locations"
+							],
+							"query": [
+								{
+									"key": "ids",
+									"value": "<value>",
+									"disabled": true
+								},
+								{
+									"key": "active",
+									"value": "<value>",
+									"disabled": true
+								},
+								{
+									"key": "geocoding_status",
+									"value": "<value>",
+									"disabled": true
+								},
+								{
+									"key": "modified_before",
+									"value": "<value>",
+									"disabled": true
+								},
+								{
+									"key": "modified_since",
+									"value": "<value>",
+									"disabled": true
+								},
+								{
+									"key": "supplemental_data",
+									"value": "<value>",
+									"disabled": true
+								},
+								{
+									"key": "per_page",
+									"value": "<value>",
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": "<value>",
+									"disabled": true
+								},
+								{
+									"key": "by_jobcode_assignment",
+									"value": "<value>",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "903d709e-b016-4b7f-a41e-6c35c9c0e66a",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "ce632e05-505c-44c4-9e1f-087a41eaee5b",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Locations_Maps",
+			"item": [
+				{
+					"name": "List Locations_Maps",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{tsheets-bearer-token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{base-api-url}}/locations_map",
+							"host": [
+								"{{base-api-url}}"
+							],
+							"path": [
+								"locations_map"
+							],
+							"query": [
+								{
+									"key": "ids",
+									"value": "<value>",
+									"disabled": true
+								},
+								{
+									"key": "active",
+									"value": "<value>",
+									"disabled": true
+								},
+								{
+									"key": "modified_before",
+									"value": "<value>",
+									"disabled": true
+								},
+								{
+									"key": "modified_since",
+									"value": "<value>",
+									"disabled": true
+								},
+								{
+									"key": "per_page",
+									"value": "<value>",
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": "<value>",
+									"disabled": true
+								},
+								{
+									"key": "by_jobcode_assignment",
+									"value": "<value>",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "e9b34e47-9922-41a6-864d-3624d682ef51",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "ce83a955-b2a5-49fc-8de0-aa4d406a3681",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Managed Clients",
+			"item": [
+				{
+					"name": "List Managed Clients",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{tsheets-bearer-token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{base-api-url}}/managed_clients",
+							"host": [
+								"{{base-api-url}}"
+							],
+							"path": [
+								"managed_clients"
+							],
+							"query": [
+								{
+									"key": "active",
+									"value": "<value>",
+									"disabled": true
+								},
+								{
+									"key": "per_page",
+									"value": "<value>",
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": "<value>",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "04dfc5e8-1f7a-4edd-8b75-52908a70d0bc",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "b7f4bd22-6763-464c-bcd6-a803fe26ce77",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Notifications",
+			"item": [
+				{
+					"name": "List Notifications",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{tsheets-bearer-token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{base-api-url}}/notifications",
+							"host": [
+								"{{base-api-url}}"
+							],
+							"path": [
+								"notifications"
+							],
+							"query": [
+								{
+									"key": "ids",
+									"value": "<value>",
+									"disabled": true
+								},
+								{
+									"key": "delivery_before",
+									"value": "<value>",
+									"disabled": true
+								},
+								{
+									"key": "delivery_after",
+									"value": "<value>",
+									"disabled": true
+								},
+								{
+									"key": "user_id",
+									"value": "<value>",
+									"disabled": true
+								},
+								{
+									"key": "msg_tracking_id",
+									"value": "<value>",
+									"disabled": true
+								},
+								{
+									"key": "per_page",
+									"value": "<value>",
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": "<value>",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Notifications",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{tsheets-bearer-token}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "# Note: structure is not complete.  Add\r\n# properties as needed, per documentation.\r\n\r\n{\r\n \"data\":\r\n  [\r\n    {\r\n      \"message\": \"<value>\"\r\n    }\r\n  ]\r\n}"
+						},
+						"url": {
+							"raw": "{{base-api-url}}/notifications",
+							"host": [
+								"{{base-api-url}}"
+							],
+							"path": [
+								"notifications"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Notifications",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{tsheets-bearer-token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{base-api-url}}/notifications?ids=<value>",
+							"host": [
+								"{{base-api-url}}"
+							],
+							"path": [
+								"notifications"
+							],
+							"query": [
+								{
+									"key": "ids",
+									"value": "<value>"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "1f360987-a624-4997-9e20-4367b33dad88",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "d6a6a58f-9aa8-4179-ba71-f90a81a91f2f",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Reminders",
+			"item": [
+				{
+					"name": "List Reminders",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{tsheets-bearer-token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{base-api-url}}/reminders?user_ids=<value>",
+							"host": [
+								"{{base-api-url}}"
+							],
+							"path": [
+								"reminders"
+							],
+							"query": [
+								{
+									"key": "user_ids",
+									"value": "<value>"
+								},
+								{
+									"key": "reminder_types",
+									"value": "<value>",
+									"disabled": true
+								},
+								{
+									"key": "modified_since",
+									"value": "<value>",
+									"disabled": true
+								},
+								{
+									"key": "supplemental_data",
+									"value": "<value>",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Reminders",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{tsheets-bearer-token}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "# Note: structure is not complete.  Add\r\n# properties as needed, per documentation.\r\n\r\n{\r\n    \"data\":\r\n    [\r\n        {\r\n            \"user_id\": <value>, \r\n            \"reminder_type\": \"<value>\", \r\n            \"due_time\": \"<value>\", \r\n            \"due_days_of_week\": \"<value>\", \r\n            \"distribution_methods\": \"<value>\", \r\n            \"active\": <value>,\r\n            \"enabled\": <value>            \r\n        }\r\n    ]\r\n}"
+						},
+						"url": {
+							"raw": "{{base-api-url}}/reminders",
+							"host": [
+								"{{base-api-url}}"
+							],
+							"path": [
+								"reminders"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit Reminders",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{tsheets-bearer-token}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "# Note: structure is not complete.  Add\r\n# properties as needed, per documentation.\r\n\r\n{\r\n    \"data\":\r\n    [\r\n        {\r\n            \"id\": <value>,\r\n        }\r\n    ]\r\n}"
+						},
+						"url": {
+							"raw": "{{base-api-url}}/reminders",
+							"host": [
+								"{{base-api-url}}"
+							],
+							"path": [
+								"reminders"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "25e9fa81-ffb6-48ba-baa9-61f7fcb4aac0",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "680491cc-7aee-42a6-957d-8a174eae2797",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Reports",
+			"item": [
+				{
+					"name": "Current Totals Report",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{tsheets-bearer-token}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "# See documentation for examples"
+						},
+						"url": {
+							"raw": "{{base-api-url}}/reports/current_totals",
+							"host": [
+								"{{base-api-url}}"
+							],
+							"path": [
+								"reports",
+								"current_totals"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Payroll Report",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{tsheets-bearer-token}}"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "# Note: structure is not complete.  Add\r\n# properties as needed, per documentation.\r\n\r\n{\r\n  \"data\":\r\n  {\r\n    \"start_date\": \"<value>\",\r\n    \"end_date\": \"<value>\",\r\n    \"advanced_overtime\": \"<value>\"\r\n  }\r\n}"
+						},
+						"url": {
+							"raw": "{{base-api-url}}/reports/payroll",
+							"host": [
+								"{{base-api-url}}"
+							],
+							"path": [
+								"reports",
+								"payroll"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Payroll by Jobcode",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{tsheets-bearer-token}}"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "# Note: structure is not complete.  Add\r\n# properties as needed, per documentation.\r\n\r\n{\r\n  \"data\":\r\n  {\r\n    \"start_date\": \"<value>\",\r\n    \"end_date\": \"<value>\",\r\n    \"advanced_overtime\": \"<value>\"\r\n  }\r\n}"
+						},
+						"url": {
+							"raw": "{{base-api-url}}/reports/payroll_by_jobcode",
+							"host": [
+								"{{base-api-url}}"
+							],
+							"path": [
+								"reports",
+								"payroll_by_jobcode"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Project Report",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{tsheets-bearer-token}}"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "# See documentation for examples"
+						},
+						"url": {
+							"raw": "{{base-api-url}}/reports/project",
+							"host": [
+								"{{base-api-url}}"
+							],
+							"path": [
+								"reports",
+								"project"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Schedule Calendars",
+			"item": [
+				{
+					"name": "List Schedule Calendars",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{tsheets-bearer-token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{base-api-url}}/schedule_calendars",
+							"host": [
+								"{{base-api-url}}"
+							],
+							"path": [
+								"schedule_calendars"
+							],
+							"query": [
+								{
+									"key": "ids",
+									"value": "<value>",
+									"disabled": true
+								},
+								{
+									"key": "modified_before",
+									"value": "<value>",
+									"disabled": true
+								},
+								{
+									"key": "modified_since",
+									"value": "<value>",
+									"disabled": true
+								},
+								{
+									"key": "supplemental_data",
+									"value": "<value>",
+									"disabled": true
+								},
+								{
+									"key": "per_page",
+									"value": "<value>",
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": "<value>",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "b9c926a0-b0bd-447c-8f62-af2d5c2b5b0a",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "e40e44bf-83cc-4a65-86b3-566d25c0b448",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Schedule Events",
+			"item": [
+				{
+					"name": "List Schedule Events",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{tsheets-bearer-token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{base-api-url}}/schedule_events?ids=<value>&schedule_calendar_ids=<value>&start=<value>&modified_before=<value>&modified_since=<value>",
+							"host": [
+								"{{base-api-url}}"
+							],
+							"path": [
+								"schedule_events"
+							],
+							"query": [
+								{
+									"key": "ids",
+									"value": "<value>"
+								},
+								{
+									"key": "schedule_calendar_ids",
+									"value": "<value>"
+								},
+								{
+									"key": "start",
+									"value": "<value>"
+								},
+								{
+									"key": "modified_before",
+									"value": "<value>"
+								},
+								{
+									"key": "modified_since",
+									"value": "<value>"
+								},
+								{
+									"key": "user_ids",
+									"value": "<value>",
+									"disabled": true
+								},
+								{
+									"key": "jobcode_ids",
+									"value": "<value>",
+									"disabled": true
+								},
+								{
+									"key": "end",
+									"value": "<value>",
+									"disabled": true
+								},
+								{
+									"key": "active",
+									"value": "<value>",
+									"disabled": true
+								},
+								{
+									"key": "draft",
+									"value": "<value>",
+									"disabled": true
+								},
+								{
+									"key": "team_events",
+									"value": "<value>",
+									"disabled": true
+								},
+								{
+									"key": "supplemental_data",
+									"value": "<value>",
+									"disabled": true
+								},
+								{
+									"key": "per_page",
+									"value": "<value>",
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": "<value>",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Schedule Events",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{tsheets-bearer-token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "# Note: structure is not complete.  Add\r\n# properties as needed, per documentation.\r\n\r\n{\r\n    \"data\":\r\n    [\r\n        {\r\n            \"schedule_calendar_id\": <value>,\r\n            \"start\": \"<value>\",\r\n            \"end\": \"<value>\",\r\n            \"all_day\": <value>\r\n        }\r\n    ],\r\n}"
+						},
+						"url": {
+							"raw": "{{base-api-url}}/schedule_events",
+							"host": [
+								"{{base-api-url}}"
+							],
+							"path": [
+								"schedule_events"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit Schedule Events",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{tsheets-bearer-token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "# Note: structure is not complete.  Add\r\n# properties as needed, per documentation.\r\n\r\n{\r\n    \"data\":\r\n    [\r\n        {\r\n            \"id\": <value>\r\n        }\r\n    ]\r\n}"
+						},
+						"url": {
+							"raw": "{{base-api-url}}/schedule_events",
+							"host": [
+								"{{base-api-url}}"
+							],
+							"path": [
+								"schedule_events"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "e3265a2b-44c5-46f2-915b-cfe4f82ba6e8",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "6f720cf5-ff52-4fad-ad36-8cbc5dc14631",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Timesheets",
+			"item": [
+				{
+					"name": "List Timesheets",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{tsheets-bearer-token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{base-api-url}}/timesheets?ids=<value>&start_date=<value>",
+							"host": [
+								"{{base-api-url}}"
+							],
+							"path": [
+								"timesheets"
+							],
+							"query": [
+								{
+									"key": "ids",
+									"value": "<value>"
+								},
+								{
+									"key": "start_date",
+									"value": "<value>"
+								},
+								{
+									"key": "end_date",
+									"value": "<value>",
+									"disabled": true
+								},
+								{
+									"key": "jobcode_ids",
+									"value": "<value>",
+									"disabled": true
+								},
+								{
+									"key": "payroll_ids",
+									"value": "<value>",
+									"disabled": true
+								},
+								{
+									"key": "user_ids",
+									"value": "<value>",
+									"disabled": true
+								},
+								{
+									"key": "group_ids",
+									"value": "<value>",
+									"disabled": true
+								},
+								{
+									"key": "on_the_clock",
+									"value": "<value>",
+									"disabled": true
+								},
+								{
+									"key": "jobcode_type",
+									"value": "<value>",
+									"disabled": true
+								},
+								{
+									"key": "modified_before",
+									"value": "<value>",
+									"disabled": true
+								},
+								{
+									"key": "modified_since",
+									"value": "<value>",
+									"disabled": true
+								},
+								{
+									"key": "supplemental_data",
+									"value": "<value>",
+									"disabled": true
+								},
+								{
+									"key": "per_page",
+									"value": "<value>",
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": "<value>",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Timesheets",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{tsheets-bearer-token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "# Note: structure is not complete.  Add\r\n# properties as needed, per documentation.\r\n\r\n{\r\n    \"data\": \r\n    [\r\n      {\r\n        \"user_id\": <value>,\r\n        \"jobcode_id\": \"<value>\",\r\n        \"type\": \"<value>\",\r\n        \"start\": \"<value>\",\r\n        \"end\": \"<value>\",\r\n      },\r\n      {\r\n        \"user_id\": <value>,\r\n        \"jobcode_id\": \"<value>\",\r\n        \"type\": \"<value>\",\r\n        \"duration\": \"<value>\",\r\n        \"date\": \"<value>\",\r\n      }\r\n    ]\r\n}"
+						},
+						"url": {
+							"raw": "{{base-api-url}}/timesheets",
+							"host": [
+								"{{base-api-url}}"
+							],
+							"path": [
+								"timesheets"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit Timesheets",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{tsheets-bearer-token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "# Note: structure is not complete.  Add\r\n# properties as needed, per documentation.\r\n\r\n{\r\n  \"data\":\r\n  [\r\n    {\r\n       \"id\": <value>,\r\n    }\r\n  ]\r\n}"
+						},
+						"url": {
+							"raw": "{{base-api-url}}/timesheets",
+							"host": [
+								"{{base-api-url}}"
+							],
+							"path": [
+								"timesheets"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Timesheets",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{tsheets-bearer-token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{base-api-url}}/timesheets?ids=<value>",
+							"host": [
+								"{{base-api-url}}"
+							],
+							"path": [
+								"timesheets"
+							],
+							"query": [
+								{
+									"key": "ids",
+									"value": "<value>"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "b192858b-d112-4b3a-a49e-6a9d8e60fe85",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "6d6a0067-0b64-47a7-b03e-f50a0618bf63",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Timesheets Deleted",
+			"item": [
+				{
+					"name": "List Timesheets Deleted",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{tsheets-bearer-token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{base-api-url}}/timesheets_deleted?start_date=<value>&end_date=<value>&ids=<value>&modified_since=<value>&modified_before=<value>",
+							"host": [
+								"{{base-api-url}}"
+							],
+							"path": [
+								"timesheets_deleted"
+							],
+							"query": [
+								{
+									"key": "start_date",
+									"value": "<value>"
+								},
+								{
+									"key": "end_date",
+									"value": "<value>"
+								},
+								{
+									"key": "ids",
+									"value": "<value>"
+								},
+								{
+									"key": "modified_since",
+									"value": "<value>"
+								},
+								{
+									"key": "modified_before",
+									"value": "<value>"
+								},
+								{
+									"key": "group_ids",
+									"value": "<value>",
+									"disabled": true
+								},
+								{
+									"key": "user_ids",
+									"value": "<value>",
+									"disabled": true
+								},
+								{
+									"key": "username",
+									"value": "<value>",
+									"disabled": true
+								},
+								{
+									"key": "jobcode_ids",
+									"value": "<value>",
+									"disabled": true
+								},
+								{
+									"key": "jobcode_type",
+									"value": "<value>",
+									"disabled": true
+								},
+								{
+									"key": "type",
+									"value": "<value>",
+									"disabled": true
+								},
+								{
+									"key": "order_results_by",
+									"value": "<value>",
+									"disabled": true
+								},
+								{
+									"key": "order_results_reverse",
+									"value": "<value>",
+									"disabled": true
+								},
+								{
+									"key": "supplemental_data",
+									"value": "<value>",
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": "<value>",
+									"disabled": true
+								},
+								{
+									"key": "per_page",
+									"value": "<value>",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "a65f7438-8f3f-4828-8fa9-d11182070f01",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "083b5c90-4dfc-43dc-8e7f-fb62403fb523",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "List Users",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{tsheets-bearer-token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{base-api-url}}/users",
+							"host": [
+								"{{base-api-url}}"
+							],
+							"path": [
+								"users"
+							],
+							"query": [
+								{
+									"key": "ids",
+									"value": "<value>",
+									"disabled": true
+								},
+								{
+									"key": "not_ids",
+									"value": "<value>",
+									"disabled": true
+								},
+								{
+									"key": "employee_numbers",
+									"value": "<value>",
+									"disabled": true
+								},
+								{
+									"key": "usernames",
+									"value": "<value>",
+									"disabled": true
+								},
+								{
+									"key": "group_ids",
+									"value": "<value>",
+									"disabled": true
+								},
+								{
+									"key": "not_group_ids",
+									"value": "<value>",
+									"disabled": true
+								},
+								{
+									"key": "payroll_ids",
+									"value": "<value>",
+									"disabled": true
+								},
+								{
+									"key": "active",
+									"value": "<value>",
+									"disabled": true
+								},
+								{
+									"key": "first_name",
+									"value": "<value>",
+									"disabled": true
+								},
+								{
+									"key": "last_name",
+									"value": "<value>",
+									"disabled": true
+								},
+								{
+									"key": "modified_before",
+									"value": "<value>",
+									"disabled": true
+								},
+								{
+									"key": "modified_since",
+									"value": "<value>",
+									"disabled": true
+								},
+								{
+									"key": "supplemental_data",
+									"value": "<value>",
+									"disabled": true
+								},
+								{
+									"key": "per_page",
+									"value": "<value>",
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": "<value>",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Users",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{tsheets-bearer-token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "# Note: structure is not complete.  Add\r\n# properties as needed, per documentation.\r\n\r\n{\r\n  \"data\":\r\n  [ \r\n    {\r\n      \"username\": \"<value>\",\r\n      \"first_name\": \"<value>\",\r\n      \"last_name\": \"<value>\",\r\n    }\r\n  ]\r\n}"
+						},
+						"url": {
+							"raw": "{{base-api-url}}/users",
+							"host": [
+								"{{base-api-url}}"
+							],
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit Users",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{tsheets-bearer-token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "# Note: structure is not complete.  Add\r\n# properties as needed, per documentation.\r\n\r\n{\r\n  \"data\": [\r\n    {\r\n      \"id\": \"<value>\",\r\n    },\r\n    {\r\n      \"username\": \"<value>\",\r\n    }\r\n  ]\r\n}"
+						},
+						"url": {
+							"raw": "{{base-api-url}}/users",
+							"host": [
+								"{{base-api-url}}"
+							],
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "95bb8499-7afb-4daf-b77a-ce778cf62584",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "62ed3e00-32a4-4dce-b32a-0d126c73d892",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "f3010d3b-3cb7-4295-85bb-7d172e2960d4",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "c65257b5-e882-4d6e-8553-d99527ae0690",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

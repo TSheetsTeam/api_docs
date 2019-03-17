@@ -39,7 +39,7 @@ article for more details about how to contribute.
 1. Install and launch Docker for [Mac](https://hub.docker.com/editions/community/docker-ce-desktop-mac) or [Windows](https://hub.docker.com/editions/community/docker-ce-desktop-windows).
 2. Clone your forked repository (as above)
 3. Make your changes
-4. Build your changes: `./build.sh` (Mac) or `winbuild.cmd` (Windows)
-5. Validate changes by viewing `./build/index.html` in a browser
+4. Build your changes: `./macbuild.sh` or `winbuild.cmd`
+5. Validate changes by viewing `./build/index.html` in a browser. Iterate steps 3 - 5.
 
 Thank you for your contribution!

@@ -136,10 +136,10 @@ EXIT /B %ERRORLEVEL%
   CALL :enable_expanded_output
 
   CALL git diff --exit-code --quiet
-  ::IF %ERRORLEVEL% NEQ 0 (
-    ::ECHO Aborting due to uncommitted changes in the index >&2
-    ::EXIT /B %ERRORLEVEL%
-  ::)
+  IF %ERRORLEVEL% NEQ 0 (
+    ECHO Aborting due to uncommitted changes in the index >&2
+    EXIT /B %ERRORLEVEL%
+  )
 
   git log -n 1 --format="%%s" HEAD>temp
   SET /P commit_title=<temp

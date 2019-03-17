@@ -1,4 +1,4 @@
-TSheets-APIDocs
+api_docs
 =============
 <p align="center">
     <img src="./source/images/tsheetsbyqb37.svg" width="200" alt="Logo"/>
@@ -30,7 +30,7 @@ article for more details about how to contribute.
 ### Steps to Contribute:
 
 1. Fork this repository into your account on Github
-2. Clone *your forked repository* (not our original one) to your hard drive with `git clone https://github.com/YOURUSERNAME/TSheets-APIDocs.git`
+2. Clone *your forked repository* (not our original one) to your hard drive with `git clone https://github.com/YOURUSERNAME/api_docs.git`
 3. Develop and validate your changes (see below)
 5. Create a pull request for review to request merge
 6. Obtain approval before your changes can be merged

@@ -1,0 +1,232 @@
+ > **Example**: <%= description %>
+
+ > Request
+
+ <% @full_url = "https://rest.tsheets.com/api/v1/#{endpoint}" -%>
+ <% if defined? parameters -%>
+  <% @params = [] -%>
+  <% parameters.each do |kvp| -%>
+    <% @params.push(kvp.join('=')) -%>
+  <% end -%>
+  <% @full_url += "?#{@params.join('&')}" -%>  
+<% end -%>
+
+```shell
+<%= "curl -X DELETE \"#{@full_url}\"" %>
+  -H "Authorization: Bearer <TOKEN>"
+```
+
+```csharp
+<%= "var client = new RestClient(\"#{@full_url}\");" %>
+var request = new RestRequest(Method.DELETE);
+request.AddHeader("Authorization", "Bearer <TOKEN>");
+IRestResponse response = client.Execute(request);
+```
+
+```vb
+<%= "Dim client = New RestClient(\"#{@full_url}\")" %>
+Dim request = New RestRequest(Method.[DELETE])
+request.AddHeader("Authorization", "Bearer <TOKEN>")
+Dim response As IRestResponse = client.Execute(request)
+```
+
+```java
+OkHttpClient client = new OkHttpClient();
+
+Request request = new Request.Builder()
+  <%= ".url(\"#{@full_url}\")" %>
+  .delete()
+  .addHeader("Authorization", "Bearer <TOKEN>")
+  .build();
+
+Response response = client.newCall(request).execute();
+```
+
+```javascript--browser
+var settings = {
+  "async": true,
+  "crossDomain": true,
+  <%= "\"url\": \"#{@full_url}\"," %>
+  "method": "DELETE",
+  "headers": {
+    "Authorization": "Bearer <TOKEN>",
+    "cache-control": "no-cache"
+  }
+}
+
+$.ajax(settings).done(function (response) {
+  console.log(response);
+});
+```
+
+```javascript--node
+var request = require("request");
+
+var options = { method: 'DELETE',
+  url: 'https://rest.tsheets.com/api/v1/<%= endpoint %>',
+<% if defined? parameters -%>
+  qs: {
+  <% parameters.each do |kvp| -%>
+    <%= "#{kvp[0]}: '#{kvp[1]}'," %>
+  <% end -%>
+  },
+<% end %>
+  headers: 
+   { Authorization: 'Bearer <TOKEN>' } };
+
+request(options, function (error, response, body) {
+  if (error) throw new Error(error);
+
+  console.log(body);
+});
+```
+
+```php
+<?php
+
+$request = new HttpRequest();
+$request->setUrl('https://rest.tsheets.com/api/v1/<%= endpoint %>');
+$request->setMethod(HTTP_METH_DELETE);
+<% if defined? parameters -%>
+
+$request->setQueryData(array(
+<% parameters.each do |kvp| -%>
+  <%= "'#{kvp[0]}' => '#{kvp[1]}'," %>
+<% end -%>
+));
+<% end %>
+
+$request->setHeaders(array(
+  'Authorization' => 'Bearer <TOKEN>'
+));
+
+try {
+  $response = $request->send();
+
+  echo $response->getBody();
+} catch (HttpException $ex) {
+  echo $ex;
+}
+```
+
+```ruby
+require 'uri'
+require 'net/http'
+
+<%= "url = URI(\"#{@full_url}\")" %>
+
+http = Net::HTTP.new(url.host, url.port)
+
+request = Net::HTTP::Delete.new(url)
+request["Authorization"] = 'Bearer <TOKEN>'
+
+response = http.request(request)
+puts response.read_body
+```
+
+```python
+import requests
+
+url = "https://rest.tsheets.com/api/v1/<%= endpoint %>"
+<% if defined? parameters -%>
+
+querystring = {
+<% parameters.each do |kvp| -%>
+  <%= "\"#{kvp[0]}\":\"#{kvp[1]}\"," %>
+<% end -%>
+}
+<% end %>
+
+payload = ""
+headers = {
+    'Authorization': "Bearer <TOKEN>"
+    }
+
+<% if defined? parameters -%>
+response = requests.request("GET", url, data=payload, headers=headers, params=querystring)
+<% else -%>
+response = requests.request("GET", url, data=payload, headers=headers)
+<% end -%>
+
+print(response.text)
+```
+
+```go
+package main
+
+import (
+  "fmt"
+  "net/http"
+  "io/ioutil"
+)
+
+func main() {
+
+  <%= "url := \"#{@full_url}\"" %>
+
+  req, _ := http.NewRequest("DELETE", url, nil)
+
+  req.Header.Add("Authorization", "Bearer <TOKEN>")
+
+  res, _ := http.DefaultClient.Do(req)
+
+  defer res.Body.Close()
+  body, _ := ioutil.ReadAll(res.Body)
+
+  fmt.Println(res)
+  fmt.Println(string(body))
+}
+```
+
+```swift
+import Foundation
+
+let headers = [
+  "Authorization": "Bearer <TOKEN>",
+  "cache-control": "no-cache"
+]
+
+let request = NSMutableURLRequest(
+  <%= "url: NSURL(string: \"#{@full_url}\")! as URL," %>
+  cachePolicy: .useProtocolCachePolicy,
+  timeoutInterval: 10.0)
+
+request.httpMethod = "DELETE"
+request.allHTTPHeaderFields = headers
+
+let session = URLSession.shared
+let dataTask = session.dataTask(with: request as URLRequest, completionHandler: { (data, response, error) -> Void in
+  if (error != nil) {
+    print(error)
+  } else {
+    let httpResponse = response as? HTTPURLResponse
+    print(httpResponse)
+  }
+})
+
+dataTask.resume()
+```
+
+```perl
+use REST::Client;
+ 
+my $client = REST::Client->new();
+
+$client->addHeader('Authorization', 'Bearer <TOKEN>');
+$client->addHeader('Accept', 'application/json');
+
+<%= "$url=\"#{@full_url}\";" %> 
+
+$client->DELETE($url);
+print $client->responseContent();
+print $client->responseHeader('ResponseHeader');
+```
+<% if defined?(response_body) %>
+ > Response Format
+
+ > <code class="level200">200 OK</code>
+
+```json
+<%= response_body %>
+```
+<% end %>

@@ -1,0 +1,28 @@
+# Timesheets Deleted
+ 
+## The Timesheets Deleted Object
+
+<%= partial "includes/APIReference/TimesheetsDeleted/Examples/timesheets_deleted.tmpl.erb" %>
+
+Following is a list of the properties that are common to timesheet deleted objects, and a description of each.
+
+|                |             |             |
+| -------------: | :---------: | ----------- |
+| **id**<br/>read-only | _Int_ | Id of the timesheet. |
+| **user_id**<br/>read-only | _Int_ | User id for the user that this timesheet belongs to. |
+| **jobcode_id**<br/>read-only | _Int_ | Jobcode id for the jobcode that this timesheet is recorded against. |
+| **start**<br/>read-only | _String_ | Date/time that represents the start time of this timesheet, in ISO 8601 format (`YYYY-MM-DDThh:mm:ss±hh:mm`) |
+| **end**<br/>read-only | _String_ | Date/time that represents the end time of this timesheet, in ISO 8601 format (`YYYY-MM-DDThh:mm:ss±hh:mm`) |
+| **date**<br/>read-only | _String_ | The timesheet's date, in `YYYY-MM-DD` format. |
+| **duration**<br/>read-only | _Int_ | The total number of seconds recorded for this timesheet. |
+| **locked**<br/>read-only | _Int_ | If greater than 0, the timesheet is locked for editing. A timesheet could be locked for various reasons, such as being exported, invoiced, etc. _See note below._ |
+| **notes**<br/>read-only | _String_ | Notes associated with this timesheet. |
+| **customfields**<br/>read-only | _JSON object_ | A key/value map of customfield ids to the customfield items that are associated with the timesheet.<br/><br/>_Note: The customfields property is present only if the Advanced Tracking Add-On is installed._ |
+| **created**<br/>read-only | _String_ | Date/time when this timesheet was created, in ISO 8601 format (`YYYY-MM-DDThh:mm:ss±hh:mm`) |
+| **last_modified**<br/>read-only | _String_ | Date/time when this timesheet was last modified, in ISO 8601 format (`YYYY-MM-DDThh:mm:ss±hh:mm`) |
+| **type**<br/>read-only | _String_ | Either 'regular' or 'manual'. Regular timesheets have a `start` & `end` time (duration is calculated by TSheets). Manual timesheets have a `date` and a `duration` (in seconds). Unique properties for each timesheet type are below. |
+
+<aside class="notice">
+Deleted timesheets will be kept on the server and accessible for 180 days since their deletion.
+</aside>
+

@@ -1,0 +1,31 @@
+## Delete {ENTITY_NAME}
+
+<%= partial "includes/APIReference/{ENTITY_NAME}/Examples/delete.tmpl.erb" %>
+
+Delete one or more {ENTITY_NAME} in your company.
+
+### HTTP Request
+
+<img src="images/delete.png" alt="delete"/><api>https://rest.tsheets.com/api/v1/{ENTITY_NAME}</api>
+
+### Parameters
+_If no filters are specified at all, no {ENTITY_NAME} are deleted._
+
+|                |             |             |
+| -------------: | :---------: | ----------- |
+| **{PARAM_NAME}**<br/>{required|optional} | _{DATA_TYPE}_ | {PARAM_DESC} |
+{ADDITIONAL_PARAMS_AS_ABOVE}
+
+### Status Codes
+Each {ENTITY_NAME} that is deleted will come back with a `_status_code` and `_status_message` that will indicate whether the {ENTITY_NAME} was deleted successfully. If there was a problem deleting a {ENTITY_NAME}, there may also be an additional field, `_status_extra`, which will contain more details about the failure.
+
+|         |          |
+| :-----: | :------- |
+| <code class="{level200|level400}">{STATUS_CODE}</code> | {STATUS_DESC} |
+{ADDITIONAL_CODES_AS_ABOVE}
+
+{NOTE:REMOVE_IF_NOT_APPLICABLE}
+<aside class="notice">
+The maximum batch size is <i>50</i> {ENTITY_NAME}. If exceeded, a <code class="standout">413: Request entity too large</code> HTTP response will be returned.
+</aside>
+ 

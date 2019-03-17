@@ -1,0 +1,10 @@
+<% @response_body = File.read("source/includes/APIReference/{ENTITY_NAME}/Examples/_retrieve-response.md.erb") -%>
+
+<%= partial "includes/CodeTemplates/get.md.erb",
+  :locals => {
+    :endpoint => "{ENTITY_NAME}",
+    :description => "{ENTITY_DESC}",
+    :parameters => [ [ "{PARAM_NAME}", "{PARAM_VALUE}" ] ],
+    :response_body => @response_body
+  }
+%>

@@ -1,0 +1,16 @@
+Add in-page anchor the the current user anchor
+In overview section: All Datetimes are ISO8601 format
+Fix CSS for custom ToC headers (in layout.erb)
+Fix Run in Postman button so it gets the collection from Github
+Make sure to use in-page anchors anywhere an object is referenced
+Use code markdown style for property names
+Fix icon on browser tab
+Check Permissions section of each method.
+Look for old dates in examples, throughout.
+Fix H3 headers in Reports methods
+
+Walkthroughs/Guides/References
+Section on supplemental_data
+Explanation of shortcodes
+
+

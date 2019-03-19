@@ -5493,249 +5493,245 @@ The maximum batch size is <i>50</i> customfielditems. If exceeded, a <code class
 </blockquote>
 
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"results"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"effective_settings"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"general"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"settings"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="s2">"calculate_overtime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"clockout_override"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"clockout_override_hours"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"clockout_override_notify_admin"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"clockout_override_notify_mgrs"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"daily_doubletime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"daily_overtime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"daily_regular_hours"</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"date_locale"</span><span class="p">:</span><span class="w"> </span><span class="s2">"us"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"emp_panel"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"emp_panel_email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"emp_panel_passwd"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"emp_panel_tz"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"employee_pto_entry"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"enable_timesheet_notes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"hide_working_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"jc_label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Job"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"lunch_deduct"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"lunch_length"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"lunch_threshold"</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"max_customfielditems"</span><span class="p">:</span><span class="w"> </span><span class="s2">"-1"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"max_jobcodes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"-1"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"parent_clockin_display"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"payroll_end_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-09-28"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"payroll_first_end_day"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"payroll_last_end_day"</span><span class="p">:</span><span class="w"> </span><span class="s2">"16"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"payroll_month_end_day"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"payroll_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"biweekly"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"pto_entry"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"pto_overtime"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"simple_clockin"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"time_format"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"timecard_fields"</span><span class="p">:</span><span class="w"> </span><span class="s2">"JOBCODE,134913,143369,143377"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"timeclock_label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Time Clock"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"timesheet_edit_notes_for_all_users"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"timesheet_notes_notify_admin"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"timesheet_notes_notify_mgrs"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"timesheet_notes_required"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"tz"</span><span class="p">:</span><span class="w"> </span><span class="s2">"America/Denver"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"week_start"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"weekly_regular_hours"</span><span class="p">:</span><span class="w"> </span><span class="s2">"40"</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="s2">"last_modified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-02-11T17:45:18+00:00"</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="s2">"alerts"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"settings"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="s2">"installed"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="s2">"last_modified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2001-01-01T12:00:00+00:00"</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="s2">"approvals"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"settings"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="s2">"installed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="s2">"last_modified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-01-25T20:53:52+00:00"</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="s2">"breaks"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"settings"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="s2">"hide_pre_clockout_option"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="s2">"last_modified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-01-25T20:53:52+00:00"</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="s2">"dcaa"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"settings"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="s2">"installed"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="s2">"last_modified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2001-01-01T12:00:00+00:00"</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="s2">"dialin"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"settings"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="s2">"installed"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="s2">"last_modified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2001-01-01T12:00:00+00:00"</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="s2">"files"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"settings"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="s2">"installed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"files_addon_app_discovery_notification"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="s2">"last_modified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-01-25T20:53:52+00:00"</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="s2">"invoicing"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"settings"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="s2">"installed"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="s2">"last_modified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2001-01-01T12:00:00+00:00"</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="s2">"location_aware"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"settings"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="s2">"installed"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"show_location"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="s2">"last_modified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-01-25T20:53:52+00:00"</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="s2">"mobile_app_integrations"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"settings"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="s2">"installed"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"apps"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"expensify"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-              </span><span class="s2">"triggers"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                </span><span class="s2">"TSMTriggerButton"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">553</span><span class="p">,</span><span class="w">
-                  </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-                  </span><span class="s2">"jobcode_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-                    </span><span class="mi">0</span><span class="w">
-                  </span><span class="p">],</span><span class="w">
-                  </span><span class="s2">"android_playstore_uri"</span><span class="p">:</span><span class="w"> </span><span class="s2">"org.me.mobiexpensifyg"</span><span class="p">,</span><span class="w">
-                  </span><span class="s2">"android_call_scheme"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://mobile.expensify.com/SmartScan"</span><span class="p">,</span><span class="w">
-                  </span><span class="s2">"iphone_appstore_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://itunes.apple.com/us/app/expensify-expense-reports/id471713959"</span><span class="p">,</span><span class="w">
-                  </span><span class="s2">"iphone_call_scheme"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://mobile.expensify.com"</span><span class="p">,</span><span class="w">
-                  </span><span class="s2">"call_url_host"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SmartScan"</span><span class="p">,</span><span class="w">
-                  </span><span class="s2">"call_uri_format"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tag=%JOBCODE_NAME%&amp;billable=%JOBCODE_BILLABLE%&amp;email=%EMAIL%&amp;callbackURL=%TSHEETS_RETURN_URL%"</span><span class="p">,</span><span class="w">
-                  </span><span class="s2">"callback_uri_format"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
-                </span><span class="p">}</span><span class="w">
-              </span><span class="p">}</span><span class="w">
+  </span><span class="s2">"general"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"settings"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"calculate_overtime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"clockout_override"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"clockout_override_hours"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"clockout_override_notify_admin"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"clockout_override_notify_mgrs"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"daily_doubletime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"daily_overtime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"daily_regular_hours"</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"date_locale"</span><span class="p">:</span><span class="w"> </span><span class="s2">"us"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"emp_panel"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"emp_panel_email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"emp_panel_passwd"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"emp_panel_tz"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"employee_pto_entry"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"enable_timesheet_notes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"hide_working_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"jc_label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Job"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"lunch_deduct"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"lunch_length"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"lunch_threshold"</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"max_customfielditems"</span><span class="p">:</span><span class="w"> </span><span class="s2">"-1"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"max_jobcodes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"-1"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"parent_clockin_display"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"payroll_end_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-09-28"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"payroll_first_end_day"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"payroll_last_end_day"</span><span class="p">:</span><span class="w"> </span><span class="s2">"16"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"payroll_month_end_day"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"payroll_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"biweekly"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"pto_entry"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"pto_overtime"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"simple_clockin"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"time_format"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"timecard_fields"</span><span class="p">:</span><span class="w"> </span><span class="s2">"JOBCODE,134913,143369,143377"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"timeclock_label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Time Clock"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"timesheet_edit_notes_for_all_users"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"timesheet_notes_notify_admin"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"timesheet_notes_notify_mgrs"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"timesheet_notes_required"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"tz"</span><span class="p">:</span><span class="w"> </span><span class="s2">"America/Denver"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"week_start"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"weekly_regular_hours"</span><span class="p">:</span><span class="w"> </span><span class="s2">"40"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"last_modified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-02-11T17:45:18+00:00"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"alerts"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"settings"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"installed"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"last_modified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2001-01-01T12:00:00+00:00"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"approvals"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"settings"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"installed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"last_modified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-01-25T20:53:52+00:00"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"breaks"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"settings"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"hide_pre_clockout_option"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"last_modified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-01-25T20:53:52+00:00"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"dcaa"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"settings"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"installed"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"last_modified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2001-01-01T12:00:00+00:00"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"dialin"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"settings"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"installed"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"last_modified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2001-01-01T12:00:00+00:00"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"files"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"settings"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"installed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"files_addon_app_discovery_notification"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"last_modified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-01-25T20:53:52+00:00"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"invoicing"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"settings"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"installed"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"last_modified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2001-01-01T12:00:00+00:00"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"location_aware"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"settings"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"installed"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"show_location"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"last_modified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-01-25T20:53:52+00:00"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"mobile_app_integrations"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"settings"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"installed"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"apps"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"expensify"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"triggers"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"TSMTriggerButton"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+              </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">553</span><span class="p">,</span><span class="w">
+              </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+              </span><span class="s2">"jobcode_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="mi">0</span><span class="w">
+              </span><span class="p">],</span><span class="w">
+              </span><span class="s2">"android_playstore_uri"</span><span class="p">:</span><span class="w"> </span><span class="s2">"org.me.mobiexpensifyg"</span><span class="p">,</span><span class="w">
+              </span><span class="s2">"android_call_scheme"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://mobile.expensify.com/SmartScan"</span><span class="p">,</span><span class="w">
+              </span><span class="s2">"iphone_appstore_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://itunes.apple.com/us/app/expensify-expense-reports/id471713959"</span><span class="p">,</span><span class="w">
+              </span><span class="s2">"iphone_call_scheme"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://mobile.expensify.com"</span><span class="p">,</span><span class="w">
+              </span><span class="s2">"call_url_host"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SmartScan"</span><span class="p">,</span><span class="w">
+              </span><span class="s2">"call_uri_format"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tag=%JOBCODE_NAME%&amp;billable=%JOBCODE_BILLABLE%&amp;email=%EMAIL%&amp;callbackURL=%TSHEETS_RETURN_URL%"</span><span class="p">,</span><span class="w">
+              </span><span class="s2">"callback_uri_format"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
             </span><span class="p">}</span><span class="w">
           </span><span class="p">}</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="s2">"last_modified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-01-25T20:53:52+00:00"</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="s2">"mobile_app_settings"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"settings"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="s2">"installed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"location_tracking"</span><span class="p">:</span><span class="w"> </span><span class="s2">"off"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"mandatory_location_services"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="s2">"last_modified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-02-09T18:39:20+00:00"</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="s2">"reminders"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"settings"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="s2">"installed"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="s2">"last_modified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-01-25T20:53:52+00:00"</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="s2">"projects"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"settings"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="s2">"installed"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="s2">"last_modified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2001-01-01T12:00:00+00:00"</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="s2">"quickbooks"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"settings"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="s2">"installed"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="s2">"last_modified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-01-25T20:53:52+00:00"</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="s2">"restapi"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"settings"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="s2">"installed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="s2">"last_modified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-01-25T20:53:52+00:00"</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="s2">"rounding"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"settings"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="s2">"installed"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="s2">"last_modified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2001-01-01T12:00:00+00:00"</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="s2">"schedule"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"settings"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="s2">"installed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"business_hours_end"</span><span class="p">:</span><span class="w"> </span><span class="s2">"17:00:00"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"business_hours_start"</span><span class="p">:</span><span class="w"> </span><span class="s2">"08:00:00"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"drafted_first_schedule_event_occurred"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"manage_schedule_permission"</span><span class="p">:</span><span class="w"> </span><span class="s2">"company"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"published_first_schedule_event_occurred"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"trial_expiration_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-10-17"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"view_schedule_permission"</span><span class="p">:</span><span class="w"> </span><span class="s2">"company"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"learning_step"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"employee_view"</span><span class="p">:</span><span class="w"> </span><span class="s2">"company"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"manager_view"</span><span class="p">:</span><span class="w"> </span><span class="s2">"company"</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="s2">"last_modified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-02-09T18:03:55+00:00"</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="s2">"sms"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"settings"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="s2">"installed"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="s2">"last_modified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2001-01-01T12:00:00+00:00"</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="s2">"sounds"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"settings"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="s2">"installed"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="s2">"last_modified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2001-01-01T12:00:00+00:00"</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="s2">"customfields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"settings"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="s2">"maximum_allowed_timesheet_custom_fields"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"installed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="s2">"last_modified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-02-10T20:34:10+00:00"</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="s2">"time_entry"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"settings"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="s2">"installed"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"time_entry_method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"timecard"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"mtc_format_time_display"</span><span class="p">:</span><span class="w"> </span><span class="s2">"hhmm"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"time_entry"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"timecard"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"weekly_timecard"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"timecard_daily"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"timesheet_edit"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"timesheet_map"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"pto_entry"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"timesheet_list_date_range_selection"</span><span class="p">:</span><span class="w"> </span><span class="s2">"month"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"timesheet_list_show_days_with_no_time"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"timesheet_list_wrap_text"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"timesheet_list_column_selection"</span><span class="p">:</span><span class="w"> </span><span class="s2">"time,job,location,kiosk,attachments,notes"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"timesheet_list_bottomless_scroll"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"mtc_combine_regular_timesheets"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="s2">"last_modified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-01-25T20:53:52+00:00"</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="s2">"toodledo"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"settings"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="s2">"installed"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="s2">"last_modified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2001-01-01T12:00:00+00:00"</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="s2">"twitter"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"settings"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="s2">"installed"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="s2">"last_modified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2001-01-01T12:00:00+00:00"</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="s2">"xero"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"settings"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="s2">"installed"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="s2">"last_modified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2001-01-01T12:00:00+00:00"</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="s2">"zenpayroll"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"settings"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="s2">"installed"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="s2">"last_modified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2001-01-01T12:00:00+00:00"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
       </span><span class="p">}</span><span class="w">
-    </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"last_modified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-01-25T20:53:52+00:00"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"mobile_app_settings"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"settings"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"installed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"location_tracking"</span><span class="p">:</span><span class="w"> </span><span class="s2">"off"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"mandatory_location_services"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"last_modified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-02-09T18:39:20+00:00"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"reminders"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"settings"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"installed"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"last_modified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-01-25T20:53:52+00:00"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"projects"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"settings"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"installed"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"last_modified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2001-01-01T12:00:00+00:00"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"quickbooks"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"settings"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"installed"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"last_modified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-01-25T20:53:52+00:00"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"restapi"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"settings"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"installed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"last_modified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-01-25T20:53:52+00:00"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"rounding"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"settings"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"installed"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"last_modified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2001-01-01T12:00:00+00:00"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"schedule"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"settings"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"installed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"business_hours_end"</span><span class="p">:</span><span class="w"> </span><span class="s2">"17:00:00"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"business_hours_start"</span><span class="p">:</span><span class="w"> </span><span class="s2">"08:00:00"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"drafted_first_schedule_event_occurred"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"manage_schedule_permission"</span><span class="p">:</span><span class="w"> </span><span class="s2">"company"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"published_first_schedule_event_occurred"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"trial_expiration_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-10-17"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"view_schedule_permission"</span><span class="p">:</span><span class="w"> </span><span class="s2">"company"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"learning_step"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"employee_view"</span><span class="p">:</span><span class="w"> </span><span class="s2">"company"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"manager_view"</span><span class="p">:</span><span class="w"> </span><span class="s2">"company"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"last_modified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-02-09T18:03:55+00:00"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"sms"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"settings"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"installed"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"last_modified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2001-01-01T12:00:00+00:00"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"sounds"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"settings"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"installed"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"last_modified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2001-01-01T12:00:00+00:00"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"customfields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"settings"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"maximum_allowed_timesheet_custom_fields"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"installed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"last_modified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-02-10T20:34:10+00:00"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"time_entry"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"settings"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"installed"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"time_entry_method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"timecard"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"mtc_format_time_display"</span><span class="p">:</span><span class="w"> </span><span class="s2">"hhmm"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"time_entry"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"timecard"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"weekly_timecard"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"timecard_daily"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"timesheet_edit"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"timesheet_map"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"pto_entry"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"timesheet_list_date_range_selection"</span><span class="p">:</span><span class="w"> </span><span class="s2">"month"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"timesheet_list_show_days_with_no_time"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"timesheet_list_wrap_text"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"timesheet_list_column_selection"</span><span class="p">:</span><span class="w"> </span><span class="s2">"time,job,location,kiosk,attachments,notes"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"timesheet_list_bottomless_scroll"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"mtc_combine_regular_timesheets"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"last_modified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-01-25T20:53:52+00:00"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"toodledo"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"settings"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"installed"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"last_modified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2001-01-01T12:00:00+00:00"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"twitter"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"settings"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"installed"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"last_modified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2001-01-01T12:00:00+00:00"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"xero"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"settings"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"installed"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"last_modified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2001-01-01T12:00:00+00:00"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"zenpayroll"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"settings"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"installed"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"last_modified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2001-01-01T12:00:00+00:00"</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -6219,9 +6215,9 @@ For all sections except <code>general</code>, if not installed, the only setting
           </span><span class="s2">"daily_regular_hours"</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w">
           </span><span class="s2">"date_locale"</span><span class="p">:</span><span class="w"> </span><span class="s2">"us"</span><span class="p">,</span><span class="w">
           </span><span class="s2">"emp_panel"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"emp_panel_email"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"emp_panel_passwd"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"emp_panel_tz"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"emp_panel_email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"emp_panel_passwd"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"emp_panel_tz"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
           </span><span class="s2">"employee_pto_entry"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
           </span><span class="s2">"enable_timesheet_notes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
           </span><span class="s2">"hide_working_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
@@ -6231,19 +6227,26 @@ For all sections except <code>general</code>, if not installed, the only setting
           </span><span class="s2">"lunch_threshold"</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w">
           </span><span class="s2">"max_customfielditems"</span><span class="p">:</span><span class="w"> </span><span class="s2">"-1"</span><span class="p">,</span><span class="w">
           </span><span class="s2">"max_jobcodes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"-1"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"parent_clockin_display"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"payroll_end_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-09-28"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"payroll_first_end_day"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"payroll_last_end_day"</span><span class="p">:</span><span class="w"> </span><span class="s2">"16"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"payroll_month_end_day"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"payroll_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"biweekly"</span><span class="p">,</span><span class="w">
           </span><span class="s2">"pto_entry"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
           </span><span class="s2">"pto_overtime"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
           </span><span class="s2">"simple_clockin"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
           </span><span class="s2">"time_format"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"timecard_fields"</span><span class="p">:</span><span class="w"> </span><span class="s2">"JOBCODE,195923,195921,195919"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"timecard_fields"</span><span class="p">:</span><span class="w"> </span><span class="s2">"JOBCODE,134913,143369,143377"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"timeclock_label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Time Clock"</span><span class="p">,</span><span class="w">
           </span><span class="s2">"timesheet_edit_notes_for_all_users"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
           </span><span class="s2">"timesheet_notes_notify_admin"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
           </span><span class="s2">"timesheet_notes_notify_mgrs"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
           </span><span class="s2">"timesheet_notes_required"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"tz"</span><span class="p">:</span><span class="w"> </span><span class="s2">"US</span><span class="se">\/</span><span class="s2">Mountain"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"tz"</span><span class="p">:</span><span class="w"> </span><span class="s2">"America/Denver"</span><span class="p">,</span><span class="w">
           </span><span class="s2">"week_start"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
           </span><span class="s2">"weekly_regular_hours"</span><span class="p">:</span><span class="w"> </span><span class="s2">"40"</span><span class="w">
-        </span><span class="p">},</span><span class="w">
+        </span><span class="p">}</span><span class="w">
         </span><span class="s2">"last_modified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-04-05T19:19:45+00:00"</span><span class="w">
       </span><span class="p">},</span><span class="w">
       </span><span class="s2">"alerts"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -29325,6 +29328,10 @@ The maximum batch size is <i>50</i> users. If exceeded, a <code class="standout"
 <tr>
 <td style="text-align: left">2019-03-17</td>
 <td style="text-align: left">Initial Content Creation</td>
+</tr>
+<tr>
+<td style="text-align: left">2019-03-19</td>
+<td style="text-align: left">Updated code examples for Effective Settings</td>
 </tr>
 </tbody></table>
 

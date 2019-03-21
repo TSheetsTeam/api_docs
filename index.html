@@ -3321,42 +3321,42 @@ Actual menu layout may differ.
 <td>Id of customfield.</td>
 </tr>
 <tr>
-<td style="text-align: right"><strong>active</strong><br/>read-write</td>
+<td style="text-align: right"><strong>active</strong><br/>read-only</td>
 <td style="text-align: center"><em>Boolean</em></td>
 <td><em>true</em> or <em>false</em>. If <em>true</em>, this custom field is active. If <em>false</em>, this custom field is archived.</td>
 </tr>
 <tr>
-<td style="text-align: right"><strong>name</strong><br/>read-write</td>
+<td style="text-align: right"><strong>name</strong><br/>read-only</td>
 <td style="text-align: center"><em>String</em></td>
 <td>Name of the customfield.</td>
 </tr>
 <tr>
-<td style="text-align: right"><strong>short_code</strong><br/>read-write</td>
+<td style="text-align: right"><strong>short_code</strong><br/>read-only</td>
 <td style="text-align: center"><em>String</em></td>
 <td>This is a shortened code or alias that is associated with the customfield. It may only consist of letters and numbers.</td>
 </tr>
 <tr>
-<td style="text-align: right"><strong>required</strong><br/>read-write</td>
+<td style="text-align: right"><strong>required</strong><br/>read-only</td>
 <td style="text-align: center"><em>Boolean</em></td>
 <td><em>true</em> or <em>false</em>. Indicates whether a value for this customfield is required on a timesheet</td>
 </tr>
 <tr>
-<td style="text-align: right"><strong>applies_to</strong><br/>read-write</td>
+<td style="text-align: right"><strong>applies_to</strong><br/>read-only</td>
 <td style="text-align: center"><em>String</em></td>
 <td>&#39;timesheet&#39; or &#39;user&#39; or &#39;jobcode&#39;. Indicates what type of object this customfield applies to.</td>
 </tr>
 <tr>
-<td style="text-align: right"><strong>type</strong><br/>read-write</td>
+<td style="text-align: right"><strong>type</strong><br/>read-only</td>
 <td style="text-align: center"><em>String</em></td>
 <td>&#39;managed-list&#39; or &#39;free-form&#39;. If &#39;free-form&#39;, then it should be displayed in a UI as a text box, where users can enter values for this customfield and they&#39;ll get added automatically to the customfield if they don&#39;t already exist. If &#39;managed-list&#39;, then it should be displayed as a select-box and users can only choose an existing value.</td>
 </tr>
 <tr>
-<td style="text-align: right"><strong>ui_preference</strong><br/>read-write</td>
+<td style="text-align: right"><strong>ui_preference</strong><br/>read-only</td>
 <td style="text-align: center"><em>String</em></td>
 <td>&#39;drop_down&#39; or &#39;text_box_with_suggest&#39;. Indicates the suggested user interface depending on the specified type.</td>
 </tr>
 <tr>
-<td style="text-align: right"><strong>regex_filter</strong><br/>read-write</td>
+<td style="text-align: right"><strong>regex_filter</strong><br/>read-only</td>
 <td style="text-align: center"><em>String</em></td>
 <td>Regular expression that will be applied to any new items as they&#39;re added to the customfield. If they do not match the regex_filter, they may not be added.</td>
 </tr>
@@ -3371,7 +3371,7 @@ Actual menu layout may differ.
 <td>Date/time when this customfield was created, in ISO 8601 format (<code>YYYY-MM-DDThh:mm:ss±hh:mm</code>).</td>
 </tr>
 <tr>
-<td style="text-align: right"><strong>required_customfields</strong><br/>read-write</td>
+<td style="text-align: right"><strong>required_customfields</strong><br/>read-only</td>
 <td style="text-align: center"><em>Array</em></td>
 <td>Ids of customfields that should be displayed when this customfield is visible on a timecard</td>
 </tr>
@@ -4059,7 +4059,7 @@ Actual menu layout may differ.
 <td>Date/time when  this customfielditem was created, in ISO 8601 format (<code>YYYY-MM-DDThh:mm:ss±hh:mm</code>).</td>
 </tr>
 <tr>
-<td style="text-align: right"><strong>required_customfields</strong><br/>read-write</td>
+<td style="text-align: right"><strong>required_customfields</strong><br/>read-only</td>
 <td style="text-align: center"><em>Int[]</em></td>
 <td>Ids of <a href="#the-customfield-object">customfields</a> that should be displayed when this customfielditem is selected on a timecard.</td>
 </tr>
@@ -23703,7 +23703,7 @@ The maximum batch size is <i>50</i> schedule events. If exceeded, a <code class=
 <td>The total number of seconds recorded for this timesheet.</td>
 </tr>
 <tr>
-<td style="text-align: right"><strong>origin_hint</strong><br/>read-only</td>
+<td style="text-align: right"><strong>origin_hint</strong><br/>read-only (except on create)</td>
 <td style="text-align: center"><em>String</em></td>
 <td>A string that will be logged as part of the timesheet history when someone is clocked in, clocked out, or a timesheet is created (with both in/out).</td>
 </tr>

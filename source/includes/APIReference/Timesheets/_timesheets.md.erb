@@ -28,7 +28,7 @@ Following is a list of the properties that are common to both types of timesheet
 | **end**<br/>read-write | _String_ | Date/time that represents the end time of this timesheet, in ISO 8601 format (`YYYY-MM-DDThh:mm:ss±hh:mm`) |
 | **date**<br/>read-only | _String_ | The timesheet's date, in `YYYY-MM-DD` format. |
 | **duration**<br/>read-only | _Int_ | The total number of seconds recorded for this timesheet. |
-| **origin_hint**<br/>read-only | _String_ | A string that will be logged as part of the timesheet history when someone is clocked in, clocked out, or a timesheet is created (with both in/out). |
+| **origin_hint**<br/>read-only (except on create) | _String_ | A string that will be logged as part of the timesheet history when someone is clocked in, clocked out, or a timesheet is created (with both in/out). |
 
 ### Manual Timesheets
 

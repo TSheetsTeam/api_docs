@@ -26,15 +26,22 @@ under the License.
 <!doctype html>
 <html>
   <head>
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-136850078-1"></script>
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
+      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-136850078-1', 'auto');
 
-      gtag('config', 'UA-136850078-1');
+      ga('require', 'cleanUrlTracker');
+      ga('require', 'eventTracker');     
+      ga('require', 'impressionTracker');
+      ga('require', 'maxScrollTracker');
+      ga('require', 'outboundLinkTracker');
+      ga('require', 'pageVisibilityTracker');
+      ga('require', 'urlChangeTracker');       
+
+      ga('send', 'pageview');
     </script>
+    <script async src="https://www.google-analytics.com/analytics.js"></script>
+    <script async src="javascripts/autotrack.js"></script>
     <meta charset="utf-8">
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">

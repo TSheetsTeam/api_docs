@@ -1,9 +1,10 @@
 <% @response_body = File.read("source/includes/Overview/Examples/_refresh-response.md.erb") -%>
 
-<%= partial "includes/CodeTemplates/get.md.erb",
+<%= partial "includes/CodeTemplates/post-urlencoded.md.erb",
   :locals => {
     :endpoint => "grant",
     :description => "Refresh Token Request.",
+    :urlencoded_params => [['grant_type', 'refresh_token'], ['client_id', 'MYAPPCLIENTID'], ['client_secret', 'MYAPPSECRET'],['refresh_token', '0ed645dbcfaca681e37df26df6f39d273330e7a0']],    
     :response_body => @response_body
   }
 %>

@@ -54,7 +54,7 @@ Once the user is directed to access the authorization endpoint at TSheets ('auth
 
 Upon successful authorization and if the user grants access for their data to the app, TSheets will redirect the connected user to the redirect_uri (https://somedomain.com/callback in this example) found in the original request, and two parameters will be appended to it:
 
-   **1)** `code` - the unique code generated for this request - to be used in the token call later in the flow.
+   **1)** `code` - the unique code generated for this request - to be used in the token call later in the flow.<br/>
    **2)** `state` - the value passed in 'state' in the original authorization request.
 
 For example: 
@@ -75,7 +75,7 @@ We do not currently support <code>scope</code> for our clients, so the <code>sco
 
 At this point you have an authorization 'code' for the user of your app. To exchange the code for an access token, your application needs to do a POST to our `/grant` API end-point. In this step, TSheets will check that the authorization code was issued to the same application that is making the token request.
 
-The access_token should be included with every call to the API. Failure to include the access token or using an expired token will result in a _401_ response. Note that when you receive your access token, you also receive the `user_id` and `client_id` properties that are associated with the user that the access token is for. These properties are provided for convenience, to potentially save you the need for making a request to the [current user](#the-current-user-object) endpoint. 
+The `access_token` should be included with every call to the API. Failure to include the access token or using an expired token will result in a _401_ response. Note that when you receive your access token, you also receive the `user_id` and `client_id` properties that are associated with the user that the access token is for. These properties are provided for convenience, to potentially save you the need for making a request to the [current user](#the-current-user-object) endpoint. 
 
 If the client has IP Authorization security enabled with the _block all access_ option turned on, the request could fail with a _499_ status code if it comes from an unauthorized IP address. All subsequent requests will also fail until the device switches to an authorized IP address.
 
@@ -83,7 +83,7 @@ If the client has IP Authorization security enabled with the _block all access_ 
 
 ### HTTP Request
 
-<img src="images/get.png" alt="get"/><api>https://rest.tsheets.com/api/v1/grant</api>
+<img src="images/post.png" alt="post"/><api>https://rest.tsheets.com/api/v1/grant</api>
 
 ### Parameters
 
@@ -113,7 +113,7 @@ Access tokens expire after `expires_in` seconds (see example response). In order
 
 ### HTTP Request
 
-<img src="images/get.png" alt="get"/><api>https://rest.tsheets.com/api/v1/grant</api>
+<img src="images/post.png" alt="post"/><api>https://rest.tsheets.com/api/v1/grant</api>
 
 ### Parameters
 

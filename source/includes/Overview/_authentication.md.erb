@@ -16,9 +16,7 @@
 Before you can make any request of the API, you must first authenticate. Once you've authenticated, you will be given an access token that may be used for all subsequent requests.
 
 <aside class="notice">
- If you need a small number of access tokens, implementing the full OAuth2 flow can be cumbersome. Sometimes you just want a token for something simple like a command-line utility or script.
-
- As a convenience to you, we allow access tokens to be created through the web UI via the API Add-on preferences page (<code>Add-ons -> API -> click 'Preferences'</code>). You can also extend the expiration date on these tokens via the web UI, so that you don't have to deal with refreshing tokens. <bold>Remember to keep your access tokens secret; treat them just like passwords!</bold>
+ If you need a small number of access tokens, implementing the full OAuth2 flow can be cumbersome. Sometimes you just want a token for development purposes.  As a convenience to you we allow access tokens to be created through the web UI via the API Add-on preferences page: <code>Feature Add-ons -> API -> click 'Add a new application'</code> (See also <a href="#obtaining-an-api-access-token">guided walkthrough</a>). You can also extend the expiration date on these tokens via the web UI, so that you don't have to deal with refreshing tokens. <bold>Remember to keep your access tokens secret; treat them just like passwords!</bold>
 </aside>
 
 Performing the OAuth2 token request flow requires an OAuth client ID and an OAuth client secret. To obtain these application credentials, you will need to install the API Add-On in your TSheets account and follow the instructions found there. The _**OAuth client secret should never be shared**_.

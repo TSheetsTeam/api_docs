@@ -24,6 +24,8 @@ You can edit an existing object by sending an `HTTP PUT` action to the resource'
 
 You can delete an existing object by sending an `HTTP DELETE` action to the resource's endpoint url. An `HTTP DELETE` is similar to a GET, where all relevant parameters are passed as part of a query string. You must include an identifying id of some sort for the object you would like to delete as part of your parameters.
 
+_Note: Some endpoints which do not support DELETE instead allow items to be "archived" (aka soft deleted). For example, you can make a PUT call with `active=false` to the [Users](#update-users) endpoint to remove a user._
+
 ## Possible Response Status Codes
 
 ### 2xx response codes

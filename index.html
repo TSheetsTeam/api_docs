@@ -27429,7 +27429,7 @@ Deleted timesheets will be kept on the server and accessible for 180 days since 
 <td>Email address associated with this user.</td>
 </tr>
 <tr>
-<td style="text-align: right"><strong>email_verified</strong><br/>read-write</td>
+<td style="text-align: right"><strong>email_verified</strong><br/>read-only</td>
 <td style="text-align: center"><em>Boolean</em></td>
 <td><em>true</em> or <em>false</em>. Indicates whether or not the email address has been confirmed by the user.</td>
 </tr>
@@ -29221,6 +29221,10 @@ The maximum batch size is <i>50</i> users. If exceeded, a <code class="standout"
 <tr>
 <td style="text-align: left">2019-04-15</td>
 <td style="text-align: left">Fixing incorrect authentication examples</td>
+</tr>
+<tr>
+<td style="text-align: left">2019-05-22</td>
+<td style="text-align: left">Fixing access modifier on Users email_verified</td>
 </tr>
 </tbody></table>
 

@@ -3060,7 +3060,7 @@ We do not currently support <code>scope</code> for our clients, so the <code>sco
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p>When fetching timesheets via TSheets, supplemental data that is pertinent to the timesheets returned will be sent back in a <code>supplemental_data</code> JSON object unless you exclude it with an API filter. Within this object you will find additional objects related to the timesheets that were returned in the result set. In the example, Jobcode, User, and Custom Field objects are returned if they are referenced in the timesheet results. This is done specifically to esure that API consumers have all the necessary data to display any timesheets that are returned. Knowing this, it is a best practice for API consumers to always parse and store any supplemental data should they wish to persist and display these timesheets later (for offline viewing, etc).</p>
+<p>When fetching timesheets via TSheets, supplemental data that is pertinent to the timesheets returned will be sent back in a <code>supplemental_data</code> JSON object unless you exclude it with an API filter. Within this object you will find additional objects related to the timesheets that were returned in the result set. In the example, Jobcode, User, and Custom Field objects are returned if they are referenced in the timesheet results. This is done specifically to ensure that API consumers have all the necessary data to display any timesheets that are returned. Knowing this, it is a best practice for API consumers to always parse and store any supplemental data should they wish to persist and display these timesheets later (for offline viewing, etc).</p>
 
 <p>You can exclude supplemental data from GET requests for the timesheets and other endpoints by including the parameter <code>supplemental_data</code> with a value of <em>&quot;no&quot;</em>. If your application will not be using the supplemental data from a given request, you can include this parameter to reduce payload size and improve the response time.</p>
 <h2 id='recipes-for-some-common-workflows'>Recipes for Some Common Workflows</h2><h3 id='getting-current-status-of-a-single-user-whether-on-or-off-the-clock'>Getting current status of a single user (whether on or off the clock)</h3>
@@ -8922,7 +8922,7 @@ The <code>type</code> parameter must also be included when the <code>type_ids</c
 <td>Unique identifier (for the given client) for the device associated with this geolocation.</td>
 </tr>
 <tr>
-<td style="text-align: right"><strong>created</strong><br/>read-only</td>
+<td style="text-align: right"><strong>created</strong><br/>read-write</td>
 <td style="text-align: center"><em>String</em></td>
 <td>Date/time when this geolocation was created, in ISO 8601 format (<code>YYYY-MM-DDThh:mm:ss±hh:mm</code>)</td>
 </tr>
@@ -9497,6 +9497,11 @@ The <code>type</code> parameter must also be included when the <code>type_ids</c
 <th></th>
 </tr>
 </thead><tbody>
+<tr>
+<td style="text-align: right"><strong>created</strong><br/>required</td>
+<td style="text-align: center"><em>String</em></td>
+<td>Date/time of creation for this geolocation, in ISO 8601 format</td>
+</tr>
 <tr>
 <td style="text-align: right"><strong>user_id</strong><br/>required</td>
 <td style="text-align: center"><em>Int</em></td>
@@ -29225,6 +29230,10 @@ The maximum batch size is <i>50</i> users. If exceeded, a <code class="standout"
 <tr>
 <td style="text-align: left">2019-05-22</td>
 <td style="text-align: left">Fixing access modifier on Users email_verified</td>
+</tr>
+<tr>
+<td style="text-align: left">2019-05-23</td>
+<td style="text-align: left">Property <code>created</code> is required on Geolocation create</td>
 </tr>
 </tbody></table>
 

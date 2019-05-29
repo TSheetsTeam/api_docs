@@ -3,7 +3,7 @@
 
 <%= partial "includes/CodeTemplates/post.md.erb",
   :locals => {
-    :endpoint => "reports",
+    :endpoint => "reports/payroll_by_jobcode",
     :description => "Retrieve a payroll report, broken down by jobcode, for the given time period within an account.",
     :request_body => @request_body,
     :response_body => @response_body

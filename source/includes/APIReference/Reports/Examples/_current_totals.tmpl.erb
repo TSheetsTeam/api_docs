@@ -3,7 +3,7 @@
 
 <%= partial "includes/CodeTemplates/post.md.erb",
   :locals => {
-    :endpoint => "reports",
+    :endpoint => "reports/current_totals",
     :description => "Retrieve a `current_totals` report for all users on an account.",
     :request_body => @request_body,
     :response_body => @response_body

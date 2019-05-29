@@ -16050,20 +16050,20 @@ The maximum batch size is <i>50</i> locations. If exceeded, a <code class="stand
 <p>Request</p>
 </blockquote>
 
-<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://rest.tsheets.com/api/v1/locations_maps"</span> <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://rest.tsheets.com/api/v1/locations_map"</span> <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer &lt;TOKEN&gt;"</span>
-</code></pre><pre class="highlight csharp tab-csharp"><code><span class="kt">var</span> <span class="n">client</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">RestClient</span><span class="p">(</span><span class="s">"https://rest.tsheets.com/api/v1/locations_maps"</span><span class="p">);</span>
+</code></pre><pre class="highlight csharp tab-csharp"><code><span class="kt">var</span> <span class="n">client</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">RestClient</span><span class="p">(</span><span class="s">"https://rest.tsheets.com/api/v1/locations_map"</span><span class="p">);</span>
 <span class="kt">var</span> <span class="n">request</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">RestRequest</span><span class="p">(</span><span class="n">Method</span><span class="p">.</span><span class="n">GET</span><span class="p">);</span>
 <span class="n">request</span><span class="p">.</span><span class="nf">AddHeader</span><span class="p">(</span><span class="s">"Authorization"</span><span class="p">,</span> <span class="s">"Bearer &lt;TOKEN&gt;"</span><span class="p">);</span>
 <span class="n">IRestResponse</span> <span class="n">response</span> <span class="p">=</span> <span class="n">client</span><span class="p">.</span><span class="nf">Execute</span><span class="p">(</span><span class="n">request</span><span class="p">);</span>
-</code></pre><pre class="highlight vb tab-vb"><code><span class="k">Dim</span> <span class="nv">client</span> <span class="o">=</span> <span class="k">New</span> <span class="n">RestClient</span><span class="p">(</span><span class="s">"https://rest.tsheets.com/api/v1/locations_maps"</span><span class="p">)</span>
+</code></pre><pre class="highlight vb tab-vb"><code><span class="k">Dim</span> <span class="nv">client</span> <span class="o">=</span> <span class="k">New</span> <span class="n">RestClient</span><span class="p">(</span><span class="s">"https://rest.tsheets.com/api/v1/locations_map"</span><span class="p">)</span>
 <span class="k">Dim</span> <span class="nv">request</span> <span class="o">=</span> <span class="k">New</span> <span class="n">RestRequest</span><span class="p">(</span><span class="n">Method</span><span class="p">.</span><span class="err">[</span><span class="n">GET</span><span class="err">]</span><span class="p">)</span>
 <span class="n">request</span><span class="p">.</span><span class="n">AddHeader</span><span class="p">(</span><span class="s">"Authorization"</span><span class="p">,</span> <span class="s">"Bearer &lt;TOKEN&gt;"</span><span class="p">)</span>
 <span class="k">Dim</span> <span class="nv">response</span> <span class="ow">As</span> <span class="n">IRestResponse</span> <span class="o">=</span> <span class="n">client</span><span class="p">.</span><span class="n">Execute</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
 </code></pre><pre class="highlight java tab-java"><code><span class="n">OkHttpClient</span> <span class="n">client</span> <span class="o">=</span> <span class="k">new</span> <span class="n">OkHttpClient</span><span class="o">();</span>
 
 <span class="n">Request</span> <span class="n">request</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Request</span><span class="o">.</span><span class="na">Builder</span><span class="o">()</span>
-  <span class="o">.</span><span class="na">url</span><span class="o">(</span><span class="s">"https://rest.tsheets.com/api/v1/locations_maps"</span><span class="o">)</span>
+  <span class="o">.</span><span class="na">url</span><span class="o">(</span><span class="s">"https://rest.tsheets.com/api/v1/locations_map"</span><span class="o">)</span>
   <span class="o">.</span><span class="na">get</span><span class="o">()</span>
   <span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">"Authorization"</span><span class="o">,</span> <span class="s">"Bearer &lt;TOKEN&gt;"</span><span class="o">)</span>
   <span class="o">.</span><span class="na">build</span><span class="o">();</span>
@@ -16072,7 +16072,7 @@ The maximum batch size is <i>50</i> locations. If exceeded, a <code class="stand
 </code></pre><pre class="highlight javascript tab-javascript--browser"><code><span class="kd">var</span> <span class="nx">settings</span> <span class="o">=</span> <span class="p">{</span>
   <span class="s2">"async"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
   <span class="s2">"crossDomain"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-  <span class="s2">"url"</span><span class="p">:</span> <span class="s2">"https://rest.tsheets.com/api/v1/locations_maps"</span><span class="p">,</span>
+  <span class="s2">"url"</span><span class="p">:</span> <span class="s2">"https://rest.tsheets.com/api/v1/locations_map"</span><span class="p">,</span>
   <span class="s2">"method"</span><span class="p">:</span> <span class="s2">"GET"</span><span class="p">,</span>
   <span class="s2">"headers"</span><span class="p">:</span> <span class="p">{</span>
     <span class="s2">"Authorization"</span><span class="p">:</span> <span class="s2">"Bearer &lt;TOKEN&gt;"</span><span class="p">,</span>
@@ -16086,7 +16086,7 @@ The maximum batch size is <i>50</i> locations. If exceeded, a <code class="stand
 </code></pre><pre class="highlight javascript tab-javascript--node"><code><span class="kd">var</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">"request"</span><span class="p">);</span>
 
 <span class="kd">var</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span> <span class="na">method</span><span class="p">:</span> <span class="s1">'GET'</span><span class="p">,</span>
-  <span class="na">url</span><span class="p">:</span> <span class="s1">'https://rest.tsheets.com/api/v1/locations_maps'</span><span class="p">,</span>
+  <span class="na">url</span><span class="p">:</span> <span class="s1">'https://rest.tsheets.com/api/v1/locations_map'</span><span class="p">,</span>
   <span class="na">headers</span><span class="p">:</span> 
    <span class="p">{</span> <span class="s1">'Authorization'</span><span class="p">:</span> <span class="s1">'Bearer &lt;TOKEN&gt;'</span> <span class="p">}</span> <span class="p">};</span>
 
@@ -16098,7 +16098,7 @@ The maximum batch size is <i>50</i> locations. If exceeded, a <code class="stand
 </code></pre><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
 
 <span class="nv">$request</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">HttpRequest</span><span class="p">();</span>
-<span class="nv">$request</span><span class="o">-&gt;</span><span class="na">setUrl</span><span class="p">(</span><span class="s1">'https://rest.tsheets.com/api/v1/locations_maps'</span><span class="p">);</span>
+<span class="nv">$request</span><span class="o">-&gt;</span><span class="na">setUrl</span><span class="p">(</span><span class="s1">'https://rest.tsheets.com/api/v1/locations_map'</span><span class="p">);</span>
 <span class="nv">$request</span><span class="o">-&gt;</span><span class="na">setMethod</span><span class="p">(</span><span class="nx">HTTP_METH_GET</span><span class="p">);</span>
 
 <span class="nv">$request</span><span class="o">-&gt;</span><span class="na">setHeaders</span><span class="p">(</span><span class="k">array</span><span class="p">(</span>
@@ -16115,7 +16115,7 @@ The maximum batch size is <i>50</i> locations. If exceeded, a <code class="stand
 </code></pre><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'uri'</span>
 <span class="nb">require</span> <span class="s1">'net/http'</span>
 
-<span class="n">url</span> <span class="o">=</span> <span class="no">URI</span><span class="p">(</span><span class="s2">"https://rest.tsheets.com/api/v1/locations_maps"</span><span class="p">)</span>
+<span class="n">url</span> <span class="o">=</span> <span class="no">URI</span><span class="p">(</span><span class="s2">"https://rest.tsheets.com/api/v1/locations_map"</span><span class="p">)</span>
 
 <span class="n">http</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">url</span><span class="p">.</span><span class="nf">host</span><span class="p">,</span> <span class="n">url</span><span class="p">.</span><span class="nf">port</span><span class="p">)</span>
 
@@ -16126,7 +16126,7 @@ The maximum batch size is <i>50</i> locations. If exceeded, a <code class="stand
 <span class="nb">puts</span> <span class="n">response</span><span class="p">.</span><span class="nf">read_body</span>
 </code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
 
-<span class="n">url</span> <span class="o">=</span> <span class="s">"https://rest.tsheets.com/api/v1/locations_maps"</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s">"https://rest.tsheets.com/api/v1/locations_map"</span>
 
 <span class="n">payload</span> <span class="o">=</span> <span class="s">""</span>
 <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
@@ -16146,7 +16146,7 @@ The maximum batch size is <i>50</i> locations. If exceeded, a <code class="stand
 
 </span><span class="k">func</span><span class="x"> </span><span class="n">main</span><span class="p">()</span><span class="x"> </span><span class="p">{</span><span class="x">
 
-  </span><span class="n">url</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="s">"https://rest.tsheets.com/api/v1/locations_maps"</span><span class="x">
+  </span><span class="n">url</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="s">"https://rest.tsheets.com/api/v1/locations_map"</span><span class="x">
 
   </span><span class="n">req</span><span class="p">,</span><span class="x"> </span><span class="n">_</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">http</span><span class="o">.</span><span class="n">NewRequest</span><span class="p">(</span><span class="s">"GET"</span><span class="p">,</span><span class="x"> </span><span class="n">url</span><span class="p">,</span><span class="x"> </span><span class="no">nil</span><span class="p">)</span><span class="x">
 
@@ -16168,7 +16168,7 @@ The maximum batch size is <i>50</i> locations. If exceeded, a <code class="stand
 <span class="p">]</span>
 
 <span class="k">let</span> <span class="nv">request</span> <span class="o">=</span> <span class="kt">NSMutableURLRequest</span><span class="p">(</span>
-  <span class="nv">url</span><span class="p">:</span> <span class="kt">NSURL</span><span class="p">(</span><span class="nv">string</span><span class="p">:</span> <span class="s">"https://rest.tsheets.com/api/v1/locations_maps"</span><span class="p">)</span><span class="o">!</span> <span class="k">as</span> <span class="kt">URL</span><span class="p">,</span>
+  <span class="nv">url</span><span class="p">:</span> <span class="kt">NSURL</span><span class="p">(</span><span class="nv">string</span><span class="p">:</span> <span class="s">"https://rest.tsheets.com/api/v1/locations_map"</span><span class="p">)</span><span class="o">!</span> <span class="k">as</span> <span class="kt">URL</span><span class="p">,</span>
   <span class="nv">cachePolicy</span><span class="p">:</span> <span class="o">.</span><span class="n">useProtocolCachePolicy</span><span class="p">,</span>
   <span class="nv">timeoutInterval</span><span class="p">:</span> <span class="mf">10.0</span><span class="p">)</span>
 
@@ -16196,7 +16196,7 @@ The maximum batch size is <i>50</i> locations. If exceeded, a <code class="stand
 <span class="nv">$client</span><span class="o">-&gt;</span><span class="nv">addHeader</span><span class="p">(</span><span class="s">'Authorization'</span><span class="p">,</span> <span class="s">'Bearer &lt;TOKEN&gt;'</span><span class="p">);</span>
 <span class="nv">$client</span><span class="o">-&gt;</span><span class="nv">addHeader</span><span class="p">(</span><span class="s">'Accept'</span><span class="p">,</span> <span class="s">'application/json'</span><span class="p">);</span>
 
-<span class="nv">$url</span><span class="o">=</span><span class="s">"https://rest.tsheets.com/api/v1/locations_maps"</span><span class="p">;</span> 
+<span class="nv">$url</span><span class="o">=</span><span class="s">"https://rest.tsheets.com/api/v1/locations_map"</span><span class="p">;</span> 
 
 <span class="nv">$client</span><span class="o">-&gt;</span><span class="nv">GET</span><span class="p">(</span><span class="nv">$url</span><span class="p">);</span>
 <span class="k">print</span> <span class="nv">$client</span><span class="o">-&gt;</span><span class="nv">responseContent</span><span class="p">();</span>
@@ -16209,20 +16209,20 @@ The maximum batch size is <i>50</i> locations. If exceeded, a <code class="stand
 <p>Request</p>
 </blockquote>
 
-<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://rest.tsheets.com/api/v1/locations_maps?ids=12,367,3489"</span> <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://rest.tsheets.com/api/v1/locations_map?ids=12,367,3489"</span> <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer &lt;TOKEN&gt;"</span>
-</code></pre><pre class="highlight csharp tab-csharp"><code><span class="kt">var</span> <span class="n">client</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">RestClient</span><span class="p">(</span><span class="s">"https://rest.tsheets.com/api/v1/locations_maps?ids=12,367,3489"</span><span class="p">);</span>
+</code></pre><pre class="highlight csharp tab-csharp"><code><span class="kt">var</span> <span class="n">client</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">RestClient</span><span class="p">(</span><span class="s">"https://rest.tsheets.com/api/v1/locations_map?ids=12,367,3489"</span><span class="p">);</span>
 <span class="kt">var</span> <span class="n">request</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">RestRequest</span><span class="p">(</span><span class="n">Method</span><span class="p">.</span><span class="n">GET</span><span class="p">);</span>
 <span class="n">request</span><span class="p">.</span><span class="nf">AddHeader</span><span class="p">(</span><span class="s">"Authorization"</span><span class="p">,</span> <span class="s">"Bearer &lt;TOKEN&gt;"</span><span class="p">);</span>
 <span class="n">IRestResponse</span> <span class="n">response</span> <span class="p">=</span> <span class="n">client</span><span class="p">.</span><span class="nf">Execute</span><span class="p">(</span><span class="n">request</span><span class="p">);</span>
-</code></pre><pre class="highlight vb tab-vb"><code><span class="k">Dim</span> <span class="nv">client</span> <span class="o">=</span> <span class="k">New</span> <span class="n">RestClient</span><span class="p">(</span><span class="s">"https://rest.tsheets.com/api/v1/locations_maps?ids=12,367,3489"</span><span class="p">)</span>
+</code></pre><pre class="highlight vb tab-vb"><code><span class="k">Dim</span> <span class="nv">client</span> <span class="o">=</span> <span class="k">New</span> <span class="n">RestClient</span><span class="p">(</span><span class="s">"https://rest.tsheets.com/api/v1/locations_map?ids=12,367,3489"</span><span class="p">)</span>
 <span class="k">Dim</span> <span class="nv">request</span> <span class="o">=</span> <span class="k">New</span> <span class="n">RestRequest</span><span class="p">(</span><span class="n">Method</span><span class="p">.</span><span class="err">[</span><span class="n">GET</span><span class="err">]</span><span class="p">)</span>
 <span class="n">request</span><span class="p">.</span><span class="n">AddHeader</span><span class="p">(</span><span class="s">"Authorization"</span><span class="p">,</span> <span class="s">"Bearer &lt;TOKEN&gt;"</span><span class="p">)</span>
 <span class="k">Dim</span> <span class="nv">response</span> <span class="ow">As</span> <span class="n">IRestResponse</span> <span class="o">=</span> <span class="n">client</span><span class="p">.</span><span class="n">Execute</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
 </code></pre><pre class="highlight java tab-java"><code><span class="n">OkHttpClient</span> <span class="n">client</span> <span class="o">=</span> <span class="k">new</span> <span class="n">OkHttpClient</span><span class="o">();</span>
 
 <span class="n">Request</span> <span class="n">request</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Request</span><span class="o">.</span><span class="na">Builder</span><span class="o">()</span>
-  <span class="o">.</span><span class="na">url</span><span class="o">(</span><span class="s">"https://rest.tsheets.com/api/v1/locations_maps?ids=12,367,3489"</span><span class="o">)</span>
+  <span class="o">.</span><span class="na">url</span><span class="o">(</span><span class="s">"https://rest.tsheets.com/api/v1/locations_map?ids=12,367,3489"</span><span class="o">)</span>
   <span class="o">.</span><span class="na">get</span><span class="o">()</span>
   <span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">"Authorization"</span><span class="o">,</span> <span class="s">"Bearer &lt;TOKEN&gt;"</span><span class="o">)</span>
   <span class="o">.</span><span class="na">build</span><span class="o">();</span>
@@ -16231,7 +16231,7 @@ The maximum batch size is <i>50</i> locations. If exceeded, a <code class="stand
 </code></pre><pre class="highlight javascript tab-javascript--browser"><code><span class="kd">var</span> <span class="nx">settings</span> <span class="o">=</span> <span class="p">{</span>
   <span class="s2">"async"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
   <span class="s2">"crossDomain"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-  <span class="s2">"url"</span><span class="p">:</span> <span class="s2">"https://rest.tsheets.com/api/v1/locations_maps?ids=12,367,3489"</span><span class="p">,</span>
+  <span class="s2">"url"</span><span class="p">:</span> <span class="s2">"https://rest.tsheets.com/api/v1/locations_map?ids=12,367,3489"</span><span class="p">,</span>
   <span class="s2">"method"</span><span class="p">:</span> <span class="s2">"GET"</span><span class="p">,</span>
   <span class="s2">"headers"</span><span class="p">:</span> <span class="p">{</span>
     <span class="s2">"Authorization"</span><span class="p">:</span> <span class="s2">"Bearer &lt;TOKEN&gt;"</span><span class="p">,</span>
@@ -16245,7 +16245,7 @@ The maximum batch size is <i>50</i> locations. If exceeded, a <code class="stand
 </code></pre><pre class="highlight javascript tab-javascript--node"><code><span class="kd">var</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">"request"</span><span class="p">);</span>
 
 <span class="kd">var</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span> <span class="na">method</span><span class="p">:</span> <span class="s1">'GET'</span><span class="p">,</span>
-  <span class="na">url</span><span class="p">:</span> <span class="s1">'https://rest.tsheets.com/api/v1/locations_maps'</span><span class="p">,</span>
+  <span class="na">url</span><span class="p">:</span> <span class="s1">'https://rest.tsheets.com/api/v1/locations_map'</span><span class="p">,</span>
   <span class="na">qs</span><span class="p">:</span> <span class="p">{</span>
     <span class="na">ids</span><span class="p">:</span> <span class="s1">'12,367,3489'</span><span class="p">,</span>
   <span class="p">},</span>
@@ -16260,7 +16260,7 @@ The maximum batch size is <i>50</i> locations. If exceeded, a <code class="stand
 </code></pre><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
 
 <span class="nv">$request</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">HttpRequest</span><span class="p">();</span>
-<span class="nv">$request</span><span class="o">-&gt;</span><span class="na">setUrl</span><span class="p">(</span><span class="s1">'https://rest.tsheets.com/api/v1/locations_maps'</span><span class="p">);</span>
+<span class="nv">$request</span><span class="o">-&gt;</span><span class="na">setUrl</span><span class="p">(</span><span class="s1">'https://rest.tsheets.com/api/v1/locations_map'</span><span class="p">);</span>
 <span class="nv">$request</span><span class="o">-&gt;</span><span class="na">setMethod</span><span class="p">(</span><span class="nx">HTTP_METH_GET</span><span class="p">);</span>
 
 <span class="nv">$request</span><span class="o">-&gt;</span><span class="na">setQueryData</span><span class="p">(</span><span class="k">array</span><span class="p">(</span>
@@ -16281,7 +16281,7 @@ The maximum batch size is <i>50</i> locations. If exceeded, a <code class="stand
 </code></pre><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'uri'</span>
 <span class="nb">require</span> <span class="s1">'net/http'</span>
 
-<span class="n">url</span> <span class="o">=</span> <span class="no">URI</span><span class="p">(</span><span class="s2">"https://rest.tsheets.com/api/v1/locations_maps?ids=12,367,3489"</span><span class="p">)</span>
+<span class="n">url</span> <span class="o">=</span> <span class="no">URI</span><span class="p">(</span><span class="s2">"https://rest.tsheets.com/api/v1/locations_map?ids=12,367,3489"</span><span class="p">)</span>
 
 <span class="n">http</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">url</span><span class="p">.</span><span class="nf">host</span><span class="p">,</span> <span class="n">url</span><span class="p">.</span><span class="nf">port</span><span class="p">)</span>
 
@@ -16292,7 +16292,7 @@ The maximum batch size is <i>50</i> locations. If exceeded, a <code class="stand
 <span class="nb">puts</span> <span class="n">response</span><span class="p">.</span><span class="nf">read_body</span>
 </code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
 
-<span class="n">url</span> <span class="o">=</span> <span class="s">"https://rest.tsheets.com/api/v1/locations_maps"</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s">"https://rest.tsheets.com/api/v1/locations_map"</span>
 
 <span class="n">querystring</span> <span class="o">=</span> <span class="p">{</span>
   <span class="s">"ids"</span><span class="p">:</span><span class="s">"12,367,3489"</span><span class="p">,</span>
@@ -16316,7 +16316,7 @@ The maximum batch size is <i>50</i> locations. If exceeded, a <code class="stand
 
 </span><span class="k">func</span><span class="x"> </span><span class="n">main</span><span class="p">()</span><span class="x"> </span><span class="p">{</span><span class="x">
 
-  </span><span class="n">url</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="s">"https://rest.tsheets.com/api/v1/locations_maps?ids=12,367,3489"</span><span class="x">
+  </span><span class="n">url</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="s">"https://rest.tsheets.com/api/v1/locations_map?ids=12,367,3489"</span><span class="x">
 
   </span><span class="n">req</span><span class="p">,</span><span class="x"> </span><span class="n">_</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">http</span><span class="o">.</span><span class="n">NewRequest</span><span class="p">(</span><span class="s">"GET"</span><span class="p">,</span><span class="x"> </span><span class="n">url</span><span class="p">,</span><span class="x"> </span><span class="no">nil</span><span class="p">)</span><span class="x">
 
@@ -16338,7 +16338,7 @@ The maximum batch size is <i>50</i> locations. If exceeded, a <code class="stand
 <span class="p">]</span>
 
 <span class="k">let</span> <span class="nv">request</span> <span class="o">=</span> <span class="kt">NSMutableURLRequest</span><span class="p">(</span>
-  <span class="nv">url</span><span class="p">:</span> <span class="kt">NSURL</span><span class="p">(</span><span class="nv">string</span><span class="p">:</span> <span class="s">"https://rest.tsheets.com/api/v1/locations_maps?ids=12,367,3489"</span><span class="p">)</span><span class="o">!</span> <span class="k">as</span> <span class="kt">URL</span><span class="p">,</span>
+  <span class="nv">url</span><span class="p">:</span> <span class="kt">NSURL</span><span class="p">(</span><span class="nv">string</span><span class="p">:</span> <span class="s">"https://rest.tsheets.com/api/v1/locations_map?ids=12,367,3489"</span><span class="p">)</span><span class="o">!</span> <span class="k">as</span> <span class="kt">URL</span><span class="p">,</span>
   <span class="nv">cachePolicy</span><span class="p">:</span> <span class="o">.</span><span class="n">useProtocolCachePolicy</span><span class="p">,</span>
   <span class="nv">timeoutInterval</span><span class="p">:</span> <span class="mf">10.0</span><span class="p">)</span>
 
@@ -16366,7 +16366,7 @@ The maximum batch size is <i>50</i> locations. If exceeded, a <code class="stand
 <span class="nv">$client</span><span class="o">-&gt;</span><span class="nv">addHeader</span><span class="p">(</span><span class="s">'Authorization'</span><span class="p">,</span> <span class="s">'Bearer &lt;TOKEN&gt;'</span><span class="p">);</span>
 <span class="nv">$client</span><span class="o">-&gt;</span><span class="nv">addHeader</span><span class="p">(</span><span class="s">'Accept'</span><span class="p">,</span> <span class="s">'application/json'</span><span class="p">);</span>
 
-<span class="nv">$url</span><span class="o">=</span><span class="s">"https://rest.tsheets.com/api/v1/locations_maps?ids=12,367,3489"</span><span class="p">;</span> 
+<span class="nv">$url</span><span class="o">=</span><span class="s">"https://rest.tsheets.com/api/v1/locations_map?ids=12,367,3489"</span><span class="p">;</span> 
 
 <span class="nv">$client</span><span class="o">-&gt;</span><span class="nv">GET</span><span class="p">(</span><span class="nv">$url</span><span class="p">);</span>
 <span class="k">print</span> <span class="nv">$client</span><span class="o">-&gt;</span><span class="nv">responseContent</span><span class="p">();</span>
@@ -16379,20 +16379,20 @@ The maximum batch size is <i>50</i> locations. If exceeded, a <code class="stand
 <p>Request</p>
 </blockquote>
 
-<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://rest.tsheets.com/api/v1/locations_maps?modified_since=2018-01-01T00:00:00-06:00"</span> <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://rest.tsheets.com/api/v1/locations_map?modified_since=2018-01-01T00:00:00-06:00"</span> <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer &lt;TOKEN&gt;"</span>
-</code></pre><pre class="highlight csharp tab-csharp"><code><span class="kt">var</span> <span class="n">client</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">RestClient</span><span class="p">(</span><span class="s">"https://rest.tsheets.com/api/v1/locations_maps?modified_since=2018-01-01T00:00:00-06:00"</span><span class="p">);</span>
+</code></pre><pre class="highlight csharp tab-csharp"><code><span class="kt">var</span> <span class="n">client</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">RestClient</span><span class="p">(</span><span class="s">"https://rest.tsheets.com/api/v1/locations_map?modified_since=2018-01-01T00:00:00-06:00"</span><span class="p">);</span>
 <span class="kt">var</span> <span class="n">request</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">RestRequest</span><span class="p">(</span><span class="n">Method</span><span class="p">.</span><span class="n">GET</span><span class="p">);</span>
 <span class="n">request</span><span class="p">.</span><span class="nf">AddHeader</span><span class="p">(</span><span class="s">"Authorization"</span><span class="p">,</span> <span class="s">"Bearer &lt;TOKEN&gt;"</span><span class="p">);</span>
 <span class="n">IRestResponse</span> <span class="n">response</span> <span class="p">=</span> <span class="n">client</span><span class="p">.</span><span class="nf">Execute</span><span class="p">(</span><span class="n">request</span><span class="p">);</span>
-</code></pre><pre class="highlight vb tab-vb"><code><span class="k">Dim</span> <span class="nv">client</span> <span class="o">=</span> <span class="k">New</span> <span class="n">RestClient</span><span class="p">(</span><span class="s">"https://rest.tsheets.com/api/v1/locations_maps?modified_since=2018-01-01T00:00:00-06:00"</span><span class="p">)</span>
+</code></pre><pre class="highlight vb tab-vb"><code><span class="k">Dim</span> <span class="nv">client</span> <span class="o">=</span> <span class="k">New</span> <span class="n">RestClient</span><span class="p">(</span><span class="s">"https://rest.tsheets.com/api/v1/locations_map?modified_since=2018-01-01T00:00:00-06:00"</span><span class="p">)</span>
 <span class="k">Dim</span> <span class="nv">request</span> <span class="o">=</span> <span class="k">New</span> <span class="n">RestRequest</span><span class="p">(</span><span class="n">Method</span><span class="p">.</span><span class="err">[</span><span class="n">GET</span><span class="err">]</span><span class="p">)</span>
 <span class="n">request</span><span class="p">.</span><span class="n">AddHeader</span><span class="p">(</span><span class="s">"Authorization"</span><span class="p">,</span> <span class="s">"Bearer &lt;TOKEN&gt;"</span><span class="p">)</span>
 <span class="k">Dim</span> <span class="nv">response</span> <span class="ow">As</span> <span class="n">IRestResponse</span> <span class="o">=</span> <span class="n">client</span><span class="p">.</span><span class="n">Execute</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
 </code></pre><pre class="highlight java tab-java"><code><span class="n">OkHttpClient</span> <span class="n">client</span> <span class="o">=</span> <span class="k">new</span> <span class="n">OkHttpClient</span><span class="o">();</span>
 
 <span class="n">Request</span> <span class="n">request</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Request</span><span class="o">.</span><span class="na">Builder</span><span class="o">()</span>
-  <span class="o">.</span><span class="na">url</span><span class="o">(</span><span class="s">"https://rest.tsheets.com/api/v1/locations_maps?modified_since=2018-01-01T00:00:00-06:00"</span><span class="o">)</span>
+  <span class="o">.</span><span class="na">url</span><span class="o">(</span><span class="s">"https://rest.tsheets.com/api/v1/locations_map?modified_since=2018-01-01T00:00:00-06:00"</span><span class="o">)</span>
   <span class="o">.</span><span class="na">get</span><span class="o">()</span>
   <span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">"Authorization"</span><span class="o">,</span> <span class="s">"Bearer &lt;TOKEN&gt;"</span><span class="o">)</span>
   <span class="o">.</span><span class="na">build</span><span class="o">();</span>
@@ -16401,7 +16401,7 @@ The maximum batch size is <i>50</i> locations. If exceeded, a <code class="stand
 </code></pre><pre class="highlight javascript tab-javascript--browser"><code><span class="kd">var</span> <span class="nx">settings</span> <span class="o">=</span> <span class="p">{</span>
   <span class="s2">"async"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
   <span class="s2">"crossDomain"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-  <span class="s2">"url"</span><span class="p">:</span> <span class="s2">"https://rest.tsheets.com/api/v1/locations_maps?modified_since=2018-01-01T00:00:00-06:00"</span><span class="p">,</span>
+  <span class="s2">"url"</span><span class="p">:</span> <span class="s2">"https://rest.tsheets.com/api/v1/locations_map?modified_since=2018-01-01T00:00:00-06:00"</span><span class="p">,</span>
   <span class="s2">"method"</span><span class="p">:</span> <span class="s2">"GET"</span><span class="p">,</span>
   <span class="s2">"headers"</span><span class="p">:</span> <span class="p">{</span>
     <span class="s2">"Authorization"</span><span class="p">:</span> <span class="s2">"Bearer &lt;TOKEN&gt;"</span><span class="p">,</span>
@@ -16415,7 +16415,7 @@ The maximum batch size is <i>50</i> locations. If exceeded, a <code class="stand
 </code></pre><pre class="highlight javascript tab-javascript--node"><code><span class="kd">var</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">"request"</span><span class="p">);</span>
 
 <span class="kd">var</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span> <span class="na">method</span><span class="p">:</span> <span class="s1">'GET'</span><span class="p">,</span>
-  <span class="na">url</span><span class="p">:</span> <span class="s1">'https://rest.tsheets.com/api/v1/locations_maps'</span><span class="p">,</span>
+  <span class="na">url</span><span class="p">:</span> <span class="s1">'https://rest.tsheets.com/api/v1/locations_map'</span><span class="p">,</span>
   <span class="na">qs</span><span class="p">:</span> <span class="p">{</span>
     <span class="na">modified_since</span><span class="p">:</span> <span class="s1">'2018-01-01T00:00:00-06:00'</span><span class="p">,</span>
   <span class="p">},</span>
@@ -16430,7 +16430,7 @@ The maximum batch size is <i>50</i> locations. If exceeded, a <code class="stand
 </code></pre><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
 
 <span class="nv">$request</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">HttpRequest</span><span class="p">();</span>
-<span class="nv">$request</span><span class="o">-&gt;</span><span class="na">setUrl</span><span class="p">(</span><span class="s1">'https://rest.tsheets.com/api/v1/locations_maps'</span><span class="p">);</span>
+<span class="nv">$request</span><span class="o">-&gt;</span><span class="na">setUrl</span><span class="p">(</span><span class="s1">'https://rest.tsheets.com/api/v1/locations_map'</span><span class="p">);</span>
 <span class="nv">$request</span><span class="o">-&gt;</span><span class="na">setMethod</span><span class="p">(</span><span class="nx">HTTP_METH_GET</span><span class="p">);</span>
 
 <span class="nv">$request</span><span class="o">-&gt;</span><span class="na">setQueryData</span><span class="p">(</span><span class="k">array</span><span class="p">(</span>
@@ -16451,7 +16451,7 @@ The maximum batch size is <i>50</i> locations. If exceeded, a <code class="stand
 </code></pre><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'uri'</span>
 <span class="nb">require</span> <span class="s1">'net/http'</span>
 
-<span class="n">url</span> <span class="o">=</span> <span class="no">URI</span><span class="p">(</span><span class="s2">"https://rest.tsheets.com/api/v1/locations_maps?modified_since=2018-01-01T00:00:00-06:00"</span><span class="p">)</span>
+<span class="n">url</span> <span class="o">=</span> <span class="no">URI</span><span class="p">(</span><span class="s2">"https://rest.tsheets.com/api/v1/locations_map?modified_since=2018-01-01T00:00:00-06:00"</span><span class="p">)</span>
 
 <span class="n">http</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">url</span><span class="p">.</span><span class="nf">host</span><span class="p">,</span> <span class="n">url</span><span class="p">.</span><span class="nf">port</span><span class="p">)</span>
 
@@ -16462,7 +16462,7 @@ The maximum batch size is <i>50</i> locations. If exceeded, a <code class="stand
 <span class="nb">puts</span> <span class="n">response</span><span class="p">.</span><span class="nf">read_body</span>
 </code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
 
-<span class="n">url</span> <span class="o">=</span> <span class="s">"https://rest.tsheets.com/api/v1/locations_maps"</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s">"https://rest.tsheets.com/api/v1/locations_map"</span>
 
 <span class="n">querystring</span> <span class="o">=</span> <span class="p">{</span>
   <span class="s">"modified_since"</span><span class="p">:</span><span class="s">"2018-01-01T00:00:00-06:00"</span><span class="p">,</span>
@@ -16486,7 +16486,7 @@ The maximum batch size is <i>50</i> locations. If exceeded, a <code class="stand
 
 </span><span class="k">func</span><span class="x"> </span><span class="n">main</span><span class="p">()</span><span class="x"> </span><span class="p">{</span><span class="x">
 
-  </span><span class="n">url</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="s">"https://rest.tsheets.com/api/v1/locations_maps?modified_since=2018-01-01T00:00:00-06:00"</span><span class="x">
+  </span><span class="n">url</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="s">"https://rest.tsheets.com/api/v1/locations_map?modified_since=2018-01-01T00:00:00-06:00"</span><span class="x">
 
   </span><span class="n">req</span><span class="p">,</span><span class="x"> </span><span class="n">_</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">http</span><span class="o">.</span><span class="n">NewRequest</span><span class="p">(</span><span class="s">"GET"</span><span class="p">,</span><span class="x"> </span><span class="n">url</span><span class="p">,</span><span class="x"> </span><span class="no">nil</span><span class="p">)</span><span class="x">
 
@@ -16508,7 +16508,7 @@ The maximum batch size is <i>50</i> locations. If exceeded, a <code class="stand
 <span class="p">]</span>
 
 <span class="k">let</span> <span class="nv">request</span> <span class="o">=</span> <span class="kt">NSMutableURLRequest</span><span class="p">(</span>
-  <span class="nv">url</span><span class="p">:</span> <span class="kt">NSURL</span><span class="p">(</span><span class="nv">string</span><span class="p">:</span> <span class="s">"https://rest.tsheets.com/api/v1/locations_maps?modified_since=2018-01-01T00:00:00-06:00"</span><span class="p">)</span><span class="o">!</span> <span class="k">as</span> <span class="kt">URL</span><span class="p">,</span>
+  <span class="nv">url</span><span class="p">:</span> <span class="kt">NSURL</span><span class="p">(</span><span class="nv">string</span><span class="p">:</span> <span class="s">"https://rest.tsheets.com/api/v1/locations_map?modified_since=2018-01-01T00:00:00-06:00"</span><span class="p">)</span><span class="o">!</span> <span class="k">as</span> <span class="kt">URL</span><span class="p">,</span>
   <span class="nv">cachePolicy</span><span class="p">:</span> <span class="o">.</span><span class="n">useProtocolCachePolicy</span><span class="p">,</span>
   <span class="nv">timeoutInterval</span><span class="p">:</span> <span class="mf">10.0</span><span class="p">)</span>
 
@@ -16536,7 +16536,7 @@ The maximum batch size is <i>50</i> locations. If exceeded, a <code class="stand
 <span class="nv">$client</span><span class="o">-&gt;</span><span class="nv">addHeader</span><span class="p">(</span><span class="s">'Authorization'</span><span class="p">,</span> <span class="s">'Bearer &lt;TOKEN&gt;'</span><span class="p">);</span>
 <span class="nv">$client</span><span class="o">-&gt;</span><span class="nv">addHeader</span><span class="p">(</span><span class="s">'Accept'</span><span class="p">,</span> <span class="s">'application/json'</span><span class="p">);</span>
 
-<span class="nv">$url</span><span class="o">=</span><span class="s">"https://rest.tsheets.com/api/v1/locations_maps?modified_since=2018-01-01T00:00:00-06:00"</span><span class="p">;</span> 
+<span class="nv">$url</span><span class="o">=</span><span class="s">"https://rest.tsheets.com/api/v1/locations_map?modified_since=2018-01-01T00:00:00-06:00"</span><span class="p">;</span> 
 
 <span class="nv">$client</span><span class="o">-&gt;</span><span class="nv">GET</span><span class="p">(</span><span class="nv">$url</span><span class="p">);</span>
 <span class="k">print</span> <span class="nv">$client</span><span class="o">-&gt;</span><span class="nv">responseContent</span><span class="p">();</span>
@@ -16631,7 +16631,7 @@ The maximum batch size is <i>50</i> locations. If exceeded, a <code class="stand
 
 <p>Retrieves a list of all locations maps associated with your company, with optional filters to narrow down the results.</p>
 <h3 id='http-request'>HTTP Request</h3>
-<p><img src="images/get.png" alt="get"/><api>https://rest.tsheets.com/api/v1/locations_maps</api></p>
+<p><img src="images/get.png" alt="get"/><api>https://rest.tsheets.com/api/v1/locations_map</api></p>
 <h3 id='filter-parameters'>Filter Parameters</h3>
 <table><thead>
 <tr>

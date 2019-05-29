@@ -287,6 +287,9 @@ try{(new g(100,"r","QSI_S_ZN_1RkCaCcXnaI8W9L","https://zn1rkcaccxnai8w9l-intuits
                       <a href="#base-url" class="toc-h2 toc-link" data-title="Base URL">Base URL</a>
                     </li>
                     <li>
+                      <a href="#contribute" class="toc-h2 toc-link" data-title="Contribute">Contribute</a>
+                    </li>
+                    <li>
                       <a href="#request-throttling" class="toc-h2 toc-link" data-title="Request Throttling">Request Throttling</a>
                     </li>
                     <li>
@@ -787,6 +790,9 @@ If Postman returns a <i><b>"Could not get any response"</b></i> error, most like
 <p>All URLs referenced in the documentation have the following base:</p>
 
 <p><code class="standout">https://rest.tsheets.com/api/v1</code></p>
+<h2 id='contribute'>Contribute</h2>
+<p><a href="https://github.com/tsheetsteam/api_docs"><img src="images/GitHub-Mark-32px.png"></a><br/>
+Found an error, or would otherwise like to contribute to our API documentation?  Submit a pull request to our <a href="https://github.com/tsheetsteam/api_docs">public GitHub repository</a>.</p>
 <h2 id='request-throttling'>Request Throttling</h2>
 <p>To prevent abuse of the TSheets API, we limit requests to a maximum of 300 calls within any 10 minute time window (subject to change). Rate limiting is primarily considered on a per-connection basis (per access token). If you exceed the current rate limit, you will receive a <code>429 &#39;Too many requests&#39;</code> response from our API. You will continue to receive a <code>429</code> response until you&#39;re out of the current time window. The threshold and time window may adjust dynamically downward if you are found to be abusing the system.</p>
 <h2 id='helper-libraries'>Helper Libraries</h2>
@@ -15583,9 +15589,9 @@ The maximum batch size is <i>50</i> jobcode assignments. If exceeded, a <code cl
 <td>The postal code for the address.</td>
 </tr>
 <tr>
-<td style="text-align: right"><strong>county</strong></td>
+<td style="text-align: right"><strong>country</strong></td>
 <td style="text-align: center"><em>String</em></td>
-<td>he country of the address.</td>
+<td>The country of the address.</td>
 </tr>
 </tbody></table>
 
@@ -29234,6 +29240,10 @@ The maximum batch size is <i>50</i> users. If exceeded, a <code class="standout"
 <tr>
 <td style="text-align: left">2019-05-23</td>
 <td style="text-align: left">Property <code>created</code> is required on Geolocation create</td>
+</tr>
+<tr>
+<td style="text-align: left">2019-05-29</td>
+<td style="text-align: left">Adding GitHub link, fixing reports examples &amp; minor typos</td>
 </tr>
 </tbody></table>
 

@@ -1106,8 +1106,6 @@ We do not currently support <code>scope</code> for our clients, so the <code>sco
 
 <p>If the client has IP Authorization security enabled with the <em>block all access</em> option turned on, the request could fail with a <em>499</em> status code if it comes from an unauthorized IP address. All subsequent requests will also fail until the device switches to an authorized IP address.</p>
 
-<p>grant_type=authorization_code&amp;client_id=MYAPPCLIENTID&amp;client_secret=MYAPPSECRET&amp;code=bbcaef03191517dfb60d0305bfea38ea995af1az&amp;redirect_uri=https%3A%2F%2Fsomedomain.com%2Fcallback</p>
-
 <blockquote>
 <p><strong>Example</strong>: Access Token Request.</p>
 
@@ -1555,8 +1553,6 @@ We do not currently support <code>scope</code> for our clients, so the <code>sco
 <p>When appropriate, applications should store the token locally, rather than requesting a new token for the same user each time the user uses the application. If the token is deleted or expires, the application will get a <em>401 Unauthorized</em> error from the API, in which case the application should perform the OAuth flow again to receive a new token. Storing a token is in many ways equivalent to storing the user&#39;s password, so tokens should be stored and used in a secure manner.</p>
 <h2 id='refreshing-an-access-token'>Refreshing an Access Token</h2>
 <p>Access tokens expire after <code>expires_in</code> seconds (see example response). In order to avoid sending the user through the OAuth2 process described above every time they want to access resources, API consumers can exchange a <code>refresh_token</code> for a new <code>access_token</code> before the current one expires. To do so, you make a request similar to the original request described above.</p>
-
-<p>grant_type=refresh_token&amp;client_id=MYAPPCLIENTID&amp;client_secret=MYAPPSECRET&amp;refresh_token=0ed645dbcfaca681e37df26df6f39d273330e7a0</p>
 
 <blockquote>
 <p><strong>Example</strong>: Refresh Token Request.</p>
@@ -29244,6 +29240,10 @@ The maximum batch size is <i>50</i> users. If exceeded, a <code class="standout"
 <tr>
 <td style="text-align: left">2019-05-29</td>
 <td style="text-align: left">Adding GitHub link, fixing reports examples &amp; minor typos</td>
+</tr>
+<tr>
+<td style="text-align: left">2019-05-30</td>
+<td style="text-align: left">Adjusting layout to support portrait mode</td>
 </tr>
 </tbody></table>
 

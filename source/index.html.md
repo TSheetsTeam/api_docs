@@ -57,6 +57,9 @@ includes:
   - APIReference/Groups/retrieve.md.erb
   - APIReference/Groups/create.md.erb
   - APIReference/Groups/update.md.erb
+  
+  - APIReference/Invitations/invitations.md.erb
+  - APIReference/Invitations/create.md.erb  
 
   - APIReference/Jobcodes/jobcodes.md.erb
   - APIReference/Jobcodes/retrieve.md.erb

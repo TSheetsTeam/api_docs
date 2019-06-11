@@ -36,6 +36,15 @@ includes:
   - APIReference/CustomFieldItems/create.md.erb
   - APIReference/CustomFieldItems/update.md.erb
 
+  - APIReference/CustomFieldItemFilters/customfielditem_filters.md.erb
+  - APIReference/CustomFieldItemFilters/retrieve.md.erb
+
+  - APIReference/CustomFieldItemJobcodeFilters/customfielditem_jobcode_filters.md.erb
+  - APIReference/CustomFieldItemJobcodeFilters/retrieve.md.erb
+
+  - APIReference/CustomFieldItemUserFilters/customfielditem_user_filters.md.erb
+  - APIReference/CustomFieldItemUserFilters/retrieve.md.erb
+
   - APIReference/EffectiveSettings/effective_settings.md.erb
   - APIReference/EffectiveSettings/retrieve.md.erb
 

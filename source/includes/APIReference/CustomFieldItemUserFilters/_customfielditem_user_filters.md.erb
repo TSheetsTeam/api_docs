@@ -1,0 +1,14 @@
+# Custom Field Item User Filters 
+
+## The Custom Field Item User Filter Object
+
+<%= partial "includes/APIReference/CustomFieldItemUserFilters/Examples/customfielditem_user_filters.tmpl.erb" %>
+
+Following is a list of the properties that belong to a `customfielditem_user_filter` object, and a description of each.
+
+|                |             |             |
+| -------------: | :---------: | ----------- |
+| **id**<br/>read-only | _Int_ | Id of the user or group to which the filters belong. |
+| **type**<br/>read-write | _String_ | The entities filter type: 'user' or 'group'. |
+| **last_modified**<br/>read-only | _String_ | The latest date/time when one of the filtered items was updated, in ISO 8601 format (`YYYY-MM-DDThh:mm:ss±hh:mm`). |
+| **filtered_customfielditems**<br/>read-write | _Map_ | Each entity represents a custom field's active filters where the key is the custom field id and the value is an array of item ids to which the user is assigned. |

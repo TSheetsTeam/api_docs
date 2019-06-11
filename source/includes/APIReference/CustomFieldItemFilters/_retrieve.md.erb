@@ -1,0 +1,29 @@
+## Retrieve Custom Field Item Filters
+
+<%= partial "includes/APIReference/CustomFieldItemFilters/Examples/retrieve.tmpl.erb" %>
+
+Retrieves a list of all `customfielditem_filters` associated with a jobcode, user, or group with options to narrow down the results.
+
+Custom field item filters are used to limit the choices that should be made available for selecting customfielditems for a particular customfield based on a user or selected jobcode. If filtered items exist for a given user, user's group, or jobcode, the choices for the indicated customfield should be limited to those customfielditems only.
+
+Please note that users can belong to groups and that groups can have filtered items. When requesting filtered items for a user, you can pass the 'include_user_group' option to return the `customfielditem_filters` for both the user and their assigned group.
+
+### HTTP Request
+
+<img src="images/get.png" alt="get"/><api>https://rest.tsheets.com/api/v1/customfielditem_filters</api>
+
+### Filter Parameters
+|                |             |             |
+| -------------: | :---------: | ----------- |
+| **jobcode_id**<br/>optional | _Int_ | Limits the returned filters to only those for the specified jobcode_id. |
+| **user_id**<br/>optional | _Int_ | Limits the returned filters to only those for the specified `user_id`. You can also include items for this user's group automatically if you include the 'include_user_group' parameter. |
+| **group_id**<br/>optional | _Int_ | Limits the returned filters to only those for the specified `group_id`. |
+| **include_user_group**<br/>optional | _Boolean_ | _true_ or _false_. If a `user_id` is supplied, will return filters for that user's group as well. |
+| **include_jobcode_filters**<br/>optional | _Boolean_ | _true_ or _false_. If a `user_id` is supplied, will additionally return jobcode filters. |
+| **ids**<br/>optional | _Int_ | Comma separated list of one or more `customfielditem_filter` ids you'd like to filter on. Only `customfielditem_filters` with an id set to one of these values will be returned. If omitted, all `customfielditem_fields` matching other specified filters are returned. |
+| **active**<br/>optional | _String_ | 'yes', 'no', or 'both'. Default is 'yes'. If a `customfielditem_filter` is inactive, it can be safely ignored. |
+| **modified_before**<br/>optional | _String_ | Only `customfielditem_filters` modified before this date/time will be returned, in ISO 8601 format (`YYYY-MM-DDThh:mm:ss±hh:mm`). |
+| **modified_since**<br/>optional | _String_ | Only `customfielditem_filters` modified since this date/time will be returned, in ISO 8601 format (`YYYY-MM-DDThh:mm:ss±hh:mm`). |
+| **supplemental_data**<br/>optional | _String_ | 'yes' or 'no'. Default is 'yes'. Indicates whether supplemental data should be returned. |
+| **per_page**<br/>optional | _Int_ | Represents how many results you'd like to retrieve per request (page). Default is 50. Max is 50. |
+| **page**<br/>optional | _Int_ | Represents the page of results you'd like to retrieve. Default is 1. |

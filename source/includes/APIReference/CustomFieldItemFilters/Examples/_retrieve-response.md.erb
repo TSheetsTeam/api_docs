@@ -1,0 +1,159 @@
+{
+  "results": {
+    "customfielditem_filters": {
+      "861013": {
+        "id": 861013,
+        "active": true,
+        "applies_to": "jobcodes",
+        "applies_to_id": 1883683,
+        "customfielditem_id": 703671,
+        "customfield_id": 117893,
+        "last_modified": "2018-07-17T23:40:51+00:00"
+      },
+      "861015": {
+        "id": 861015,
+        "active": true,
+        "applies_to": "users",
+        "applies_to_id": 933849,
+        "customfielditem_id": 703671,
+        "customfield_id": 117893,
+        "last_modified": "2018-07-17T23:40:51+00:00"
+      },
+      "861017": {
+        "id": 861017,
+        "active": true,
+        "applies_to": "groups",
+        "applies_to_id": 90443,
+        "customfielditem_id": 703671,
+        "customfield_id": 117893,
+        "last_modified": "2018-07-17T23:40:51+00:00"
+      }
+    }
+  },
+  "more": false,
+  "supplemental_data": {
+    "jobcodes": {
+      "1883683": {
+        "id": 1883683,
+        "active": true,
+        "parent_id": 0,
+        "assigned_to_all": true,
+        "type": "pto",
+        "billable": false,
+        "billable_rate": 0,
+        "short_code": "",
+        "name": "Holiday",
+        "created": "2017-08-28T15:57:15+0000",
+        "last_modified": "2018-07-17T23:40:51+0000",
+        "has_children": false,
+        "required_customfields": [ ],
+        "filtered_customfielditems": {
+          "117893": [
+            703671
+          ]
+        },
+        "locations": [ ]
+      }
+    },
+    "customfields": {
+      "117893": {
+        "id": 117893,
+        "active": true,
+        "name": "Fruit",
+        "short_code": "fr",
+        "required": 0,
+        "applies_to": "timesheet",
+        "type": "managed-list",
+        "regex_filter": "",
+        "last_modified": "2018-07-17T21:35:07+00:00",
+        "created": "2017-08-30T16:12:52+00:00",
+        "ui_preference": "drop_down",
+        "required_customfields": [ ]
+      }
+    },
+    "customfielditems": {
+      "703671": {
+        "id": 703671,
+        "active": true,
+        "name": "banana",
+        "short_code": "",
+        "customfield_id": 117893,
+        "last_modified": "2018-07-17T21:35:07+00:00",
+        "required_customfields": [ ]
+      }
+    },
+    "users": {
+      "933849": {
+        "id": 933849,
+        "first_name": "Mary",
+        "last_name": "Samsonite",
+        "group_id": 0,
+        "active": true,
+        "employee_number": 0,
+        "salaried": false,
+        "exempt": false,
+        "username": "admin",
+        "email": "admin@example.com",
+        "email_verified": false,
+        "payroll_id": "",
+        "hire_date": "0000-00-00",
+        "term_date": "0000-00-00",
+        "last_modified": "2018-07-17T22:30:17+00:00",
+        "last_active": "",
+        "created": "2018-07-10T16:11:38+00:00",
+        "client_url": "api_sample_output",
+        "company_name": "API Sample Output Company",
+        "profile_image_url": "https:\/\/www.gravatar.com\/avatar\/e64c7d89f26bd1972efa854d13d7dd61",
+        "mobile_number": "",
+        "pto_balances": {
+          "1883683": 0
+        },
+        "submitted_to": "2000-01-01",
+        "approved_to": "2000-01-01",
+        "manager_of_group_ids": [ ],
+        "require_password_change": false,
+        "pay_rate": 0,
+        "pay_interval": "hour",
+        "permissions": {
+          "admin": false,
+          "mobile": false,
+          "status_box": false,
+          "reports": false,
+          "manage_timesheets": false,
+          "manage_authorization": false,
+          "manage_users": false,
+          "manage_my_timesheets": false,
+          "manage_jobcodes": false,
+          "pin_login": true,
+          "approve_timesheets": false,
+          "manage_schedules": false,
+          "external_access": false,
+          "manage_my_schedule": false,
+          "manage_company_schedules": false,
+          "view_company_schedules": false,
+          "view_group_schedules": false,
+          "manage_no_schedules": false,
+          "view_my_schedules": false
+        },
+        "customfields": {
+          "150695": "",
+          "117937": "",
+          "119483": "",
+          "117887": "",
+          "119879": "",
+          "117897": ""
+        }
+      }
+    },
+    "groups": {
+      "90443": {
+        "id": 90443,
+        "active": true,
+        "name": "customfielditem_filter_test_group",
+        "last_modified": "2018-07-12T22:01:19+00:00",
+        "created": "2018-07-12T22:01:19+00:00",
+        "manager_ids": [ ]
+      }
+    }
+  }
+}

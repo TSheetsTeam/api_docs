@@ -1,0 +1,17 @@
+# Custom Field Item Filters
+
+## The Custom Field Item Filter Object
+
+<%= partial "includes/APIReference/CustomFieldItemFilters/Examples/customfielditem_filters.tmpl.erb" %>
+
+Following is a list of the properties that belong to a `customfielditem_filter` object, and a description of each.
+
+|                |             |             |
+| -------------: | :---------: | ----------- |
+| **id**<br/>read-only | _Int_ | Id of `customfielditem_filter`. |
+| **customfield_id**<br/>read-write | _Int_ | Id for the customfield that this filter belongs to. |
+| **customfielditem_id**<br/>read-write | _Int_ | Id for the customfielditem that this filter belongs to. |
+| **applies_to**<br/>read-write | _String_ | Entity type this filter relates to. Together with `applies_to_id`, determines what this filtered item relates to. The possible values are: 'jobcodes', 'users', or 'groups'. For example: If this value was 'jobcodes' then the `applies_to_id` value would indicate which jobcode this filter referred to. If requested, the supplemental data will also contain this jobcode. |
+| **applies_to_id**<br/>read-write | _Int_ | The jobcode, user, or group that this filter relates to. Together with `applies_to`, determines what this filtered item relates to. For example: If the value of the `applies_to field` was 'jobcodes' this value would indicate which jobcode this filter referred to. If requested, the supplemental data will also contain this jobcode. |
+| **active**<br/>read-write | _Boolean_ | true or false. If false, this `customfielditem_filter` is considered archived or deleted. |
+| **last_modified**<br/>read-only | _String_ | Date/time when this `customfielditem_filter` was last modified, in ISO 8601 format (`YYYY-MM-DDThh:mm:ss±hh:mm`). |

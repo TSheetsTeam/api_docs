@@ -38,6 +38,10 @@ _Pass an array of timesheet objects as the value to a 'data' property (see examp
 
 For a full list of the properties that may be set on a timesheet, see the [Timesheet object](#the-timesheet-object).
 
+<aside class="notice">
+To create an active "on-the-clock" timesheet, create a <i>regular</i> timesheet with an empty string value ("") for the <code>end</code> property.
+</aside>
+
 ### Status Codes
 Each timesheet that is created will come back with a `_status_code` and `_status_message` that will indicate whether the timesheet was created successfully. If there was a problem creating a timesheet, there may also be an additional field, `_status_extra`, which will contain more details about the failure.
 

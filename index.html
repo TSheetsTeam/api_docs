@@ -25844,6 +25844,10 @@ Please see our <a href="#reports">reporting</a> endpoint Timesheet aggregations.
 </tbody></table>
 
 <p>For a full list of the properties that may be set on a timesheet, see the <a href="#the-timesheet-object">Timesheet object</a>.</p>
+
+<aside class="notice">
+To create an active "on-the-clock" timesheet, create a <i>regular</i> timesheet with an empty string value ("") for the <code>end</code> property.
+</aside>
 <h3 id='status-codes'>Status Codes</h3>
 <p>Each timesheet that is created will come back with a <code>_status_code</code> and <code>_status_message</code> that will indicate whether the timesheet was created successfully. If there was a problem creating a timesheet, there may also be an additional field, <code>_status_extra</code>, which will contain more details about the failure.</p>
 

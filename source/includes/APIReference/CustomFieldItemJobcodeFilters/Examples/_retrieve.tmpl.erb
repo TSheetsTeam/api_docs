@@ -1,0 +1,10 @@
+<% @response_body = File.read("source/includes/APIReference/CustomFieldItemJobcodeFilters/Examples/_retrieve-response.md.erb") -%>
+
+<%= partial "includes/CodeTemplates/get.md.erb",
+  :locals => {
+    :endpoint => "customfielditem_jobcode_filters",
+    :description => "Retrieve a list of all <code>customfielditem_jobcode_filters</code> modified since a given date/time.",
+    :parameters => [ [ "modified_since", "2018-07-17T00:00:00-00:00" ] ],
+    :response_body => @response_body
+  }
+%>

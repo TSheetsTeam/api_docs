@@ -96,6 +96,37 @@
 			]
 		},
 		{
+			"name": "Contact Info",
+			"item": [
+				{
+					"name": "List Contact Info",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{tsheets-bearer-token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base-api-url}}/contact_info",
+							"host": [
+								"{{base-api-url}}"
+							],
+							"path": [
+								"contact_info"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
 			"name": "Current User",
 			"item": [
 				{

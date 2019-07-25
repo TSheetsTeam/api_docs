@@ -1,0 +1,23 @@
+# Contact Info
+
+## The Contact Info Object
+
+<%= partial "includes/APIReference/ContactInfo/Examples/contact_info.tmpl.erb" %>
+
+Following is a list of the properties that belong to a contact info object, and a description of each.
+
+|                |             |             |
+| -------------: | :---------: | ----------- |
+| **id**<br/>read-only | _String_ | Two-letter country code. |
+| **country_name**<br/>read-only | _String_ | Official country name. |
+| **country_code**<br/>read-only | _String_ | Two-letter country code. |
+| **company_name**<br/>read-only | _String_ | Full company name. |
+| **company_address**<br/>read-only | _Object_ | Company address including street (addr1, addr2), city, state, zip, country name. |
+| **calling_code**<br/>read-only | _String_ | Country calling code. |
+| **phone_format**<br/>read-only | _Object_ | Country phone number formats including domestic, dashed, spaced, dotted. |
+| **support**<br/>read-only | _Object_ | Support info including phone numbers, email address, link. |
+| **trial_extension**<br/>read-only | _Object_ | Trial extension info including phone numbers, email address, link. |
+| **cancellation**<br/>read-only | _Object_ | Cancellation info including phone numbers, email address, link. |
+| **webinar**<br/>read-only | _Object_ | Webinar email address, link. |
+| **last_modified**<br/>read-only | _String_ | Date/time when this contact info was last modified, in ISO 8601 format (YYYY-MM-DDThh:mm:ss±hh:mm). |
+| **active**<br/>read-only | _Boolean_ | _true_ or _false_. |

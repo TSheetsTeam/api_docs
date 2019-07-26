@@ -25,6 +25,9 @@ includes:
   - Overview/tips_and_suggestions.md.erb
   - Overview/walkthroughs.md.erb  
 
+  - APIReference/ContactInfo/contact_info.md.erb
+  - APIReference/ContactInfo/retrieve.md.erb
+
   - APIReference/CurrentUser/current_user.md.erb
   - APIReference/CurrentUser/retrieve.md.erb
 

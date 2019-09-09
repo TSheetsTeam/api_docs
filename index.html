@@ -13302,6 +13302,11 @@ The maximum batch size is <i>50</i> invitations. If exceeded, a <code class="sta
 <td>Default is <em>-1</em> (meaning all jobcodes will be returned regardless of <code>parent_id</code>).<br/><br/>Comma separated list of one or more jobcode <code>parent_ids</code> you&#39;d like to filter on. Only jobcodes with a <code>parent_id</code> set to one of these values will be returned. Additionally you can use <em>0</em> to get only the top-level jobcodes. Then get the <code>id</code> of any results with <code>has_children</code>=<em>yes</em> and feed that in as the value of <code>parent_ids</code> for your next request to get the 2nd level of jobcodes, and so on, to traverse an entire tree of jobcodes.<br/><br/>Use <em>-1</em> to return all jobcodes regardless of <code>parent_id</code>. This is especially useful when combined with the <code>modified_since</code> filter. When <code>parent_ids</code> is <em>-1</em>, you&#39;ll have the jobcode records needed to trace each result back to it&#39;s top level parent in the <code>supplemental_data</code> section of the response.</td>
 </tr>
 <tr>
+<td style="text-align: right"><strong>name</strong><br/>optional</td>
+<td style="text-align: center"><em>String</em></td>
+<td>* will be interpreted as a wild card. Starts matching from the beginning of the string.</td>
+</tr>
+<tr>
 <td style="text-align: right"><strong>type</strong><br/>optional</td>
 <td style="text-align: center"><em>String</em></td>
 <td>Indicates jobcode type. One of &#39;regular&#39;, &#39;pto&#39;, &#39;paid_break&#39;, &#39;unpaid_break&#39;, or &#39;all&#39;.  Default is &#39;regular&#39;.</td>
@@ -30692,6 +30697,10 @@ The maximum batch size is <i>50</i> users. If exceeded, a <code class="standout"
 <tr>
 <td style="text-align: left">2019-08-12</td>
 <td style="text-align: left">Updating support links</td>
+</tr>
+<tr>
+<td style="text-align: left">2019-09-04</td>
+<td style="text-align: left">Adding the &#39;name&#39; filter to the job codes GET operation</td>
 </tr>
 </tbody></table>
 

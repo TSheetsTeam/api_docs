@@ -1,47 +1,66 @@
- > **Example**: <%= description %>
+<% if defined? base_url -%>
+  <% @base_url = base_url -%>
+<% else -%>
+  <% @base_url = "https://rest.tsheets.com/api/v1/" -%>
+<% end -%>
 
- > Request
+<% @full_url = "#{@base_url}#{endpoint}" -%>
 
- <% @full_url = "https://rest.tsheets.com/api/v1/#{endpoint}" -%>
- <% if defined? parameters -%>
+<% if defined? parameters -%>
   <% @params = [] -%>
   <% parameters.each do |kvp| -%>
     <% @params.push(kvp.join('=')) -%>
   <% end -%>
   <% @full_url += "?#{@params.join('&')}" -%>  
+ <% end -%>
+
+<% if defined? headers -%>
+  <% @headers = headers -%>
+<% else -%>
+  <% @headers = [ [ "Authorization", "Bearer <TOKEN>" ] ] -%>
 <% end -%>
+
+ > **Example**: <%= description %>
+
+ > Request
 
 ```shell
 <%= "curl \"#{@full_url}\" \\" %>
+<% @headers.each do |header| -%>
+  <%= "-H \"#{header[0]}: #{header[1]}\" \\" %>
+<% end -%>
 <% if defined? extra_headers -%>
   <% extra_headers.each do |header| -%>
   <%= "-H \"#{header[0]}: #{header[1]}\" \\" %>
   <% end -%>
 <% end -%>
-  -H "Authorization: Bearer <TOKEN>"
 ```
 
 ```csharp
 <%= "var client = new RestClient(\"#{@full_url}\");" %>
 var request = new RestRequest(Method.GET);
+<% @headers.each do |header| -%>
+<%= "request.AddHeader(\"#{header[0]}\", \"#{header[1]}\");" %>
+<% end -%>
 <% if defined? extra_headers -%>
   <% extra_headers.each do |header| -%>
 <%= "request.AddHeader(\"#{header[0]}\", \"#{header[1]}\");" %>
   <% end -%>
 <% end -%> 
-request.AddHeader("Authorization", "Bearer <TOKEN>");
 IRestResponse response = client.Execute(request);
 ```
 
 ```vb
 <%= "Dim client = New RestClient(\"#{@full_url}\")" %>
 Dim request = New RestRequest(Method.[GET])
+<% @headers.each do |header| -%>
+<%= "request.AddHeader(\"#{header[0]}\", \"#{header[1]}\")" %>
+<% end -%>
 <% if defined? extra_headers -%>
   <% extra_headers.each do |header| -%>
 <%= "request.AddHeader(\"#{header[0]}\", \"#{header[1]}\")" %>
   <% end -%>
 <% end -%> 
-request.AddHeader("Authorization", "Bearer <TOKEN>")
 Dim response As IRestResponse = client.Execute(request)
 ```
 
@@ -51,12 +70,14 @@ OkHttpClient client = new OkHttpClient();
 Request request = new Request.Builder()
   <%= ".url(\"#{@full_url}\")" %>
   .get()
+<% @headers.each do |header| -%>
+  <%= ".addHeader(\"#{header[0]}\", \"#{header[1]}\")" %>
+<% end -%>  
 <% if defined? extra_headers -%>
   <% extra_headers.each do |header| -%>
   <%= ".addHeader(\"#{header[0]}\", \"#{header[1]}\")" %>
   <% end -%>
 <% end -%>   
-  .addHeader("Authorization", "Bearer <TOKEN>")
   .build();
 
 Response response = client.newCall(request).execute();
@@ -69,13 +90,14 @@ var settings = {
   <%= "\"url\": \"#{@full_url}\"," %>
   "method": "GET",
   "headers": {
-    "Authorization": "Bearer <TOKEN>",
+  <% @headers.each do |header| -%>
+    <%= "\"#{header[0]}\", \"#{header[1]}\"," %>
+  <% end -%>
 <% if defined? extra_headers -%>
   <% extra_headers.each do |header| -%>
     <%= "\"#{header[0]}\", \"#{header[1]}\"," %>
   <% end -%>
 <% end -%>     
-    "cache-control": "no-cache"
   }
 }
 
@@ -97,15 +119,16 @@ var options = { method: 'GET',
   },
 <% end %>
   headers: 
-<% if defined? extra_headers -%>
-   { 'Authorization': 'Bearer <TOKEN>',
-  <% extra_headers.each do |header| -%>
+   {
+  <% @headers.each do |header| -%>
      <%= "'#{header[0]}': '#{header[1]}'," %>
   <% end -%>
+  <% if defined? extra_headers -%>
+    <% extra_headers.each do |header| -%>
+     <%= "'#{header[0]}': '#{header[1]}'," %>
+    <% end -%>
+  <% end -%>     
    } };
-<% else %>
-   { 'Authorization': 'Bearer <TOKEN>' } };
-<% end -%>     
 
 request(options, function (error, response, body) {
   if (error) throw new Error(error);
@@ -130,16 +153,15 @@ $request->setQueryData(array(
 <% end %>
 
 $request->setHeaders(array(
-<% if defined? extra_headers -%>
-  'Authorization' => 'Bearer <TOKEN>',
-  <% extra_headers.each do |header| -%>
+  <% @headers.each do |header| -%>
   <%= "'#{header[0]}' => '#{header[1]}'," %>
   <% end -%>
+  <% if defined? extra_headers -%>
+    <% extra_headers.each do |header| -%>
+  <%= "'#{header[0]}' => '#{header[1]}'," %>
+    <% end -%>
+  <% end -%>
 ));
-<% else %>
-  'Authorization' => 'Bearer <TOKEN>'
-));
-<% end -%>
 
 try {
   $response = $request->send();
@@ -159,7 +181,9 @@ require 'net/http'
 http = Net::HTTP.new(url.host, url.port)
 
 request = Net::HTTP::Get.new(url)
-request["Authorization"] = 'Bearer <TOKEN>'
+<% @headers.each do |header| -%>
+<%= "request[\"#{header[0]}\"] = '#{header[1]}'," %>
+<% end -%>
 <% if defined? extra_headers -%>
   <% extra_headers.each do |header| -%>
 <%= "request[\"#{header[0]}\"] = '#{header[1]}'," %>
@@ -185,14 +209,14 @@ querystring = {
 
 payload = ""
 headers = {
-<% if defined? extra_headers -%>
-   'Authorization': "Bearer <TOKEN>",
+  <% @headers.each do |header| -%>
+   <%= "'#{header[0]}': \"#{header[1]}\"," %>
+  <% end -%>
+<% if defined? extra_headers -%>    
   <% extra_headers.each do |header| -%>
    <%= "'#{header[0]}': \"#{header[1]}\"," %>
   <% end -%>
-<% else %>
-   'Authorization': "Bearer <TOKEN>"
-<% end -%> 
+<% end -%>
   }
 
 <% if defined? parameters -%>
@@ -219,12 +243,14 @@ func main() {
 
   req, _ := http.NewRequest("GET", url, nil)
 
+<% @headers.each do |header| -%>
+  <%= "req.Header.Add(\"#{header[0]}\", \"#{header[1]}\")" %>
+<% end -%>
 <% if defined? extra_headers -%>
   <% extra_headers.each do |header| -%>
   <%= "req.Header.Add(\"#{header[0]}\", \"#{header[1]}\")" %>
   <% end -%>
 <% end -%> 
-  req.Header.Add("Authorization", "Bearer <TOKEN>")
 
   res, _ := http.DefaultClient.Do(req)
 
@@ -240,16 +266,14 @@ func main() {
 import Foundation
 
 let headers = [
-<% if defined? extra_headers -%>
-  "Authorization": "Bearer <TOKEN>",
+  <% @headers.each do |header| -%>
+   <%= "\"#{header[0]}\": \"#{header[1]}\"," %>
+  <% end -%>   
+<% if defined? extra_headers -%>    
   <% extra_headers.each do |header| -%>
    <%= "\"#{header[0]}\": \"#{header[1]}\"," %>
   <% end -%>    
-  "cache-control": "no-cache"
-<% else %>
-  "Authorization": "Bearer <TOKEN>",
-  "cache-control": "no-cache"
-<% end -%> 
+<% end %>
 ]
 
 let request = NSMutableURLRequest(
@@ -281,8 +305,9 @@ use REST::Client;
  
 my $client = REST::Client->new();
 
-$client->addHeader('Authorization', 'Bearer <TOKEN>');
-$client->addHeader('Accept', 'application/json');
+<% @headers.each do |header| -%>
+<%= "$client->addHeader('#{header[0]}', '#{header[1]}');" %>
+<% end -%> 
 <% if defined? extra_headers -%>
   <% extra_headers.each do |header| -%>
 <%= "$client->addHeader('#{header[0]}', '#{header[1]}');" %>

@@ -1,9 +1,12 @@
- > **Example**: <%= description %>
+ <% if defined? base_url -%>
+  <% @base_url = base_url -%>
+<% else -%>
+  <% @base_url = "https://rest.tsheets.com/api/v1/" -%>
+<% end -%>
 
- > Request
+<% @full_url = "#{@base_url}#{endpoint}" -%>
 
- <% @full_url = "https://rest.tsheets.com/api/v1/#{endpoint}" -%>
- <% if defined? parameters -%>
+<% if defined? parameters -%>
   <% @params = [] -%>
   <% parameters.each do |kvp| -%>
     <% @params.push(kvp.join('=')) -%>
@@ -11,22 +14,53 @@
   <% @full_url += "?#{@params.join('&')}" -%>  
 <% end -%>
 
+<% if defined? headers -%>
+  <% @headers = headers -%>
+<% else -%>
+  <% @headers = [ [ "Authorization", "Bearer <TOKEN>" ] ] -%>
+<% end -%>
+
+ > **Example**: <%= description %>
+
+ > Request
+
 ```shell
 <%= "curl -X DELETE \"#{@full_url}\"" %>
-  -H "Authorization: Bearer <TOKEN>"
+<% @headers.each do |header| -%>
+  <%= "-H \"#{header[0]}: #{header[1]}\" \\" %>
+<% end -%>
+<% if defined? extra_headers -%>
+  <% extra_headers.each do |header| -%>
+  <%= "-H \"#{header[0]}: #{header[1]}\" \\" %>
+  <% end -%>
+<% end -%>
 ```
 
 ```csharp
 <%= "var client = new RestClient(\"#{@full_url}\");" %>
 var request = new RestRequest(Method.DELETE);
-request.AddHeader("Authorization", "Bearer <TOKEN>");
+<% @headers.each do |header| -%>
+<%= "request.AddHeader(\"#{header[0]}\", \"#{header[1]}\");" %>
+<% end -%>
+<% if defined? extra_headers -%>
+  <% extra_headers.each do |header| -%>
+<%= "request.AddHeader(\"#{header[0]}\", \"#{header[1]}\");" %>
+  <% end -%>
+<% end -%>
 IRestResponse response = client.Execute(request);
 ```
 
 ```vb
 <%= "Dim client = New RestClient(\"#{@full_url}\")" %>
 Dim request = New RestRequest(Method.[DELETE])
-request.AddHeader("Authorization", "Bearer <TOKEN>")
+<% @headers.each do |header| -%>
+<%= "request.AddHeader(\"#{header[0]}\", \"#{header[1]}\")" %>
+<% end -%>
+<% if defined? extra_headers -%>
+  <% extra_headers.each do |header| -%>
+<%= "request.AddHeader(\"#{header[0]}\", \"#{header[1]}\")" %>
+  <% end -%>
+<% end -%>
 Dim response As IRestResponse = client.Execute(request)
 ```
 
@@ -36,7 +70,14 @@ OkHttpClient client = new OkHttpClient();
 Request request = new Request.Builder()
   <%= ".url(\"#{@full_url}\")" %>
   .delete()
-  .addHeader("Authorization", "Bearer <TOKEN>")
+<% @headers.each do |header| -%>
+  <%= ".addHeader(\"#{header[0]}\", \"#{header[1]}\")" %>
+<% end -%>  
+<% if defined? extra_headers -%>
+  <% extra_headers.each do |header| -%>
+  <%= ".addHeader(\"#{header[0]}\", \"#{header[1]}\")" %>
+  <% end -%>
+<% end -%> 
   .build();
 
 Response response = client.newCall(request).execute();
@@ -49,8 +90,14 @@ var settings = {
   <%= "\"url\": \"#{@full_url}\"," %>
   "method": "DELETE",
   "headers": {
-    "Authorization": "Bearer <TOKEN>",
-    "cache-control": "no-cache"
+  <% @headers.each do |header| -%>
+    <%= "\"#{header[0]}\", \"#{header[1]}\"," %>
+  <% end -%>
+<% if defined? extra_headers -%>
+  <% extra_headers.each do |header| -%>
+    <%= "\"#{header[0]}\", \"#{header[1]}\"," %>
+  <% end -%>
+<% end -%>
   }
 }
 
@@ -72,7 +119,16 @@ var options = { method: 'DELETE',
   },
 <% end %>
   headers: 
-   { Authorization: 'Bearer <TOKEN>' } };
+   {
+  <% @headers.each do |header| -%>
+     <%= "'#{header[0]}': '#{header[1]}'," %>
+  <% end -%>
+  <% if defined? extra_headers -%>
+    <% extra_headers.each do |header| -%>
+     <%= "'#{header[0]}': '#{header[1]}'," %>
+    <% end -%>
+  <% end -%>     
+   } };
 
 request(options, function (error, response, body) {
   if (error) throw new Error(error);
@@ -97,7 +153,14 @@ $request->setQueryData(array(
 <% end %>
 
 $request->setHeaders(array(
-  'Authorization' => 'Bearer <TOKEN>'
+  <% @headers.each do |header| -%>
+  <%= "'#{header[0]}' => '#{header[1]}'," %>
+  <% end -%>
+  <% if defined? extra_headers -%>
+    <% extra_headers.each do |header| -%>
+  <%= "'#{header[0]}' => '#{header[1]}'," %>
+    <% end -%>
+  <% end -%>
 ));
 
 try {
@@ -118,7 +181,14 @@ require 'net/http'
 http = Net::HTTP.new(url.host, url.port)
 
 request = Net::HTTP::Delete.new(url)
-request["Authorization"] = 'Bearer <TOKEN>'
+<% @headers.each do |header| -%>
+<%= "request[\"#{header[0]}\"] = '#{header[1]}'," %>
+<% end -%>
+<% if defined? extra_headers -%>
+  <% extra_headers.each do |header| -%>
+<%= "request[\"#{header[0]}\"] = '#{header[1]}'," %>
+  <% end -%>
+<% end -%> 
 
 response = http.request(request)
 puts response.read_body
@@ -139,8 +209,15 @@ querystring = {
 
 payload = ""
 headers = {
-    'Authorization': "Bearer <TOKEN>"
-    }
+  <% @headers.each do |header| -%>
+   <%= "'#{header[0]}': \"#{header[1]}\"," %>
+  <% end -%>
+<% if defined? extra_headers -%>    
+  <% extra_headers.each do |header| -%>
+   <%= "'#{header[0]}': \"#{header[1]}\"," %>
+  <% end -%>
+<% end -%>
+  }
 
 <% if defined? parameters -%>
 response = requests.request("GET", url, data=payload, headers=headers, params=querystring)
@@ -166,7 +243,14 @@ func main() {
 
   req, _ := http.NewRequest("DELETE", url, nil)
 
-  req.Header.Add("Authorization", "Bearer <TOKEN>")
+<% @headers.each do |header| -%>
+  <%= "req.Header.Add(\"#{header[0]}\", \"#{header[1]}\")" %>
+<% end -%>
+<% if defined? extra_headers -%>
+  <% extra_headers.each do |header| -%>
+  <%= "req.Header.Add(\"#{header[0]}\", \"#{header[1]}\")" %>
+  <% end -%>
+<% end -%>
 
   res, _ := http.DefaultClient.Do(req)
 
@@ -182,8 +266,14 @@ func main() {
 import Foundation
 
 let headers = [
-  "Authorization": "Bearer <TOKEN>",
-  "cache-control": "no-cache"
+  <% @headers.each do |header| -%>
+   <%= "\"#{header[0]}\": \"#{header[1]}\"," %>
+  <% end -%>   
+<% if defined? extra_headers -%>    
+  <% extra_headers.each do |header| -%>
+   <%= "\"#{header[0]}\": \"#{header[1]}\"," %>
+  <% end -%>    
+<% end %>
 ]
 
 let request = NSMutableURLRequest(
@@ -212,8 +302,14 @@ use REST::Client;
  
 my $client = REST::Client->new();
 
-$client->addHeader('Authorization', 'Bearer <TOKEN>');
-$client->addHeader('Accept', 'application/json');
+<% @headers.each do |header| -%>
+<%= "$client->addHeader('#{header[0]}', '#{header[1]}');" %>
+<% end -%> 
+<% if defined? extra_headers -%>
+  <% extra_headers.each do |header| -%>
+<%= "$client->addHeader('#{header[0]}', '#{header[1]}');" %>
+  <% end -%>    
+<% end %>
 
 <%= "$url=\"#{@full_url}\";" %> 
 

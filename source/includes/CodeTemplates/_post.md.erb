@@ -1,3 +1,15 @@
+<% if defined? base_url -%>
+  <% @base_url = base_url -%>
+<% else -%>
+  <% @base_url = "https://rest.tsheets.com/api/v1/" -%>
+<% end -%>
+
+<% if defined? headers -%>
+  <% @headers = headers -%>
+<% else -%>
+  <% @headers = [ [ "Authorization", "Bearer <TOKEN>" ], [ "Content-Type", "application/json" ] ] -%>
+<% end -%>
+
  > **Example**: <%= description %>
  
 <% if defined?(request_body) -%>
@@ -13,41 +25,44 @@
 
 ```shell
 curl -X POST \
-  https://rest.tsheets.com/api/v1/<%= endpoint %> \
-  -H 'Authorization: Bearer <TOKEN>' \
+  <%= @base_url %><%= endpoint %> \
+  <% @headers.each do |header| -%>
+  <%= "-H '#{header[0]}: #{header[1]}' \\" %>
+  <% end -%>
 <% if defined? extra_headers -%>
   <% extra_headers.each do |header| -%>
   <%= "-H '#{header[0]}: #{header[1]}' \\" %>
   <% end -%>
 <% end -%>
-  -H 'Content-Type: application/json' \
   -d '<REQUEST BODY>'
 ```
 
 ```csharp
-var client = new RestClient("https://rest.tsheets.com/api/v1/<%= endpoint %>");
+var client = new RestClient("<%= @base_url %><%= endpoint %>");
 var request = new RestRequest(Method.POST);
-request.AddHeader("Authorization", "Bearer <TOKEN>");
+<% @headers.each do |header| -%>
+<%= "request.AddHeader(\"#{header[0]}\", \"#{header[1]}\");" %>
+<% end -%>
 <% if defined? extra_headers -%>
   <% extra_headers.each do |header| -%>
 <%= "request.AddHeader(\"#{header[0]}\", \"#{header[1]}\");" %>
   <% end -%>
 <% end -%>  
-request.AddHeader("Content-Type", "application/json");
 request.AddParameter("application/json", "<REQUEST BODY>", ParameterType.RequestBody);
 IRestResponse response = client.Execute(request);
 ```
 
 ```vb
-Dim client = New RestClient("https://rest.tsheets.com/api/v1/<%= endpoint %>")
+Dim client = New RestClient("<%= @base_url %><%= endpoint %>")
 Dim request = New RestRequest(Method.POST)
-request.AddHeader("Authorization", "Bearer <TOKEN>")
+<% @headers.each do |header| -%>
+<%= "request.AddHeader(\"#{header[0]}\", \"#{header[1]}\")" %>
+<% end -%>
 <% if defined? extra_headers -%>
   <% extra_headers.each do |header| -%>
 <%= "request.AddHeader(\"#{header[0]}\", \"#{header[1]}\")" %>
   <% end -%>
 <% end -%>   
-request.AddHeader("Content-Type", "application/json")
 request.AddParameter("application/json", "<REQUEST BODY>", ParameterType.RequestBody);
 Dim response As IRestResponse = client.Execute(request)
 ```
@@ -58,15 +73,16 @@ OkHttpClient client = new OkHttpClient();
 MediaType mediaType = MediaType.parse("application/json");
 RequestBody body = RequestBody.create(mediaType, "<REQUEST BODY>");
 Request request = new Request.Builder()
-  .url("https://rest.tsheets.com/api/v1/<%= endpoint %>")
+  .url("<%= @base_url %><%= endpoint %>")
   .post(body)
-  .addHeader("Authorization", "Bearer <TOKEN>")
+  <% @headers.each do |header| -%>
+  <%= ".addHeader(\"#{header[0]}\", \"#{header[1]}\")" %>
+  <% end -%>  
 <% if defined? extra_headers -%>
   <% extra_headers.each do |header| -%>
   <%= ".addHeader(\"#{header[0]}\", \"#{header[1]}\")" %>
   <% end -%>
 <% end -%>      
-  .addHeader("Content-Type", "application/json")
   .build();
 
 Response response = client.newCall(request).execute();
@@ -79,13 +95,14 @@ var settings = {
   <%= "\"url\": \"#{@full_url}\"," %>
   "method": "POST",
   "headers": {
-    "Authorization": "Bearer <TOKEN>",
+  <% @headers.each do |header| -%>
+    <%= "\"#{header[0]}\", \"#{header[1]}\"," %>
+  <% end -%>
 <% if defined? extra_headers -%>
   <% extra_headers.each do |header| -%>
     <%= "\"#{header[0]}\", \"#{header[1]}\"," %>
   <% end -%>
 <% end -%>        
-    "cache-control": "no-cache"
   },
   "processData": false,
   "data": "<REQUEST BODY>"
@@ -100,15 +117,18 @@ $.ajax(settings).done(function (response) {
 var request = require("request");
 
 var options = { method: 'POST',
-  url: 'https://rest.tsheets.com/api/v1/<%= endpoint %>',
+  url: '<%= @base_url %><%= endpoint %>',
   headers: 
-   { 'Content-Type': 'application/json',
+  { 
+  <% @headers.each do |header| -%>
+     <%= "'#{header[0]}': '#{header[1]}'," %>
+  <% end -%>    
 <% if defined? extra_headers -%>
   <% extra_headers.each do |header| -%>
      <%= "'#{header[0]}': '#{header[1]}'," %>
   <% end -%>
 <% end -%>      
-     'Authorization': 'Bearer <TOKEN>' },
+  },
   body: '<REQUEST BODY>',
   json: true };
 
@@ -123,17 +143,18 @@ request(options, function (error, response, body) {
 <?php
 
 $request = new HttpRequest();
-$request->setUrl('https://rest.tsheets.com/api/v1/<%= endpoint %>');
+$request->setUrl('<%= @base_url %><%= endpoint %>');
 $request->setMethod(HTTP_METH_POST);
 
 $request->setHeaders(array(
-  'Content-Type' => 'application/json',
+<% @headers.each do |header| -%>
+  <%= "'#{header[0]}' => '#{header[1]}'," %>
+<% end -%>
 <% if defined? extra_headers -%>
   <% extra_headers.each do |header| -%>
   <%= "'#{header[0]}' => '#{header[1]}'," %>
   <% end -%>
 <% end -%>   
-  'Authorization' => 'Bearer <TOKEN>'
 ));
 
 $request->setBody('<REQUEST BODY>');
@@ -151,18 +172,19 @@ try {
 require 'uri'
 require 'net/http'
 
-url = URI("https://rest.tsheets.com/api/v1/<%= endpoint %>")
+url = URI("<%= @base_url %><%= endpoint %>")
 
 http = Net::HTTP.new(url.host, url.port)
 
 request = Net::HTTP::Post.new(url)
-request["Authorization"] = 'Bearer <TOKEN>'
+<% @headers.each do |header| -%>
+<%= "request[\"#{header[0]}\"] = '#{header[1]}'," %>
+<% end -%>
 <% if defined? extra_headers -%>
   <% extra_headers.each do |header| -%>
 <%= "request[\"#{header[0]}\"] = '#{header[1]}'," %>
   <% end -%>
 <% end -%>   
-request["Content-Type"] = 'application/json'
 request.body = "<REQUEST BODY>"
 
 response = http.request(request)
@@ -172,17 +194,18 @@ puts response.read_body
 ```python
 import requests
 
-url = "https://rest.tsheets.com/api/v1/<%= endpoint %>"
+url = "<%= @base_url %><%= endpoint %>"
 
 payload = "<REQUEST BODY>"
 headers = {
-    'Authorization': "Bearer <TOKEN>",
+  <% @headers.each do |header| -%>
+    <%= "'#{header[0]}': '#{header[1]}'," %>
+  <% end -%>
 <% if defined? extra_headers -%>
   <% extra_headers.each do |header| -%>
     <%= "'#{header[0]}': '#{header[1]}'," %>
   <% end -%>
 <% end -%>         
-    'Content-Type': "application/json"
     }
 
 response = requests.request("POST", url, data=payload, headers=headers)
@@ -202,19 +225,20 @@ import (
 
 func main() {
 
-  url := "https://rest.tsheets.com/api/v1/<%= endpoint %>"
+  url := "<%= @base_url %><%= endpoint %>"
 
   payload := strings.NewReader("<REQUEST BODY>")
 
   req, _ := http.NewRequest("POST", url, payload)
 
-  req.Header.Add("Authorization", "Bearer <TOKEN>")
+  <% @headers.each do |header| -%>
+  <%= "req.Header.Add(\"#{header[0]}\", \"#{header[1]}\")" %>
+  <% end -%>
 <% if defined? extra_headers -%>
   <% extra_headers.each do |header| -%>
   <%= "req.Header.Add(\"#{header[0]}\", \"#{header[1]}\")" %>
   <% end -%>
 <% end -%>      
-  req.Header.Add("Content-Type", "application/json")
 
   res, _ := http.DefaultClient.Do(req)
 
@@ -232,16 +256,16 @@ import Foundation
 
 let headers = [
 <% if defined? extra_headers -%>
-  "Authorization": "Bearer <TOKEN>",
-  "Content-Type": "application/json",
+  <% @headers.each do |header| -%>
+   <%= "\"#{header[0]}\": \"#{header[1]}\"," %>
+  <% end -%> 
   <% extra_headers.each do |header| -%>
    <%= "\"#{header[0]}\": \"#{header[1]}\"," %>
   <% end -%>    
-  "cache-control": "no-cache"
 <% else %>
-  "Authorization": "Bearer <TOKEN>",
-  "Content-Type": "application/json",
-  "cache-control": "no-cache"
+  <% @headers.each do |header| -%>
+   <%= "\"#{header[0]}\": \"#{header[1]}\"," %>
+  <% end -%> 
 <% end -%> 
 ]
 let parameters = <REQUEST BODY> as [String : Any]
@@ -249,7 +273,7 @@ let parameters = <REQUEST BODY> as [String : Any]
 let postData = JSONSerialization.data(withJSONObject: parameters, options: [])
 
 let request = NSMutableURLRequest(
-  url: NSURL(string: "http://rest.tsheets.com/api/v1/<%= endpoint %>")! as URL,
+  url: NSURL(string: "<%= @base_url %><%= endpoint %>")! as URL,
   cachePolicy: .useProtocolCachePolicy,
   timeoutInterval: 10.0)
 
@@ -279,10 +303,9 @@ use REST::Client;
  
 my $client = REST::Client->new();
 
-$client->addHeader('Authorization', 'Bearer <TOKEN>');
-$client->addHeader('Content-Type', 'application/json');
-$client->addHeader('charset', 'UTF-8');
-$client->addHeader('Accept', 'application/json');
+<% @headers.each do |header| -%>
+<%= "$client->addHeader('#{header[0]}', '#{header[1]}');" %>
+<% end -%>  
 <% if defined? extra_headers -%>
   <% extra_headers.each do |header| -%>
 <%= "$client->addHeader('#{header[0]}', '#{header[1]}');" %>
@@ -291,7 +314,7 @@ $client->addHeader('Accept', 'application/json');
 
 $req = '<REQUEST BODY>';
 
-$url="http://rest.tsheets.com/api/v1/<%= endpoint %>"; 
+$url="<%= @base_url %><%= endpoint %>"; 
 
 $client->POST($url, $req);
 print $client->responseContent();

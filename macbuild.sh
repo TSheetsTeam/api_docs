@@ -21,4 +21,5 @@ docker cp apidocs:/usr/src/app/build/. ${PWD}/build
 docker stop --time=0 apidocs
 docker rm apidocs
 
-echo Navigate to ${PWD}/build/index.html in a browser.
+echo Opening ${PWD}/build/index.html in a browser.
+open ${PWD}/build/index.html

@@ -11,6 +11,8 @@ Following is a list of the properties that belong to a user object, and a descri
 | **id**<br/>read-only | _Int_ | Id of this user. |
 | **first_name**<br/>read-write | _String_ | First name of user. |
 | **last_name**<br/>read-write | _String_ | Last name of user. |
+| **display_name**<br/>read-write | _String_ | The display name of user. NOTE: field will be null unless feature GED_INCLUSION is enabled (contact support for more info), if feature is enabled then value will be a non-null display_name value (users who have not setup their display_name will return '') |
+| **pronouns**<br/>read-write | _String_ | The personal pronouns of user. NOTE: field will be null unless feature GED_INCLUSION is enabled (contact support for more info), if feature is enabled then value will be a non-null pronouns value (users who have not setup their pronouns will return '') |
 | **group_id**<br/>read-write | _Int_ | Id of the group this user belongs to. |
 | **active**<br/>read-write | _Boolean_ | _true_ or _false_. If _false_, this user is considered archived. |
 | **employee_number**<br/>read-write | _Int_ | Unique number associated with this user. For your reference only. |

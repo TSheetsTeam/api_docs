@@ -32,3 +32,12 @@
     :response_body => @response_body
   }
 %>
+
+<%= partial "includes/CodeTemplates/get.md.erb",
+  :locals => {
+    :endpoint => "customfielditems",
+    :description => "Retrieve a list of customfielditems belonging to a given customfield and using the name wildcard, end in the given string.",
+    :parameters => [ [ "customfield_id", "195923" ], ["name", "*ate"] ],    
+    :response_body => @response_body
+  }
+%>

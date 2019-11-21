@@ -29,6 +29,14 @@
     :endpoint => "customfielditems",
     :description => "Retrieve a list of customfielditems belonging to a given customfield that have been modified since a particular date.",
     :parameters => [ [ "customfield_id", "195923" ], ["modified_since", "2018-01-01T00:00:00-06:00"] ],    
+  }
+%>
+
+<%= partial "includes/CodeTemplates/get.md.erb",
+  :locals => {
+    :endpoint => "customfielditems",
+    :description => "Retrieve a list of customfielditems belonging to a given customfield and using the name wildcard, end in the given string.",
+    :parameters => [ [ "customfield_id", "195923" ], ["name", "*ate"] ],    
     :response_body => @response_body
   }
 %>

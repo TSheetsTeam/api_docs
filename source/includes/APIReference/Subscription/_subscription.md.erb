@@ -1,0 +1,13 @@
+# Subscription
+
+## The Subscription Object
+An instance of the [Subscription](#the-subscription-object), for the client associated with the current access token.
+
+
+Following is a list of the properties that belong to a subscription object, and a description of each.
+
+|                |             |             |
+| -------------: | :---------: | ----------- |
+| **trial_expiration_datetime**<br/>read-only | _String_ | Date/time when the trial period ends, in ISO 8601 format (`YYYY-MM-DDThh:mm:ss±hh:mm`). |
+| **is_paying**<br/>read-only | _Boolean_ | _true_, if the client is a paying customer or not. _false_ if their account type is free, exempt, or not paying. |
+| **is_exempt_from_billing**<br/>read-only | _Boolean_ | _true_, if the client is exempt from billing requirements. |

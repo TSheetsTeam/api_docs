@@ -119,6 +119,9 @@ includes:
   - APIReference/ScheduleEvents/create.md.erb
   - APIReference/ScheduleEvents/update.md.erb
 
+  - APIReference/Subscription/subscription.md.erb
+  - APIReference/Subscription/retrieve.md.erb
+
   - APIReference/Timesheets/timesheets.md.erb
   - APIReference/Timesheets/retrieve.md.erb
   - APIReference/Timesheets/create.md.erb 

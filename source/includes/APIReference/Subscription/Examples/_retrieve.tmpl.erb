@@ -1,0 +1,9 @@
+<% @response_body = File.read("source/includes/APIReference/Subscription/Examples/_retrieve-response.md.erb") -%>
+
+<%= partial "includes/CodeTemplates/get.md.erb",
+  :locals => {
+    :endpoint => "subscription",
+    :description => "Retrieve subscription.",
+    :response_body => @response_body
+  }
+%>

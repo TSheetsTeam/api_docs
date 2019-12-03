@@ -30,6 +30,8 @@ includes:
 
   - APIReference/CustomFields/custom_fields.md.erb
   - APIReference/CustomFields/retrieve.md.erb
+  - APIReference/CustomFields/create.md.erb
+  - APIReference/CustomFields/update.md.erb
 
   - APIReference/CustomFieldItems/custom_field_items.md.erb
   - APIReference/CustomFieldItems/retrieve.md.erb

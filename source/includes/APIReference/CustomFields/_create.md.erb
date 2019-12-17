@@ -14,12 +14,12 @@ _Pass an array of customfield objects as the value to a 'data' property (see exa
 |                |             |             |
 | -------------: | :---------: | ----------- |
 | **name**<br/>required | _String_ | The name of this customfield. |
-| **required**<br/>optional | _Boolean_ | If true, a non-null value must be selected for this customfield when it appears on a timesheet. |
-| **active**<br/>optional | _Boolean_ | If false, this `customfield` is considered archived and will not be visible or usable. |
-| **applies_to**<br/>required | _String_ | Allowed values: 'timesheet'. Specify that this `customfield` should appear on timesheets (additional customfield types may be supported in the future). |
+| **required**<br/>optional | _Boolean_ | Default: `true`. If true, a non-null value must be selected for this customfield when it appears on a timesheet. |
+| **active**<br/>optional | _Boolean_ | Default: `true`. If false, this `customfield` is considered archived and will not be visible or usable. |
+| **applies_to**<br/>required | _String_ | Default: `timesheet`. Allowed values: 'timesheet'. Specify that this `customfield` should appear on timesheets (additional customfield types may be supported in the future). |
 | **type**<br/>required | _String_ | Allowed values: 'managed-list', 'free-form'.  A managed-list customfield is intended to be displayed as a dropdown list, where each 'option' is a customfielditem. A 'free-form' customfield supports text entry and does not require a collection of customfielditems to accompany it. |
 | **show_to_all**<br/>optional | _Boolean_ | Default: `true`.  Declares whether this customfield should be shown on timesheets regardless of the jobcode chosen. If false, it will only appear when the chosen jobcode for a timesheet has been associated with this field. |
-| **short_code**<br/>optional | _String_ | This is a shortened code or alias that is associated with the customfield. It may only consist of letters and numbers.
+| **short_code**<br/>optional | _String_ | Default: `""` (none). This is a shortened code or alias that is associated with the customfield. It may only consist of letters and numbers.
 
 For a full list of the properties that may be set on a customfield, see [The Custom Field Object](#the-custom-field-object).
 

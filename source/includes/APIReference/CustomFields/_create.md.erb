@@ -18,7 +18,7 @@ _Pass an array of customfield objects as the value to a 'data' property (see exa
 | **active**<br/>optional | _Boolean_ | If false, this `customfield` is considered archived and will not be visible or usable. |
 | **applies_to**<br/>required | _String_ | Allowed values: 'timesheet'. Specify that this `customfield` should appear on timesheets (additional customfield types may be supported in the future). |
 | **type**<br/>required | _String_ | Allowed values: 'managed-list', 'free-form'.  A managed-list customfield is intended to be displayed as a dropdown list, where each 'option' is a customfielditem. A 'free-form' customfield supports text entry and does not require a collection of customfielditems to accompany it. |
-| **show_to_all**<br/>optional | _Boolean_ | Default: `true`.  Declares whether this customfield should exist on timesheets for all workers. If false, it will only appear on timesheets for workers to whom it has been assigned. |
+| **show_to_all**<br/>optional | _Boolean_ | Default: `true`.  Declares whether this customfield should be shown on timesheets regardless of the jobcode chosen. If false, it will only appear when the chosen jobcode for a timesheet has been associated with this field. |
 | **short_code**<br/>optional | _String_ | This is a shortened code or alias that is associated with the customfield. It may only consist of letters and numbers.
 
 For a full list of the properties that may be set on a customfield, see [The Custom Field Object](#the-custom-field-object).
@@ -36,5 +36,4 @@ field, `_status_extra`, which will contain more details about the failure.
 <aside class="notice">
 The maximum batch size is <i>50</i> customfields. If exceeded, a <code class="standout">413: Request entity too large</code> HTTP response will be returned.
 </aside>
-
 

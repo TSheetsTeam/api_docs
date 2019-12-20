@@ -15,7 +15,6 @@ _Pass an array of customfield objects as the value to a 'data' property (see exa
 | -------------: | :---------: | ----------- |
 | **name**<br/>required | _String_ | The name of this customfield. |
 | **required**<br/>optional | _Boolean_ | Default: `false`. If true, a non-null value must be selected for this customfield when it appears on a timesheet. |
-
 | **active**<br/>optional | _Boolean_ | Default: `true`. If false, this `customfield` is considered archived and will not be visible or usable. |
 | **applies_to**<br/>required | _String_ | Default: `timesheet`. Allowed values: 'timesheet'. Specify that this `customfield` should appear on timesheets (additional customfield types may be supported in the future). |
 | **type**<br/>required | _String_ | Allowed values: 'managed-list', 'free-form'.  A managed-list customfield is intended to be displayed as a dropdown list, where each 'option' is a customfielditem. A 'free-form' customfield supports text entry and does not require a collection of customfielditems to accompany it. |

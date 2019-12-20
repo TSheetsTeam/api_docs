@@ -1,0 +1,39 @@
+## Create Custom Fields
+
+<%= partial "includes/APIReference/CustomFields/Examples/create.tmpl.erb" %>
+
+Add one or more customfields.
+
+### HTTP Request
+
+<img src="images/post.png" alt="post"/><api>https://rest.tsheets.com/api/v1/customfields</api>
+
+### Properties
+_Pass an array of customfield objects as the value to a 'data' property (see example)._
+
+|                |             |             |
+| -------------: | :---------: | ----------- |
+| **name**<br/>required | _String_ | The name of this customfield. |
+| **required**<br/>optional | _Boolean_ | Default: `false`. If true, a non-null value must be selected for this customfield when it appears on a timesheet. |
+
+| **active**<br/>optional | _Boolean_ | Default: `true`. If false, this `customfield` is considered archived and will not be visible or usable. |
+| **applies_to**<br/>required | _String_ | Default: `timesheet`. Allowed values: 'timesheet'. Specify that this `customfield` should appear on timesheets (additional customfield types may be supported in the future). |
+| **type**<br/>required | _String_ | Allowed values: 'managed-list', 'free-form'.  A managed-list customfield is intended to be displayed as a dropdown list, where each 'option' is a customfielditem. A 'free-form' customfield supports text entry and does not require a collection of customfielditems to accompany it. |
+| **show_to_all**<br/>optional | _Boolean_ | Default: `false`.  Declares whether this customfield should be shown on timesheets regardless of the jobcode chosen. If false, it will only appear when the chosen jobcode for a timesheet has been associated with this field. |
+| **short_code**<br/>optional | _String_ | Default: `""` (none). This is a shortened code or alias that is associated with the customfield. It may only consist of letters and numbers. If not provided, an alias will be auto-generated.
+
+For a full list of the properties that may be set on a customfield, see [The Custom Field Object](#the-custom-field-object).
+
+### Status Codes
+Each customfield that is created will come back with a `_status_code` and `_status_message` that will indicate whether
+the customfield was created successfully. If there was a problem creating a customfield, there may also be an additional
+field, `_status_extra`, which will contain more details about the failure.
+
+|         |          |
+| :-----: | :------- |
+| <code class="level200">200</code> | OK. customfield was created successfully. |
+| <code class="level400">417</code> | Expectation Failed. Something was wrong or missing with the properties supplied for this customfield. See the `_status_extra` value for more detail. |
+
+<aside class="notice">
+The maximum batch size is <i>50</i> customfields. If exceeded, a <code class="standout">413: Request entity too large</code> HTTP response will be returned.
+</aside>

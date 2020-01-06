@@ -914,147 +914,158 @@ Found an error, or would otherwise like to contribute to our API documentation? 
 
 <p>The link that a user will follow to perform an authorization request is made to the /authorize end-point:</p>
 
-<blockquote>
-<p><strong>Example</strong>: Authorization Request.</p>
+<p><blockquote>
+<p><strong>Example</strong>: Authorization Request.</p></p>
 
 <p>Request</p>
-</blockquote>
 
-<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://rest.tsheets.com/api/v1/authorize?response_type=code&amp;client_id=MYAPPCLIENTID&amp;redirect_uri=https://somedomain.com/callback&amp;state=MYSTATE"</span> <span class="se">\</span>
-</code></pre><pre class="highlight csharp tab-csharp"><code><span class="kt">var</span> <span class="n">client</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">RestClient</span><span class="p">(</span><span class="s">"https://rest.tsheets.com/api/v1/authorize?response_type=code&amp;client_id=MYAPPCLIENTID&amp;redirect_uri=https://somedomain.com/callback&amp;state=MYSTATE"</span><span class="p">);</span>
+<p></blockquote>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">&quot;https://rest.tsheets.com/api/v1/authorize?response_type=code&amp;client_id=MYAPPCLIENTID&amp;redirect_uri=https://somedomain.com/callback&amp;state=MYSTATE&quot;</span> <span class="se">&lt;/span&gt;
+  -H <span class="s2">&quot;Authorization: Bearer &lt;TOKEN&gt;&quot;</span> <span class="se">&lt;/span&gt;
+</code></pre><pre class="highlight csharp tab-csharp"><code><span class="kt">var</span> <span class="n">client</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">RestClient</span><span class="p">(</span><span class="s">&quot;https://rest.tsheets.com/api/v1/authorize?response_type=code&amp;client_id=MYAPPCLIENTID&amp;redirect_uri=https://somedomain.com/callback&amp;state=MYSTATE&quot;</span><span class="p">);</span>
 <span class="kt">var</span> <span class="n">request</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">RestRequest</span><span class="p">(</span><span class="n">Method</span><span class="p">.</span><span class="n">GET</span><span class="p">);</span>
+<span class="n">request</span><span class="p">.</span><span class="nf">AddHeader</span><span class="p">(</span><span class="s">&quot;Authorization&quot;</span><span class="p">,</span> <span class="s">&quot;Bearer &lt;TOKEN&gt;&quot;</span><span class="p">);</span>
 <span class="n">IRestResponse</span> <span class="n">response</span> <span class="p">=</span> <span class="n">client</span><span class="p">.</span><span class="nf">Execute</span><span class="p">(</span><span class="n">request</span><span class="p">);</span>
-</code></pre><pre class="highlight vb tab-vb"><code><span class="k">Dim</span> <span class="nv">client</span> <span class="o">=</span> <span class="k">New</span> <span class="n">RestClient</span><span class="p">(</span><span class="s">"https://rest.tsheets.com/api/v1/authorize?response_type=code&amp;client_id=MYAPPCLIENTID&amp;redirect_uri=https://somedomain.com/callback&amp;state=MYSTATE"</span><span class="p">)</span>
+</code></pre><pre class="highlight vb tab-vb"><code><span class="k">Dim</span> <span class="nv">client</span> <span class="o">=</span> <span class="k">New</span> <span class="n">RestClient</span><span class="p">(</span><span class="s">&quot;https://rest.tsheets.com/api/v1/authorize?response_type=code&amp;client_id=MYAPPCLIENTID&amp;redirect_uri=https://somedomain.com/callback&amp;state=MYSTATE&quot;</span><span class="p">)</span>
 <span class="k">Dim</span> <span class="nv">request</span> <span class="o">=</span> <span class="k">New</span> <span class="n">RestRequest</span><span class="p">(</span><span class="n">Method</span><span class="p">.</span><span class="err">[</span><span class="n">GET</span><span class="err">]</span><span class="p">)</span>
+<span class="n">request</span><span class="p">.</span><span class="n">AddHeader</span><span class="p">(</span><span class="s">&quot;Authorization&quot;</span><span class="p">,</span> <span class="s">&quot;Bearer &lt;TOKEN&gt;&quot;</span><span class="p">)</span>
 <span class="k">Dim</span> <span class="nv">response</span> <span class="ow">As</span> <span class="n">IRestResponse</span> <span class="o">=</span> <span class="n">client</span><span class="p">.</span><span class="n">Execute</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
-</code></pre><pre class="highlight java tab-java"><code><span class="n">OkHttpClient</span> <span class="n">client</span> <span class="o">=</span> <span class="k">new</span> <span class="n">OkHttpClient</span><span class="o">();</span>
+</code></pre><pre class="highlight java tab-java"><code><span class="n">OkHttpClient</span> <span class="n">client</span> <span class="o">=</span> <span class="k">new</span> <span class="n">OkHttpClient</span><span class="o">();</span></p>
 
-<span class="n">Request</span> <span class="n">request</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Request</span><span class="o">.</span><span class="na">Builder</span><span class="o">()</span>
-  <span class="o">.</span><span class="na">url</span><span class="o">(</span><span class="s">"https://rest.tsheets.com/api/v1/authorize?response_type=code&amp;client_id=MYAPPCLIENTID&amp;redirect_uri=https://somedomain.com/callback&amp;state=MYSTATE"</span><span class="o">)</span>
+<p><span class="n">Request</span> <span class="n">request</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Request</span><span class="o">.</span><span class="na">Builder</span><span class="o">()</span>
+  <span class="o">.</span><span class="na">url</span><span class="o">(</span><span class="s">&quot;https://rest.tsheets.com/api/v1/authorize?response_type=code&amp;client_id=MYAPPCLIENTID&amp;redirect_uri=https://somedomain.com/callback&amp;state=MYSTATE&quot;</span><span class="o">)</span>
   <span class="o">.</span><span class="na">get</span><span class="o">()</span>
-  <span class="o">.</span><span class="na">build</span><span class="o">();</span>
+  <span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">&quot;Authorization&quot;</span><span class="o">,</span> <span class="s">&quot;Bearer &lt;TOKEN&gt;&quot;</span><span class="o">)</span>
+  <span class="o">.</span><span class="na">build</span><span class="o">();</span></p>
 
-<span class="n">Response</span> <span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="na">newCall</span><span class="o">(</span><span class="n">request</span><span class="o">).</span><span class="na">execute</span><span class="o">();</span>
+<p><span class="n">Response</span> <span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="na">newCall</span><span class="o">(</span><span class="n">request</span><span class="o">).</span><span class="na">execute</span><span class="o">();</span>
 </code></pre><pre class="highlight javascript tab-javascript--browser"><code><span class="kd">var</span> <span class="nx">settings</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="s2">"async"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-  <span class="s2">"crossDomain"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-  <span class="s2">"url"</span><span class="p">:</span> <span class="s2">"https://rest.tsheets.com/api/v1/authorize?response_type=code&amp;client_id=MYAPPCLIENTID&amp;redirect_uri=https://somedomain.com/callback&amp;state=MYSTATE"</span><span class="p">,</span>
-  <span class="s2">"method"</span><span class="p">:</span> <span class="s2">"GET"</span><span class="p">,</span>
-  <span class="s2">"headers"</span><span class="p">:</span> <span class="p">{</span>
+  <span class="s2">&quot;async&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="s2">&quot;crossDomain&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="s2">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://rest.tsheets.com/api/v1/authorize?response_type=code&amp;client_id=MYAPPCLIENTID&amp;redirect_uri=https://somedomain.com/callback&amp;state=MYSTATE&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;method&quot;</span><span class="p">:</span> <span class="s2">&quot;GET&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;headers&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;Authorization&quot;</span><span class="p">,</span> <span class="s2">&quot;Bearer &lt;TOKEN&gt;&quot;</span><span class="p">,</span>
   <span class="p">}</span>
-<span class="p">}</span>
+<span class="p">}</span></p>
 
-<span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">(</span><span class="nx">settings</span><span class="p">).</span><span class="nx">done</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
+<p><span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">(</span><span class="nx">settings</span><span class="p">).</span><span class="nx">done</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
   <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">);</span>
 <span class="p">});</span>
-</code></pre><pre class="highlight javascript tab-javascript--node"><code><span class="kd">var</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">"request"</span><span class="p">);</span>
+</code></pre><pre class="highlight javascript tab-javascript--node"><code><span class="kd">var</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;request&quot;</span><span class="p">);</span></p>
 
-<span class="kd">var</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span> <span class="na">method</span><span class="p">:</span> <span class="s1">'GET'</span><span class="p">,</span>
-  <span class="na">url</span><span class="p">:</span> <span class="s1">'https://rest.tsheets.com/api/v1/authorize'</span><span class="p">,</span>
+<p><span class="kd">var</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span> <span class="na">method</span><span class="p">:</span> <span class="s1">&#39;GET&#39;</span><span class="p">,</span>
+  <span class="na">url</span><span class="p">:</span> <span class="s1">&#39;https://rest.tsheets.com/api/v1/authorize&#39;</span><span class="p">,</span>
   <span class="na">qs</span><span class="p">:</span> <span class="p">{</span>
-    <span class="na">response_type</span><span class="p">:</span> <span class="s1">'code'</span><span class="p">,</span>
-    <span class="na">client_id</span><span class="p">:</span> <span class="s1">'MYAPPCLIENTID'</span><span class="p">,</span>
-    <span class="na">redirect_uri</span><span class="p">:</span> <span class="s1">'https://somedomain.com/callback'</span><span class="p">,</span>
-    <span class="na">state</span><span class="p">:</span> <span class="s1">'MYSTATE'</span><span class="p">,</span>
+    <span class="na">response_type</span><span class="p">:</span> <span class="s1">&#39;code&#39;</span><span class="p">,</span>
+    <span class="na">client_id</span><span class="p">:</span> <span class="s1">&#39;MYAPPCLIENTID&#39;</span><span class="p">,</span>
+    <span class="na">redirect_uri</span><span class="p">:</span> <span class="s1">&#39;https://somedomain.com/callback&#39;</span><span class="p">,</span>
+    <span class="na">state</span><span class="p">:</span> <span class="s1">&#39;MYSTATE&#39;</span><span class="p">,</span>
   <span class="p">},</span>
   <span class="na">headers</span><span class="p">:</span> 
    <span class="p">{</span>
-   <span class="p">}</span> <span class="p">};</span>
+     <span class="s1">&#39;Authorization&#39;</span><span class="p">:</span> <span class="s1">&#39;Bearer &lt;TOKEN&gt;&#39;</span><span class="p">,</span>
+   <span class="p">}</span> <span class="p">};</span></p>
 
-<span class="nx">request</span><span class="p">(</span><span class="nx">options</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">response</span><span class="p">,</span> <span class="nx">body</span><span class="p">)</span> <span class="p">{</span>
-  <span class="k">if</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="nx">error</span><span class="p">);</span>
+<p><span class="nx">request</span><span class="p">(</span><span class="nx">options</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">response</span><span class="p">,</span> <span class="nx">body</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="nx">error</span><span class="p">);</span></p>
 
-  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">body</span><span class="p">);</span>
+<p><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">body</span><span class="p">);</span>
 <span class="p">});</span>
-</code></pre><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
+</code></pre><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span></p>
 
-<span class="nv">$request</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">HttpRequest</span><span class="p">();</span>
-<span class="nv">$request</span><span class="o">-&gt;</span><span class="na">setUrl</span><span class="p">(</span><span class="s1">'https://rest.tsheets.com/api/v1/authorize'</span><span class="p">);</span>
-<span class="nv">$request</span><span class="o">-&gt;</span><span class="na">setMethod</span><span class="p">(</span><span class="nx">HTTP_METH_GET</span><span class="p">);</span>
+<p><span class="nv">$request</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">HttpRequest</span><span class="p">();</span>
+<span class="nv">$request</span><span class="o">-&gt;</span><span class="na">setUrl</span><span class="p">(</span><span class="s1">&#39;https://rest.tsheets.com/api/v1/authorize&#39;</span><span class="p">);</span>
+<span class="nv">$request</span><span class="o">-&gt;</span><span class="na">setMethod</span><span class="p">(</span><span class="nx">HTTP_METH_GET</span><span class="p">);</span></p>
 
-<span class="nv">$request</span><span class="o">-&gt;</span><span class="na">setQueryData</span><span class="p">(</span><span class="k">array</span><span class="p">(</span>
-  <span class="s1">'response_type'</span> <span class="o">=&gt;</span> <span class="s1">'code'</span><span class="p">,</span>
-  <span class="s1">'client_id'</span> <span class="o">=&gt;</span> <span class="s1">'MYAPPCLIENTID'</span><span class="p">,</span>
-  <span class="s1">'redirect_uri'</span> <span class="o">=&gt;</span> <span class="s1">'https://somedomain.com/callback'</span><span class="p">,</span>
-  <span class="s1">'state'</span> <span class="o">=&gt;</span> <span class="s1">'MYSTATE'</span><span class="p">,</span>
-<span class="p">));</span>
+<p><span class="nv">$request</span><span class="o">-&gt;</span><span class="na">setQueryData</span><span class="p">(</span><span class="k">array</span><span class="p">(</span>
+  <span class="s1">&#39;response_type&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;code&#39;</span><span class="p">,</span>
+  <span class="s1">&#39;client_id&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;MYAPPCLIENTID&#39;</span><span class="p">,</span>
+  <span class="s1">&#39;redirect_uri&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;https://somedomain.com/callback&#39;</span><span class="p">,</span>
+  <span class="s1">&#39;state&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;MYSTATE&#39;</span><span class="p">,</span>
+<span class="p">));</span></p>
 
-<span class="nv">$request</span><span class="o">-&gt;</span><span class="na">setHeaders</span><span class="p">(</span><span class="k">array</span><span class="p">(</span>
-<span class="p">));</span>
+<p><span class="nv">$request</span><span class="o">-&gt;</span><span class="na">setHeaders</span><span class="p">(</span><span class="k">array</span><span class="p">(</span>
+  <span class="s1">&#39;Authorization&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Bearer &lt;TOKEN&gt;&#39;</span><span class="p">,</span>
+<span class="p">));</span></p>
 
-<span class="k">try</span> <span class="p">{</span>
-  <span class="nv">$response</span> <span class="o">=</span> <span class="nv">$request</span><span class="o">-&gt;</span><span class="na">send</span><span class="p">();</span>
+<p><span class="k">try</span> <span class="p">{</span>
+  <span class="nv">$response</span> <span class="o">=</span> <span class="nv">$request</span><span class="o">-&gt;</span><span class="na">send</span><span class="p">();</span></p>
 
-  <span class="k">echo</span> <span class="nv">$response</span><span class="o">-&gt;</span><span class="na">getBody</span><span class="p">();</span>
+<p><span class="k">echo</span> <span class="nv">$response</span><span class="o">-&gt;</span><span class="na">getBody</span><span class="p">();</span>
 <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">HttpException</span> <span class="nv">$ex</span><span class="p">)</span> <span class="p">{</span>
   <span class="k">echo</span> <span class="nv">$ex</span><span class="p">;</span>
 <span class="p">}</span>
-</code></pre><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'uri'</span>
-<span class="nb">require</span> <span class="s1">'net/http'</span>
+</code></pre><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">&#39;uri&#39;</span>
+<span class="nb">require</span> <span class="s1">&#39;net/http&#39;</span></p>
 
-<span class="n">url</span> <span class="o">=</span> <span class="no">URI</span><span class="p">(</span><span class="s2">"https://rest.tsheets.com/api/v1/authorize?response_type=code&amp;client_id=MYAPPCLIENTID&amp;redirect_uri=https://somedomain.com/callback&amp;state=MYSTATE"</span><span class="p">)</span>
+<p><span class="n">url</span> <span class="o">=</span> <span class="no">URI</span><span class="p">(</span><span class="s2">&quot;https://rest.tsheets.com/api/v1/authorize?response_type=code&amp;client_id=MYAPPCLIENTID&amp;redirect_uri=https://somedomain.com/callback&amp;state=MYSTATE&quot;</span><span class="p">)</span></p>
 
-<span class="n">http</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">url</span><span class="p">.</span><span class="nf">host</span><span class="p">,</span> <span class="n">url</span><span class="p">.</span><span class="nf">port</span><span class="p">)</span>
+<p><span class="n">http</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">url</span><span class="p">.</span><span class="nf">host</span><span class="p">,</span> <span class="n">url</span><span class="p">.</span><span class="nf">port</span><span class="p">)</span></p>
 
-<span class="n">request</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="o">::</span><span class="no">Get</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+<p><span class="n">request</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="o">::</span><span class="no">Get</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+<span class="n">request</span><span class="p">[</span><span class="s2">&quot;Authorization&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Bearer &lt;TOKEN&gt;&#39;</span><span class="p">,</span></p>
 
-<span class="n">response</span> <span class="o">=</span> <span class="n">http</span><span class="p">.</span><span class="nf">request</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
+<p><span class="n">response</span> <span class="o">=</span> <span class="n">http</span><span class="p">.</span><span class="nf">request</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
 <span class="nb">puts</span> <span class="n">response</span><span class="p">.</span><span class="nf">read_body</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span></p>
 
-<span class="n">url</span> <span class="o">=</span> <span class="s">"https://rest.tsheets.com/api/v1/authorize"</span>
+<p><span class="n">url</span> <span class="o">=</span> <span class="s">&quot;https://rest.tsheets.com/api/v1/authorize&quot;</span></p>
 
-<span class="n">querystring</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="s">"response_type"</span><span class="p">:</span><span class="s">"code"</span><span class="p">,</span>
-  <span class="s">"client_id"</span><span class="p">:</span><span class="s">"MYAPPCLIENTID"</span><span class="p">,</span>
-  <span class="s">"redirect_uri"</span><span class="p">:</span><span class="s">"https://somedomain.com/callback"</span><span class="p">,</span>
-  <span class="s">"state"</span><span class="p">:</span><span class="s">"MYSTATE"</span><span class="p">,</span>
-<span class="p">}</span>
+<p><span class="n">querystring</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s">&quot;response_type&quot;</span><span class="p">:</span><span class="s">&quot;code&quot;</span><span class="p">,</span>
+  <span class="s">&quot;client_id&quot;</span><span class="p">:</span><span class="s">&quot;MYAPPCLIENTID&quot;</span><span class="p">,</span>
+  <span class="s">&quot;redirect_uri&quot;</span><span class="p">:</span><span class="s">&quot;https://somedomain.com/callback&quot;</span><span class="p">,</span>
+  <span class="s">&quot;state&quot;</span><span class="p">:</span><span class="s">&quot;MYSTATE&quot;</span><span class="p">,</span>
+<span class="p">}</span></p>
 
-<span class="n">payload</span> <span class="o">=</span> <span class="s">""</span>
+<p><span class="n">payload</span> <span class="o">=</span> <span class="s">&quot;&quot;</span>
 <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="p">}</span>
+   <span class="s">&#39;Authorization&#39;</span><span class="p">:</span> <span class="s">&quot;Bearer &lt;TOKEN&gt;&quot;</span><span class="p">,</span>
+  <span class="p">}</span></p>
 
-<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="s">"GET"</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">payload</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">querystring</span><span class="p">)</span>
+<p><span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="s">&quot;GET&quot;</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">payload</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">querystring</span><span class="p">)</span></p>
 
-<span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
-</code></pre><pre class="highlight go tab-go"><code><span class="k">package</span><span class="x"> </span><span class="n">main</span><span class="x">
+<p><span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+</code></pre><pre class="highlight go tab-go"><code><span class="k">package</span><span class="x"> </span><span class="n">main</span><span class="x"></p>
 
-</span><span class="k">import</span><span class="x"> </span><span class="p">(</span><span class="x">
-  </span><span class="s">"fmt"</span><span class="x">
-  </span><span class="s">"net/http"</span><span class="x">
-  </span><span class="s">"io/ioutil"</span><span class="x">
-</span><span class="p">)</span><span class="x">
+<p></span><span class="k">import</span><span class="x"> </span><span class="p">(</span><span class="x">
+  </span><span class="s">&quot;fmt&quot;</span><span class="x">
+  </span><span class="s">&quot;net/http&quot;</span><span class="x">
+  </span><span class="s">&quot;io/ioutil&quot;</span><span class="x">
+</span><span class="p">)</span><span class="x"></p>
 
-</span><span class="k">func</span><span class="x"> </span><span class="n">main</span><span class="p">()</span><span class="x"> </span><span class="p">{</span><span class="x">
+<p></span><span class="k">func</span><span class="x"> </span><span class="n">main</span><span class="p">()</span><span class="x"> </span><span class="p">{</span><span class="x"></p>
 
-  </span><span class="n">url</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="s">"https://rest.tsheets.com/api/v1/authorize?response_type=code&amp;client_id=MYAPPCLIENTID&amp;redirect_uri=https://somedomain.com/callback&amp;state=MYSTATE"</span><span class="x">
+<p></span><span class="n">url</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="s">&quot;https://rest.tsheets.com/api/v1/authorize?response_type=code&amp;client_id=MYAPPCLIENTID&amp;redirect_uri=https://somedomain.com/callback&amp;state=MYSTATE&quot;</span><span class="x"></p>
 
-  </span><span class="n">req</span><span class="p">,</span><span class="x"> </span><span class="n">_</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">http</span><span class="o">.</span><span class="n">NewRequest</span><span class="p">(</span><span class="s">"GET"</span><span class="p">,</span><span class="x"> </span><span class="n">url</span><span class="p">,</span><span class="x"> </span><span class="no">nil</span><span class="p">)</span><span class="x">
+<p></span><span class="n">req</span><span class="p">,</span><span class="x"> </span><span class="n">_</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">http</span><span class="o">.</span><span class="n">NewRequest</span><span class="p">(</span><span class="s">&quot;GET&quot;</span><span class="p">,</span><span class="x"> </span><span class="n">url</span><span class="p">,</span><span class="x"> </span><span class="no">nil</span><span class="p">)</span><span class="x"></p>
 
+<p></span><span class="n">req</span><span class="o">.</span><span class="n">Header</span><span class="o">.</span><span class="n">Add</span><span class="p">(</span><span class="s">&quot;Authorization&quot;</span><span class="p">,</span><span class="x"> </span><span class="s">&quot;Bearer &lt;TOKEN&gt;&quot;</span><span class="p">)</span><span class="x"></p>
 
-  </span><span class="n">res</span><span class="p">,</span><span class="x"> </span><span class="n">_</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">http</span><span class="o">.</span><span class="n">DefaultClient</span><span class="o">.</span><span class="n">Do</span><span class="p">(</span><span class="n">req</span><span class="p">)</span><span class="x">
+<p></span><span class="n">res</span><span class="p">,</span><span class="x"> </span><span class="n">_</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">http</span><span class="o">.</span><span class="n">DefaultClient</span><span class="o">.</span><span class="n">Do</span><span class="p">(</span><span class="n">req</span><span class="p">)</span><span class="x"></p>
 
-  </span><span class="k">defer</span><span class="x"> </span><span class="n">res</span><span class="o">.</span><span class="n">Body</span><span class="o">.</span><span class="n">Close</span><span class="p">()</span><span class="x">
-  </span><span class="n">body</span><span class="p">,</span><span class="x"> </span><span class="n">_</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">ioutil</span><span class="o">.</span><span class="n">ReadAll</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">Body</span><span class="p">)</span><span class="x">
+<p></span><span class="k">defer</span><span class="x"> </span><span class="n">res</span><span class="o">.</span><span class="n">Body</span><span class="o">.</span><span class="n">Close</span><span class="p">()</span><span class="x">
+  </span><span class="n">body</span><span class="p">,</span><span class="x"> </span><span class="n">_</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">ioutil</span><span class="o">.</span><span class="n">ReadAll</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">Body</span><span class="p">)</span><span class="x"></p>
 
-  </span><span class="n">fmt</span><span class="o">.</span><span class="n">Println</span><span class="p">(</span><span class="n">res</span><span class="p">)</span><span class="x">
+<p></span><span class="n">fmt</span><span class="o">.</span><span class="n">Println</span><span class="p">(</span><span class="n">res</span><span class="p">)</span><span class="x">
   </span><span class="n">fmt</span><span class="o">.</span><span class="n">Println</span><span class="p">(</span><span class="kt">string</span><span class="p">(</span><span class="n">body</span><span class="p">))</span><span class="x">
 </span><span class="p">}</span><span class="x">
-</span></code></pre><pre class="highlight swift tab-swift"><code><span class="kd">import</span> <span class="kt">Foundation</span>
+</span></code></pre><pre class="highlight swift tab-swift"><code><span class="kd">import</span> <span class="kt">Foundation</span></p>
 
-<span class="k">let</span> <span class="nv">headers</span> <span class="o">=</span> <span class="p">[</span>
-<span class="p">]</span>
+<p><span class="k">let</span> <span class="nv">headers</span> <span class="o">=</span> <span class="p">[</span>
+   <span class="s">&quot;Authorization&quot;</span><span class="p">:</span> <span class="s">&quot;Bearer &lt;TOKEN&gt;&quot;</span><span class="p">,</span>
+<span class="p">]</span></p>
 
-<span class="k">let</span> <span class="nv">request</span> <span class="o">=</span> <span class="kt">NSMutableURLRequest</span><span class="p">(</span>
-  <span class="nv">url</span><span class="p">:</span> <span class="kt">NSURL</span><span class="p">(</span><span class="nv">string</span><span class="p">:</span> <span class="s">"https://rest.tsheets.com/api/v1/authorize?response_type=code&amp;client_id=MYAPPCLIENTID&amp;redirect_uri=https://somedomain.com/callback&amp;state=MYSTATE"</span><span class="p">)</span><span class="o">!</span> <span class="k">as</span> <span class="kt">URL</span><span class="p">,</span>
+<p><span class="k">let</span> <span class="nv">request</span> <span class="o">=</span> <span class="kt">NSMutableURLRequest</span><span class="p">(</span>
+  <span class="nv">url</span><span class="p">:</span> <span class="kt">NSURL</span><span class="p">(</span><span class="nv">string</span><span class="p">:</span> <span class="s">&quot;https://rest.tsheets.com/api/v1/authorize?response_type=code&amp;client_id=MYAPPCLIENTID&amp;redirect_uri=https://somedomain.com/callback&amp;state=MYSTATE&quot;</span><span class="p">)</span><span class="o">!</span> <span class="k">as</span> <span class="kt">URL</span><span class="p">,</span>
   <span class="nv">cachePolicy</span><span class="p">:</span> <span class="o">.</span><span class="n">useProtocolCachePolicy</span><span class="p">,</span>
-  <span class="nv">timeoutInterval</span><span class="p">:</span> <span class="mf">10.0</span><span class="p">)</span>
+  <span class="nv">timeoutInterval</span><span class="p">:</span> <span class="mf">10.0</span><span class="p">)</span></p>
 
-<span class="n">request</span><span class="o">.</span><span class="n">httpMethod</span> <span class="o">=</span> <span class="s">"GET"</span>
-<span class="n">request</span><span class="o">.</span><span class="n">allHTTPHeaderFields</span> <span class="o">=</span> <span class="n">headers</span>
+<p><span class="n">request</span><span class="o">.</span><span class="n">httpMethod</span> <span class="o">=</span> <span class="s">&quot;GET&quot;</span>
+<span class="n">request</span><span class="o">.</span><span class="n">allHTTPHeaderFields</span> <span class="o">=</span> <span class="n">headers</span></p>
 
-<span class="k">let</span> <span class="nv">session</span> <span class="o">=</span> <span class="kt">URLSession</span><span class="o">.</span><span class="n">shared</span>
+<p><span class="k">let</span> <span class="nv">session</span> <span class="o">=</span> <span class="kt">URLSession</span><span class="o">.</span><span class="n">shared</span>
 <span class="k">let</span> <span class="nv">dataTask</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="nf">dataTask</span><span class="p">(</span>
   <span class="nv">with</span><span class="p">:</span> <span class="n">request</span> <span class="k">as</span> <span class="kt">URLRequest</span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">{</span>
     <span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">response</span><span class="p">,</span> <span class="n">error</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span> <span class="k">in</span>
@@ -1065,20 +1076,21 @@ Found an error, or would otherwise like to contribute to our API documentation? 
       <span class="nf">print</span><span class="p">(</span><span class="n">httpResponse</span><span class="p">)</span>
     <span class="p">}</span>
   <span class="p">}</span>
-<span class="p">)</span>
+<span class="p">)</span></p>
 
-<span class="n">dataTask</span><span class="o">.</span><span class="nf">resume</span><span class="p">()</span>
-</code></pre><pre class="highlight perl tab-perl"><code><span class="k">use</span> <span class="nn">REST::</span><span class="nv">Client</span><span class="p">;</span>
+<p><span class="n">dataTask</span><span class="o">.</span><span class="nf">resume</span><span class="p">()</span>
+</code></pre><pre class="highlight perl tab-perl"><code><span class="k">use</span> <span class="nn">REST::</span><span class="nv">Client</span><span class="p">;</span></p>
 
-<span class="k">my</span> <span class="nv">$client</span> <span class="o">=</span> <span class="nn">REST::</span><span class="nv">Client</span><span class="o">-&gt;</span><span class="k">new</span><span class="p">();</span>
+<p><span class="k">my</span> <span class="nv">$client</span> <span class="o">=</span> <span class="nn">REST::</span><span class="nv">Client</span><span class="o">-&gt;</span><span class="k">new</span><span class="p">();</span></p>
 
+<p><span class="nv">$client</span><span class="o">-&gt;</span><span class="nv">addHeader</span><span class="p">(</span><span class="s">&#39;Authorization&#39;</span><span class="p">,</span> <span class="s">&#39;Bearer &lt;TOKEN&gt;&#39;</span><span class="p">);</span></p>
 
-<span class="nv">$url</span><span class="o">=</span><span class="s">"https://rest.tsheets.com/api/v1/authorize?response_type=code&amp;client_id=MYAPPCLIENTID&amp;redirect_uri=https://somedomain.com/callback&amp;state=MYSTATE"</span><span class="p">;</span> 
+<p><span class="nv">$url</span><span class="o">=</span><span class="s">&quot;https://rest.tsheets.com/api/v1/authorize?response_type=code&amp;client_id=MYAPPCLIENTID&amp;redirect_uri=https://somedomain.com/callback&amp;state=MYSTATE&quot;</span><span class="p">;</span> </p>
 
-<span class="nv">$client</span><span class="o">-&gt;</span><span class="nv">GET</span><span class="p">(</span><span class="nv">$url</span><span class="p">);</span>
+<p><span class="nv">$client</span><span class="o">-&gt;</span><span class="nv">GET</span><span class="p">(</span><span class="nv">$url</span><span class="p">);</span>
 <span class="k">print</span> <span class="nv">$client</span><span class="o">-&gt;</span><span class="nv">responseContent</span><span class="p">();</span>
-<span class="k">print</span> <span class="nv">$client</span><span class="o">-&gt;</span><span class="nv">responseHeader</span><span class="p">(</span><span class="s">'ResponseHeader'</span><span class="p">);</span>
-</code></pre>
+<span class="k">print</span> <span class="nv">$client</span><span class="o">-&gt;</span><span class="nv">responseHeader</span><span class="p">(</span><span class="s">&#39;ResponseHeader&#39;</span><span class="p">);</span>
+</code></pre></p>
 <h3 id='http-request'>HTTP Request</h3>
 <p><img src="images/get.png" alt="get"/><api>https://rest.tsheets.com/api/v1/authorize</api></p>
 <h3 id='parameters'>Parameters</h3>
@@ -1149,13 +1161,19 @@ We do not currently support <code>scope</code> for our clients, so the <code>sco
 
 <pre class="highlight shell tab-shell"><code>curl -X POST <span class="se">\</span>
   https://rest.tsheets.com/api/v1/grant <span class="se">\</span>
+  -H <span class="s1">'Authorization: Bearer &lt;TOKEN&gt;'</span> <span class="se">\</span>
+  -H <span class="s1">'Content-Type: application/x-www-form-urlencoded'</span> <span class="se">\</span>
   -d <span class="s1">'grant_type=authorization_code&amp;client_id=MYAPPCLIENTID&amp;client_secret=MYAPPSECRET&amp;code=bbcaef03191517dfb60d0305bfea38ea995af1az&amp;redirect_uri=https%3A%2F%2Fsomedomain.com%2Fcallback'</span>
 </code></pre><pre class="highlight csharp tab-csharp"><code><span class="kt">var</span> <span class="n">client</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">RestClient</span><span class="p">(</span><span class="s">"https://rest.tsheets.com/api/v1/grant"</span><span class="p">);</span>
 <span class="kt">var</span> <span class="n">request</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">RestRequest</span><span class="p">(</span><span class="n">Method</span><span class="p">.</span><span class="n">POST</span><span class="p">);</span>
+<span class="n">request</span><span class="p">.</span><span class="nf">AddHeader</span><span class="p">(</span><span class="s">"Authorization"</span><span class="p">,</span> <span class="s">"Bearer &lt;TOKEN&gt;"</span><span class="p">);</span>
+<span class="n">request</span><span class="p">.</span><span class="nf">AddHeader</span><span class="p">(</span><span class="s">"Content-Type"</span><span class="p">,</span> <span class="s">"application/x-www-form-urlencoded"</span><span class="p">);</span>
 <span class="n">request</span><span class="p">.</span><span class="nf">AddParameter</span><span class="p">(</span><span class="s">"application/x-www-form-urlencoded"</span><span class="p">,</span> <span class="s">"grant_type=authorization_code&amp;client_id=MYAPPCLIENTID&amp;client_secret=MYAPPSECRET&amp;code=bbcaef03191517dfb60d0305bfea38ea995af1az&amp;redirect_uri=https%3A%2F%2Fsomedomain.com%2Fcallback"</span><span class="p">,</span> <span class="n">ParameterType</span><span class="p">.</span><span class="n">RequestBody</span><span class="p">);</span>
 <span class="n">IRestResponse</span> <span class="n">response</span> <span class="p">=</span> <span class="n">client</span><span class="p">.</span><span class="nf">Execute</span><span class="p">(</span><span class="n">request</span><span class="p">);</span>
 </code></pre><pre class="highlight vb tab-vb"><code><span class="k">Dim</span> <span class="nv">client</span> <span class="o">=</span> <span class="k">New</span> <span class="n">RestClient</span><span class="p">(</span><span class="s">"https://rest.tsheets.com/api/v1/grant"</span><span class="p">)</span>
 <span class="k">Dim</span> <span class="nv">request</span> <span class="o">=</span> <span class="k">New</span> <span class="n">RestRequest</span><span class="p">(</span><span class="n">Method</span><span class="p">.</span><span class="n">POST</span><span class="p">)</span>
+<span class="n">request</span><span class="p">.</span><span class="n">AddHeader</span><span class="p">(</span><span class="s">"Authorization"</span><span class="p">,</span> <span class="s">"Bearer &lt;TOKEN&gt;"</span><span class="p">)</span>
+<span class="n">request</span><span class="p">.</span><span class="n">AddHeader</span><span class="p">(</span><span class="s">"Content-Type"</span><span class="p">,</span> <span class="s">"application/x-www-form-urlencoded"</span><span class="p">)</span>
 <span class="n">request</span><span class="p">.</span><span class="n">AddParameter</span><span class="p">(</span><span class="s">"application/x-www-form-urlencoded"</span><span class="p">,</span> <span class="s">"grant_type=authorization_code&amp;client_id=MYAPPCLIENTID&amp;client_secret=MYAPPSECRET&amp;code=bbcaef03191517dfb60d0305bfea38ea995af1az&amp;redirect_uri=https%3A%2F%2Fsomedomain.com%2Fcallback"</span><span class="p">,</span> <span class="n">ParameterType</span><span class="p">.</span><span class="n">RequestBody</span><span class="p">)</span><span class="err">;</span>
 <span class="k">Dim</span> <span class="nv">response</span> <span class="ow">As</span> <span class="n">IRestResponse</span> <span class="o">=</span> <span class="n">client</span><span class="p">.</span><span class="n">Execute</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
 </code></pre><pre class="highlight java tab-java"><code><span class="n">OkHttpClient</span> <span class="n">client</span> <span class="o">=</span> <span class="k">new</span> <span class="n">OkHttpClient</span><span class="o">();</span>
@@ -1165,6 +1183,8 @@ We do not currently support <code>scope</code> for our clients, so the <code>sco
 <span class="n">Request</span> <span class="n">request</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Request</span><span class="o">.</span><span class="na">Builder</span><span class="o">()</span>
   <span class="o">.</span><span class="na">url</span><span class="o">(</span><span class="s">"https://rest.tsheets.com/api/v1/grant"</span><span class="o">)</span>
   <span class="o">.</span><span class="na">post</span><span class="o">(</span><span class="n">body</span><span class="o">)</span>
+  <span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">"Authorization"</span><span class="o">,</span> <span class="s">"Bearer &lt;TOKEN&gt;"</span><span class="o">)</span>
+  <span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">"Content-Type"</span><span class="o">,</span> <span class="s">"application/x-www-form-urlencoded"</span><span class="o">)</span>
   <span class="o">.</span><span class="na">build</span><span class="o">();</span>
 
 <span class="n">Response</span> <span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="na">newCall</span><span class="o">(</span><span class="n">request</span><span class="o">).</span><span class="na">execute</span><span class="o">();</span>
@@ -1174,6 +1194,8 @@ We do not currently support <code>scope</code> for our clients, so the <code>sco
   <span class="s2">"url"</span><span class="p">:</span> <span class="s2">"https://rest.tsheets.com/api/v1/authorize?response_type=code&amp;client_id=MYAPPCLIENTID&amp;redirect_uri=https://somedomain.com/callback&amp;state=MYSTATE"</span><span class="p">,</span>
   <span class="s2">"method"</span><span class="p">:</span> <span class="s2">"POST"</span><span class="p">,</span>
   <span class="s2">"headers"</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">"Authorization"</span><span class="p">,</span> <span class="s2">"Bearer &lt;TOKEN&gt;"</span><span class="p">,</span>
+    <span class="s2">"Content-Type"</span><span class="p">,</span> <span class="s2">"application/x-www-form-urlencoded"</span><span class="p">,</span>
   <span class="p">},</span>
   <span class="s2">"processData"</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
   <span class="s2">"data"</span><span class="p">:</span> <span class="p">{</span>
@@ -1194,6 +1216,8 @@ We do not currently support <code>scope</code> for our clients, so the <code>sco
   <span class="na">url</span><span class="p">:</span> <span class="s1">'https://rest.tsheets.com/api/v1/grant'</span><span class="p">,</span>
   <span class="na">headers</span><span class="p">:</span> 
   <span class="p">{</span> 
+     <span class="s1">'Authorization'</span><span class="p">:</span> <span class="s1">'Bearer &lt;TOKEN&gt;'</span><span class="p">,</span>
+     <span class="s1">'Content-Type'</span><span class="p">:</span> <span class="s1">'application/x-www-form-urlencoded'</span><span class="p">,</span>
   <span class="p">},</span>
   <span class="na">form</span><span class="p">:</span>
    <span class="p">{</span>
@@ -1216,6 +1240,8 @@ We do not currently support <code>scope</code> for our clients, so the <code>sco
 <span class="nv">$request</span><span class="o">-&gt;</span><span class="na">setMethod</span><span class="p">(</span><span class="nx">HTTP_METH_POST</span><span class="p">);</span>
 
 <span class="nv">$request</span><span class="o">-&gt;</span><span class="na">setHeaders</span><span class="p">(</span><span class="k">array</span><span class="p">(</span>
+  <span class="s1">'Authorization'</span> <span class="o">=&gt;</span> <span class="s1">'Bearer &lt;TOKEN&gt;'</span><span class="p">,</span>
+  <span class="s1">'Content-Type'</span> <span class="o">=&gt;</span> <span class="s1">'application/x-www-form-urlencoded'</span><span class="p">,</span>
 <span class="p">));</span>
 
 <span class="nv">$request</span><span class="o">-&gt;</span><span class="na">setContentType</span><span class="p">(</span><span class="s1">'application/x-www-form-urlencoded'</span><span class="p">);</span>
@@ -1242,6 +1268,8 @@ We do not currently support <code>scope</code> for our clients, so the <code>sco
 <span class="n">http</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">url</span><span class="p">.</span><span class="nf">host</span><span class="p">,</span> <span class="n">url</span><span class="p">.</span><span class="nf">port</span><span class="p">)</span>
 
 <span class="n">request</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="o">::</span><span class="no">Post</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+<span class="n">request</span><span class="p">[</span><span class="s2">"Authorization"</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'Bearer &lt;TOKEN&gt;'</span><span class="p">,</span>
+<span class="n">request</span><span class="p">[</span><span class="s2">"Content-Type"</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'application/x-www-form-urlencoded'</span><span class="p">,</span>
 <span class="n">request</span><span class="p">.</span><span class="nf">body</span> <span class="o">=</span> <span class="s2">"grant_type=authorization_code&amp;client_id=MYAPPCLIENTID&amp;client_secret=MYAPPSECRET&amp;code=bbcaef03191517dfb60d0305bfea38ea995af1az&amp;redirect_uri=https%3A%2F%2Fsomedomain.com%2Fcallback"</span>
 
 <span class="n">response</span> <span class="o">=</span> <span class="n">http</span><span class="p">.</span><span class="nf">request</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
@@ -1252,6 +1280,8 @@ We do not currently support <code>scope</code> for our clients, so the <code>sco
 
 <span class="n">payload</span> <span class="o">=</span> <span class="s">"grant_type=authorization_code&amp;client_id=MYAPPCLIENTID&amp;client_secret=MYAPPSECRET&amp;code=bbcaef03191517dfb60d0305bfea38ea995af1az&amp;redirect_uri=https</span><span class="si">%3</span><span class="s">A</span><span class="si">%2</span><span class="s">F</span><span class="si">%2</span><span class="s">Fsomedomain.com</span><span class="si">%2</span><span class="s">Fcallback"</span>
 <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'Bearer &lt;TOKEN&gt;'</span><span class="p">,</span>
+    <span class="s">'Content-Type'</span><span class="p">:</span> <span class="s">'application/x-www-form-urlencoded'</span><span class="p">,</span>
     <span class="p">}</span>
 
 <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="s">"POST"</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">payload</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
@@ -1274,6 +1304,8 @@ We do not currently support <code>scope</code> for our clients, so the <code>sco
 
   </span><span class="n">req</span><span class="p">,</span><span class="x"> </span><span class="n">_</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">http</span><span class="o">.</span><span class="n">NewRequest</span><span class="p">(</span><span class="s">"POST"</span><span class="p">,</span><span class="x"> </span><span class="n">url</span><span class="p">,</span><span class="x"> </span><span class="n">payload</span><span class="p">)</span><span class="x">
 
+  </span><span class="n">req</span><span class="o">.</span><span class="n">Header</span><span class="o">.</span><span class="n">Add</span><span class="p">(</span><span class="s">"Authorization"</span><span class="p">,</span><span class="x"> </span><span class="s">"Bearer &lt;TOKEN&gt;"</span><span class="p">)</span><span class="x">
+  </span><span class="n">req</span><span class="o">.</span><span class="n">Header</span><span class="o">.</span><span class="n">Add</span><span class="p">(</span><span class="s">"Content-Type"</span><span class="p">,</span><span class="x"> </span><span class="s">"application/x-www-form-urlencoded"</span><span class="p">)</span><span class="x">
 
   </span><span class="n">res</span><span class="p">,</span><span class="x"> </span><span class="n">_</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">http</span><span class="o">.</span><span class="n">DefaultClient</span><span class="o">.</span><span class="n">Do</span><span class="p">(</span><span class="n">req</span><span class="p">)</span><span class="x">
 
@@ -1287,6 +1319,8 @@ We do not currently support <code>scope</code> for our clients, so the <code>sco
 </span></code></pre><pre class="highlight swift tab-swift"><code><span class="kd">import</span> <span class="kt">Foundation</span>
 
 <span class="k">let</span> <span class="nv">headers</span> <span class="o">=</span> <span class="p">[</span>
+   <span class="s">"Authorization"</span><span class="p">:</span> <span class="s">"Bearer &lt;TOKEN&gt;"</span><span class="p">,</span>
+   <span class="s">"Content-Type"</span><span class="p">:</span> <span class="s">"application/x-www-form-urlencoded"</span><span class="p">,</span>
 <span class="p">]</span>
 
 <span class="k">let</span> <span class="nv">postData</span> <span class="o">=</span> <span class="kt">NSMutableData</span><span class="p">(</span><span class="nv">data</span><span class="p">:</span> <span class="s">"grant_type=authorization_code"</span><span class="o">.</span><span class="nf">data</span><span class="p">(</span><span class="nv">using</span><span class="p">:</span> <span class="kt">STring</span><span class="o">.</span><span class="kt">Encoding</span><span class="o">.</span><span class="n">utf8</span><span class="p">)</span><span class="o">!</span><span class="p">)</span>
@@ -1323,6 +1357,8 @@ We do not currently support <code>scope</code> for our clients, so the <code>sco
 
 <span class="k">my</span> <span class="nv">$client</span> <span class="o">=</span> <span class="nn">REST::</span><span class="nv">Client</span><span class="o">-&gt;</span><span class="k">new</span><span class="p">();</span>
 
+<span class="nv">$client</span><span class="o">-&gt;</span><span class="nv">addHeader</span><span class="p">(</span><span class="s">'Authorization'</span><span class="p">,</span> <span class="s">'Bearer &lt;TOKEN&gt;'</span><span class="p">);</span>
+<span class="nv">$client</span><span class="o">-&gt;</span><span class="nv">addHeader</span><span class="p">(</span><span class="s">'Content-Type'</span><span class="p">,</span> <span class="s">'application/x-www-form-urlencoded'</span><span class="p">);</span>
 
 <span class="nv">$req</span> <span class="o">=</span> <span class="s">'grant_type=authorization_code&amp;client_id=MYAPPCLIENTID&amp;client_secret=MYAPPSECRET&amp;code=bbcaef03191517dfb60d0305bfea38ea995af1az&amp;redirect_uri=https%3A%2F%2Fsomedomain.com%2Fcallback'</span><span class="p">;</span>
 
@@ -3422,8 +3458,10 @@ Actual menu layout may differ.
   </span><span class="s2">"last_modified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-02-10T20:40:41+00:00"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-02-03T18:36:16+00:00"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"ui_preference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"drop_down"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"required_customfields"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+  </span><span class="s2">"required_customfields"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+  </span><span class="s2">"show_to_all"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
 </span><span class="p">}</span><span class="w">
+
 </span></code></pre>
 
 <p>Following is a list of the properties that belong to a customfield object, and a description of each.</p>
@@ -4019,9 +4057,8 @@ Actual menu layout may differ.
         </span><span class="s2">"last_modified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-04-04T15:37:30+00:00"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-03-27T16:13:35+00:00"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"ui_preference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"drop_down"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"required_customfields"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-
-        </span><span class="p">]</span><span class="w">
+        </span><span class="s2">"required_customfields"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="p">],</span><span class="w">
+        </span><span class="s2">"show_to_all"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
       </span><span class="p">},</span><span class="w">
       </span><span class="s2">"195921"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">195921</span><span class="p">,</span><span class="w">
@@ -4035,9 +4072,8 @@ Actual menu layout may differ.
         </span><span class="s2">"last_modified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-03-27T16:13:35+00:00"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-03-27T16:13:35+00:00"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"ui_preference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"text_box_with_suggest"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"required_customfields"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-
-        </span><span class="p">]</span><span class="w">
+        </span><span class="s2">"required_customfields"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="p">],</span><span class="w">
+        </span><span class="s2">"show_to_all"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
       </span><span class="p">},</span><span class="w">
       </span><span class="s2">"195919"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">195919</span><span class="p">,</span><span class="w">
@@ -4051,14 +4087,14 @@ Actual menu layout may differ.
         </span><span class="s2">"last_modified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-03-27T16:13:35+00:00"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-03-27T16:13:35+00:00"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"ui_preference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"drop_down"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"required_customfields"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-
-        </span><span class="p">]</span><span class="w">
+        </span><span class="s2">"required_customfields"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="p">],</span><span class="w">
+        </span><span class="s2">"show_to_all"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
       </span><span class="p">}</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="s2">"more"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
 </span><span class="p">}</span><span class="w">
+
 </span></code></pre>
 
 <p>Retrieves a list of all customfields associated with your company, with optional filters to narrow down the results.</p>
@@ -4359,7 +4395,8 @@ Actual menu layout may differ.
         </span><span class="s2">"last_modified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-02-10T20:40:41+00:00"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-02-10T20:40:41+00:00"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"ui_preference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dropdown"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"required_customfields"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+        </span><span class="s2">"required_customfields"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+        </span><span class="s2">"show_to_all"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
       </span><span class="p">}</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">}</span><span class="w">
@@ -4679,7 +4716,8 @@ The maximum batch size is <i>50</i> customfields. If exceeded, a <code class="st
         </span><span class="s2">"last_modified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-11-03T16:05:10+00:00"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-02-10T20:40:41+00:00"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"ui_preference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dropdown"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"required_customfields"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+        </span><span class="s2">"required_customfields"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+        </span><span class="s2">"show_to_all"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
       </span><span class="p">},</span><span class="w">
       </span><span class="s2">"2"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"_status_code"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
@@ -4696,7 +4734,8 @@ The maximum batch size is <i>50</i> customfields. If exceeded, a <code class="st
         </span><span class="s2">"last_modified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-11-03T16:05:10+00:00"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-02-10T20:40:41+00:00"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"ui_preference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dropdown"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"required_customfields"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+        </span><span class="s2">"required_customfields"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+        </span><span class="s2">"show_to_all"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
       </span><span class="p">}</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">}</span><span class="w">
@@ -5732,11 +5771,13 @@ The maximum batch size is <i>50</i> customfields. If exceeded, a <code class="st
         </span><span class="s2">"last_modified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-04-04T16:04:00+00:00"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-03-27T16:13:35+00:00"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"ui_preference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"drop_down"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"required_customfields"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="p">]</span><span class="w">
+        </span><span class="s2">"required_customfields"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="p">],</span><span class="w">
+        </span><span class="s2">"show_to_all"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
       </span><span class="p">}</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
+
 </span></code></pre>
 
 <p>Retrieves a list of all customfielditems associated with a customfield, with optional filters to narrow down the results.</p>
@@ -6363,11 +6404,14 @@ The maximum batch size is <i>50</i> customfielditems. If exceeded, a <code class
         </span><span class="s2">"regex_filter"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
         </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Custom Field 1"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"last_modified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-07-23T23:09:14+00:00"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-07-23T23:09:14+00:00"</span><span class="w">
+        </span><span class="s2">"created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-07-23T23:09:14+00:00"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"required_customfields"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+        </span><span class="s2">"show_to_all"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
       </span><span class="p">}</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
+
 
 </span></code></pre>
 

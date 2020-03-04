@@ -4811,11 +4811,6 @@ The maximum batch size is <i>50</i> customfields. If exceeded, a <code class="st
 <td>Date/time when this customfielditem was last modified, in ISO 8601 format (<code>YYYY-MM-DDThh:mm:ss±hh:mm</code>).</td>
 </tr>
 <tr>
-<td style="text-align: right"><strong>created</strong><br/>read-only</td>
-<td style="text-align: center"><em>String</em></td>
-<td>Date/time when  this customfielditem was created, in ISO 8601 format (<code>YYYY-MM-DDThh:mm:ss±hh:mm</code>).</td>
-</tr>
-<tr>
 <td style="text-align: right"><strong>required_customfields</strong><br/>read-only</td>
 <td style="text-align: center"><em>Int[]</em></td>
 <td>Ids of <a href="#the-customfield-object">customfields</a> that should be displayed when this customfielditem is selected on a timecard.</td>
@@ -30090,6 +30085,10 @@ The maximum batch size is <i>50</i> users. If exceeded, a <code class="standout"
 <tr>
 <td style="text-align: left">2020-03-03</td>
 <td style="text-align: left">Correcting the expiration time in the OAuth refresh examples</td>
+</tr>
+<tr>
+<td style="text-align: left">2020-03-04</td>
+<td style="text-align: left">Removing non-existent &#39;created&#39; property from the Custom Field Item Object</td>
 </tr>
 </tbody></table>
 

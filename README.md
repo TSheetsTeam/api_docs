@@ -32,7 +32,7 @@ article for more details about how to contribute.
 1. Fork this repository into your account on Github
 2. Clone *your forked repository* (not our original one) to your hard drive with `git clone https://github.com/YOURUSERNAME/api_docs.git`
 3. Develop and validate your changes (see below)
-4. Update the changelog with a breif summary of the changes you made.
+4. Update the changelog with a brief summary of the changes you made.
 5. Create a pull request for review to request merge
 6. Obtain approval before your changes can be merged
 

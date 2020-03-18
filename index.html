@@ -3460,7 +3460,7 @@ Actual menu layout may differ.
 <tr>
 <td style="text-align: right"><strong>show_to_all</strong><br/>read-write</td>
 <td style="text-align: center"><em>Boolean</em></td>
-<td>Declares whether this customfield should be shown on timesheets regardless of the jobcode chosen. If false, it will only appear when the chosen jobcode for a timesheet has been associated with this field.</td>
+<td>Declares whether this customfield should be shown on timesheets regardless of the jobcode chosen. If false, it will only appear when the chosen jobcode for a timesheet has been associated with this field. This field can only be set to false if the custom field is of type &#39;timesheet&#39;.</td>
 </tr>
 <tr>
 <td style="text-align: right"><strong>required</strong><br/>read-write</td>
@@ -30089,6 +30089,10 @@ The maximum batch size is <i>50</i> users. If exceeded, a <code class="standout"
 <tr>
 <td style="text-align: left">2020-03-04</td>
 <td style="text-align: left">Removing non-existent &#39;created&#39; property from the Custom Field Item Object</td>
+</tr>
+<tr>
+<td style="text-align: left">2020-03-18</td>
+<td style="text-align: left">Explaining restriction on &#39;show_to_all&#39; attribute on custom fields</td>
 </tr>
 </tbody></table>
 

@@ -12688,6 +12688,11 @@ The maximum batch size is <i>50</i> invitations. If exceeded, a <code class="sta
 <td style="text-align: center"><em>String</em></td>
 <td>Date/time when this jobcode was created, in ISO 8601 format (<code>YYYY-MM-DDThh:mm:ss±hh:mm</code>)</td>
 </tr>
+<tr>
+<td style="text-align: right"><strong>customfields</strong><br/>read-only</td>
+<td style="text-align: center"><em>JSON Object</em></td>
+<td>A key/value map of customfield ids to the customfield items that are associated with the jobcode.<br/><br/><em>Note: this property is present only if the Custom Fields Add-On is installed, and the customfields query parameter is specified with a &#39;true&#39; value.</em></td>
+</tr>
 </tbody></table>
 <h2 id='retrieve-jobcodes'>Retrieve Jobcodes</h2>
 <blockquote>
@@ -13527,6 +13532,250 @@ The maximum batch size is <i>50</i> invitations. If exceeded, a <code class="sta
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
+<blockquote>
+<p><strong>Example</strong>: Retrieve a jobcode by id, including the customfields object in the response. The custom fields identified by id in the response object will be returned with the supplemental data.</p>
+
+<p>Request</p>
+</blockquote>
+
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://rest.tsheets.com/api/v1/jobcodes?ids=11377903&amp;customfields=true"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: Bearer &lt;TOKEN&gt;"</span> <span class="se">\</span>
+</code></pre><pre class="highlight csharp tab-csharp"><code><span class="kt">var</span> <span class="n">client</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">RestClient</span><span class="p">(</span><span class="s">"https://rest.tsheets.com/api/v1/jobcodes?ids=11377903&amp;customfields=true"</span><span class="p">);</span>
+<span class="kt">var</span> <span class="n">request</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">RestRequest</span><span class="p">(</span><span class="n">Method</span><span class="p">.</span><span class="n">GET</span><span class="p">);</span>
+<span class="n">request</span><span class="p">.</span><span class="nf">AddHeader</span><span class="p">(</span><span class="s">"Authorization"</span><span class="p">,</span> <span class="s">"Bearer &lt;TOKEN&gt;"</span><span class="p">);</span>
+<span class="n">IRestResponse</span> <span class="n">response</span> <span class="p">=</span> <span class="n">client</span><span class="p">.</span><span class="nf">Execute</span><span class="p">(</span><span class="n">request</span><span class="p">);</span>
+</code></pre><pre class="highlight vb tab-vb"><code><span class="k">Dim</span> <span class="nv">client</span> <span class="o">=</span> <span class="k">New</span> <span class="n">RestClient</span><span class="p">(</span><span class="s">"https://rest.tsheets.com/api/v1/jobcodes?ids=11377903&amp;customfields=true"</span><span class="p">)</span>
+<span class="k">Dim</span> <span class="nv">request</span> <span class="o">=</span> <span class="k">New</span> <span class="n">RestRequest</span><span class="p">(</span><span class="n">Method</span><span class="p">.</span><span class="err">[</span><span class="n">GET</span><span class="err">]</span><span class="p">)</span>
+<span class="n">request</span><span class="p">.</span><span class="n">AddHeader</span><span class="p">(</span><span class="s">"Authorization"</span><span class="p">,</span> <span class="s">"Bearer &lt;TOKEN&gt;"</span><span class="p">)</span>
+<span class="k">Dim</span> <span class="nv">response</span> <span class="ow">As</span> <span class="n">IRestResponse</span> <span class="o">=</span> <span class="n">client</span><span class="p">.</span><span class="n">Execute</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
+</code></pre><pre class="highlight java tab-java"><code><span class="n">OkHttpClient</span> <span class="n">client</span> <span class="o">=</span> <span class="k">new</span> <span class="n">OkHttpClient</span><span class="o">();</span>
+
+<span class="n">Request</span> <span class="n">request</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Request</span><span class="o">.</span><span class="na">Builder</span><span class="o">()</span>
+  <span class="o">.</span><span class="na">url</span><span class="o">(</span><span class="s">"https://rest.tsheets.com/api/v1/jobcodes?ids=11377903&amp;customfields=true"</span><span class="o">)</span>
+  <span class="o">.</span><span class="na">get</span><span class="o">()</span>
+  <span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">"Authorization"</span><span class="o">,</span> <span class="s">"Bearer &lt;TOKEN&gt;"</span><span class="o">)</span>
+  <span class="o">.</span><span class="na">build</span><span class="o">();</span>
+
+<span class="n">Response</span> <span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="na">newCall</span><span class="o">(</span><span class="n">request</span><span class="o">).</span><span class="na">execute</span><span class="o">();</span>
+</code></pre><pre class="highlight javascript tab-javascript--browser"><code><span class="kd">var</span> <span class="nx">settings</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s2">"async"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="s2">"crossDomain"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="s2">"url"</span><span class="p">:</span> <span class="s2">"https://rest.tsheets.com/api/v1/jobcodes?ids=11377903&amp;customfields=true"</span><span class="p">,</span>
+  <span class="s2">"method"</span><span class="p">:</span> <span class="s2">"GET"</span><span class="p">,</span>
+  <span class="s2">"headers"</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">"Authorization"</span><span class="p">,</span> <span class="s2">"Bearer &lt;TOKEN&gt;"</span><span class="p">,</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">(</span><span class="nx">settings</span><span class="p">).</span><span class="nx">done</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre><pre class="highlight javascript tab-javascript--node"><code><span class="kd">var</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">"request"</span><span class="p">);</span>
+
+<span class="kd">var</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span> <span class="na">method</span><span class="p">:</span> <span class="s1">'GET'</span><span class="p">,</span>
+  <span class="na">url</span><span class="p">:</span> <span class="s1">'https://rest.tsheets.com/api/v1/jobcodes'</span><span class="p">,</span>
+  <span class="na">qs</span><span class="p">:</span> <span class="p">{</span>
+    <span class="na">ids</span><span class="p">:</span> <span class="s1">'11377903'</span><span class="p">,</span>
+    <span class="na">customfields</span><span class="p">:</span> <span class="s1">'true'</span><span class="p">,</span>
+  <span class="p">},</span>
+  <span class="na">headers</span><span class="p">:</span> 
+   <span class="p">{</span>
+     <span class="s1">'Authorization'</span><span class="p">:</span> <span class="s1">'Bearer &lt;TOKEN&gt;'</span><span class="p">,</span>
+   <span class="p">}</span> <span class="p">};</span>
+
+<span class="nx">request</span><span class="p">(</span><span class="nx">options</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">response</span><span class="p">,</span> <span class="nx">body</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="nx">error</span><span class="p">);</span>
+
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">body</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
+
+<span class="nv">$request</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">HttpRequest</span><span class="p">();</span>
+<span class="nv">$request</span><span class="o">-&gt;</span><span class="na">setUrl</span><span class="p">(</span><span class="s1">'https://rest.tsheets.com/api/v1/jobcodes'</span><span class="p">);</span>
+<span class="nv">$request</span><span class="o">-&gt;</span><span class="na">setMethod</span><span class="p">(</span><span class="nx">HTTP_METH_GET</span><span class="p">);</span>
+
+<span class="nv">$request</span><span class="o">-&gt;</span><span class="na">setQueryData</span><span class="p">(</span><span class="k">array</span><span class="p">(</span>
+  <span class="s1">'ids'</span> <span class="o">=&gt;</span> <span class="s1">'11377903'</span><span class="p">,</span>
+  <span class="s1">'customfields'</span> <span class="o">=&gt;</span> <span class="s1">'true'</span><span class="p">,</span>
+<span class="p">));</span>
+
+<span class="nv">$request</span><span class="o">-&gt;</span><span class="na">setHeaders</span><span class="p">(</span><span class="k">array</span><span class="p">(</span>
+  <span class="s1">'Authorization'</span> <span class="o">=&gt;</span> <span class="s1">'Bearer &lt;TOKEN&gt;'</span><span class="p">,</span>
+<span class="p">));</span>
+
+<span class="k">try</span> <span class="p">{</span>
+  <span class="nv">$response</span> <span class="o">=</span> <span class="nv">$request</span><span class="o">-&gt;</span><span class="na">send</span><span class="p">();</span>
+
+  <span class="k">echo</span> <span class="nv">$response</span><span class="o">-&gt;</span><span class="na">getBody</span><span class="p">();</span>
+<span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">HttpException</span> <span class="nv">$ex</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">echo</span> <span class="nv">$ex</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'uri'</span>
+<span class="nb">require</span> <span class="s1">'net/http'</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="no">URI</span><span class="p">(</span><span class="s2">"https://rest.tsheets.com/api/v1/jobcodes?ids=11377903&amp;customfields=true"</span><span class="p">)</span>
+
+<span class="n">http</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">url</span><span class="p">.</span><span class="nf">host</span><span class="p">,</span> <span class="n">url</span><span class="p">.</span><span class="nf">port</span><span class="p">)</span>
+
+<span class="n">request</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="o">::</span><span class="no">Get</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+<span class="n">request</span><span class="p">[</span><span class="s2">"Authorization"</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'Bearer &lt;TOKEN&gt;'</span><span class="p">,</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">http</span><span class="p">.</span><span class="nf">request</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
+<span class="nb">puts</span> <span class="n">response</span><span class="p">.</span><span class="nf">read_body</span>
+</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="s">"https://rest.tsheets.com/api/v1/jobcodes"</span>
+
+<span class="n">querystring</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s">"ids"</span><span class="p">:</span><span class="s">"11377903"</span><span class="p">,</span>
+  <span class="s">"customfields"</span><span class="p">:</span><span class="s">"true"</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="n">payload</span> <span class="o">=</span> <span class="s">""</span>
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+   <span class="s">'Authorization'</span><span class="p">:</span> <span class="s">"Bearer &lt;TOKEN&gt;"</span><span class="p">,</span>
+  <span class="p">}</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="s">"GET"</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">payload</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">querystring</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+</code></pre><pre class="highlight go tab-go"><code><span class="k">package</span><span class="x"> </span><span class="n">main</span><span class="x">
+
+</span><span class="k">import</span><span class="x"> </span><span class="p">(</span><span class="x">
+  </span><span class="s">"fmt"</span><span class="x">
+  </span><span class="s">"net/http"</span><span class="x">
+  </span><span class="s">"io/ioutil"</span><span class="x">
+</span><span class="p">)</span><span class="x">
+
+</span><span class="k">func</span><span class="x"> </span><span class="n">main</span><span class="p">()</span><span class="x"> </span><span class="p">{</span><span class="x">
+
+  </span><span class="n">url</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="s">"https://rest.tsheets.com/api/v1/jobcodes?ids=11377903&amp;customfields=true"</span><span class="x">
+
+  </span><span class="n">req</span><span class="p">,</span><span class="x"> </span><span class="n">_</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">http</span><span class="o">.</span><span class="n">NewRequest</span><span class="p">(</span><span class="s">"GET"</span><span class="p">,</span><span class="x"> </span><span class="n">url</span><span class="p">,</span><span class="x"> </span><span class="no">nil</span><span class="p">)</span><span class="x">
+
+  </span><span class="n">req</span><span class="o">.</span><span class="n">Header</span><span class="o">.</span><span class="n">Add</span><span class="p">(</span><span class="s">"Authorization"</span><span class="p">,</span><span class="x"> </span><span class="s">"Bearer &lt;TOKEN&gt;"</span><span class="p">)</span><span class="x">
+
+  </span><span class="n">res</span><span class="p">,</span><span class="x"> </span><span class="n">_</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">http</span><span class="o">.</span><span class="n">DefaultClient</span><span class="o">.</span><span class="n">Do</span><span class="p">(</span><span class="n">req</span><span class="p">)</span><span class="x">
+
+  </span><span class="k">defer</span><span class="x"> </span><span class="n">res</span><span class="o">.</span><span class="n">Body</span><span class="o">.</span><span class="n">Close</span><span class="p">()</span><span class="x">
+  </span><span class="n">body</span><span class="p">,</span><span class="x"> </span><span class="n">_</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">ioutil</span><span class="o">.</span><span class="n">ReadAll</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">Body</span><span class="p">)</span><span class="x">
+
+  </span><span class="n">fmt</span><span class="o">.</span><span class="n">Println</span><span class="p">(</span><span class="n">res</span><span class="p">)</span><span class="x">
+  </span><span class="n">fmt</span><span class="o">.</span><span class="n">Println</span><span class="p">(</span><span class="kt">string</span><span class="p">(</span><span class="n">body</span><span class="p">))</span><span class="x">
+</span><span class="p">}</span><span class="x">
+</span></code></pre><pre class="highlight swift tab-swift"><code><span class="kd">import</span> <span class="kt">Foundation</span>
+
+<span class="k">let</span> <span class="nv">headers</span> <span class="o">=</span> <span class="p">[</span>
+   <span class="s">"Authorization"</span><span class="p">:</span> <span class="s">"Bearer &lt;TOKEN&gt;"</span><span class="p">,</span>
+<span class="p">]</span>
+
+<span class="k">let</span> <span class="nv">request</span> <span class="o">=</span> <span class="kt">NSMutableURLRequest</span><span class="p">(</span>
+  <span class="nv">url</span><span class="p">:</span> <span class="kt">NSURL</span><span class="p">(</span><span class="nv">string</span><span class="p">:</span> <span class="s">"https://rest.tsheets.com/api/v1/jobcodes?ids=11377903&amp;customfields=true"</span><span class="p">)</span><span class="o">!</span> <span class="k">as</span> <span class="kt">URL</span><span class="p">,</span>
+  <span class="nv">cachePolicy</span><span class="p">:</span> <span class="o">.</span><span class="n">useProtocolCachePolicy</span><span class="p">,</span>
+  <span class="nv">timeoutInterval</span><span class="p">:</span> <span class="mf">10.0</span><span class="p">)</span>
+
+<span class="n">request</span><span class="o">.</span><span class="n">httpMethod</span> <span class="o">=</span> <span class="s">"GET"</span>
+<span class="n">request</span><span class="o">.</span><span class="n">allHTTPHeaderFields</span> <span class="o">=</span> <span class="n">headers</span>
+
+<span class="k">let</span> <span class="nv">session</span> <span class="o">=</span> <span class="kt">URLSession</span><span class="o">.</span><span class="n">shared</span>
+<span class="k">let</span> <span class="nv">dataTask</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="nf">dataTask</span><span class="p">(</span>
+  <span class="nv">with</span><span class="p">:</span> <span class="n">request</span> <span class="k">as</span> <span class="kt">URLRequest</span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">{</span>
+    <span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">response</span><span class="p">,</span> <span class="n">error</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span> <span class="k">in</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">error</span> <span class="o">!=</span> <span class="kc">nil</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nf">print</span><span class="p">(</span><span class="n">error</span><span class="p">)</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+      <span class="k">let</span> <span class="nv">httpResponse</span> <span class="o">=</span> <span class="n">response</span> <span class="k">as?</span> <span class="kt">HTTPURLResponse</span>
+      <span class="nf">print</span><span class="p">(</span><span class="n">httpResponse</span><span class="p">)</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">)</span>
+
+<span class="n">dataTask</span><span class="o">.</span><span class="nf">resume</span><span class="p">()</span>
+</code></pre><pre class="highlight perl tab-perl"><code><span class="k">use</span> <span class="nn">REST::</span><span class="nv">Client</span><span class="p">;</span>
+
+<span class="k">my</span> <span class="nv">$client</span> <span class="o">=</span> <span class="nn">REST::</span><span class="nv">Client</span><span class="o">-&gt;</span><span class="k">new</span><span class="p">();</span>
+
+<span class="nv">$client</span><span class="o">-&gt;</span><span class="nv">addHeader</span><span class="p">(</span><span class="s">'Authorization'</span><span class="p">,</span> <span class="s">'Bearer &lt;TOKEN&gt;'</span><span class="p">);</span>
+
+<span class="nv">$url</span><span class="o">=</span><span class="s">"https://rest.tsheets.com/api/v1/jobcodes?ids=11377903&amp;customfields=true"</span><span class="p">;</span> 
+
+<span class="nv">$client</span><span class="o">-&gt;</span><span class="nv">GET</span><span class="p">(</span><span class="nv">$url</span><span class="p">);</span>
+<span class="k">print</span> <span class="nv">$client</span><span class="o">-&gt;</span><span class="nv">responseContent</span><span class="p">();</span>
+<span class="k">print</span> <span class="nv">$client</span><span class="o">-&gt;</span><span class="nv">responseHeader</span><span class="p">(</span><span class="s">'ResponseHeader'</span><span class="p">);</span>
+</code></pre>
+
+<blockquote>
+<p>Response Format</p>
+
+<p><code class="level200">200 OK</code></p>
+</blockquote>
+
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"results"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"jobcodes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"11377903"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">11377903</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"parent_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"assigned_to_all"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"billable"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"regular"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"has_children"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"billable_rate"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"short_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Idaho Construction"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"last_modified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-03-06T02:56:01+00:00"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-09-03T16:34:20+00:00"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"project_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"filtered_customfielditems"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"required_customfields"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+                </span><span class="s2">"locations"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+                </span><span class="s2">"geofence_config_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"customfields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"6549432"</span><span class="p">:</span><span class="w"> </span><span class="s2">"50.58"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"6549434"</span><span class="p">:</span><span class="w"> </span><span class="s2">"433"</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"more"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"supplemental_data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"customfields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"6549432"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">6549432</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"global"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"required"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"applies_to"</span><span class="p">:</span><span class="w"> </span><span class="s2">"job_code"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"free-form"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"short_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"97343358"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"regex_filter"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Billable rate"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"last_modified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-03-10T22:11:36+00:00"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-03-04T00:35:56+00:00"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"ui_preference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"text_box_with_suggest"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"required_customfields"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="s2">"6549434"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">6549434</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"global"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"required"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"applies_to"</span><span class="p">:</span><span class="w"> </span><span class="s2">"job_code"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"free-form"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"short_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"73601320"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"regex_filter"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Department number"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"last_modified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-03-04T23:36:18+00:00"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-03-04T00:37:02+00:00"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"ui_preference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"text_box_with_suggest"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"required_customfields"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
 <p>Retrieves a list of all jobcodes associated with your company, with optional filters to narrow down the results. For a more efficient way of retrieving jobcodes assigned to a <em>specific user</em>, please see the <a href="#the-jobcode-assignments-object">Jobcode Assignments</a> endpoint.</p>
 <h3 id='http-request'>HTTP Request</h3>
 <p><img src="images/get.png" alt="get"/><api>https://rest.tsheets.com/api/v1/jobcodes</api></p>
@@ -13562,6 +13811,11 @@ The maximum batch size is <i>50</i> invitations. If exceeded, a <code class="sta
 <td style="text-align: right"><strong>active</strong><br/>optional</td>
 <td style="text-align: center"><em>String</em></td>
 <td>&#39;yes&#39;, &#39;no&#39;, or &#39;both&#39;. Default is &#39;yes&#39;. If a jobcode is active, it is available for selection during time entry.</td>
+</tr>
+<tr>
+<td style="text-align: right"><strong>customfields</strong><br/>optional</td>
+<td style="text-align: center"><em>Boolean</em></td>
+<td><em>true</em> or <em>false</em>. If <em>true</em>, custom fields for this jobcode will be returned. If <em>false</em>, the customfields object will be omitted.</td>
 </tr>
 <tr>
 <td style="text-align: right"><strong>modified_before</strong><br/>optional</td>
@@ -13656,7 +13910,7 @@ The maximum batch size is <i>50</i> invitations. If exceeded, a <code class="sta
 </code></pre><pre class="highlight javascript tab-javascript--browser"><code><span class="kd">var</span> <span class="nx">settings</span> <span class="o">=</span> <span class="p">{</span>
   <span class="s2">"async"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
   <span class="s2">"crossDomain"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-  <span class="s2">"url"</span><span class="p">:</span> <span class="s2">"https://rest.tsheets.com/api/v1/jobcodes?parent_ids=235494&amp;per_page=10&amp;active=both"</span><span class="p">,</span>
+  <span class="s2">"url"</span><span class="p">:</span> <span class="s2">"https://rest.tsheets.com/api/v1/jobcodes?ids=11377903&amp;customfields=true"</span><span class="p">,</span>
   <span class="s2">"method"</span><span class="p">:</span> <span class="s2">"POST"</span><span class="p">,</span>
   <span class="s2">"headers"</span><span class="p">:</span> <span class="p">{</span>
     <span class="s2">"Authorization"</span><span class="p">,</span> <span class="s2">"Bearer &lt;TOKEN&gt;"</span><span class="p">,</span>
@@ -13986,7 +14240,7 @@ The maximum batch size is <i>50</i> jobcodes. If exceeded, a <code class="stando
 </code></pre><pre class="highlight javascript tab-javascript--browser"><code><span class="kd">var</span> <span class="nx">settings</span> <span class="o">=</span> <span class="p">{</span>
   <span class="s2">"async"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
   <span class="s2">"crossDomain"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-  <span class="s2">"url"</span><span class="p">:</span> <span class="s2">"https://rest.tsheets.com/api/v1/jobcodes?parent_ids=235494&amp;per_page=10&amp;active=both"</span><span class="p">,</span>
+  <span class="s2">"url"</span><span class="p">:</span> <span class="s2">"https://rest.tsheets.com/api/v1/jobcodes?ids=11377903&amp;customfields=true"</span><span class="p">,</span>
   <span class="s2">"method"</span><span class="p">:</span> <span class="s2">"PUT"</span><span class="p">,</span>
   <span class="s2">"headers"</span><span class="p">:</span> <span class="p">{</span>
     <span class="s2">"Authorization"</span><span class="p">,</span> <span class="s2">"Bearer &lt;TOKEN&gt;"</span><span class="p">,</span>
@@ -24642,7 +24896,7 @@ The maximum batch size is <i>50</i> schedule events. If exceeded, a <code class=
 <tr>
 <td style="text-align: right"><strong>customfields</strong><br/>read-write</td>
 <td style="text-align: center"><em>JSON Object</em></td>
-<td>A key/value map of customfield ids to the customfield items that are associated with the timesheet.<br/><br/><em>Note: this property is present only if the Advanced Tracking Add-On is installed.</em></td>
+<td>A key/value map of customfield ids to the customfield items that are associated with the timesheet.<br/><br/><em>Note: this property is present only if the Custom Fields Add-On is installed.</em></td>
 </tr>
 <tr>
 <td style="text-align: right"><strong>last_modified</strong><br/>read-only</td>
@@ -28242,12 +28496,12 @@ Deleted timesheets will be kept on the server and accessible for 180 days since 
 <tr>
 <td style="text-align: right"><strong>display_name</strong><br/>read-write</td>
 <td style="text-align: center"><em>String</em></td>
-<td>The display name of user. NOTE: field will be null unless feature GED_INCLUSION is enabled (contact support for more info), if feature is enabled then value will be a non-null display_name value (users who have not setup their display_name will return &#39;&#39;)</td>
+<td>The display name of user. NOTE: field will always be empty string unless feature GED_INCLUSION is enabled (contact support for more info), if feature is enabled then value will be a non-null display_name value (users who have not setup their display_name will return &#39;&#39;)</td>
 </tr>
 <tr>
 <td style="text-align: right"><strong>pronouns</strong><br/>read-write</td>
 <td style="text-align: center"><em>String</em></td>
-<td>The personal pronouns of user. NOTE: field will be null unless feature GED_INCLUSION is enabled (contact support for more info), if feature is enabled then value will be a non-null pronouns value (users who have not setup their pronouns will return &#39;&#39;)</td>
+<td>The personal pronouns of user. NOTE: field will always be empty string unless feature GED_INCLUSION is enabled (contact support for more info), if feature is enabled then value will be a non-null pronouns value (users who have not setup their pronouns will return &#39;&#39;)</td>
 </tr>
 <tr>
 <td style="text-align: right"><strong>group_id</strong><br/>read-write</td>
@@ -28391,8 +28645,8 @@ Deleted timesheets will be kept on the server and accessible for 180 days since 
 </tr>
 <tr>
 <td style="text-align: right"><strong>customfields</strong><br/>read-write</td>
-<td style="text-align: center"><em>Object</em></td>
-<td><a href="#the-custom-field-object">Customfield</a> items that are associated with the user.</td>
+<td style="text-align: center"><em>JSON Object</em></td>
+<td>A key/value map of customfield ids to the customfield items that are associated with the user.<br/><br/><em>Note: this property is present only if the Custom Fields Add-On is installed.</em></td>
 </tr>
 </tbody></table>
 <h3 id='user-permissions'>User Permissions</h3>
@@ -30093,6 +30347,14 @@ The maximum batch size is <i>50</i> users. If exceeded, a <code class="standout"
 <tr>
 <td style="text-align: left">2020-03-18</td>
 <td style="text-align: left">Explaining restriction on &#39;show_to_all&#39; attribute on custom fields</td>
+</tr>
+<tr>
+<td style="text-align: left">2020-03-18</td>
+<td style="text-align: left">Adding the customfields object to the jobcode entities and a new customfields query param to the /jobcodes endpoint</td>
+</tr>
+<tr>
+<td style="text-align: left">2020-03-18</td>
+<td style="text-align: left">Updated notes for user fields &#39;display_name&#39; and &#39;pronouns&#39; as they are no longer null in any case</td>
 </tr>
 </tbody></table>
 

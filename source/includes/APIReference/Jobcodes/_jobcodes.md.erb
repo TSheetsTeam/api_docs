@@ -22,4 +22,5 @@ Following is a list of the properties that belong to a jobcode object, and a des
 | **active**<br/>read-write | _Boolean_ | If _true_, this jobcode is active. If _false_, this jobcode is archived. To archive a jobcode, set this field to _false_. When a jobcode is archived, any children underneath the jobcode are archived as well. Note that when you archive a jobcode, any jobcode assignments or customfield dependencies are removed.  To restore a jobcode, set this field to _true_. When a jobcode is restored, any parents of that jobcode are also restored. |
 | **last_modified**<br/>read-only | _String_ | Date/time when this jobcode was last modified, in ISO 8601 format (`YYYY-MM-DDThh:mm:ss±hh:mm`) |
 | **created**<br/>read-only | _String_ | Date/time when this jobcode was created, in ISO 8601 format (`YYYY-MM-DDThh:mm:ss±hh:mm`) |
+| **customfields**<br/>read-only | _JSON Object_ | A key/value map of customfield ids to the customfield items that are associated with the jobcode.<br/><br/>_Note: this property is present only if the Custom Fields Add-On is installed, and the customfields query parameter is specified with a 'true' value._ |
 

@@ -41,7 +41,7 @@ Following is a list of the properties that belong to a user object, and a descri
 | **pay_rate**<br/>read-only | _Float_ | The rate of pay associated with this user. Only visible to admins. |
 | **pay_interval**<br/>read-only | _String_ | The timeframe to which this user's pay rate applies, either 'hour' or 'year'. Only visible to admins. |
 | **permissions**<br/>read-write | _Object_ | The [permission settings](#user-permissions) that apply to this user. |
-| **customfields**<br/>read-write | _Object_ | [Customfield](#the-custom-field-object) items that are associated with the user. |
+| **customfields**<br/>read-write | _JSON Object_ | A key/value map of customfield ids to the customfield items that are associated with the user.<br/><br/>_Note: this property is present only if the Custom Fields Add-On is installed._ |
 
 ### User Permissions
 The rights assignable to an individual user. All properties are _read-write_, and of type _Boolean_.

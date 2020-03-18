@@ -16,6 +16,7 @@ Retrieves a list of all jobcodes associated with your company, with optional fil
 | **name**<br/>optional | _String_ | * will be interpreted as a wild card. Starts matching from the beginning of the string. |
 | **type**<br/>optional | _String_ | Indicates jobcode type. One of 'regular', 'pto', 'paid_break', 'unpaid_break', or 'all'.  Default is 'regular'. |
 | **active**<br/>optional | _String_ | 'yes', 'no', or 'both'. Default is 'yes'. If a jobcode is active, it is available for selection during time entry. |
+| **customfields**<br/>optional | _Boolean_ | _true_ or _false_. If _true_, custom fields for this jobcode will be returned. If _false_, the customfields object will be omitted. |
 | **modified_before**<br/>optional | _String_ | Only jobcodes modified before this date/time will be returned, in ISO 8601 format (`YYYY-MM-DDThh:mm:ss±hh:mm`). |
 | **modified_since**<br/>optional | _String_ | Only jobcodes modified since this date/time will be returned, in ISO 8601 format (`YYYY-MM-DDThh:mm:ss±hh:mm`). |
 | **supplemental_data**<br/>optional | _String_ | 'yes' or 'no'. Default is 'yes'. Indicates whether supplemental data should be returned. |

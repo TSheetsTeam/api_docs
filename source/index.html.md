@@ -50,6 +50,11 @@ includes:
   - APIReference/EffectiveSettings/effective_settings.md.erb
   - APIReference/EffectiveSettings/retrieve.md.erb
 
+  - APIReference/Flags/flags.md.erb
+  - APIReference/Flags/retrieve.md.erb
+  - APIReference/Flags/create.md.erb
+  - APIReference/Flags/update.md.erb
+
   - APIReference/Files/files.md.erb
   - APIReference/Files/retrieve.md.erb
   - APIReference/Files/create.md.erb

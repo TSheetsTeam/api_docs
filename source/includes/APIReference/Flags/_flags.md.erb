@@ -1,0 +1,18 @@
+﻿# Flags
+
+## The Flag Object
+
+<%= partial "includes/APIReference/Flags/Examples/flags.tmpl.erb" %>
+
+Following is a list of the properties that belong to a Flag object, and a description of each.
+
+|                |             |             |
+| -------------: | :---------: | ----------- |
+| **id**<br/>read-only | _Int_ | Id of the flag. |
+| **user_id**<br/>required | _Int_ | User id that this flag will be recorded against. |
+| **type**<br/>required | _String_ | The type of this flag object. Example types could be 'left_geofence', 'early_clockin', 'geofence_exception', etc. |
+| **active**<br/>required | _Boolean_ | true or false. |
+| **linked_objects**<br/>read-write | _Object_ | A key/value map of all the objects linked to this flag and the corresponding object ids. |
+| **last_modified**<br/>read-only | _String_ | Date/time when this flag was last modified, in ISO 8601 format (`YYYY-MM-DDThh:mm:ss±hh:mm`) |
+| **created**<br/>read-only | _String_ | Date/time when this flag was created, in ISO 8601 format (`YYYY-MM-DDThh:mm:ss±hh:mm`) |
+

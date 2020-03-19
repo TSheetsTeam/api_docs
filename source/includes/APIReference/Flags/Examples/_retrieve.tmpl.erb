@@ -1,0 +1,25 @@
+<% @response_body = File.read("source/includes/APIReference/Flags/Examples/_retrieve-response.md.erb") -%>
+
+<%= partial "includes/CodeTemplates/get.md.erb",
+  :locals => {
+    :endpoint => "flags",
+    :description => "Retrieve a list of all active flags.",
+  }
+%>
+
+<%= partial "includes/CodeTemplates/get.md.erb",
+  :locals => {
+    :endpoint => "flags",
+    :description => "Retrieve a list of all active flags for a user. Set pagination to 10 results/page.",
+    :parameters => [ [ "user_id", "1234" ], [ "active", "yes" ], [ "per_page", "10" ]]
+  }
+%>
+
+<%= partial "includes/CodeTemplates/get.md.erb",
+  :locals => {
+    :endpoint => "flags",
+    :description => "Retrieve a list of flags that have been modified since a given date.",
+    :parameters => [ [ "modified_since", "2018-01-01T00:00:00-06:00" ] ],
+    :response_body => @response_body
+  }
+%>

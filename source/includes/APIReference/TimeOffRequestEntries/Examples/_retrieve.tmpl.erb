@@ -1,0 +1,10 @@
+<% @response_body = File.read("source/includes/APIReference/TimeOffRequestEntries/Examples/_retrieve-response.md.erb") -%>
+
+<%= partial "includes/CodeTemplates/get.md.erb",
+  :locals => {
+    :endpoint => "time_off_request_entries",
+    :description => "Retrieve a list of all time off request entries for a time off request with a given id.",
+    :parameters => [ [ "time_off_request_ids", "1546922" ] ],
+    :response_body => @response_body
+  }
+%>

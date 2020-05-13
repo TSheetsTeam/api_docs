@@ -1,0 +1,19 @@
+# Time Off Requests
+
+## The Time Off Request Object
+
+<%= partial "includes/APIReference/TimeOffRequests/Examples/time_off_requests.tmpl.erb" %>
+
+Following is a list of the properties that belong to a time off request, and a description of each.
+
+|                |             |             |
+| -------------: | :---------: | ----------- |
+| **id**<br/>read-only | _Int_ | Id of the time off request. |
+| **user_id**<br/>read-write | _Int_ | User id for the user that this time off request belongs to. |
+| **time_off_request_notes**<br/>read-write | _Int_ | An array of [Time Off Request Note](#the-time-off-request-note-object) ids associated with this time off request. |
+| **time_off_request_entries**<br/>read-write | _Int_ | An array of [Time Off Request Entry](#the-time-off-request-entry-object) ids associated with this time off request. |
+| **status**<br/>read-write | _String_ | One of: 'pending', 'approved', 'denied', or 'canceled'. |
+| **active**<br/>read-write | _Boolean_ | If _true_, this time off request is active. If _false_, this time off request is archived. |
+| **created**<br/>read-only | _String_ | Date/time when this time off request was created, in ISO 8601 format (`YYYY-MM-DDThh:mm:ss±hh:mm`). |
+| **last_modified**<br/>read-only | _String_ | Date/time when this time off request was last modified, in ISO 8601 format (`YYYY-MM-DDThh:mm:ss±hh:mm`). |
+

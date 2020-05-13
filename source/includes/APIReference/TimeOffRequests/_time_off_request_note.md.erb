@@ -1,0 +1,15 @@
+## The Time Off Request Note Object
+
+<%= partial "includes/APIReference/TimeOffRequests/Examples/time_off_request_note.tmpl.erb" %>
+
+Following is a list of the properties that belong to a time off request note, and a description of each.
+
+|                |             |             |
+| -------------: | :---------: | ----------- |
+| **id**<br/>read-only | _Int_ | Id of the time off request note. |
+| **time_off_request_id**<br/>read-write | _Int_ | Id of the time of request that this note belong to. |
+| **user_id**<br/>read-only | _Int_ | User id for the user that created this note. |
+| **note**<br/>read-write | _String_ | The note the user wrote. |
+| **active**<br/>read-only | _Boolean_ | If _true_, this note is active. If _false_, this note is archived. |
+| **created**<br/>read-only | _String_ | Date/time when this note was created, in ISO 8601 format (`YYYY-MM-DDThh:mm:ss±hh:mm`). |
+| **last_modified**<br/>read-only | _String_ | Date/time when this note was last modified, in ISO 8601 format (`YYYY-MM-DDThh:mm:ss±hh:mm`). |

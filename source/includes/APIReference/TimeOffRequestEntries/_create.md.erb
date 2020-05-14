@@ -1,0 +1,37 @@
+## Create Time Off Request Entries
+
+<%= partial "includes/APIReference/TimeOffRequestEntries/Examples/create.tmpl.erb" %>
+
+Add one or more time off request entries.
+
+<aside class="notice">
+The maximum batch size is <i>50</i> requests. If exceeded, a <code>413: Request entity too large</code> HTTP response will be returned.
+</aside>
+
+### HTTP Request
+
+<img src="images/post.png" alt="post"/><api>https://rest.tsheets.com/api/v1/time_off_request_entries</api>
+
+### Properties
+_Pass an array of [Time Off Request Entry](#the-time-off-request-entry-object) objects as the value to a 'data' property (see example)._
+
+|                |             |             |
+| -------------: | :---------: | ----------- |
+| **time_off_request_id**<br/>required | _Int_ | Id for the [Time Off Request](#the-time-off-request-object) that this entry will belong to. The Time Off Request this entry is assigned to will determine the user assigned to this time off request entry. Only administrators or group managers may add time off request entries for users other than themselves. Furthermore, administrators or group managers may only add time off request entries for users that belong to their company. |
+| **status**<br/>optional | _String_ | One of: 'pending', 'approved', 'denied', or 'canceled'. |
+| **entry_method**<br/>required | _String_ | Either 'manual' or 'regular'. Manual time off request entries have a date and a duration (in seconds). Regular time off request entries have a start/end time for determining availability in Schedule. |
+| **duration**<br/>required | _Int_ | The total number of seconds recorded for this time off request entry. |
+| **jobcode_id**<br/>required | _Int_ | Jobcode id for the jobcode that this time off request entry is recorded against. |
+| **date**<br/>required (manual method only) | _String_ | The date the time off request entry is for (`YYYY-MM-DD` format). |
+| **start_time**<br/>required (regular method only) | _String_ | Date/time that represents the start time of this of this time off request entry, in ISO 8601 format (`YYYY-MM-DDThh:mm:ss?hh:mm`). |
+| **end_time**<br/>required (regular method only) | _String_ | Date/time that represents the end time of this of this time off request entry, in ISO 8601 format (`YYYY-MM-DDThh:mm:ss?hh:mm`). |
+
+### Status Codes
+
+Each time off request entry that is created will come back with a `_status_code` and `_status_message` that will indicate whether the time off request entry was created successfully. If there was a problem creating a time off request entry, there may also be an additional field, `_status_extra`, which will contain more details about the failure.
+
+|         |          |
+| :-----: | :------- |
+| <code class="level200">200</code> | OK. Time off request entry was created successfully. |
+| <code class="level400">403</code> | Permission Denied. The requesting user does not have permission to create the time off request entry for this user. |
+| <code class="level400">417</code> | Expectation Failed. Something was wrong or missing with the properties supplied for this time off request entry. See the `_status_extra value` for more detail. |

@@ -130,6 +130,17 @@ includes:
   - APIReference/TimesheetsDeleted/timesheets_deleted.md.erb
   - APIReference/TimesheetsDeleted/retrieve.md.erb
 
+  - APIReference/TimeOffRequests/time_off_requests.md.erb
+  - APIReference/TimeOffRequests/time_off_request_note.md.erb
+  - APIReference/TimeOffRequests/retrieve.md.erb
+  - APIReference/TimeOffRequests/create.md.erb
+  - APIReference/TimeOffRequests/update.md.erb
+
+  - APIReference/TimeOffRequestEntries/time_off_request_entries.md.erb
+  - APIReference/TimeOffRequestEntries/retrieve.md.erb
+  - APIReference/TimeOffRequestEntries/create.md.erb
+  - APIReference/TimeOffRequestEntries/update.md.erb
+
   - APIReference/Users/users.md.erb
   - APIReference/Users/retrieve.md.erb
   - APIReference/Users/create.md.erb

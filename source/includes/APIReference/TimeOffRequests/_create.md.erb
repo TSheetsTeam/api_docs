@@ -1,0 +1,34 @@
+## Create Time Off Requests
+
+<%= partial "includes/APIReference/TimeOffRequests/Examples/create.tmpl.erb" %>
+
+Add one or more time off requests.
+
+<aside class="notice">
+The maximum batch size is <i>50</i> requests. If exceeded, a <code>413: Request entity too large</code> HTTP response will be returned.
+</aside>
+
+### HTTP Request
+
+<img src="images/post.png" alt="post"/><api>https://rest.tsheets.com/api/v1/time_off_requests</api>
+
+### Properties
+_Pass an array of [Time Off Request](#the-time-off-request-object) objects as the value to a 'data' property (see example)._
+
+|                |             |             |
+| -------------: | :---------: | ----------- |
+| **time_off_request_entries**<br/>required | _[Time Off Request Entry](#the-time-off-request-entry-object)_ | An array of time off request entries for this time off request. |
+| **user_id**<br/>optional | _Int_ | Defaults to the requesting user (based on the Access Token). Only administrators or group managers may add time off requests for users other than themselves. Furthermore, administrators or group managers may only add time off requests for users that belong to their company. |
+| **time_off_request_notes**<br/>optional | _[Time Off Request Note](#the-time-off-request-note-object)_ | Defaults to empty. An array of notes for this time off request. |
+
+For a full list of the properties that may be set on a time off request, see [The Time Off Requests Object](#the-time-off-request-object).
+
+### Status Codes
+
+Each time off request that is created will come back with a `_status_code` and `_status_message` that will indicate whether the time off request was created successfully. If there was a problem creating a time off request, there may also be an additional field, `_status_extra`, which will contain more details about the failure.
+
+|         |          |
+| :-----: | :------- |
+| <code class="level200">200</code> | OK. Time off request was created successfully. |
+| <code class="level400">403</code> | Permission Denied. The requesting user does not have permission to create the time off request for this user. |
+| <code class="level400">417</code> | Expectation Failed. Something was wrong or missing with the properties supplied for this time off request. See the `_status_extra value` for more detail. |

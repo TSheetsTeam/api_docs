@@ -1,0 +1,42 @@
+# Time Off Request Entries
+
+Time Off Request Entries are individual time off entries associated with a Time Off Request.  Each entry will create a timesheet once the request is approved.
+
+## The Time Off Request Entry Object
+
+<%= partial "includes/APIReference/TimeOffRequestEntries/Examples/time_off_request_entries.tmpl.erb" %>
+
+Following is a list of the properties that belong to a time off request entry, and a description of each.
+
+|                |             |             |
+| -------------: | :---------: | ----------- |
+| **id**<br/>read-only | _Int_ | Id of the time off request entry. |
+| **time_off_request_id**<br/>read-write | _Int_ | Id for the [Time Off Request](#the-time-off-request-object) that this entry belongs to. |
+| **status**<br/>read-write | _String_ | One of: 'pending', 'approved', 'denied', or 'canceled'. |
+| **approver_user_id**<br/>read-only | _Int_ | User id of the user that approved or denied the time off request entry. |
+| **entry_method**<br/>read-write | _String_ | Either 'manual' or 'regular'. Manual time off request entries have a date and a duration (in seconds). Regular time off request entries have a start/end time (duration is calculated by TSheets) for determining availability in Schedule. Unique properties for each entry method type are below. |
+| **duration**<br/>read-write | _Int_ | The total number of seconds recorded for this time off request entry. |
+| **tz_string**<br/>read-only | _String_ | The timezone of the entry in string format. |
+| **jobcode_id**<br/>read-write | _Int_ | Jobcode id for the jobcode that this time off request entry is recorded against. |
+| **user_id**<br/>read-write | _Int_ | User id for the user that this time off request entry belongs to. |
+| **approved_timesheet_id**<br/>read-only | _Int_ | Id of the timesheet associated with this time off request entry when it is approved. |
+| **active**<br/>read-only | _Boolean_ | If _true_, this time off request entry is active. If _false_, this time off request entry is archived. |
+| **created**<br/>read-only | _String_ | Date/time when this time off request entry was created, in ISO 8601 format (`YYYY-MM-DDThh:mm:ss±hh:mm`). |
+| **last_modified**<br/>read-only | _String_ | Date/time when this time off request entry was last modified, in ISO 8601 format (`YYYY-MM-DDThh:mm:ss±hh:mm`). |
+
+### Manual Entry Method
+
+|                |             |             |
+| -------------: | :---------: | ----------- |
+| **date**<br/>read-write | _String_ | The date the time off request entry is for (`YYYY-MM-DD` format). |
+| **start_time**<br/>read-only | _String_ | An ISO 8601 format (`YYYY-MM-DDThh:mm:ss?hh:mm`) date/time that represents the absolute start of a 24 hr period. E.g., `2019-06-17T00:00:00-06:00`. |
+| **end_time**<br/>read-only | _String_ | An ISO 8601 format (`YYYY-MM-DDThh:mm:ss?hh:mm`) date/time that represents the absolute end of a 24 hr period. E.g., `2019-06-17T23:59:59-06:00`. |
+
+### Regular Entry Method
+
+|                |             |             |
+| -------------: | :---------: | ----------- |
+| **date**<br/>read-only | _String_ | The date the time off request entry is for (`YYYY-MM-DD` format). |
+| **start_time**<br/>read-write | _String_ | Date/time that represents the start time of this of this time off request entry, in ISO 8601 format (`YYYY-MM-DDThh:mm:ss?hh:mm`). |
+| **end_time**<br/>read-write | _String_ | Date/time that represents the end time of this of this time off request entry, in ISO 8601 format (`YYYY-MM-DDThh:mm:ss?hh:mm`). |
+

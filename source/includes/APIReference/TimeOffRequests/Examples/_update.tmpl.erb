@@ -1,0 +1,45 @@
+<% @request_body_1 = File.read("source/includes/APIReference/TimeOffRequests/Examples/_update-request-1.md.erb") -%>
+<% @request_body_2 = File.read("source/includes/APIReference/TimeOffRequests/Examples/_update-request-2.md.erb") -%>
+<% @request_body_3 = File.read("source/includes/APIReference/TimeOffRequests/Examples/_update-request-3.md.erb") -%>
+<% @request_body_4 = File.read("source/includes/APIReference/TimeOffRequests/Examples/_update-request-4.md.erb") -%>
+
+<% @response_body_1 = File.read("source/includes/APIReference/TimeOffRequests/Examples/_update-response-1.md.erb") -%>
+<% @response_body_2 = File.read("source/includes/APIReference/TimeOffRequests/Examples/_update-response-2.md.erb") -%>
+<% @response_body_3 = File.read("source/includes/APIReference/TimeOffRequests/Examples/_update-response-3.md.erb") -%>
+<% @response_body_4 = File.read("source/includes/APIReference/TimeOffRequests/Examples/_update-response-4.md.erb") -%>
+
+<%= partial "includes/CodeTemplates/put.md.erb",
+  :locals => {
+    :endpoint => "time_off_requests",
+    :description => "Add a new note to an existing time off request.",
+    :request_body => @request_body_1,
+    :response_body => @response_body_1
+  }
+%>
+
+<%= partial "includes/CodeTemplates/put.md.erb",
+  :locals => {
+    :endpoint => "time_off_requests",
+    :description => "Approve a time off request. _Note: this will also set the status to 'approved' on all entries._",
+    :request_body => @request_body_2,
+    :response_body => @response_body_2
+  }
+%>
+
+<%= partial "includes/CodeTemplates/put.md.erb",
+  :locals => {
+    :endpoint => "time_off_requests",
+    :description => "Cancel a time off request. _Note: this will also set the status to 'canceled' on all entries._",
+    :request_body => @request_body_3,
+    :response_body => @response_body_3
+  }
+%>
+
+<%= partial "includes/CodeTemplates/put.md.erb",
+  :locals => {
+    :endpoint => "time_off_requests",
+    :description => "Archive a time off request. _Note: this will set active to 'false' on and all entries._",
+    :request_body => @request_body_4,
+    :response_body => @response_body_4
+  }
+%>

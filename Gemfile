@@ -2,7 +2,7 @@ ruby '>=2.3.1'
 source 'https://rubygems.org'
 
 # Middleman
-gem 'activesupport', '5.2.4.3'
+gem 'activesupport', '5.0.7.2'
 gem 'addressable', '2.6.0'
 gem 'autoprefixer-rails', '6.7.7.2'
 gem 'backports', '3.15.0'

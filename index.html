@@ -22,18 +22,6 @@
     <script async src="https://www.google-analytics.com/analytics.js"></script>
     <script async src="javascripts/autotrack.js"></script>
     
-<!--BEGIN QUALTRICS WEBSITE FEEDBACK SNIPPET-->
-<script type='text/javascript'>
-(function(){var g=function(e,h,f,g){
-this.get=function(a){for(var a=a+"=",c=document.cookie.split(";"),b=0,e=c.length;b<e;b++){for(var d=c[b];" "==d.charAt(0);)d=d.substring(1,d.length);if(0==d.indexOf(a))return d.substring(a.length,d.length)}return null};
-this.set=function(a,c){var b="",b=new Date;b.setTime(b.getTime()+6048E5);b="; expires="+b.toGMTString();document.cookie=a+"="+c+b+"; path=/; "};
-this.check=function(){var a=this.get(f);if(a)a=a.split(":");else if(100!=e)"v"==h&&(e=Math.random()>=e/100?0:100),a=[h,e,0],this.set(f,a.join(":"));else return!0;var c=a[1];if(100==c)return!0;switch(a[0]){case "v":return!1;case "r":return c=a[2]%Math.floor(100/c),a[2]++,this.set(f,a.join(":")),!c}return!0};
-this.go=function(){if(this.check()){var a=document.createElement("script");a.type="text/javascript";a.src=g+ "&t=" + (new Date()).getTime();document.body&&document.body.appendChild(a)}};
-this.start=function(){var a=this;window.addEventListener?window.addEventListener("load",function(){a.go()},!1):window.attachEvent&&window.attachEvent("onload",function(){a.go()})}};
-try{(new g(100,"r","QSI_S_ZN_1RkCaCcXnaI8W9L","https://zn1rkcaccxnai8w9l-intuitsocial.siteintercept.qualtrics.com/WRSiteInterceptEngine/?Q_ZID=ZN_1RkCaCcXnaI8W9L")).start()}catch(i){}})();
-</script><div id='ZN_1RkCaCcXnaI8W9L'><!--DO NOT REMOVE-CONTENTS PLACED HERE--></div>
-<!--END WEBSITE FEEDBACK SNIPPET-->
-    
     <meta charset="utf-8">
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -337,7 +325,7 @@ try{(new g(100,"r","QSI_S_ZN_1RkCaCcXnaI8W9L","https://zn1rkcaccxnai8w9l-intuits
                       <a href="#delete-resources-with-the-http-delete-method" class="toc-h2 toc-link" data-title="Delete resources with the HTTP DELETE Method">Delete resources with the HTTP DELETE Method</a>
                     </li>
                     <li>
-                      <a href="#possible-response-status-codes" class="toc-h2 toc-link" data-title="Possible Response Status Codes">Possible Response Status Codes</a>
+                      <a href="#possible-http-response-status-codes" class="toc-h2 toc-link" data-title="Possible HTTP Response Status Codes">Possible HTTP Response Status Codes</a>
                     </li>
                     <li>
                       <a href="#response-formats" class="toc-h2 toc-link" data-title="Response Formats">Response Formats</a>
@@ -2585,28 +2573,8 @@ We do not currently support <code>scope</code> for our clients, so the <code>sco
 <p>You can delete an existing object by sending an <code>HTTP DELETE</code> action to the resource&#39;s endpoint url. An <code>HTTP DELETE</code> is similar to a GET, where all relevant parameters are passed as part of a query string. You must include an identifying id of some sort for the object you would like to delete as part of your parameters.</p>
 
 <p><em>Note: Some endpoints which do not support DELETE instead allow items to be &quot;archived&quot; (aka soft deleted). For example, you can make a PUT call with <code>active=false</code> to the <a href="#update-users">Users</a> endpoint to remove a user.</em></p>
-<h2 id='possible-response-status-codes'>Possible Response Status Codes</h2><h3 id='2xx-response-codes'>2xx response codes</h3>
-<p>All 2xx response codes indicate success for the action requested. Following are the most common 2xx response codes:</p>
-
-<table><thead>
-<tr>
-<th style="text-align: right"></th>
-<th style="text-align: left"></th>
-</tr>
-</thead><tbody>
-<tr>
-<td style="text-align: right"><code class="level200s">200 OK</code></td>
-<td style="text-align: left">The request was successful and the response body contains the response for the action requested. Usually comes in response to a GET request.</td>
-</tr>
-<tr>
-<td style="text-align: right"><code class="level200s">201 Created</code></td>
-<td style="text-align: left">The request was successful and the response body contains the response for the action requested. A <em>201</em> indicates that changes may have been made on the server side to the object when the request was handled (e.g. a timesheet was split due to break settings). The caller should check the <code>supplemental_data</code> of the response to process any related changes. Usually comes in response to a POST (create) or PUT (update) request.</td>
-</tr>
-<tr>
-<td style="text-align: right"><code class="level200s">202 Accepted</code></td>
-<td style="text-align: left">The request was successful and the response body contains the response for the action requested. A <em>202</em> indicates that the details of the create request match an already existing, active object. Rather than create a duplicate object, a <em>202</em> is returned along with the id of the original object. Usually comes in response to a POST (create) request.</td>
-</tr>
-</tbody></table>
+<h2 id='possible-http-response-status-codes'>Possible HTTP Response Status Codes</h2><h3 id='2xx-response-codes'>2xx response codes</h3>
+<p>All 2xx response codes indicate that the request was successful. The response body contains any details for the action requested.</p>
 <h3 id='3xx-response-codes'>3xx response codes</h3>
 <p>All 3xx response codes indicate that you need to look elsewhere for your result. The response body will contain directions on where you should be redirected to.</p>
 <h3 id='4xx-response-codes'>4xx response codes</h3>
@@ -2635,12 +2603,8 @@ We do not currently support <code>scope</code> for our clients, so the <code>sco
 <td style="text-align: left">The action you are trying to perform is not allowed.</td>
 </tr>
 <tr>
-<td style="text-align: right"><code class="level400s">406 Not Acceptable</code></td>
-<td style="text-align: left">The data you have tried to create conflicts with existing data.</td>
-</tr>
-<tr>
 <td style="text-align: right"><code class="level400s">409 Conflict</code></td>
-<td style="text-align: left">The data you have tried to modify conflicts with existing data.</td>
+<td style="text-align: left">There is a conflict with the operation you&#39;re trying to perform (details in the response body).</td>
 </tr>
 <tr>
 <td style="text-align: right"><code class="level400s">413 Max Items Exceeded</code></td>
@@ -2677,6 +2641,8 @@ We do not currently support <code>scope</code> for our clients, so the <code>sco
 <td style="text-align: left">A <em>503</em> response code indicates that the service is temporarily unavailable. Wait a few minutes for the condition to clear, and try again.</td>
 </tr>
 </tbody></table>
+<h3 id='_status_code-39-s-in-the-response-body'><code>_status_code</code>&#39;s in the Response Body</h3>
+<p>Please note that the API will include a <code>_status_code</code> in the response body associated with each element that was passed in a <code>POST</code> or <code>PUT</code> request.  These <code>_status_code</code>&#39;s will have similar values to the HTTP Response codes listed above, but they don&#39;t necessarily have the same meaning.  You can find documentation on each <code>_status_code</code> that may be returned as part of each API endpoint&#39;s documentation.</p>
 <h2 id='response-formats'>Response Formats</h2>
 <blockquote>
 <p><strong>Example</strong></p>
@@ -2780,9 +2746,9 @@ We do not currently support <code>scope</code> for our clients, so the <code>sco
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p>TSheets returns resource representations as JSON, unless an exception occurs. Each JSON response object will contain the response data underneath an object property labeled &#39;results&#39;. </p>
+<p>TSheets returns resource representations as JSON, unless an exception occurs. Each JSON response object will contain the response data underneath an object property labeled &#39;results&#39;.</p>
 
-<p>For GET requests, in the response body there will also be a boolean with the name, &quot;more&quot;. If true, it means that there is another page of objects that can be retrieved. Otherwise <em>false</em> will be the value. </p>
+<p>For GET requests, in the response body there will also be a boolean with the name, &quot;more&quot;. If true, it means that there is another page of objects that can be retrieved. Otherwise <em>false</em> will be the value.</p>
 
 <p>If the resource object references any other objects via an id (i.e. <code>group_id</code>), a corresponding JSON representation of that object will be contained in another top level property labeled <code>supplemental_data</code>.</p>
 <h2 id='exceptions'>Exceptions</h2>
@@ -34457,6 +34423,10 @@ The maximum batch size is <i>50</i> users. If exceeded, a <code class="standout"
 <tr>
 <td style="text-align: left">2020-05-13</td>
 <td style="text-align: left">Published Time Off Requests documentation</td>
+</tr>
+<tr>
+<td style="text-align: left">2020-06-17</td>
+<td style="text-align: left">Updating request formats to make response code documentation more accurate.</td>
 </tr>
 </tbody></table>
 

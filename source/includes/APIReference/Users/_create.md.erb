@@ -21,6 +21,7 @@ For a full list of properties that may be set on a user, see [the User object](#
 
 <aside class="notice">
 By default, users will be created with the time_tracking permission set to false. Requests to create a timesheet for users in this state will result in a <code class="standout">403: Forbidden. TS-1006: User is not allowed to track time</code> HTTP response.
+To enable a user for time tracking, ensure you are setting the time_tracking permission to true for the user at create time.
 </aside>
 
 ### Status Codes

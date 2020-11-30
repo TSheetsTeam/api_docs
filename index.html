@@ -26782,6 +26782,10 @@ To create an active "on-the-clock" timesheet, create a <i>regular</i> timesheet 
 <td style="text-align: left">Fulfilled. Timesheet was created successfully. Other timesheets may have been modified as a result (i.e. due to timesheet splits or an automatic Lunch Break). Be sure to process entries for <code>timesheets</code> or <code>timesheets_deleted</code> in the <code>supplemental_data</code> portion of the response.</td>
 </tr>
 <tr>
+<td style="text-align: center"><code class="level400">403</code></td>
+<td style="text-align: left">Forbidden. TS-1006: User is not allowed to track time.</td>
+</tr>
+<tr>
 <td style="text-align: center"><code class="level400">406</code></td>
 <td style="text-align: left">Not Acceptable. Conflict exists with another timesheet. See the <code>_status_extra</code> value for more detail.</td>
 </tr>
@@ -32523,10 +32527,12 @@ The maximum batch size is <i>50</i> requests. If exceeded, a <code>413: Request 
     </span><span class="s2">"view_company_schedules"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
     </span><span class="s2">"view_group_schedules"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
     </span><span class="s2">"manage_no_schedules"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"view_my_schedules"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+    </span><span class="s2">"view_my_schedules"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"time_tracking"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="s2">"customfields"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
 </span><span class="p">}</span><span class="w">
+
 </span></code></pre>
 
 <p>Following is a list of the properties that belong to a user object, and a description of each.</p>
@@ -32808,6 +32814,11 @@ The maximum batch size is <i>50</i> requests. If exceeded, a <code>413: Request 
 <td><strong>view_my_schedules</strong></td>
 <td style="text-align: center">false</td>
 <td>Able to view published events within the schedule for themselves.</td>
+</tr>
+<tr>
+<td><strong>time_tracking</strong></td>
+<td style="text-align: center">false</td>
+<td>Able to track time and have time tracked on their behalf.</td>
 </tr>
 </tbody></table>
 
@@ -33210,7 +33221,8 @@ The following fields are considered <i>private</i> and are exposed only to manag
           </span><span class="s2">"view_company_schedules"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
           </span><span class="s2">"view_group_schedules"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
           </span><span class="s2">"manage_no_schedules"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"view_my_schedules"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+          </span><span class="s2">"view_my_schedules"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"time_tracking"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="s2">"customfields"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
       </span><span class="p">},</span><span class="w">
@@ -33268,7 +33280,8 @@ The following fields are considered <i>private</i> and are exposed only to manag
           </span><span class="s2">"view_company_schedules"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
           </span><span class="s2">"view_group_schedules"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
           </span><span class="s2">"manage_no_schedules"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"view_my_schedules"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+          </span><span class="s2">"view_my_schedules"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"time_tracking"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="s2">"customfields"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
       </span><span class="p">}</span><span class="w">
@@ -33343,6 +33356,7 @@ The following fields are considered <i>private</i> and are exposed only to manag
     </span><span class="p">}</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
+
 </span></code></pre>
 
 <p>Retrieves a list of all users associated with your company, with optional filters to narrow down the results.</p>
@@ -33716,7 +33730,8 @@ The following fields are considered <i>private</i> and are exposed only to manag
           </span><span class="s2">"view_company_schedules"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
           </span><span class="s2">"view_group_schedules"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
           </span><span class="s2">"manage_no_schedules"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"view_my_schedules"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+          </span><span class="s2">"view_my_schedules"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"time_tracking"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="s2">"customfields"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
       </span><span class="p">},</span><span class="w">
@@ -33776,7 +33791,8 @@ The following fields are considered <i>private</i> and are exposed only to manag
           </span><span class="s2">"view_company_schedules"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
           </span><span class="s2">"view_group_schedules"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
           </span><span class="s2">"manage_no_schedules"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"view_my_schedules"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+          </span><span class="s2">"view_my_schedules"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"time_tracking"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="s2">"customfields"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
       </span><span class="p">}</span><span class="w">
@@ -33811,6 +33827,7 @@ The following fields are considered <i>private</i> and are exposed only to manag
     </span><span class="p">}</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
+
 </span></code></pre>
 
 <p>Add one or more users to your company.</p>
@@ -33844,6 +33861,11 @@ The following fields are considered <i>private</i> and are exposed only to manag
 </tbody></table>
 
 <p>For a full list of properties that may be set on a user, see <a href="#the-user-object">the User object</a>.</p>
+
+<aside class="notice">
+By default, users will be created with the time_tracking permission set to false. Requests to create a timesheet for users in this state will result in a <code class="standout">403: Forbidden. TS-1006: User is not allowed to track time</code> HTTP response.
+To enable a user for time tracking, ensure you are setting the time_tracking permission to true for the user at create time.
+</aside>
 <h3 id='status-codes'>Status Codes</h3>
 <p>Each user that is created will come back with a <code>_status_code</code> and <code>_status_message</code> that will indicate whether the user was created successfully. If there was a problem creating a user, there may also be an additional field, <code>_status_extra</code>, which will contain more details about the failure.</p>
 
@@ -34147,7 +34169,8 @@ The maximum batch size is <i>50</i> users. If exceeded, a <code class="standout"
           </span><span class="s2">"view_company_schedules"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
           </span><span class="s2">"view_group_schedules"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
           </span><span class="s2">"manage_no_schedules"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"view_my_schedules"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+          </span><span class="s2">"view_my_schedules"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"time_tracking"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="s2">"customfields"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
       </span><span class="p">},</span><span class="w">
@@ -34209,7 +34232,8 @@ The maximum batch size is <i>50</i> users. If exceeded, a <code class="standout"
           </span><span class="s2">"view_company_schedules"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
           </span><span class="s2">"view_group_schedules"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
           </span><span class="s2">"manage_no_schedules"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"view_my_schedules"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+          </span><span class="s2">"view_my_schedules"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"time_tracking"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="s2">"customfields"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
       </span><span class="p">}</span><span class="w">
@@ -34255,6 +34279,7 @@ The maximum batch size is <i>50</i> users. If exceeded, a <code class="standout"
     </span><span class="p">}</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
+
 
 </span></code></pre>
 
@@ -34431,6 +34456,10 @@ The maximum batch size is <i>50</i> users. If exceeded, a <code class="standout"
 <tr>
 <td style="text-align: left">2020-10-19</td>
 <td style="text-align: left">Remove employee_number from list of private fields</td>
+</tr>
+<tr>
+<td style="text-align: left">2020-11-24</td>
+<td style="text-align: left">Adding documentation for time_tracking permission</td>
 </tr>
 </tbody></table>
 

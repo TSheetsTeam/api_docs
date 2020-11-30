@@ -49,6 +49,7 @@ Each timesheet that is created will come back with a `_status_code` and `_status
 | :-----: | :------- |
 | <code class="level200">200</code> | OK. Timesheet was created successfully. |
 | <code class="level200">201</code> | Fulfilled. Timesheet was created successfully. Other timesheets may have been modified as a result (i.e. due to timesheet splits or an automatic Lunch Break). Be sure to process entries for `timesheets` or `timesheets_deleted` in the `supplemental_data` portion of the response. |
+| <code class="level400">403</code> | Forbidden. TS-1006: User is not allowed to track time. |
 | <code class="level400">406</code> | Not Acceptable. Conflict exists with another timesheet. See the `_status_extra` value for more detail. |
 | <code class="level400">417</code> | Expectation Failed. Something was wrong or missing with the properties supplied for this timesheet. See the `_status_extra` value for more detail. |
 

@@ -27,6 +27,10 @@ Each jobcode that is created will come back with a `_status_code` and `_status_m
 | <code class="level200">202</code> | 	OK. Jobcode accepted but not created because a jobcode with the same parent_id, name and type already exists. |
 | <code class="level400">417</code> | Expectation Failed. Something was wrong or missing with the properties supplied for this jobcode. See the `_status_extra` value for more detail. |
 
+<aside class="warning">
+The connect_with_quickbooks property is a beta feature. Please do not include this property until it is generally available.
+</aside>
+
 <aside class="notice">
 The maximum batch size is <i>50</i> jobcodes. If exceeded, a <code class="standout">413: Request entity too large</code> HTTP response will be returned.
 </aside>

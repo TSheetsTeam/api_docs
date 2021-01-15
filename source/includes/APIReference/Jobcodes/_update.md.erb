@@ -26,10 +26,14 @@ Each jobcode that is edited will come back with a `_status_code` and `_status_me
 | <code class="level200">200</code> | OK. Jobcode was edited successfully. |
 | <code class="level400">417</code> | Expectation Failed. Something was wrong or missing with the properties supplied for this jobcode. See the `_status_extra` value for more detail. |
 
+<aside class="warning">
+The connect_with_quickbooks property is a beta feature. Please do not include this property until it is generally available.
+</aside>
+
 <aside class="notice">
 You cannot edit a jobcode that is <i>archived</i>. You must restore the jobcode first. It is permissible to make an edit to a jobcode and restore it in a single edit request (i.e. change active to <i>1</i> and rename the jobcode in one step).
 </aside>
- 
+
 <aside class="notice">
 The maximum batch size is <i>50</i> jobcodes. If exceeded, a <code class="standout">413: Request entity too large</code> HTTP response will be returned.
 </aside>

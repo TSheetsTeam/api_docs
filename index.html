@@ -12599,9 +12599,11 @@ The maximum batch size is <i>50</i> invitations. If exceeded, a <code class="sta
   </span><span class="s2">"last_modified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-07-12T21:13:14+00:00"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-05-28T20:18:17+00:00"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"filtered_customfielditems"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"required_customfields"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">    
-  </span><span class="s2">"locations"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+  </span><span class="s2">"required_customfields"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+  </span><span class="s2">"locations"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+  </span><span class="s2">"connect_with_quickbooks"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span><span class="p">}</span><span class="w">
+
 </span></code></pre>
 
 <p>Following is a list of the properties that belong to a jobcode object, and a description of each.</p>
@@ -12687,6 +12689,11 @@ The maximum batch size is <i>50</i> invitations. If exceeded, a <code class="sta
 <td style="text-align: right"><strong>customfields</strong><br/>read-only</td>
 <td style="text-align: center"><em>JSON Object</em></td>
 <td>A key/value map of customfield ids to the customfield items that are associated with the jobcode.<br/><br/><em>Note: this property is present only if the Custom Fields Add-On is installed, and the customfields query parameter is specified with a &#39;true&#39; value.</em></td>
+</tr>
+<tr>
+<td style="text-align: right"><strong>connect_with_quickbooks</strong><br/>read-write</td>
+<td style="text-align: center"><em>Boolean</em></td>
+<td>If <em>true</em> and the beta feature for two-way sync is enabled, then changes made to the jobcode are immediately shared with QBO.<br/><br/><em>Note: this property is present only if the beta two-way sync feature is enabled.</em></td>
 </tr>
 </tbody></table>
 <h2 id='retrieve-jobcodes'>Retrieve Jobcodes</h2>
@@ -13209,8 +13216,9 @@ The maximum batch size is <i>50</i> invitations. If exceeded, a <code class="sta
     </span><span class="s2">"last_modified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-07-12T21:13:14+00:00"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-05-28T20:18:17+00:00"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"filtered_customfielditems"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"required_customfields"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">    
-    </span><span class="s2">"locations"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+    </span><span class="s2">"required_customfields"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+    </span><span class="s2">"locations"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+    </span><span class="s2">"connect_with_quickbooks"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
    </span><span class="p">},</span><span class="w">
    </span><span class="s2">"17288283"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">17288283</span><span class="p">,</span><span class="w">
@@ -13226,13 +13234,15 @@ The maximum batch size is <i>50</i> invitations. If exceeded, a <code class="sta
     </span><span class="s2">"last_modified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-05-28T20:19:33+00:00"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-05-28T20:19:33+00:00"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"filtered_customfielditems"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"required_customfields"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">     
-    </span><span class="s2">"locations"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+    </span><span class="s2">"required_customfields"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+    </span><span class="s2">"locations"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+    </span><span class="s2">"connect_with_quickbooks"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
    </span><span class="p">}</span><span class="w">
   </span><span class="p">}</span><span class="w">
  </span><span class="p">},</span><span class="w">
  </span><span class="s2">"more"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
 </span><span class="p">}</span><span class="w">
+
 </span></code></pre>
 
 <blockquote>
@@ -13432,7 +13442,8 @@ The maximum batch size is <i>50</i> invitations. If exceeded, a <code class="sta
     </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mopping"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"last_modified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-07-12T21:13:46+00:00"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-07-12T21:13:46+00:00"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"locations"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">63534554</span><span class="p">,</span><span class="w"> </span><span class="mi">635389373</span><span class="p">]</span><span class="w">
+    </span><span class="s2">"locations"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">63534554</span><span class="p">,</span><span class="w"> </span><span class="mi">635389373</span><span class="p">],</span><span class="w">
+    </span><span class="s2">"connect_with_quickbooks"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
    </span><span class="p">},</span><span class="w">
    </span><span class="s2">"17973879"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">17973879</span><span class="p">,</span><span class="w">
@@ -13447,7 +13458,8 @@ The maximum batch size is <i>50</i> invitations. If exceeded, a <code class="sta
     </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sweeping"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"last_modified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-07-12T21:13:38+00:00"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-07-12T21:13:38+00:00"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"locations"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">635389373</span><span class="p">]</span><span class="w">
+    </span><span class="s2">"locations"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">635389373</span><span class="p">],</span><span class="w">
+    </span><span class="s2">"connect_with_quickbooks"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
    </span><span class="p">}</span><span class="w">
   </span><span class="p">}</span><span class="w">
  </span><span class="p">},</span><span class="w">
@@ -13467,7 +13479,8 @@ The maximum batch size is <i>50</i> invitations. If exceeded, a <code class="sta
     </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Janatorial Work"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"last_modified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-07-12T21:13:02+00:00"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-05-28T20:18:38+00:00"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"locations"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">63538272</span><span class="p">]</span><span class="w">
+    </span><span class="s2">"locations"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">63538272</span><span class="p">],</span><span class="w">
+    </span><span class="s2">"connect_with_quickbooks"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
    </span><span class="p">}</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="s2">"locations"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -13525,6 +13538,7 @@ The maximum batch size is <i>50</i> invitations. If exceeded, a <code class="sta
   </span><span class="p">}</span><span class="w">
  </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
+
 </span></code></pre>
 
 <blockquote>
@@ -13729,7 +13743,8 @@ The maximum batch size is <i>50</i> invitations. If exceeded, a <code class="sta
                 </span><span class="s2">"customfields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
                     </span><span class="s2">"6549432"</span><span class="p">:</span><span class="w"> </span><span class="s2">"50.58"</span><span class="p">,</span><span class="w">
                     </span><span class="s2">"6549434"</span><span class="p">:</span><span class="w"> </span><span class="s2">"433"</span><span class="w">
-                </span><span class="p">}</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="s2">"connect_with_quickbooks"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
             </span><span class="p">}</span><span class="w">
         </span><span class="p">}</span><span class="w">
     </span><span class="p">},</span><span class="w">
@@ -13769,6 +13784,7 @@ The maximum batch size is <i>50</i> invitations. If exceeded, a <code class="sta
         </span><span class="p">}</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
+
 </span></code></pre>
 
 <p>Retrieves a list of all jobcodes associated with your company, with optional filters to narrow down the results. For a more efficient way of retrieving jobcodes assigned to a <em>specific user</em>, please see the <a href="#the-jobcode-assignments-object">Jobcode Assignments</a> endpoint.</p>
@@ -13854,7 +13870,8 @@ The maximum batch size is <i>50</i> invitations. If exceeded, a <code class="sta
      </span><span class="s2">"short_code"</span><span class="p">:</span><span class="s2">"c1"</span><span class="p">,</span><span class="w">
      </span><span class="s2">"billable"</span><span class="p">:</span><span class="s2">"yes"</span><span class="p">,</span><span class="w">
      </span><span class="s2">"assigned_to_all"</span><span class="p">:</span><span class="s2">"yes"</span><span class="p">,</span><span class="w">
-     </span><span class="s2">"billable_rate"</span><span class="p">:</span><span class="s2">"37.50"</span><span class="w">
+     </span><span class="s2">"billable_rate"</span><span class="p">:</span><span class="s2">"37.50"</span><span class="p">,</span><span class="w">
+     </span><span class="s2">"connect_with_quickbooks"</span><span class="p">:</span><span class="kc">true</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
      </span><span class="s2">"name"</span><span class="p">:</span><span class="s2">"Customer2"</span><span class="p">,</span><span class="w">
@@ -13862,10 +13879,12 @@ The maximum batch size is <i>50</i> invitations. If exceeded, a <code class="sta
      </span><span class="s2">"short_code"</span><span class="p">:</span><span class="s2">"c1"</span><span class="p">,</span><span class="w">
      </span><span class="s2">"billable"</span><span class="p">:</span><span class="s2">"no"</span><span class="p">,</span><span class="w">
      </span><span class="s2">"assigned_to_all"</span><span class="p">:</span><span class="s2">"no"</span><span class="p">,</span><span class="w">
-     </span><span class="s2">"billable_rate"</span><span class="p">:</span><span class="s2">"37.50"</span><span class="w">
+     </span><span class="s2">"billable_rate"</span><span class="p">:</span><span class="s2">"37.50"</span><span class="p">,</span><span class="w">
+     </span><span class="s2">"connect_with_quickbooks"</span><span class="p">:</span><span class="kc">false</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
+
 
 </span></code></pre>
 
@@ -14086,7 +14105,8 @@ The maximum batch size is <i>50</i> invitations. If exceeded, a <code class="sta
         </span><span class="s2">"last_modified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-07-22T19:19:28+00:00"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-07-22T19:19:28+00:00"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"required_customfields"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
-        </span><span class="s2">"filtered_customfielditems"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+        </span><span class="s2">"filtered_customfielditems"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"connect_with_quickbooks"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
       </span><span class="p">},</span><span class="w">
       </span><span class="s2">"2"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"_status_code"</span><span class="p">:</span><span class="w"> </span><span class="mi">417</span><span class="p">,</span><span class="w">
@@ -14112,11 +14132,13 @@ The maximum batch size is <i>50</i> invitations. If exceeded, a <code class="sta
         </span><span class="s2">"last_modified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-07-12T21:13:14+00:00"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-05-28T20:18:17+00:00"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"required_customfields"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
-        </span><span class="s2">"filtered_customfielditems"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+        </span><span class="s2">"filtered_customfielditems"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"connect_with_quickbooks"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
       </span><span class="p">}</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
+
 </span></code></pre>
 
 <p>Add one or more jobcodes to your company.</p>
@@ -14163,6 +14185,10 @@ The maximum batch size is <i>50</i> invitations. If exceeded, a <code class="sta
 </tr>
 </tbody></table>
 
+<aside class="warning">
+The connect_with_quickbooks property is a beta feature. Please do not include this property until it is generally available.
+</aside>
+
 <aside class="notice">
 The maximum batch size is <i>50</i> jobcodes. If exceeded, a <code class="standout">413: Request entity too large</code> HTTP response will be returned.
 </aside>
@@ -14181,24 +14207,28 @@ The maximum batch size is <i>50</i> jobcodes. If exceeded, a <code class="stando
       </span><span class="s2">"short_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cc3"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"billable"</span><span class="p">:</span><span class="w"> </span><span class="s2">"false"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Customer30"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"billable_rate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"57.50"</span><span class="w">
+      </span><span class="s2">"billable_rate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"57.50"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"connect_with_quickbooks"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">10608414</span><span class="p">,</span><span class="w">
       </span><span class="s2">"short_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cc4"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"billable"</span><span class="p">:</span><span class="w"> </span><span class="s2">"false"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Customer40"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"billable_rate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"57.50"</span><span class="w">
+      </span><span class="s2">"billable_rate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"57.50"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"connect_with_quickbooks"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">10608424</span><span class="p">,</span><span class="w">
       </span><span class="s2">"short_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cc1"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"billable"</span><span class="p">:</span><span class="w"> </span><span class="s2">"false"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Customer10"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"billable_rate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"57.50"</span><span class="w">
+      </span><span class="s2">"billable_rate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"57.50"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"connect_with_quickbooks"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
+
 </span></code></pre>
 
 <blockquote>
@@ -14413,6 +14443,7 @@ The maximum batch size is <i>50</i> jobcodes. If exceeded, a <code class="stando
         </span><span class="s2">"billable_rate"</span><span class="p">:</span><span class="w"> </span><span class="mf">57.5</span><span class="p">,</span><span class="w">
         </span><span class="s2">"short_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cc3"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Customer30"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"connect_with_quickbooks"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
         </span><span class="s2">"last_modified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-07-22T22:12:04+00:00"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-07-22T19:19:28+00:00"</span><span class="w">
       </span><span class="p">},</span><span class="w">
@@ -14429,6 +14460,7 @@ The maximum batch size is <i>50</i> jobcodes. If exceeded, a <code class="stando
         </span><span class="s2">"billable_rate"</span><span class="p">:</span><span class="w"> </span><span class="mf">57.5</span><span class="p">,</span><span class="w">
         </span><span class="s2">"short_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cc4"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Customer40"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"connect_with_quickbooks"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
         </span><span class="s2">"last_modified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-07-22T22:12:05+00:00"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-07-22T21:20:43+00:00"</span><span class="w">
       </span><span class="p">},</span><span class="w">
@@ -14445,6 +14477,7 @@ The maximum batch size is <i>50</i> jobcodes. If exceeded, a <code class="stando
         </span><span class="s2">"billable_rate"</span><span class="p">:</span><span class="w"> </span><span class="mf">57.5</span><span class="p">,</span><span class="w">
         </span><span class="s2">"short_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cc1"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Customer10"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"connect_with_quickbooks"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
         </span><span class="s2">"last_modified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-07-22T22:12:06+00:00"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-07-22T21:20:51+00:00"</span><span class="w">
       </span><span class="p">}</span><span class="w">
@@ -14463,12 +14496,14 @@ The maximum batch size is <i>50</i> jobcodes. If exceeded, a <code class="stando
         </span><span class="s2">"billable_rate"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
         </span><span class="s2">"short_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"asm"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Assembly Line"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"connect_with_quickbooks"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
         </span><span class="s2">"last_modified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-07-12T21:13:14+00:00"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-05-28T20:18:17+00:00"</span><span class="w">
       </span><span class="p">}</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
+
 
 </span></code></pre>
 
@@ -14512,10 +14547,13 @@ The maximum batch size is <i>50</i> jobcodes. If exceeded, a <code class="stando
 </tr>
 </tbody></table>
 
+<aside class="warning">
+The connect_with_quickbooks property is a beta feature. Please do not include this property until it is generally available.
+</aside>
+
 <aside class="notice">
 You cannot edit a jobcode that is <i>archived</i>. You must restore the jobcode first. It is permissible to make an edit to a jobcode and restore it in a single edit request (i.e. change active to <i>1</i> and rename the jobcode in one step).
 </aside>
- 
 
 <aside class="notice">
 The maximum batch size is <i>50</i> jobcodes. If exceeded, a <code class="standout">413: Request entity too large</code> HTTP response will be returned.
@@ -34460,6 +34498,10 @@ The maximum batch size is <i>50</i> users. If exceeded, a <code class="standout"
 <tr>
 <td style="text-align: left">2020-11-24</td>
 <td style="text-align: left">Adding documentation for time_tracking permission</td>
+</tr>
+<tr>
+<td style="text-align: left">2021-01-15</td>
+<td style="text-align: left">Adding documentation for Jobcode connect_with_quickbooks property</td>
 </tr>
 </tbody></table>
 

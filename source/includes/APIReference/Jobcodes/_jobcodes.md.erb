@@ -23,4 +23,4 @@ Following is a list of the properties that belong to a jobcode object, and a des
 | **last_modified**<br/>read-only | _String_ | Date/time when this jobcode was last modified, in ISO 8601 format (`YYYY-MM-DDThh:mm:ss±hh:mm`) |
 | **created**<br/>read-only | _String_ | Date/time when this jobcode was created, in ISO 8601 format (`YYYY-MM-DDThh:mm:ss±hh:mm`) |
 | **customfields**<br/>read-only | _JSON Object_ | A key/value map of customfield ids to the customfield items that are associated with the jobcode.<br/><br/>_Note: this property is present only if the Custom Fields Add-On is installed, and the customfields query parameter is specified with a 'true' value._ |
-
+| **connect_with_quickbooks**<br/>read-write | _Boolean_ | If _true_ and the beta feature for two-way sync is enabled, then changes made to the jobcode are immediately shared with QBO.<br/><br/>_Note: this property is present only if the beta two-way sync feature is enabled._ |

@@ -1,7 +1,7 @@
 api_docs
 =============
 <p align="center">
-    <img src="./source/images/tsheetsbyqb37.svg" width="200" alt="Logo"/>
+    <img src="./source/images/qb_time_logo_reversed.svg" width="200" alt="Logo"/>
 </p>
 REST API Documentation for TSheets by QuickBooks
 

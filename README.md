@@ -1,9 +1,8 @@
-api_docs
-=============
-<p align="center">
-    <img src="./source/images/qb_time_logo_reversed.svg" width="200" alt="Logo"/>
+<p align="left">
+    <img src="./source/images/qb_time_logo_reversed.svg" width="200" alt="Logo" />
 </p>
-REST API Documentation for TSheets by QuickBooks
+
+# REST API Documentation for TSheets by QuickBooks
 
 **Support:** [![Help](https://img.shields.io/badge/Support-TSheets%20Developer-blue.svg)](https://www.tsheets.com/contact-tsheets)<br/>
 **Documentation:** [![User Guide](https://img.shields.io/badge/User%20Guide-SDK%20Docs-blue.svg)](https://developers.tsheets.com/docs/api/)<br/>

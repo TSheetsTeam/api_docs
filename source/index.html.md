@@ -1,5 +1,5 @@
 ---
-title: TSheets API Reference
+title: QuickBooks Time API Reference
 
 language_tabs: # must be one of https://git.io/vQNgJ
   - shell: cURL

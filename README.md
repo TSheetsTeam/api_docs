@@ -1,18 +1,18 @@
 api_docs
 =============
 <p align="center">
-    <img src="./source/images/tsheetsbyqb37.svg" width="200" alt="Logo"/>
+    <img src="./source/images/qb_time_logo.svg" width="200" alt="Logo"/>
 </p>
-REST API Documentation for TSheets by QuickBooks
+REST API Documentation for QuickBooks Time
 
 **Support:** [![Help](https://img.shields.io/badge/Support-TSheets%20Developer-blue.svg)](https://www.tsheets.com/contact-tsheets)<br/>
 **Documentation:** [![User Guide](https://img.shields.io/badge/User%20Guide-SDK%20Docs-blue.svg)](https://developers.tsheets.com/docs/api/)<br/>
 **License:** [![Apache 2](http://img.shields.io/badge/license-Apache%202-brightgreen.svg)](http://www.apache.org/licenses/LICENSE-2.0) <br/>
 
-This Git Repository is the official reference to the REST API Documentation of TSheets (time capture segment of Intuit).
+This Git Repository is the official reference to the REST API Documentation of QuickBooks Time.
 Some of the features include:
 
-* TSheets free trial information
+* QuickBooks Time free trial information
 * Quick start walkthroughs for developing to the API
 * Comprehensive API references
 * Code samples in multiple languages

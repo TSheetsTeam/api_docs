@@ -3,8 +3,8 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <link rel="shortcut icon" href="images/Circle_T_web300px.png" type="image/x-icon" />
-    <title>TSheets API Reference</title>    
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
+    <title>QuickBooks Time API Reference</title>    
     <script>
       window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
       ga('create', 'UA-282450-20', 'auto');
@@ -228,7 +228,7 @@
       </span>
     </a>
     <div class="toc-wrapper">
-      <img src="images/logo.svg" class="logo" alt="Logo" />
+      <img src="images/qb_time_logo_reversed.svg" class="logo" alt="Qb time logo reversed" />
         <div class="lang-selector">
               <a href="#" data-language-name="shell">cURL</a>
               <a href="#" data-language-name="csharp">C#</a>
@@ -791,6 +791,8 @@
       <div class="dark-box"></div>
       <div class="content">
         <h1 id='introduction'>Introduction</h1>
+<p>TSheets is now QuickBooks Time</p>
+
 <p>The TSheets API provides access to the same rich features as our top-rated web-based and mobile apps.  With it you can quickly build time-tracking solutions that simplify workflows and save customers time and money.  For inspiration, have a look at the amazing integrations our partners have built on our <a href="https://www.tsheets.com/app-marketplace">App Marketplace</a>.</p>
 
 <p>Based on <a href="https://en.wikipedia.org/wiki/Representational_state_transfer">REST</a> principles, it&#39;s very easy to write and test applications. You can use your browser to access URLs, and practically any TLS-capable HTTP client in any programming language to interact with the API. The API allows you to query metadata about your account, users, jobcodes, timesheets, GPS points, and custom fields. You can also create timesheets, users, jobcodes, etc.  All access to the API occurs over a TLS-encrypted secure channel, so your API client must support TLS. To ensure data privacy, unencrypted HTTP is not supported.</p>
@@ -15131,6 +15133,11 @@ The maximum batch size is <i>50</i> jobcodes. If exceeded, a <code class="stando
 <td style="text-align: right"><strong>active</strong><br/>optional</td>
 <td style="text-align: center"><em>String</em></td>
 <td>&#39;yes&#39;, &#39;no, or &#39;both&#39;. Default is &#39;both&#39;. &#39;yes&#39; means the assignment is active, &#39;no&#39; means it is deleted/inactive.</td>
+</tr>
+<tr>
+<td style="text-align: right"><strong>active_jobcodes</strong><br/>optional</td>
+<td style="text-align: center"><em>String</em></td>
+<td>&#39;yes&#39;, &#39;no, or &#39;both&#39;. Default is &#39;both&#39;. &#39;yes&#39; means only assignments where the jobcode is active, &#39;no&#39; means only assignments where jobcodes are inactive.</td>
 </tr>
 <tr>
 <td style="text-align: right"><strong>modified_before</strong><br/>optional</td>
@@ -34502,6 +34509,10 @@ The maximum batch size is <i>50</i> users. If exceeded, a <code class="standout"
 <tr>
 <td style="text-align: left">2021-01-15</td>
 <td style="text-align: left">Adding documentation for Jobcode connect_with_quickbooks property</td>
+</tr>
+<tr>
+<td style="text-align: left">2021-05-17</td>
+<td style="text-align: left">Adding new rebranded images, update text and addressed sidebar for same look and feel as QuickBooks</td>
 </tr>
 </tbody></table>
 

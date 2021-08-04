@@ -17,10 +17,6 @@ _Pass an array of invitation objects as the value to a 'data' property (see exam
 | **contact_info**<br/>required | _String_ | Email address or mobile phone number matching the type specified by the `contact_method` parameter.
 | **user_id**<br/>required | _Int_ | Id of [User](#the-user-object) object.
 
-<aside class="notice">
-The <code>contact_info</code> and <code>user_id</code> parameters are mutually exclusive.  One and only one must be supplied.
-</aside>
-
 ### Status Codes
 
 Each invitation that is created will come back with a `_status_code` and `_status_message` that will indicate whether the invitation was created successfully.  If there was a problem creating an invitation, there may also be an additional field, `_status_extra`, which will contain more details about the failure.

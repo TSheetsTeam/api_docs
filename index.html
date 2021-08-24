@@ -24140,6 +24140,11 @@ The date range defined by <code>start_date</code> and <code>end_date</code> must
 <td>&#39;yes&#39;, &#39;no&#39; or &#39;both&#39;. Default is &#39;both&#39;. Only schedule events whose active state match the requested filter will be returned.</td>
 </tr>
 <tr>
+<td style="text-align: right"><strong>active_users</strong><br/>optional</td>
+<td style="text-align: center"><em>Int</em></td>
+<td>&#39;0&#39;, &#39;-1&#39; or &#39;1&#39; . Default is &#39;1&#39;. Only schedule events whose users are active will be returned by default. 0 will return events for inactive users. -1 will return events for active and inactive users.</td>
+</tr>
+<tr>
 <td style="text-align: right"><strong>draft</strong><br/>optional</td>
 <td style="text-align: center"><em>String</em></td>
 <td>&#39;yes&#39;, &#39;no&#39; or &#39;both&#39;. Default is &#39;no&#39;. Only schedule events whose draft state match the requested filter will be returned.</td>
@@ -34513,6 +34518,10 @@ The maximum batch size is <i>50</i> users. If exceeded, a <code class="standout"
 <tr>
 <td style="text-align: left">2021-05-17</td>
 <td style="text-align: left">Adding new rebranded images, update text and addressed sidebar for same look and feel as QuickBooks</td>
+</tr>
+<tr>
+<td style="text-align: left">2021-08-24</td>
+<td style="text-align: left">Documenting the active_users parameter exposed in the schedule_events endpoint</td>
 </tr>
 </tbody></table>
 

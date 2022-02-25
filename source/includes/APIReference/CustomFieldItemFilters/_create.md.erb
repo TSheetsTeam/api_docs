@@ -1,0 +1,39 @@
+## Create Item Filters
+
+<%= partial "includes/APIReference/CustomFieldItemFilters/Examples/create.tmpl.erb" %>
+
+Add one or more customfielditemfilters.
+
+### HTTP Request
+
+<img src="images/post.png" alt="post"/><api>https://rest.tsheets.com/api/v1/customfielditem_filters</api>
+
+### Properties
+_Pass an array of customfielditemfilter objects as the value to a 'data' property (see example)._
+
+|                |             |             |
+| -------------: | :---------: | ----------- |
+| **customfield_id**<br/>required | _Int_ | The id of the customfield this filter to belong to. |
+| **customfielditem_id**<br/>required | _Int_ | The id of the customfielditem this filter to belong to. |
+| **applies_to**<br/>read-write | _String_ | Entity type this filter relates to. Together with `applies_to_id`, determines what this filtered item relates to. The possible values are: 'jobcodes', 'users', or 'groups'. For example: If this value was 'jobcodes' then the `applies_to_id` value would indicate which jobcode this filter referred to. If requested, the supplemental data will also contain this jobcode. |
+| **applies_to_id**<br/>read-write | _Int_ | The jobcode, user, or group that this filter relates to. Together with `applies_to`, determines what this filtered item relates to. For example: If the value of the `applies_to field` was 'jobcodes' this value would indicate which jobcode this filter referred to. If requested, the supplemental data will also contain this jobcode. |
+| **active**<br/>read-write | _Boolean_ | true or false. If false, this `customfielditem_filter` is considered archived or deleted. |
+
+For a full list of the properties that may be set on a customfielditemfilter, see 
+[The Item Filter Object](#the-item-filter-object).
+
+### Status Codes
+Each customfielditemfilter that is created will come back with a `_status_code` and `_status_message` 
+that will indicate whether the customfielditemfilter was created successfully. If there was a problem 
+creating a customfielditemfilter, there may also be an additional field, `_status_extra`, which will 
+contain more details about the failure.
+
+|         |          |
+| :-----: | :------- |
+| <code class="level200">200</code> | OK. customfielditemfilter was created successfully. |
+| <code class="level400">417</code> | Expectation Failed. Something was wrong or missing with the properties supplied for this customfielditemfilter. See the `_status_extra` value for more detail. |
+
+<aside class="notice">
+The maximum batch size is <i>50</i> customfielditemfilters. If exceeded, a 
+<code class="standout">413: Request entity too large</code> HTTP response will be returned.
+</aside>

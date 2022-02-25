@@ -40,6 +40,8 @@ includes:
 
   - APIReference/CustomFieldItemFilters/customfielditem_filters.md.erb
   - APIReference/CustomFieldItemFilters/retrieve.md.erb
+  - APIReference/CustomFieldItemFilters/create.md.erb
+  - APIReference/CustomFieldItemFilters/update.md.erb
 
   - APIReference/CustomFieldItemJobcodeFilters/customfielditem_jobcode_filters.md.erb
   - APIReference/CustomFieldItemJobcodeFilters/retrieve.md.erb

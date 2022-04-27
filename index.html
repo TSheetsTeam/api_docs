@@ -2676,7 +2676,6 @@ We do not currently support <code>scope</code> for our clients, so the <code>sco
         </span><span class="s2">"company_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"API Sample Output Company"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"profile_image_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https:</span><span class="se">\/\/</span><span class="s2">www.gravatar.com</span><span class="se">\/</span><span class="s2">avatar</span><span class="se">\/</span><span class="s2">e64c7d89f26bd1972efa854d13d7dd61"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"display_name"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"pronouns"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
         </span><span class="s2">"pto_balances"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
           </span><span class="s2">"2624351"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
           </span><span class="s2">"2624353"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
@@ -3323,7 +3322,6 @@ Actual menu layout may differ.
         </span><span class="s2">"company_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"API Sample Output Company"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"profile_image_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https:</span><span class="se">\/\/</span><span class="s2">www.gravatar.com</span><span class="se">\/</span><span class="s2">avatar</span><span class="se">\/</span><span class="s2">e64c7d89f26bd1972efa854d13d7dd61"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"display_name"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"pronouns"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
         </span><span class="s2">"pto_balances"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
           </span><span class="s2">"2624351"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
           </span><span class="s2">"2624353"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
@@ -32544,7 +32542,6 @@ The maximum batch size is <i>50</i> requests. If exceeded, a <code>413: Request 
   </span><span class="s2">"company_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"API Sample Output Company"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"profile_image_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https:</span><span class="se">\/\/</span><span class="s2">www.gravatar.com</span><span class="se">\/</span><span class="s2">avatar</span><span class="se">\/</span><span class="s2">e64c7d89f26bd1972efa854d13d7dd61"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"display_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"pronouns"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
   </span><span class="s2">"pto_balances"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"2624351"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
     </span><span class="s2">"2624353"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
@@ -32613,11 +32610,6 @@ The maximum batch size is <i>50</i> requests. If exceeded, a <code>413: Request 
 <td style="text-align: right"><strong>display_name</strong><br/>read-write</td>
 <td style="text-align: center"><em>String</em></td>
 <td>The display name of user. NOTE: field will always be empty string unless feature GED_INCLUSION is enabled (contact support for more info), if feature is enabled then value will be a non-null display_name value (users who have not setup their display_name will return &#39;&#39;)</td>
-</tr>
-<tr>
-<td style="text-align: right"><strong>pronouns</strong><br/>read-write</td>
-<td style="text-align: center"><em>String</em></td>
-<td>The personal pronouns of user. NOTE: field will always be empty string unless feature GED_INCLUSION is enabled (contact support for more info), if feature is enabled then value will be a non-null pronouns value (users who have not setup their pronouns will return &#39;&#39;)</td>
 </tr>
 <tr>
 <td style="text-align: right"><strong>group_id</strong><br/>read-write</td>
@@ -33240,7 +33232,6 @@ The following fields are considered <i>private</i> and are exposed only to manag
         </span><span class="s2">"company_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"API Sample Output Company"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"profile_image_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https:</span><span class="se">\/\/</span><span class="s2">www.gravatar.com</span><span class="se">\/</span><span class="s2">avatar</span><span class="se">\/</span><span class="s2">e64c7d89f26bd1972efa854d13d7dd61"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"display_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"pronouns"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
         </span><span class="s2">"pto_balances"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
           </span><span class="s2">"2624351"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
           </span><span class="s2">"2624353"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
@@ -33298,7 +33289,6 @@ The following fields are considered <i>private</i> and are exposed only to manag
         </span><span class="s2">"company_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"API Sample Output Company"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"profile_image_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
         </span><span class="s2">"display_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"pronouns"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
         </span><span class="s2">"mobile_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
         </span><span class="s2">"pto_balances"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
           </span><span class="s2">"2624351"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
@@ -33748,7 +33738,6 @@ The following fields are considered <i>private</i> and are exposed only to manag
         </span><span class="s2">"company_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"API Sample Output Company"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"profile_image_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
         </span><span class="s2">"display_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"pronouns"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
         </span><span class="s2">"mobile_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
         </span><span class="s2">"pto_balances"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
           </span><span class="s2">"2624351"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
@@ -33809,7 +33798,6 @@ The following fields are considered <i>private</i> and are exposed only to manag
         </span><span class="s2">"company_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"API Sample Output Company"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"profile_image_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
         </span><span class="s2">"display_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"pronouns"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
         </span><span class="s2">"mobile_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
         </span><span class="s2">"pto_balances"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
           </span><span class="s2">"2624351"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
@@ -34185,7 +34173,6 @@ The maximum batch size is <i>50</i> users. If exceeded, a <code class="standout"
         </span><span class="s2">"company_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"API Sample Output Company"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"profile_image_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https:</span><span class="se">\/\/</span><span class="s2">www.gravatar.com</span><span class="se">\/</span><span class="s2">avatar</span><span class="se">\/</span><span class="s2">e64c7d89f26bd1972efa854d13d7dd61"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"display_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"pronouns"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
         </span><span class="s2">"mobile_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2087231456"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"pto_balances"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
           </span><span class="s2">"2624351"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
@@ -34248,7 +34235,6 @@ The maximum batch size is <i>50</i> users. If exceeded, a <code class="standout"
         </span><span class="s2">"company_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"API Sample Output Company"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"profile_image_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
         </span><span class="s2">"display_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"pronouns"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
         </span><span class="s2">"mobile_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
         </span><span class="s2">"pto_balances"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
           </span><span class="s2">"2624351"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
@@ -34522,6 +34508,10 @@ The maximum batch size is <i>50</i> users. If exceeded, a <code class="standout"
 <tr>
 <td style="text-align: left">2021-08-24</td>
 <td style="text-align: left">Documenting the active_users parameter exposed in the schedule_events endpoint</td>
+</tr>
+<tr>
+<td style="text-align: left">2022-04-26</td>
+<td style="text-align: left">Remove pronouns from user object as field has been merged with display_name</td>
 </tr>
 </tbody></table>
 

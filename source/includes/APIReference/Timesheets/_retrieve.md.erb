@@ -31,3 +31,7 @@ Please see our <a href="#reports">reporting</a> endpoint Timesheet aggregations.
 | **per_page**<br/>optional | _Int_ | Represents how many results you'd like to retrieve per request (page). Default is 50. Max is 50. |
 | **page**<br/>optional | _Int_ | Represents the page of results you'd like to retrieve. Default is 1. |
 
+
+<aside class="notice">
+The maximum batch size is <i>50</i> timesheets. To receive the full result, increment the page parameter and iterate through the requests until you receive "more":false as part of the response.
+</aside>

@@ -1,0 +1,29 @@
+{
+  "results": {
+    "customfielditems": {
+      "1": {
+        "id": 101,
+        "customfield_id": 2,
+        "customfielditem_id": 3,
+        "applies_to": "jobcodes",
+        "applies_to_id": 1
+        "active": true,
+        "last_modified": "2022-02-24T21:45:19+00:00",
+        "_status_code": 200,
+        "_status_message": "Updated",
+      },
+      "2": {
+        "id": 102,
+        "applies_to": "invalid_applies_to",
+        "_status_code": 417,
+        "_status_message": "Expectation Failed",
+        "_status_extra": "The applies_to value must be one of the following: jobcodes, users, groups."
+      }
+    }
+  },
+  "supplemental_data": {
+    "jobcodes": {...},
+    "customfields": {...},
+    "customfielditems": {...}
+  }
+}

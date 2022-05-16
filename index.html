@@ -279,6 +279,9 @@
                       <a href="#request-throttling" class="toc-h2 toc-link" data-title="Request Throttling">Request Throttling</a>
                     </li>
                     <li>
+                      <a href="#response-size-limit" class="toc-h2 toc-link" data-title="Response Size Limit">Response Size Limit</a>
+                    </li>
+                    <li>
                       <a href="#sdk-39-s-amp-helper-libraries" class="toc-h2 toc-link" data-title="SDK's &amp; Helper Libraries">SDK's &amp; Helper Libraries</a>
                     </li>
                     <li>
@@ -429,6 +432,12 @@
                     </li>
                     <li>
                       <a href="#retrieve-item-filters" class="toc-h2 toc-link" data-title="Retrieve Item Filters">Retrieve Item Filters</a>
+                    </li>
+                    <li>
+                      <a href="#create-item-filters" class="toc-h2 toc-link" data-title="Create Item Filters">Create Item Filters</a>
+                    </li>
+                    <li>
+                      <a href="#update-item-filters" class="toc-h2 toc-link" data-title="Update Item Filters">Update Item Filters</a>
                     </li>
                     <li>
                       <a href="#custom-field-item-jobcode-filters" class="toc-h2 toc-link" data-title="Custom Field Item Jobcode Filters">Custom Field Item Jobcode Filters</a>
@@ -858,6 +867,8 @@ If Postman returns a <i><b>"Could not get any response"</b></i> error, most like
 Found an error, or would otherwise like to contribute to our API documentation?  Submit a pull request to our <a href="https://github.com/tsheetsteam/api_docs">public GitHub repository</a>.</p>
 <h2 id='request-throttling'>Request Throttling</h2>
 <p>To prevent abuse of the TSheets API, we limit requests to a maximum of 300 calls within any 5 minute time window (subject to change). Rate limiting is primarily considered on a per-connection basis (per access token). If you exceed the current rate limit, you will receive a <code>429 &#39;Too many requests&#39;</code> response from our API. You will continue to receive a <code>429</code> response until you&#39;re out of the current time window. The threshold and time window may adjust dynamically downward if you are found to be abusing the system.</p>
+<h2 id='response-size-limit'>Response Size Limit</h2>
+<p>Each request response will return a maximum of 50 results per page (regardless of whether the per_page parameter is sent with your request). To receive the full response, look for the <code>&quot;more&quot;: true</code> attribute and iterate sending a new request with the page parameter incremented until you receive <code>&quot;more&quot;: false</code> in the response payload.</p>
 <h2 id='sdk-39-s-amp-helper-libraries'>SDK&#39;s &amp; Helper Libraries</h2>
 <p><a href="https://github.com/tsheets/api_dotnet"><img src="images/ms.net-logo.png" alt="ms.net-logo" style="float:left; width:15%; margin-right: 1%"/></a><a href="https://github.com/tsheets/api_phplib"><img src="images/php-logo.png" alt="php" style="float:left; width:10%; margin-right: 1%"/></a></p>
 
@@ -6831,6 +6842,631 @@ The maximum batch size is <i>50</i> customfielditems. If exceeded, a <code class
 <td>Represents the page of results you&#39;d like to retrieve. Default is 1.</td>
 </tr>
 </tbody></table>
+<h2 id='create-item-filters'>Create Item Filters</h2>
+<blockquote>
+<p><strong>Example</strong>: Create two new customfielditemfilters. One succeeds. The other fails because of an invalid <code>applies_to</code>.</p>
+
+<p>Request Body</p>
+</blockquote>
+
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+ </span><span class="s2">"data"</span><span class="p">:</span><span class="w">
+  </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"customfield_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"customfielditem_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"applies_to"</span><span class="p">:</span><span class="w"> </span><span class="s2">"jobcodes"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"applies_to_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"customfield_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"customfielditem_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"applies_to"</span><span class="p">:</span><span class="w"> </span><span class="s2">"invalid-applies-to"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"applies_to_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre>
+
+<blockquote>
+<p>Request</p>
+</blockquote>
+
+<pre class="highlight shell tab-shell"><code>curl -X POST <span class="se">\</span>
+  https://rest.tsheets.com/api/v1/customfielditemfilters <span class="se">\</span>
+  -H <span class="s1">'Authorization: Bearer &lt;TOKEN&gt;'</span> <span class="se">\</span>
+  -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+  -d <span class="s1">'&lt;REQUEST BODY&gt;'</span>
+</code></pre><pre class="highlight csharp tab-csharp"><code><span class="kt">var</span> <span class="n">client</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">RestClient</span><span class="p">(</span><span class="s">"https://rest.tsheets.com/api/v1/customfielditemfilters"</span><span class="p">);</span>
+<span class="kt">var</span> <span class="n">request</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">RestRequest</span><span class="p">(</span><span class="n">Method</span><span class="p">.</span><span class="n">POST</span><span class="p">);</span>
+<span class="n">request</span><span class="p">.</span><span class="nf">AddHeader</span><span class="p">(</span><span class="s">"Authorization"</span><span class="p">,</span> <span class="s">"Bearer &lt;TOKEN&gt;"</span><span class="p">);</span>
+<span class="n">request</span><span class="p">.</span><span class="nf">AddHeader</span><span class="p">(</span><span class="s">"Content-Type"</span><span class="p">,</span> <span class="s">"application/json"</span><span class="p">);</span>
+<span class="n">request</span><span class="p">.</span><span class="nf">AddParameter</span><span class="p">(</span><span class="s">"application/json"</span><span class="p">,</span> <span class="s">"&lt;REQUEST BODY&gt;"</span><span class="p">,</span> <span class="n">ParameterType</span><span class="p">.</span><span class="n">RequestBody</span><span class="p">);</span>
+<span class="n">IRestResponse</span> <span class="n">response</span> <span class="p">=</span> <span class="n">client</span><span class="p">.</span><span class="nf">Execute</span><span class="p">(</span><span class="n">request</span><span class="p">);</span>
+</code></pre><pre class="highlight vb tab-vb"><code><span class="k">Dim</span> <span class="nv">client</span> <span class="o">=</span> <span class="k">New</span> <span class="n">RestClient</span><span class="p">(</span><span class="s">"https://rest.tsheets.com/api/v1/customfielditemfilters"</span><span class="p">)</span>
+<span class="k">Dim</span> <span class="nv">request</span> <span class="o">=</span> <span class="k">New</span> <span class="n">RestRequest</span><span class="p">(</span><span class="n">Method</span><span class="p">.</span><span class="n">POST</span><span class="p">)</span>
+<span class="n">request</span><span class="p">.</span><span class="n">AddHeader</span><span class="p">(</span><span class="s">"Authorization"</span><span class="p">,</span> <span class="s">"Bearer &lt;TOKEN&gt;"</span><span class="p">)</span>
+<span class="n">request</span><span class="p">.</span><span class="n">AddHeader</span><span class="p">(</span><span class="s">"Content-Type"</span><span class="p">,</span> <span class="s">"application/json"</span><span class="p">)</span>
+<span class="n">request</span><span class="p">.</span><span class="n">AddParameter</span><span class="p">(</span><span class="s">"application/json"</span><span class="p">,</span> <span class="s">"&lt;REQUEST BODY&gt;"</span><span class="p">,</span> <span class="n">ParameterType</span><span class="p">.</span><span class="n">RequestBody</span><span class="p">)</span><span class="err">;</span>
+<span class="k">Dim</span> <span class="nv">response</span> <span class="ow">As</span> <span class="n">IRestResponse</span> <span class="o">=</span> <span class="n">client</span><span class="p">.</span><span class="n">Execute</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
+</code></pre><pre class="highlight java tab-java"><code><span class="n">OkHttpClient</span> <span class="n">client</span> <span class="o">=</span> <span class="k">new</span> <span class="n">OkHttpClient</span><span class="o">();</span>
+
+<span class="n">MediaType</span> <span class="n">mediaType</span> <span class="o">=</span> <span class="n">MediaType</span><span class="o">.</span><span class="na">parse</span><span class="o">(</span><span class="s">"application/json"</span><span class="o">);</span>
+<span class="n">RequestBody</span> <span class="n">body</span> <span class="o">=</span> <span class="n">RequestBody</span><span class="o">.</span><span class="na">create</span><span class="o">(</span><span class="n">mediaType</span><span class="o">,</span> <span class="s">"&lt;REQUEST BODY&gt;"</span><span class="o">);</span>
+<span class="n">Request</span> <span class="n">request</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Request</span><span class="o">.</span><span class="na">Builder</span><span class="o">()</span>
+  <span class="o">.</span><span class="na">url</span><span class="o">(</span><span class="s">"https://rest.tsheets.com/api/v1/customfielditemfilters"</span><span class="o">)</span>
+  <span class="o">.</span><span class="na">post</span><span class="o">(</span><span class="n">body</span><span class="o">)</span>
+  <span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">"Authorization"</span><span class="o">,</span> <span class="s">"Bearer &lt;TOKEN&gt;"</span><span class="o">)</span>
+  <span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">"Content-Type"</span><span class="o">,</span> <span class="s">"application/json"</span><span class="o">)</span>
+  <span class="o">.</span><span class="na">build</span><span class="o">();</span>
+
+<span class="n">Response</span> <span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="na">newCall</span><span class="o">(</span><span class="n">request</span><span class="o">).</span><span class="na">execute</span><span class="o">();</span>
+</code></pre><pre class="highlight javascript tab-javascript--browser"><code><span class="kd">var</span> <span class="nx">settings</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s2">"async"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="s2">"crossDomain"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="s2">"url"</span><span class="p">:</span> <span class="s2">"https://rest.tsheets.com/api/v1/customfielditem_filters?modified_since=2018-07-17T00:00:00-00:00"</span><span class="p">,</span>
+  <span class="s2">"method"</span><span class="p">:</span> <span class="s2">"POST"</span><span class="p">,</span>
+  <span class="s2">"headers"</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">"Authorization"</span><span class="p">,</span> <span class="s2">"Bearer &lt;TOKEN&gt;"</span><span class="p">,</span>
+    <span class="s2">"Content-Type"</span><span class="p">,</span> <span class="s2">"application/json"</span><span class="p">,</span>
+  <span class="p">},</span>
+  <span class="s2">"processData"</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+  <span class="s2">"data"</span><span class="p">:</span> <span class="s2">"&lt;REQUEST BODY&gt;"</span>
+<span class="p">}</span>
+
+<span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">(</span><span class="nx">settings</span><span class="p">).</span><span class="nx">done</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre><pre class="highlight javascript tab-javascript--node"><code><span class="kd">var</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">"request"</span><span class="p">);</span>
+
+<span class="kd">var</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span> <span class="na">method</span><span class="p">:</span> <span class="s1">'POST'</span><span class="p">,</span>
+  <span class="na">url</span><span class="p">:</span> <span class="s1">'https://rest.tsheets.com/api/v1/customfielditemfilters'</span><span class="p">,</span>
+  <span class="na">headers</span><span class="p">:</span> 
+  <span class="p">{</span> 
+     <span class="s1">'Authorization'</span><span class="p">:</span> <span class="s1">'Bearer &lt;TOKEN&gt;'</span><span class="p">,</span>
+     <span class="s1">'Content-Type'</span><span class="p">:</span> <span class="s1">'application/json'</span><span class="p">,</span>
+  <span class="p">},</span>
+  <span class="na">body</span><span class="p">:</span> <span class="s1">'&lt;REQUEST BODY&gt;'</span><span class="p">,</span>
+  <span class="na">json</span><span class="p">:</span> <span class="kc">true</span> <span class="p">};</span>
+
+<span class="nx">request</span><span class="p">(</span><span class="nx">options</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">response</span><span class="p">,</span> <span class="nx">body</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="nx">error</span><span class="p">);</span>
+
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">body</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
+
+<span class="nv">$request</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">HttpRequest</span><span class="p">();</span>
+<span class="nv">$request</span><span class="o">-&gt;</span><span class="na">setUrl</span><span class="p">(</span><span class="s1">'https://rest.tsheets.com/api/v1/customfielditemfilters'</span><span class="p">);</span>
+<span class="nv">$request</span><span class="o">-&gt;</span><span class="na">setMethod</span><span class="p">(</span><span class="nx">HTTP_METH_POST</span><span class="p">);</span>
+
+<span class="nv">$request</span><span class="o">-&gt;</span><span class="na">setHeaders</span><span class="p">(</span><span class="k">array</span><span class="p">(</span>
+  <span class="s1">'Authorization'</span> <span class="o">=&gt;</span> <span class="s1">'Bearer &lt;TOKEN&gt;'</span><span class="p">,</span>
+  <span class="s1">'Content-Type'</span> <span class="o">=&gt;</span> <span class="s1">'application/json'</span><span class="p">,</span>
+<span class="p">));</span>
+
+<span class="nv">$request</span><span class="o">-&gt;</span><span class="na">setBody</span><span class="p">(</span><span class="s1">'&lt;REQUEST BODY&gt;'</span><span class="p">);</span>
+
+<span class="k">try</span> <span class="p">{</span>
+  <span class="nv">$response</span> <span class="o">=</span> <span class="nv">$request</span><span class="o">-&gt;</span><span class="na">send</span><span class="p">();</span>
+
+  <span class="k">echo</span> <span class="nv">$response</span><span class="o">-&gt;</span><span class="na">getBody</span><span class="p">();</span>
+<span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">HttpException</span> <span class="nv">$ex</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">echo</span> <span class="nv">$ex</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'uri'</span>
+<span class="nb">require</span> <span class="s1">'net/http'</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="no">URI</span><span class="p">(</span><span class="s2">"https://rest.tsheets.com/api/v1/customfielditemfilters"</span><span class="p">)</span>
+
+<span class="n">http</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">url</span><span class="p">.</span><span class="nf">host</span><span class="p">,</span> <span class="n">url</span><span class="p">.</span><span class="nf">port</span><span class="p">)</span>
+
+<span class="n">request</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="o">::</span><span class="no">Post</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+<span class="n">request</span><span class="p">[</span><span class="s2">"Authorization"</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'Bearer &lt;TOKEN&gt;'</span><span class="p">,</span>
+<span class="n">request</span><span class="p">[</span><span class="s2">"Content-Type"</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'application/json'</span><span class="p">,</span>
+<span class="n">request</span><span class="p">.</span><span class="nf">body</span> <span class="o">=</span> <span class="s2">"&lt;REQUEST BODY&gt;"</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">http</span><span class="p">.</span><span class="nf">request</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
+<span class="nb">puts</span> <span class="n">response</span><span class="p">.</span><span class="nf">read_body</span>
+</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="s">"https://rest.tsheets.com/api/v1/customfielditemfilters"</span>
+
+<span class="n">payload</span> <span class="o">=</span> <span class="s">"&lt;REQUEST BODY&gt;"</span>
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'Bearer &lt;TOKEN&gt;'</span><span class="p">,</span>
+    <span class="s">'Content-Type'</span><span class="p">:</span> <span class="s">'application/json'</span><span class="p">,</span>
+    <span class="p">}</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="s">"POST"</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">payload</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+</code></pre><pre class="highlight go tab-go"><code><span class="k">package</span><span class="x"> </span><span class="n">main</span><span class="x">
+
+</span><span class="k">import</span><span class="x"> </span><span class="p">(</span><span class="x">
+  </span><span class="s">"fmt"</span><span class="x">
+  </span><span class="s">"strings"</span><span class="x">
+  </span><span class="s">"net/http"</span><span class="x">
+  </span><span class="s">"io/ioutil"</span><span class="x">
+</span><span class="p">)</span><span class="x">
+
+</span><span class="k">func</span><span class="x"> </span><span class="n">main</span><span class="p">()</span><span class="x"> </span><span class="p">{</span><span class="x">
+
+  </span><span class="n">url</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="s">"https://rest.tsheets.com/api/v1/customfielditemfilters"</span><span class="x">
+
+  </span><span class="n">payload</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">strings</span><span class="o">.</span><span class="n">NewReader</span><span class="p">(</span><span class="s">"&lt;REQUEST BODY&gt;"</span><span class="p">)</span><span class="x">
+
+  </span><span class="n">req</span><span class="p">,</span><span class="x"> </span><span class="n">_</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">http</span><span class="o">.</span><span class="n">NewRequest</span><span class="p">(</span><span class="s">"POST"</span><span class="p">,</span><span class="x"> </span><span class="n">url</span><span class="p">,</span><span class="x"> </span><span class="n">payload</span><span class="p">)</span><span class="x">
+
+  </span><span class="n">req</span><span class="o">.</span><span class="n">Header</span><span class="o">.</span><span class="n">Add</span><span class="p">(</span><span class="s">"Authorization"</span><span class="p">,</span><span class="x"> </span><span class="s">"Bearer &lt;TOKEN&gt;"</span><span class="p">)</span><span class="x">
+  </span><span class="n">req</span><span class="o">.</span><span class="n">Header</span><span class="o">.</span><span class="n">Add</span><span class="p">(</span><span class="s">"Content-Type"</span><span class="p">,</span><span class="x"> </span><span class="s">"application/json"</span><span class="p">)</span><span class="x">
+
+  </span><span class="n">res</span><span class="p">,</span><span class="x"> </span><span class="n">_</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">http</span><span class="o">.</span><span class="n">DefaultClient</span><span class="o">.</span><span class="n">Do</span><span class="p">(</span><span class="n">req</span><span class="p">)</span><span class="x">
+
+  </span><span class="k">defer</span><span class="x"> </span><span class="n">res</span><span class="o">.</span><span class="n">Body</span><span class="o">.</span><span class="n">Close</span><span class="p">()</span><span class="x">
+  </span><span class="n">body</span><span class="p">,</span><span class="x"> </span><span class="n">_</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">ioutil</span><span class="o">.</span><span class="n">ReadAll</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">Body</span><span class="p">)</span><span class="x">
+
+  </span><span class="n">fmt</span><span class="o">.</span><span class="n">Println</span><span class="p">(</span><span class="n">res</span><span class="p">)</span><span class="x">
+  </span><span class="n">fmt</span><span class="o">.</span><span class="n">Println</span><span class="p">(</span><span class="kt">string</span><span class="p">(</span><span class="n">body</span><span class="p">))</span><span class="x">
+
+</span><span class="p">}</span><span class="x">
+</span></code></pre><pre class="highlight swift tab-swift"><code><span class="kd">import</span> <span class="kt">Foundation</span>
+
+<span class="k">let</span> <span class="nv">headers</span> <span class="o">=</span> <span class="p">[</span>
+   <span class="s">"Authorization"</span><span class="p">:</span> <span class="s">"Bearer &lt;TOKEN&gt;"</span><span class="p">,</span>
+   <span class="s">"Content-Type"</span><span class="p">:</span> <span class="s">"application/json"</span><span class="p">,</span>
+<span class="p">]</span>
+<span class="k">let</span> <span class="nv">parameters</span> <span class="o">=</span> <span class="o">&lt;</span><span class="kt">REQUEST</span> <span class="kt">BODY</span><span class="o">&gt;</span> <span class="k">as</span> <span class="p">[</span><span class="kt">String</span> <span class="p">:</span> <span class="kt">Any</span><span class="p">]</span>
+
+<span class="k">let</span> <span class="nv">postData</span> <span class="o">=</span> <span class="kt">JSONSerialization</span><span class="o">.</span><span class="nf">data</span><span class="p">(</span><span class="nv">withJSONObject</span><span class="p">:</span> <span class="n">parameters</span><span class="p">,</span> <span class="nv">options</span><span class="p">:</span> <span class="p">[])</span>
+
+<span class="k">let</span> <span class="nv">request</span> <span class="o">=</span> <span class="kt">NSMutableURLRequest</span><span class="p">(</span>
+  <span class="nv">url</span><span class="p">:</span> <span class="kt">NSURL</span><span class="p">(</span><span class="nv">string</span><span class="p">:</span> <span class="s">"https://rest.tsheets.com/api/v1/customfielditemfilters"</span><span class="p">)</span><span class="o">!</span> <span class="k">as</span> <span class="kt">URL</span><span class="p">,</span>
+  <span class="nv">cachePolicy</span><span class="p">:</span> <span class="o">.</span><span class="n">useProtocolCachePolicy</span><span class="p">,</span>
+  <span class="nv">timeoutInterval</span><span class="p">:</span> <span class="mf">10.0</span><span class="p">)</span>
+
+<span class="n">request</span><span class="o">.</span><span class="n">httpMethod</span> <span class="o">=</span> <span class="s">"POST"</span>
+<span class="n">request</span><span class="o">.</span><span class="n">allHTTPHeaderFields</span> <span class="o">=</span> <span class="n">headers</span>
+<span class="n">request</span><span class="o">.</span><span class="n">httpBody</span> <span class="o">=</span> <span class="n">postData</span> <span class="k">as</span> <span class="kt">Data</span>
+
+<span class="k">let</span> <span class="nv">session</span> <span class="o">=</span> <span class="kt">URLSession</span><span class="o">.</span><span class="n">shared</span>
+<span class="k">let</span> <span class="nv">dataTask</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="nf">dataTask</span><span class="p">(</span>
+  <span class="nv">with</span><span class="p">:</span> <span class="n">request</span> <span class="k">as</span> <span class="kt">URLRequest</span><span class="p">,</span>
+  <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">{</span>
+    <span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">response</span><span class="p">,</span> <span class="n">error</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span> <span class="k">in</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">error</span> <span class="o">!=</span> <span class="kc">nil</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nf">print</span><span class="p">(</span><span class="n">error</span><span class="p">)</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+      <span class="k">let</span> <span class="nv">httpResponse</span> <span class="o">=</span> <span class="n">response</span> <span class="k">as?</span> <span class="kt">HTTPURLResponse</span>
+      <span class="nf">print</span><span class="p">(</span><span class="n">httpResponse</span><span class="p">)</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">)</span>
+
+<span class="n">dataTask</span><span class="o">.</span><span class="nf">resume</span><span class="p">()</span>
+</code></pre><pre class="highlight perl tab-perl"><code><span class="k">use</span> <span class="nn">REST::</span><span class="nv">Client</span><span class="p">;</span>
+
+<span class="k">my</span> <span class="nv">$client</span> <span class="o">=</span> <span class="nn">REST::</span><span class="nv">Client</span><span class="o">-&gt;</span><span class="k">new</span><span class="p">();</span>
+
+<span class="nv">$client</span><span class="o">-&gt;</span><span class="nv">addHeader</span><span class="p">(</span><span class="s">'Authorization'</span><span class="p">,</span> <span class="s">'Bearer &lt;TOKEN&gt;'</span><span class="p">);</span>
+<span class="nv">$client</span><span class="o">-&gt;</span><span class="nv">addHeader</span><span class="p">(</span><span class="s">'Content-Type'</span><span class="p">,</span> <span class="s">'application/json'</span><span class="p">);</span>
+
+<span class="nv">$req</span> <span class="o">=</span> <span class="s">'&lt;REQUEST BODY&gt;'</span><span class="p">;</span>
+
+<span class="nv">$url</span><span class="o">=</span><span class="s">"https://rest.tsheets.com/api/v1/customfielditemfilters"</span><span class="p">;</span> 
+
+<span class="nv">$client</span><span class="o">-&gt;</span><span class="nv">POST</span><span class="p">(</span><span class="nv">$url</span><span class="p">,</span> <span class="nv">$req</span><span class="p">);</span>
+<span class="k">print</span> <span class="nv">$client</span><span class="o">-&gt;</span><span class="nv">responseContent</span><span class="p">();</span>
+<span class="k">print</span> <span class="nv">$client</span><span class="o">-&gt;</span><span class="nv">responseHeader</span><span class="p">(</span><span class="s">'ResponseHeader'</span><span class="p">);</span>
+</code></pre>
+
+<blockquote>
+<p>Response Format</p>
+
+<p><code class="level200">200 OK</code></p>
+</blockquote>
+
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"results"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"customfielditems"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"1"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"_status_code"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"_status_message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Created"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">101</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"customfield_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"customfielditem_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"applies_to"</span><span class="p">:</span><span class="w"> </span><span class="s2">"jobcodes"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"applies_to_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+        </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"2"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"_status_code"</span><span class="p">:</span><span class="w"> </span><span class="mi">417</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"_status_message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Expectation Failed"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"_status_extra"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The applies_to value must be one of the following: jobcodes, users, groups."</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"customfield_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"customfielditem_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"applies_to"</span><span class="p">:</span><span class="w"> </span><span class="s2">"invalid-applies-to"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"applies_to_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"supplemental_data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"jobcodes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="err">...</span><span class="p">},</span><span class="w">
+    </span><span class="s2">"customfields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="err">...</span><span class="p">},</span><span class="w">
+    </span><span class="s2">"customfielditems"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="err">...</span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>Add one or more customfielditemfilters.</p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><img src="images/post.png" alt="post"/><api>https://rest.tsheets.com/api/v1/customfielditem_filters</api></p>
+<h3 id='properties'>Properties</h3>
+<p><em>Pass an array of customfielditemfilter objects as the value to a &#39;data&#39; property (see example).</em></p>
+
+<table><thead>
+<tr>
+<th style="text-align: right"></th>
+<th style="text-align: center"></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right"><strong>customfield_id</strong><br/>required</td>
+<td style="text-align: center"><em>Int</em></td>
+<td>The id of the customfield this filter to belong to.</td>
+</tr>
+<tr>
+<td style="text-align: right"><strong>customfielditem_id</strong><br/>required</td>
+<td style="text-align: center"><em>Int</em></td>
+<td>The id of the customfielditem this filter to belong to.</td>
+</tr>
+<tr>
+<td style="text-align: right"><strong>applies_to</strong><br/>read-write</td>
+<td style="text-align: center"><em>String</em></td>
+<td>Entity type this filter relates to. Together with <code>applies_to_id</code>, determines what this filtered item relates to. The possible values are: &#39;jobcodes&#39;, &#39;users&#39;, or &#39;groups&#39;. For example: If this value was &#39;jobcodes&#39; then the <code>applies_to_id</code> value would indicate which jobcode this filter referred to. If requested, the supplemental data will also contain this jobcode.</td>
+</tr>
+<tr>
+<td style="text-align: right"><strong>applies_to_id</strong><br/>read-write</td>
+<td style="text-align: center"><em>Int</em></td>
+<td>The jobcode, user, or group that this filter relates to. Together with <code>applies_to</code>, determines what this filtered item relates to. For example: If the value of the <code>applies_to field</code> was &#39;jobcodes&#39; this value would indicate which jobcode this filter referred to. If requested, the supplemental data will also contain this jobcode.</td>
+</tr>
+<tr>
+<td style="text-align: right"><strong>active</strong><br/>read-write</td>
+<td style="text-align: center"><em>Boolean</em></td>
+<td>true or false. If false, this <code>customfielditem_filter</code> is considered archived or deleted.</td>
+</tr>
+</tbody></table>
+
+<p>For a full list of the properties that may be set on a customfielditemfilter, see 
+<a href="#the-item-filter-object">The Item Filter Object</a>.</p>
+<h3 id='status-codes'>Status Codes</h3>
+<p>Each customfielditemfilter that is created will come back with a <code>_status_code</code> and <code>_status_message</code> 
+that will indicate whether the customfielditemfilter was created successfully. If there was a problem 
+creating a customfielditemfilter, there may also be an additional field, <code>_status_extra</code>, which will 
+contain more details about the failure.</p>
+
+<table><thead>
+<tr>
+<th style="text-align: center"></th>
+<th style="text-align: left"></th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: center"><code class="level200">200</code></td>
+<td style="text-align: left">OK. customfielditemfilter was created successfully.</td>
+</tr>
+<tr>
+<td style="text-align: center"><code class="level400">417</code></td>
+<td style="text-align: left">Expectation Failed. Something was wrong or missing with the properties supplied for this customfielditemfilter. See the <code>_status_extra</code> value for more detail.</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+The maximum batch size is <i>50</i> customfielditemfilters. If exceeded, a 
+<code class="standout">413: Request entity too large</code> HTTP response will be returned.
+</aside>
+<h2 id='update-item-filters'>Update Item Filters</h2>
+<blockquote>
+<p><strong>Example</strong>: Update two customfielditemfilters. One succeeds. The other fails because of an invalid <code>applies_to</code>.</p>
+
+<p>Request Body</p>
+</blockquote>
+
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+ </span><span class="s2">"data"</span><span class="p">:</span><span class="w">
+  </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">101</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="s2">"no"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">102</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"applies_to"</span><span class="p">:</span><span class="w"> </span><span class="s2">"invalid-applies-to"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre>
+
+<blockquote>
+<p>Request</p>
+</blockquote>
+
+<pre class="highlight shell tab-shell"><code>curl -X POST <span class="se">\</span>
+  https://rest.tsheets.com/api/v1/customfielditemfilters <span class="se">\</span>
+  -H <span class="s1">'Authorization: Bearer &lt;TOKEN&gt;'</span> <span class="se">\</span>
+  -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+  -d <span class="s1">'&lt;REQUEST BODY&gt;'</span>
+</code></pre><pre class="highlight csharp tab-csharp"><code><span class="kt">var</span> <span class="n">client</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">RestClient</span><span class="p">(</span><span class="s">"https://rest.tsheets.com/api/v1/customfielditemfilters"</span><span class="p">);</span>
+<span class="kt">var</span> <span class="n">request</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">RestRequest</span><span class="p">(</span><span class="n">Method</span><span class="p">.</span><span class="n">POST</span><span class="p">);</span>
+<span class="n">request</span><span class="p">.</span><span class="nf">AddHeader</span><span class="p">(</span><span class="s">"Authorization"</span><span class="p">,</span> <span class="s">"Bearer &lt;TOKEN&gt;"</span><span class="p">);</span>
+<span class="n">request</span><span class="p">.</span><span class="nf">AddHeader</span><span class="p">(</span><span class="s">"Content-Type"</span><span class="p">,</span> <span class="s">"application/json"</span><span class="p">);</span>
+<span class="n">request</span><span class="p">.</span><span class="nf">AddParameter</span><span class="p">(</span><span class="s">"application/json"</span><span class="p">,</span> <span class="s">"&lt;REQUEST BODY&gt;"</span><span class="p">,</span> <span class="n">ParameterType</span><span class="p">.</span><span class="n">RequestBody</span><span class="p">);</span>
+<span class="n">IRestResponse</span> <span class="n">response</span> <span class="p">=</span> <span class="n">client</span><span class="p">.</span><span class="nf">Execute</span><span class="p">(</span><span class="n">request</span><span class="p">);</span>
+</code></pre><pre class="highlight vb tab-vb"><code><span class="k">Dim</span> <span class="nv">client</span> <span class="o">=</span> <span class="k">New</span> <span class="n">RestClient</span><span class="p">(</span><span class="s">"https://rest.tsheets.com/api/v1/customfielditemfilters"</span><span class="p">)</span>
+<span class="k">Dim</span> <span class="nv">request</span> <span class="o">=</span> <span class="k">New</span> <span class="n">RestRequest</span><span class="p">(</span><span class="n">Method</span><span class="p">.</span><span class="n">POST</span><span class="p">)</span>
+<span class="n">request</span><span class="p">.</span><span class="n">AddHeader</span><span class="p">(</span><span class="s">"Authorization"</span><span class="p">,</span> <span class="s">"Bearer &lt;TOKEN&gt;"</span><span class="p">)</span>
+<span class="n">request</span><span class="p">.</span><span class="n">AddHeader</span><span class="p">(</span><span class="s">"Content-Type"</span><span class="p">,</span> <span class="s">"application/json"</span><span class="p">)</span>
+<span class="n">request</span><span class="p">.</span><span class="n">AddParameter</span><span class="p">(</span><span class="s">"application/json"</span><span class="p">,</span> <span class="s">"&lt;REQUEST BODY&gt;"</span><span class="p">,</span> <span class="n">ParameterType</span><span class="p">.</span><span class="n">RequestBody</span><span class="p">)</span><span class="err">;</span>
+<span class="k">Dim</span> <span class="nv">response</span> <span class="ow">As</span> <span class="n">IRestResponse</span> <span class="o">=</span> <span class="n">client</span><span class="p">.</span><span class="n">Execute</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
+</code></pre><pre class="highlight java tab-java"><code><span class="n">OkHttpClient</span> <span class="n">client</span> <span class="o">=</span> <span class="k">new</span> <span class="n">OkHttpClient</span><span class="o">();</span>
+
+<span class="n">MediaType</span> <span class="n">mediaType</span> <span class="o">=</span> <span class="n">MediaType</span><span class="o">.</span><span class="na">parse</span><span class="o">(</span><span class="s">"application/json"</span><span class="o">);</span>
+<span class="n">RequestBody</span> <span class="n">body</span> <span class="o">=</span> <span class="n">RequestBody</span><span class="o">.</span><span class="na">create</span><span class="o">(</span><span class="n">mediaType</span><span class="o">,</span> <span class="s">"&lt;REQUEST BODY&gt;"</span><span class="o">);</span>
+<span class="n">Request</span> <span class="n">request</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Request</span><span class="o">.</span><span class="na">Builder</span><span class="o">()</span>
+  <span class="o">.</span><span class="na">url</span><span class="o">(</span><span class="s">"https://rest.tsheets.com/api/v1/customfielditemfilters"</span><span class="o">)</span>
+  <span class="o">.</span><span class="na">post</span><span class="o">(</span><span class="n">body</span><span class="o">)</span>
+  <span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">"Authorization"</span><span class="o">,</span> <span class="s">"Bearer &lt;TOKEN&gt;"</span><span class="o">)</span>
+  <span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">"Content-Type"</span><span class="o">,</span> <span class="s">"application/json"</span><span class="o">)</span>
+  <span class="o">.</span><span class="na">build</span><span class="o">();</span>
+
+<span class="n">Response</span> <span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="na">newCall</span><span class="o">(</span><span class="n">request</span><span class="o">).</span><span class="na">execute</span><span class="o">();</span>
+</code></pre><pre class="highlight javascript tab-javascript--browser"><code><span class="kd">var</span> <span class="nx">settings</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s2">"async"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="s2">"crossDomain"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="s2">"url"</span><span class="p">:</span> <span class="s2">"https://rest.tsheets.com/api/v1/customfielditem_filters?modified_since=2018-07-17T00:00:00-00:00"</span><span class="p">,</span>
+  <span class="s2">"method"</span><span class="p">:</span> <span class="s2">"POST"</span><span class="p">,</span>
+  <span class="s2">"headers"</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">"Authorization"</span><span class="p">,</span> <span class="s2">"Bearer &lt;TOKEN&gt;"</span><span class="p">,</span>
+    <span class="s2">"Content-Type"</span><span class="p">,</span> <span class="s2">"application/json"</span><span class="p">,</span>
+  <span class="p">},</span>
+  <span class="s2">"processData"</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+  <span class="s2">"data"</span><span class="p">:</span> <span class="s2">"&lt;REQUEST BODY&gt;"</span>
+<span class="p">}</span>
+
+<span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">(</span><span class="nx">settings</span><span class="p">).</span><span class="nx">done</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre><pre class="highlight javascript tab-javascript--node"><code><span class="kd">var</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">"request"</span><span class="p">);</span>
+
+<span class="kd">var</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span> <span class="na">method</span><span class="p">:</span> <span class="s1">'POST'</span><span class="p">,</span>
+  <span class="na">url</span><span class="p">:</span> <span class="s1">'https://rest.tsheets.com/api/v1/customfielditemfilters'</span><span class="p">,</span>
+  <span class="na">headers</span><span class="p">:</span> 
+  <span class="p">{</span> 
+     <span class="s1">'Authorization'</span><span class="p">:</span> <span class="s1">'Bearer &lt;TOKEN&gt;'</span><span class="p">,</span>
+     <span class="s1">'Content-Type'</span><span class="p">:</span> <span class="s1">'application/json'</span><span class="p">,</span>
+  <span class="p">},</span>
+  <span class="na">body</span><span class="p">:</span> <span class="s1">'&lt;REQUEST BODY&gt;'</span><span class="p">,</span>
+  <span class="na">json</span><span class="p">:</span> <span class="kc">true</span> <span class="p">};</span>
+
+<span class="nx">request</span><span class="p">(</span><span class="nx">options</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">response</span><span class="p">,</span> <span class="nx">body</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="nx">error</span><span class="p">);</span>
+
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">body</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
+
+<span class="nv">$request</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">HttpRequest</span><span class="p">();</span>
+<span class="nv">$request</span><span class="o">-&gt;</span><span class="na">setUrl</span><span class="p">(</span><span class="s1">'https://rest.tsheets.com/api/v1/customfielditemfilters'</span><span class="p">);</span>
+<span class="nv">$request</span><span class="o">-&gt;</span><span class="na">setMethod</span><span class="p">(</span><span class="nx">HTTP_METH_POST</span><span class="p">);</span>
+
+<span class="nv">$request</span><span class="o">-&gt;</span><span class="na">setHeaders</span><span class="p">(</span><span class="k">array</span><span class="p">(</span>
+  <span class="s1">'Authorization'</span> <span class="o">=&gt;</span> <span class="s1">'Bearer &lt;TOKEN&gt;'</span><span class="p">,</span>
+  <span class="s1">'Content-Type'</span> <span class="o">=&gt;</span> <span class="s1">'application/json'</span><span class="p">,</span>
+<span class="p">));</span>
+
+<span class="nv">$request</span><span class="o">-&gt;</span><span class="na">setBody</span><span class="p">(</span><span class="s1">'&lt;REQUEST BODY&gt;'</span><span class="p">);</span>
+
+<span class="k">try</span> <span class="p">{</span>
+  <span class="nv">$response</span> <span class="o">=</span> <span class="nv">$request</span><span class="o">-&gt;</span><span class="na">send</span><span class="p">();</span>
+
+  <span class="k">echo</span> <span class="nv">$response</span><span class="o">-&gt;</span><span class="na">getBody</span><span class="p">();</span>
+<span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">HttpException</span> <span class="nv">$ex</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">echo</span> <span class="nv">$ex</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'uri'</span>
+<span class="nb">require</span> <span class="s1">'net/http'</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="no">URI</span><span class="p">(</span><span class="s2">"https://rest.tsheets.com/api/v1/customfielditemfilters"</span><span class="p">)</span>
+
+<span class="n">http</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">url</span><span class="p">.</span><span class="nf">host</span><span class="p">,</span> <span class="n">url</span><span class="p">.</span><span class="nf">port</span><span class="p">)</span>
+
+<span class="n">request</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="o">::</span><span class="no">Post</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+<span class="n">request</span><span class="p">[</span><span class="s2">"Authorization"</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'Bearer &lt;TOKEN&gt;'</span><span class="p">,</span>
+<span class="n">request</span><span class="p">[</span><span class="s2">"Content-Type"</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'application/json'</span><span class="p">,</span>
+<span class="n">request</span><span class="p">.</span><span class="nf">body</span> <span class="o">=</span> <span class="s2">"&lt;REQUEST BODY&gt;"</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">http</span><span class="p">.</span><span class="nf">request</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
+<span class="nb">puts</span> <span class="n">response</span><span class="p">.</span><span class="nf">read_body</span>
+</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="s">"https://rest.tsheets.com/api/v1/customfielditemfilters"</span>
+
+<span class="n">payload</span> <span class="o">=</span> <span class="s">"&lt;REQUEST BODY&gt;"</span>
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'Bearer &lt;TOKEN&gt;'</span><span class="p">,</span>
+    <span class="s">'Content-Type'</span><span class="p">:</span> <span class="s">'application/json'</span><span class="p">,</span>
+    <span class="p">}</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="s">"POST"</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">payload</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+</code></pre><pre class="highlight go tab-go"><code><span class="k">package</span><span class="x"> </span><span class="n">main</span><span class="x">
+
+</span><span class="k">import</span><span class="x"> </span><span class="p">(</span><span class="x">
+  </span><span class="s">"fmt"</span><span class="x">
+  </span><span class="s">"strings"</span><span class="x">
+  </span><span class="s">"net/http"</span><span class="x">
+  </span><span class="s">"io/ioutil"</span><span class="x">
+</span><span class="p">)</span><span class="x">
+
+</span><span class="k">func</span><span class="x"> </span><span class="n">main</span><span class="p">()</span><span class="x"> </span><span class="p">{</span><span class="x">
+
+  </span><span class="n">url</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="s">"https://rest.tsheets.com/api/v1/customfielditemfilters"</span><span class="x">
+
+  </span><span class="n">payload</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">strings</span><span class="o">.</span><span class="n">NewReader</span><span class="p">(</span><span class="s">"&lt;REQUEST BODY&gt;"</span><span class="p">)</span><span class="x">
+
+  </span><span class="n">req</span><span class="p">,</span><span class="x"> </span><span class="n">_</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">http</span><span class="o">.</span><span class="n">NewRequest</span><span class="p">(</span><span class="s">"POST"</span><span class="p">,</span><span class="x"> </span><span class="n">url</span><span class="p">,</span><span class="x"> </span><span class="n">payload</span><span class="p">)</span><span class="x">
+
+  </span><span class="n">req</span><span class="o">.</span><span class="n">Header</span><span class="o">.</span><span class="n">Add</span><span class="p">(</span><span class="s">"Authorization"</span><span class="p">,</span><span class="x"> </span><span class="s">"Bearer &lt;TOKEN&gt;"</span><span class="p">)</span><span class="x">
+  </span><span class="n">req</span><span class="o">.</span><span class="n">Header</span><span class="o">.</span><span class="n">Add</span><span class="p">(</span><span class="s">"Content-Type"</span><span class="p">,</span><span class="x"> </span><span class="s">"application/json"</span><span class="p">)</span><span class="x">
+
+  </span><span class="n">res</span><span class="p">,</span><span class="x"> </span><span class="n">_</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">http</span><span class="o">.</span><span class="n">DefaultClient</span><span class="o">.</span><span class="n">Do</span><span class="p">(</span><span class="n">req</span><span class="p">)</span><span class="x">
+
+  </span><span class="k">defer</span><span class="x"> </span><span class="n">res</span><span class="o">.</span><span class="n">Body</span><span class="o">.</span><span class="n">Close</span><span class="p">()</span><span class="x">
+  </span><span class="n">body</span><span class="p">,</span><span class="x"> </span><span class="n">_</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">ioutil</span><span class="o">.</span><span class="n">ReadAll</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">Body</span><span class="p">)</span><span class="x">
+
+  </span><span class="n">fmt</span><span class="o">.</span><span class="n">Println</span><span class="p">(</span><span class="n">res</span><span class="p">)</span><span class="x">
+  </span><span class="n">fmt</span><span class="o">.</span><span class="n">Println</span><span class="p">(</span><span class="kt">string</span><span class="p">(</span><span class="n">body</span><span class="p">))</span><span class="x">
+
+</span><span class="p">}</span><span class="x">
+</span></code></pre><pre class="highlight swift tab-swift"><code><span class="kd">import</span> <span class="kt">Foundation</span>
+
+<span class="k">let</span> <span class="nv">headers</span> <span class="o">=</span> <span class="p">[</span>
+   <span class="s">"Authorization"</span><span class="p">:</span> <span class="s">"Bearer &lt;TOKEN&gt;"</span><span class="p">,</span>
+   <span class="s">"Content-Type"</span><span class="p">:</span> <span class="s">"application/json"</span><span class="p">,</span>
+<span class="p">]</span>
+<span class="k">let</span> <span class="nv">parameters</span> <span class="o">=</span> <span class="o">&lt;</span><span class="kt">REQUEST</span> <span class="kt">BODY</span><span class="o">&gt;</span> <span class="k">as</span> <span class="p">[</span><span class="kt">String</span> <span class="p">:</span> <span class="kt">Any</span><span class="p">]</span>
+
+<span class="k">let</span> <span class="nv">postData</span> <span class="o">=</span> <span class="kt">JSONSerialization</span><span class="o">.</span><span class="nf">data</span><span class="p">(</span><span class="nv">withJSONObject</span><span class="p">:</span> <span class="n">parameters</span><span class="p">,</span> <span class="nv">options</span><span class="p">:</span> <span class="p">[])</span>
+
+<span class="k">let</span> <span class="nv">request</span> <span class="o">=</span> <span class="kt">NSMutableURLRequest</span><span class="p">(</span>
+  <span class="nv">url</span><span class="p">:</span> <span class="kt">NSURL</span><span class="p">(</span><span class="nv">string</span><span class="p">:</span> <span class="s">"https://rest.tsheets.com/api/v1/customfielditemfilters"</span><span class="p">)</span><span class="o">!</span> <span class="k">as</span> <span class="kt">URL</span><span class="p">,</span>
+  <span class="nv">cachePolicy</span><span class="p">:</span> <span class="o">.</span><span class="n">useProtocolCachePolicy</span><span class="p">,</span>
+  <span class="nv">timeoutInterval</span><span class="p">:</span> <span class="mf">10.0</span><span class="p">)</span>
+
+<span class="n">request</span><span class="o">.</span><span class="n">httpMethod</span> <span class="o">=</span> <span class="s">"POST"</span>
+<span class="n">request</span><span class="o">.</span><span class="n">allHTTPHeaderFields</span> <span class="o">=</span> <span class="n">headers</span>
+<span class="n">request</span><span class="o">.</span><span class="n">httpBody</span> <span class="o">=</span> <span class="n">postData</span> <span class="k">as</span> <span class="kt">Data</span>
+
+<span class="k">let</span> <span class="nv">session</span> <span class="o">=</span> <span class="kt">URLSession</span><span class="o">.</span><span class="n">shared</span>
+<span class="k">let</span> <span class="nv">dataTask</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="nf">dataTask</span><span class="p">(</span>
+  <span class="nv">with</span><span class="p">:</span> <span class="n">request</span> <span class="k">as</span> <span class="kt">URLRequest</span><span class="p">,</span>
+  <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">{</span>
+    <span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">response</span><span class="p">,</span> <span class="n">error</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span> <span class="k">in</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">error</span> <span class="o">!=</span> <span class="kc">nil</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nf">print</span><span class="p">(</span><span class="n">error</span><span class="p">)</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+      <span class="k">let</span> <span class="nv">httpResponse</span> <span class="o">=</span> <span class="n">response</span> <span class="k">as?</span> <span class="kt">HTTPURLResponse</span>
+      <span class="nf">print</span><span class="p">(</span><span class="n">httpResponse</span><span class="p">)</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">)</span>
+
+<span class="n">dataTask</span><span class="o">.</span><span class="nf">resume</span><span class="p">()</span>
+</code></pre><pre class="highlight perl tab-perl"><code><span class="k">use</span> <span class="nn">REST::</span><span class="nv">Client</span><span class="p">;</span>
+
+<span class="k">my</span> <span class="nv">$client</span> <span class="o">=</span> <span class="nn">REST::</span><span class="nv">Client</span><span class="o">-&gt;</span><span class="k">new</span><span class="p">();</span>
+
+<span class="nv">$client</span><span class="o">-&gt;</span><span class="nv">addHeader</span><span class="p">(</span><span class="s">'Authorization'</span><span class="p">,</span> <span class="s">'Bearer &lt;TOKEN&gt;'</span><span class="p">);</span>
+<span class="nv">$client</span><span class="o">-&gt;</span><span class="nv">addHeader</span><span class="p">(</span><span class="s">'Content-Type'</span><span class="p">,</span> <span class="s">'application/json'</span><span class="p">);</span>
+
+<span class="nv">$req</span> <span class="o">=</span> <span class="s">'&lt;REQUEST BODY&gt;'</span><span class="p">;</span>
+
+<span class="nv">$url</span><span class="o">=</span><span class="s">"https://rest.tsheets.com/api/v1/customfielditemfilters"</span><span class="p">;</span> 
+
+<span class="nv">$client</span><span class="o">-&gt;</span><span class="nv">POST</span><span class="p">(</span><span class="nv">$url</span><span class="p">,</span> <span class="nv">$req</span><span class="p">);</span>
+<span class="k">print</span> <span class="nv">$client</span><span class="o">-&gt;</span><span class="nv">responseContent</span><span class="p">();</span>
+<span class="k">print</span> <span class="nv">$client</span><span class="o">-&gt;</span><span class="nv">responseHeader</span><span class="p">(</span><span class="s">'ResponseHeader'</span><span class="p">);</span>
+</code></pre>
+
+<blockquote>
+<p>Response Format</p>
+
+<p><code class="level200">200 OK</code></p>
+</blockquote>
+
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"results"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"customfielditems"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"1"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">101</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"customfield_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"customfielditem_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"applies_to"</span><span class="p">:</span><span class="w"> </span><span class="s2">"jobcodes"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"applies_to_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+        </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"last_modified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-02-24T21:45:19+00:00"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"_status_code"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"_status_message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Updated"</span><span class="p">,</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"2"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">102</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"applies_to"</span><span class="p">:</span><span class="w"> </span><span class="s2">"invalid_applies_to"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"_status_code"</span><span class="p">:</span><span class="w"> </span><span class="mi">417</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"_status_message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Expectation Failed"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"_status_extra"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The applies_to value must be one of the following: jobcodes, users, groups."</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"supplemental_data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"jobcodes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="err">...</span><span class="p">},</span><span class="w">
+    </span><span class="s2">"customfields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="err">...</span><span class="p">},</span><span class="w">
+    </span><span class="s2">"customfielditems"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="err">...</span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>Edit one or more customfielditemfilters.</p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><img src="images/put.png" alt="put"/><api>https://rest.tsheets.com/api/v1/customfielditem_filters</api></p>
+<h3 id='properties'>Properties</h3>
+<p><em>Pass an array of customfielditemfilter objects as the value to a &#39;data&#39; property (see example).</em></p>
+
+<table><thead>
+<tr>
+<th style="text-align: right"></th>
+<th style="text-align: center"></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right"><strong>id</strong><br/>required</td>
+<td style="text-align: center"><em>Int</em></td>
+<td>Id of the customfielditemfilter.</td>
+</tr>
+</tbody></table>
+
+<p>All other <code>read-write</code> properties defined on an <a href="#the-item-filter-object">Item Filter</a> object may be 
+passed in to the request with a new value in order to change it. If the value passed in is the same 
+as it was previously, or if a particular property is not passed in at all, it will be ignored.</p>
+<h3 id='status-codes'>Status Codes</h3>
+<p>Each customfielditemfilter that is created will come back with a <code>_status_code</code> and <code>_status_message</code> that will indicate whether the customfielditemfilter was created successfully. If there was a problem creating a customfielditemfilter, there may also be an additional field, <code>_status_extra</code>, which will contain more details about the failure.</p>
+
+<table><thead>
+<tr>
+<th style="text-align: center"></th>
+<th style="text-align: left"></th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: center"><code class="level200">200</code></td>
+<td style="text-align: left">OK. customfielditemfilter was created successfully.</td>
+</tr>
+<tr>
+<td style="text-align: center"><code class="level400">417</code></td>
+<td style="text-align: left">Expectation Failed. Something was wrong or missing with the properties supplied for this customfielditemfilter. See the <code>_status_extra</code> value for more detail.</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+The maximum batch size is <i>50</i> customfielditemfilters. If exceeded, a <code class="standout">413: Request entity too large</code> HTTP response will be returned.
+</aside>
 <h2 id='custom-field-item-jobcode-filters'>Custom Field Item Jobcode Filters</h2><h2 id='the-jobcode-filter-object'>The Jobcode Filter Object</h2>
 <blockquote>
 <p><strong>Example</strong></p>
@@ -26334,6 +26970,10 @@ Please see our <a href="#reports">reporting</a> endpoint Timesheet aggregations.
 <td>Represents the page of results you&#39;d like to retrieve. Default is 1.</td>
 </tr>
 </tbody></table>
+
+<aside class="notice">
+The maximum batch size is <i>50</i> timesheets. To receive the full result, increment the page parameter and iterate through the requests until you receive "more":false as part of the response.
+</aside>
 <h2 id='create-timesheets'>Create Timesheets</h2>
 <blockquote>
 <p><strong>Example</strong>: Create three new timesheets (one manual and two regular). Two succeed. The third fails because of an overlap with an existing timesheet.</p>
@@ -34512,6 +35152,10 @@ The maximum batch size is <i>50</i> users. If exceeded, a <code class="standout"
 <tr>
 <td style="text-align: left">2022-04-26</td>
 <td style="text-align: left">Remove pronouns from user object as field has been merged with display_name</td>
+</tr>
+<tr>
+<td style="text-align: left">2022-05-16</td>
+<td style="text-align: left">Documenting PUT and POST verbs for CustomFieldItemFilters</td>
 </tr>
 </tbody></table>
 

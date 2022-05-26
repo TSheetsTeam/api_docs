@@ -1,0 +1,76 @@
+{
+  "results": {
+    "project_activity_read_times": {
+      "1": {
+        "_status_code": 200,
+        "_status_message": "Created",
+        "id": 10001,
+        "user_id": 20001,
+        "project_id": 30001,
+        "latest_read_time": "2020-01-01T00:00:00+00:00"
+      },
+      "2": {
+        "_status_code": 200,
+        "_status_message": "Created",
+        "id": 10002,
+        "user_id": 20001,
+        "project_id": 30002,
+        "latest_read_time": "2020-01-05T00:00:00+00:00"
+      },
+    }
+  },
+  "supplemental_data": {
+    "users": {
+      "20001": {
+        "id": 20001,
+        "first_name": "Test",
+        "last_name": "User",
+        "active": true,
+        "username": "test@user.com",
+        "email": "test@user.com",
+        "client_url": "your-company-url",
+        "company_name": "Your Company"
+      }
+    },
+    "projects": {
+      "30001": {
+        "id": 30001,
+        "jobcode_id": 50001,
+        "parent_jobcode_id": 0,
+        "name": "Test Project",
+        "status": "in_progress",
+        "description": "Test Project for Docs",
+        "start_date": "",
+        "due_date": "",
+        "completed_date": "",
+        "active": true,
+        "last_modified": "2019-11-21T18:42:06+00:00",
+        "created": "2019-11-21T18:42:06+00:00",
+        "linked_objects": {
+            "notes_read_times": [
+                159834
+            ]
+        }
+      },
+      {
+        "id": 30002,
+        "jobcode_id": 50002,
+        "parent_jobcode_id": 1023134674,
+        "name": "Test Project 2",
+        "status": "in_progress",
+        "description": "Test Project 2 for Docs",
+        "start_date": "",
+        "due_date": "",
+        "completed_date": "",
+        "active": true,
+        "last_modified": "2019-11-21T18:42:06+00:00",
+        "created": "2019-11-21T18:42:06+00:00",
+        "linked_objects": {
+            "notes_read_times": [
+                160538
+            ]
+        }
+      }
+    }
+  }
+}

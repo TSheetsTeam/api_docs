@@ -1,0 +1,10 @@
+<% @response_body = File.read("source/includes/APIReference/Projects/Examples/_retrieve-response.md.erb") -%>
+
+<%= partial "includes/CodeTemplates/get.md.erb",
+  :locals => {
+    :endpoint => "projects",
+    :description => "Retrieve a list of projects based on the provided filter.",
+    :request_body => @request_body,
+    :response_body => @response_body
+  }
+%>

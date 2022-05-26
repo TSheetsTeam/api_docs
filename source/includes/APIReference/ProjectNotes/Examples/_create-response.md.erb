@@ -1,0 +1,214 @@
+{
+  "results": {
+    "project_notes": {
+      "1": {
+        "_status_code": 200,
+        "_status_message": "Created",
+        "id": 10001,
+        "project_id": 30001,
+        "user_id": 20001,
+        "note": "note 1",
+        "active": true,
+        "created": "2019-12-12T22:34:04+00:00",
+        "last_modified": "2019-12-12T22:34:04+00:00",
+        "mentions": [],
+        "files": [60001, 60002, 60003],
+        "linked_objects": {
+          "project_activities": [
+            40001
+          ]
+        }
+      },
+      "2": {
+        "_status_code": 200,
+        "_status_message": "Created",
+        "id": 10002,
+        "project_id": 2992757,
+        "user_id": 20001,
+        "note": "note 2",
+        "active": true,
+        "created": "2019-12-12T22:34:04+00:00",
+        "last_modified": "2019-12-12T22:34:04+00:00",
+        "mentions": [],
+        "files": [60011, 60012, 60013],
+        "linked_objects": {
+          "project_activities": [
+            40002
+          ]
+        }
+      },
+    }
+  },
+  "supplemental_data": {
+    "users": {
+      "20001": {
+        "id": 20001,
+        "first_name": "Test",
+        "last_name": "User",
+        "display_name": "",
+        "group_id": 0,
+        "active": true,
+        "employee_number": 0,
+        "salaried": false,
+        "exempt": false,
+        "username": "test@user.com",
+        "email": "test@user.com",
+        "email_verified": false,
+        "payroll_id": "",
+        "hire_date": "0000-00-00",
+        "term_date": "0000-00-00",
+        "last_modified": "2022-02-23T22:59:17+00:00",
+        "last_active": "2022-05-09T21:36:43+00:00",
+        "created": "2021-11-01T19:27:25+00:00",
+        "client_url": "your-company-url",
+        "company_name": "Your Company",
+        "profile_image_url": "https://www.gravatar.com/avatar/e64c7d89f26bd1972efa854d13d7dd61",
+        "pronouns": "",
+        "mobile_number": "",
+        "pto_balances": {
+            "701818256": 0,
+            "701818258": 0,
+            "701818260": 0
+        },
+        "submitted_to": "2000-01-01",
+        "approved_to": "2000-01-01",
+        "manager_of_group_ids": [],
+        "require_password_change": false,
+        "pay_rate": 1,
+        "pay_interval": "year",
+        "permissions": {
+            "admin": true,
+            "mobile": true,
+            "status_box": true,
+            "reports": true,
+            "manage_timesheets": true,
+            "manage_authorization": true,
+            "manage_users": true,
+            "manage_my_timesheets": true,
+            "manage_jobcodes": true,
+            "pin_login": true,
+            "approve_timesheets": true,
+            "manage_schedules": false,
+            "external_access": false,
+            "manage_my_schedule": false,
+            "manage_company_schedules": false,
+            "view_company_schedules": false,
+            "view_group_schedules": false,
+            "manage_no_schedules": false,
+            "view_my_schedules": false,
+            "view_projects": false,
+            "manage_projects": true,
+            "time_tracking": true
+        },
+        "customfields": ""
+      }
+    },
+    "projects": {
+      "30001": {
+        "id": 30001,
+        "jobcode_id": 50001,
+        "parent_jobcode_id": 0,
+        "name": "Test Project",
+        "status": "in_progress",
+        "description": "Test Project for Docs",
+        "start_date": "",
+        "due_date": "",
+        "completed_date": "",
+        "active": true,
+        "last_modified": "2019-11-21T18:42:06+00:00",
+        "created": "2019-11-21T18:42:06+00:00",
+        "linked_objects": {
+            "notes_read_times": [
+                159834
+            ]
+        }
+      }
+    },
+    "project_activities": {
+      "40001": {
+        "id": 40001,
+        "user_id": 20001,
+        "project_id": 30001,
+        "activity_type": "note",
+        "active": true,
+        "created": "2019-12-06T22:57:34+00:00",
+        "last_modified": "2019-12-06T22:57:34+00:00",
+        "unread_replies_count": 0,
+        "following": false,
+        "project_activity_metadata": [
+        ],
+        "linked_objects": {
+          "project_notes": [
+            10001
+          ]
+        }
+      },
+      "40002": {
+        "id": 40002,
+        "user_id": 20001,
+        "project_id": 30001,
+        "activity_type": "note",
+        "active": true,
+        "created": "2019-12-09T17:14:22+00:00",
+        "last_modified": "2019-12-09T17:14:22+00:00",
+        "project_activity_metadata": [
+        ],
+        "linked_objects": {
+          "project_notes": [
+            10002
+          ]
+        }
+      },
+      "40003": {
+        "id": 40003,
+        "user_id": 20001,
+        "project_id": 30001,
+        "activity_type": "note",
+        "active": true,
+        "created": "2019-12-09T17:14:36+00:00",
+        "last_modified": "2019-12-09T17:14:36+00:00",
+        "project_activity_metadata": [
+        ],
+        "linked_objects": {
+          "project_notes": [
+            10003
+          ]
+        }
+      }
+    },
+    "files": {
+      "60001": {
+        "id": 60001,
+        "uploaded_by_user_id": 20001,
+        "file_name": "test.png",
+        "active": true,
+        "size": 369302,
+        "last_modified": "2018-10-05T03:57:49+00:00",
+        "created": "2018-10-05T03:57:49+00:00",
+        "linked_objects": {
+            "projects": [30001],
+            "project_notes": [10001]
+        },
+        "meta_data": {
+           "image_rotation": "0"
+        }
+      },
+      "60002": {
+        "id": 60002,
+        "uploaded_by_user_id": 20001,
+        "file_name": "test_2.png",
+        "active": true,
+        "size": 66844,
+        "last_modified": "2018-10-05T03:57:49+00:00",
+        "created": "2018-10-05T03:57:49+00:00",
+        "linked_objects": {
+            "projects": [30001],
+            "project_notes": [10001]
+        },
+        "meta_data": {
+           "image_rotation": "0"
+        }
+      }
+    }
+  }
+}

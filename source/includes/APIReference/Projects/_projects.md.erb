@@ -1,0 +1,27 @@
+# Projects
+
+## The Project Object
+
+<%= partial "includes/APIReference/Projects/Examples/projects.tmpl.erb" %>
+
+The following is a list of the properties that belong to a project object, and a description of each.
+
+A jobcode is associated with each project for time tracking. When creating a project, you can provide your own jobcode or omit the jobcode_id field to have one created for you. If a jobcode is provided it cannot have children or already be mapped to a project.
+
+A project must be created under a parent jobcode (or customer) and cannot be a project itself.
+
+|                |             |             |
+| -------------: | :---------: | ----------- |
+| **id**<br/>read-only | _Int_ | ID of this project. |
+| **name**<br/>read-write | _String_ | Name of project. Limited to 64 characters. |
+| **jobcode_id**<br/>read/write-once | _Int_ | The jobcode that represents the project for time tracking. |
+| **parent_jobcode_id**<br/>read/write-once | _Int_ | Id of the project jobcode's parent. 0 if it's top-level. |
+| **description**<br/>read-write | _String_ | Description text associated with project. Limited to 300 characters. |
+| **status**<br/>read-write | _String_ | Status of project. Allowed values include: not_started, in_progress, complete. |
+| **start_date**<br/>read-write | _String_ | `YYYY-MM-DD` formatted date string. Must be before due date if one is defined. |
+| **due_date**<br/>read-write | _String_ | `YYYY-MM-DD` formatted date string. Must be after the start date if one is defined. |
+| **completed_date**<br/>read-write | _String_ | `YYYY-MM-DD` formatted date string. Must be after the start date if one is defined. |
+| **active**<br/>read-write | _Boolean_ | True or false. If false, this project is considered deleted. |
+| **last_modified**<br/>read | _String_ | Date/time when this project was last modified, in ISO 8601 format (`YYYY-MM-DDThh:mm:ss±hh:mm`). |
+| **created**<br/>read | _String_ | Date/time when this project was created, in ISO 8601 format (`YYYY-MM-DDThh:mm:ss±hh:mm`). |
+| **linked_objects**<br/>read-write | _Object_ | A key/value map of all the objects linked to this project and the corresponding object ids. |

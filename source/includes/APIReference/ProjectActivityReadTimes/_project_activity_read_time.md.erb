@@ -1,0 +1,14 @@
+# Project Activity Read Times
+
+## The Project Activity Read Time Object
+
+<%= partial "includes/APIReference/ProjectActivityReadTimes/Examples/project_activity_read_time.tmpl.erb" %>
+
+Following is a list of the properties that belong to a project_activity_read_time object, and a description of each.
+
+|                |             |             |
+| -------------: | :---------: | ----------- |
+| **id**<br/>read-only | _Int_ | ID of this project_activity_read_time. |
+| **user_id**<br/>read-write | _Int_ | ID of the associated user. Only the current user id is allowed |
+| **project_id**<br/>read-write | _Int_ | ID of the associated project. |
+| **latest_read_time**<br/>read-only | _String_ | Date/time when this project activity was last read, in ISO 8601 format (YYYY-MM-DDThh:mm:ss±hh:mm). |

@@ -1,0 +1,42 @@
+## Retrieve Project Estimate Reports
+
+<%= partial "includes/APIReference/Reports/Examples/project_estimate/project_estimate-explanation.tmpl.erb" %>
+
+<%= partial "includes/APIReference/Reports/Examples/project_estimate/project_estimate.tmpl.erb" %>
+
+Retrieves a project estimate report, with filters to narrow down the results.
+
+The project estimate report combines information about each project and time tracked against it.
+
+### HTTP Request
+
+<img src="images/post.png" alt="post"/><api>https://rest.tsheets.com/api/v1/reports/project_estimate</api>
+
+### Filter Properties
+
+_Pass an an object of filters as the value to a 'data' property (see example)._
+
+|                |             |             |
+| -------------: | :---------: | ----------- |
+| **project_ids**<br/>optional | _Int Array_ | Array of one or more project ids. Only time for these projects will be included. |
+| **parent_jobcode_id**<br/>optional | _Int_ | A jobcode id. Only time for projects under this jobcode will be included. |
+| **jobcode_ids**<br/>optional | _Int Array_ | Array of one or more jobcode ids. Only time for projects associated with these jobcodes will be included. |
+| **statuses**<br/>optional | _String Array_ | Array of one or more project statuses. 'in_progress', 'complete'. |
+| **page**<br/>optional | _Int_ | A page number. Default is 1. |
+| **per_page**<br/>optional | _Int_ | The number of results per page. Default is 50. |
+| **active**<br/>optional | _String_ | 'yes', 'no', or 'both'. Default is 'yes'. |
+| **supplemental_data**<br/>optional | _String_ | 'yes' or 'no'. Default is 'yes'. Indicates whether supplemental data should be returned. |
+| **results_as_array**<br/>optional | _String_ | 'yes' or 'no'. Default is 'no'. Indicates whether results should be returned as an array instead of an object. |
+| **sort_by**<br/>optional | _String_ | Multi-field sorting. Comma seperated list of fields to sort on.  Default is '+name'. Sorting begins with left-most field and continues to the right. Requires directional operator ('-' = 'descending', '+' = 'ascending') in front of each field name. Sorting occurs before any pagination is applied.  Setting anything in sort_by will force results_as_array = 'yes', in order to preserve ordering in the payload response. As such, results will now be an array instead of an object. Current allowed fields to sort on are: 'name', 'due_date', 'budget_progress', 'total_note_count', 'unread_posts_count'.|
+| **search**<br/>optional | _JSON Object_ | An object with a key/value map of properties and search terms. List of allowed keys: <br/><ul><li><b>name</b>:  <i>String</i>  * will be interpreted as a wild card. Starts matching from the beginning of the string.</li></ul> |
+| **has_time_tracked**<br/>optional | _String_ | 'yes' or 'no'. Default is 'no'. Indicates whether to filter results on time tracked dates. |
+| **time_tracked_start_date**<br/>optional | _String_ | `YYYY-MM-DD` formatted date. Any time with a time tracked falling on or after this date will be included. |
+| **time_tracked_end_date**<br/>optional | _String_ | `YYYY-MM-DD` formatted date. Any time with a time tracked falling on or before this date will be included. |
+
+<aside class="notice">
+Parameter `has_time_tracked` must be 'yes' in order for `time_tracked_start_date` and `time_tracked_end_date` to be used.
+</aside>
+
+### Understanding the Output
+
+See explanation of response layout to the right.

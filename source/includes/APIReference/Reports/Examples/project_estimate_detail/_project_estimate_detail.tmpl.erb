@@ -1,0 +1,11 @@
+<% @request_body = File.read("source/includes/APIReference/Reports/Examples/project_estimate_detail/_project_estimate_detail-request.md.erb") -%>
+<% @response_body = File.read("source/includes/APIReference/Reports/Examples/project_estimate_detail/_project_estimate_detail-response.md.erb") -%>
+
+<%= partial "includes/CodeTemplates/post.md.erb",
+  :locals => {
+    :endpoint => "reports/project_estimate_detail",
+    :description => "Generate a project estimate detail report for project id 12345.",
+    :request_body => @request_body,
+    :response_body => @response_body
+  }
+%>

@@ -17,7 +17,7 @@ _Pass an array of [Projects](#the-project-object) objects as the value to a 'dat
 | -------------: | :---------: | ----------- |
 | **name**<br/>required | _String_ | Name of project, ignored if job_code_id is provided. Limited to 64 characters. |
 | **jobcode_id**<br/>optional | _Int_ | The jobcode that represents the project, used for tracking time against the project. If an id is provided on create we use the jobcode provided, otherwise a new jobcode is automatically generated. The provided jobcode must have no children and cannot already be mapped to an existing project. |
-| **parent_jobcode_id**<br/>required | _Int_ | This jobcode is set as the parent of the project's jobcode. This jobcode cannot be already tied to an existing project. If the jobcode_id is also provided on POST its parent must match this id. |
+| **parent_jobcode_id**<br/>optional | _Int_ | This jobcode is set as the parent of the project's jobcode. This jobcode cannot be already tied to an existing project. If the jobcode_id is also provided on POST its parent must match this id. |
 | **description**<br/>optional | _String_ | Description text associated with project. Limited to 300 characters. |
 | **status**<br/>optional | _String_ | Status of project. Allowed values include: 'not_started', 'in_progress', 'complete'. |
 | **start_date**<br/>optional | _String_ | `YYYY-MM-DD` formatted date string. Must be before due date if one is defined. |

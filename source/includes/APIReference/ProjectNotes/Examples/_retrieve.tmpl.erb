@@ -1,0 +1,27 @@
+<% @response_body = File.read("source/includes/APIReference/ProjectNotes/Examples/_retrieve-response.md.erb") -%>
+
+
+<%= partial "includes/CodeTemplates/get.md.erb",
+  :locals => {
+    :endpoint => "project_notes",
+    :description => "Retrieve a list of project notes given the required parameter project_id.",
+    :parameters => [ [ "project_id", 1234 ]  ],
+    :response_body => @response_body
+  }
+%>
+
+<%= partial "includes/CodeTemplates/get.md.erb",
+  :locals => {
+    :endpoint => "project_notes",
+    :description => "Retrieve a list of project notes having the given project_id parameter and given specific note ids.",
+    :parameters => [ [ "ids", "12,367,3489" ], ["project_id", 1234] ]
+  }
+%>
+
+<%= partial "includes/CodeTemplates/get.md.erb",
+  :locals => {
+    :endpoint => "project_notes",
+    :description => "Retrieve a list of project notes having the given project_id parameter and given specific user ids.",
+    :parameters => [ [ "user_ids", "21,673,4893" ], ["project_id", 1234] ]
+  }
+%>

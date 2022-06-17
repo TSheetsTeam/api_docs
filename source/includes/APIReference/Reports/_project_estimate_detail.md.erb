@@ -1,0 +1,29 @@
+## Retrieve Project Estimate Detail Reports
+
+<%= partial "includes/APIReference/Reports/Examples/project_estimate_detail/project_estimate_detail-explanation.tmpl.erb" %>
+
+<%= partial "includes/APIReference/Reports/Examples/project_estimate_detail/project_estimate_detail.tmpl.erb" %>
+
+Retrieves a project estimate detail report, with filters to narrow down the results.
+
+The project estimate detail report is similar to the [project estimate](#retrieve-project-estimate-reports) report but offers a
+detailed breakdown of time for each user, group, jobcode, and customfield item. This report can only be 
+ran for a single project at a time by specifying a project_id filter.
+
+### HTTP Request
+
+<img src="images/post.png" alt="post"/><api>https://rest.tsheets.com/api/v1/reports/project_estimate_detail</api>
+ 
+### Filter Properties
+
+_Pass an an object of filters as the value to a 'data' property (see example)._
+
+|                |             |             |
+| -------------: | :---------: | ----------- |
+| **project_id**<br/>required | _Int_ | A of project id. Only time for this project will be included. |
+| **supplemental_data**<br/>optional | _String_ | 'yes' or 'no'. Default is 'yes'. Indicates whether supplemental data should be returned. |
+| **results_as_array**<br/>optional | _String_ | 'yes' or 'no'. Default is 'no'. Indicates whether results should be returned as an array instead of an object. |
+
+### Understanding the Output
+
+See explanation of response layout to the right.

@@ -1,0 +1,20 @@
+<% @response_body = File.read("source/includes/APIReference/ProjectActivityReadTimes/Examples/_retrieve-response.md.erb") -%>
+<% @response_body_2 = File.read("source/includes/APIReference/ProjectActivityReadTimes/Examples/_retrieve-response_2.md.erb") -%>
+
+
+<%= partial "includes/CodeTemplates/get.md.erb",
+  :locals => {
+    :endpoint => "project_activity_read_times",
+    :description => "Retrieve all project_activity_read_times for a user.",
+    :response_body => @response_body
+  }
+%>
+
+<%= partial "includes/CodeTemplates/get.md.erb",
+  :locals => {
+    :endpoint => "project_activity_read_times",
+    :description => "Retrieve a list of project_activity_read_times given list of ids. If ids is omitted all project_activity_read_times for the current user are returned.",
+    :parameters => [ [ "ids", 10001 ]  ],
+    :response_body => @response_body_2
+  }
+%>

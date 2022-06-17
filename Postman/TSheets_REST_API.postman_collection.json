@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "7eb67dd7-b00b-468b-a025-ba7a823f1413",
+		"_postman_id": "a10ab72d-66d7-4816-b2f5-87e975052034",
 		"name": "TSheets REST API",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -14,7 +14,6 @@
 						{
 							"listen": "prerequest",
 							"script": {
-								"id": "72b4a38f-b2c0-4bc3-a050-999700d6e376",
 								"exec": [
 									"//set your bearer token here\r",
 									"postman.setEnvironmentVariable(\"tsheets-bearer-token\", \"<SET_VALUE_HERE>\");\r",
@@ -29,7 +28,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "5b99228d-49dd-43b9-a2b3-dbd94a2cd95e",
 								"exec": [
 									"let tsheets_bearer_token = postman.getEnvironmentVariable(\"tsheets-bearer-token\");",
 									"let base_api_url = postman.getEnvironmentVariable(\"base-api-url\");",
@@ -51,10 +49,6 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "https://postman-echo.com/get",
 							"protocol": "https",
@@ -76,7 +70,6 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "f6613d67-a081-45a5-8ac5-682e482871bd",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -86,7 +79,6 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "5c5168f2-83ed-473e-a6e3-34e8a6e2765e",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -112,10 +104,6 @@
 								"type": "text"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{base-api-url}}/current_user",
 							"host": [
@@ -133,7 +121,6 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "d1185877-d60a-439c-b356-04bb0e7c8b1f",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -143,7 +130,6 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "f0f20828-b0d3-4ca9-a5c4-1a848b21959b",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -166,10 +152,6 @@
 								"type": "text"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{base-api-url}}/customfields",
 							"host": [
@@ -266,7 +248,6 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "72cb5248-2ce1-45a7-8dd4-1ca2cbb8e872",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -276,7 +257,6 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "df2eac27-aec2-4075-ad82-bd0099c478b0",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -299,10 +279,6 @@
 								"value": "Bearer {{tsheets-bearer-token}}"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{base-api-url}}/customfielditems?customfield_id=<value>",
 							"host": [
@@ -420,7 +396,6 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "62f0be9e-2f8e-4c04-9188-2852af345840",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -430,7 +405,6 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "c6b75464-4415-43e4-afc5-a90fc52bfcbe",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -453,10 +427,6 @@
 								"value": "Bearer {{tsheets-bearer-token}}"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{base-api-url}}/effective_settings",
 							"host": [
@@ -491,7 +461,6 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "a9dff62e-2a38-450e-b15f-53aecdb2ed75",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -501,12 +470,274 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "d46fe5e6-7dca-4888-8552-96abee9e9378",
 						"type": "text/javascript",
 						"exec": [
 							""
 						]
 					}
+				}
+			]
+		},
+		{
+			"name": "Estimate Items",
+			"item": [
+				{
+					"name": "List Estimate Items",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{tsheets-bearer-token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base-api-url}}/estimate_items",
+							"host": [
+								"{{base-api-url}}"
+							],
+							"path": [
+								"estimate_items"
+							],
+							"query": [
+								{
+									"key": "ids",
+									"value": "<value>",
+									"disabled": true
+								},
+								{
+									"key": "estimate_ids",
+									"value": "<value>",
+									"disabled": true
+								},
+								{
+									"key": "active",
+									"value": "<value>",
+									"disabled": true
+								},
+								{
+									"key": "modified_before",
+									"value": "<value>",
+									"disabled": true
+								},
+								{
+									"key": "modified_since",
+									"value": "<value>",
+									"disabled": true
+								},
+								{
+									"key": "supplemental_data",
+									"value": "<value>",
+									"disabled": true
+								},
+								{
+									"key": "per_page",
+									"value": "<value>",
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": "<value>",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Estimate Items",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{tsheets-bearer-token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "# Note: structure is not complete.  Add\r\n# properties as needed, per documentation.\r\n\r\n{\r\n \"data\":\r\n  [\r\n    {\r\n     \"estimate_id\": \"<value>\",\r\n     \"type\": \"<value>\"\r\n    }\r\n  ]\r\n}"
+						},
+						"url": {
+							"raw": "{{base-api-url}}/estimate_items",
+							"host": [
+								"{{base-api-url}}"
+							],
+							"path": [
+								"estimate_items"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit Estimate Items",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{tsheets-bearer-token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "# Note: structure is not complete.  Add\r\n# properties as needed, per documentation.\r\n\r\n{\r\n \"data\":\r\n  [\r\n    {\r\n     \"id\": \"<value>\"\r\n    }\r\n  ]\r\n}"
+						},
+						"url": {
+							"raw": "{{base-api-url}}/estimate_items",
+							"host": [
+								"{{base-api-url}}"
+							],
+							"path": [
+								"estimate_items"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Estimates",
+			"item": [
+				{
+					"name": "List Estimates",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{tsheets-bearer-token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base-api-url}}/estimates",
+							"host": [
+								"{{base-api-url}}"
+							],
+							"path": [
+								"estimates"
+							],
+							"query": [
+								{
+									"key": "ids",
+									"value": "<value>",
+									"disabled": true
+								},
+								{
+									"key": "active",
+									"value": "<value>",
+									"disabled": true
+								},
+								{
+									"key": "modified_before",
+									"value": "<value>",
+									"disabled": true
+								},
+								{
+									"key": "modified_since",
+									"value": "<value>",
+									"disabled": true
+								},
+								{
+									"key": "supplemental_data",
+									"value": "<value>",
+									"disabled": true
+								},
+								{
+									"key": "per_page",
+									"value": "<value>",
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": "<value>",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Estimates",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{tsheets-bearer-token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "# Note: structure is not complete.  Add\r\n# properties as needed, per documentation.\r\n\r\n{\r\n \"data\":\r\n  [\r\n    {\r\n     \"project_id\": \"<value>\",\r\n     \"estimate_id\": \"<value>\"\r\n    }\r\n  ]\r\n}"
+						},
+						"url": {
+							"raw": "{{base-api-url}}/estimates",
+							"host": [
+								"{{base-api-url}}"
+							],
+							"path": [
+								"estimates"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit Estimates",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{tsheets-bearer-token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "# Note: structure is not complete.  Add\r\n# properties as needed, per documentation.\r\n\r\n{\r\n \"data\":\r\n  [\r\n    {\r\n     \"id\": \"<value>\"\r\n    }\r\n  ]\r\n}"
+						},
+						"url": {
+							"raw": "{{base-api-url}}/estimates",
+							"host": [
+								"{{base-api-url}}"
+							],
+							"path": [
+								"estimates"
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		},
@@ -524,10 +755,6 @@
 								"type": "text"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{base-api-url}}/files",
 							"host": [
@@ -678,12 +905,8 @@
 								"value": "Bearer {{tsheets-bearer-token}}"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
-							"raw": "{{base-api-url}}/files/raw?",
+							"raw": "{{base-api-url}}/files/raw",
 							"host": [
 								"{{base-api-url}}"
 							],
@@ -741,7 +964,6 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "79adbb86-acc6-4120-93a8-0554cbc3b7e5",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -751,7 +973,6 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "f1546583-f2bd-4c74-a400-81a988329d7c",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -774,10 +995,6 @@
 								"type": "text"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{base-api-url}}/geofence_configs",
 							"host": [
@@ -847,7 +1064,6 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "a8eb996d-9adc-45e3-a185-b11ddb146460",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -857,7 +1073,6 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "e858e395-5ebb-4157-ac14-86a73476259b",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -880,10 +1095,6 @@
 								"type": "text"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{base-api-url}}/geolocations?ids=<value>&modified_before=<value>&modified_since=<value>",
 							"host": [
@@ -972,7 +1183,6 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "005ff3b6-ded5-4ad4-bc93-0f5123b1ccd3",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -982,7 +1192,6 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "47caab7f-49cb-4288-9e75-60b3cbe0378c",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -1005,10 +1214,6 @@
 								"type": "text"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{base-api-url}}/groups",
 							"host": [
@@ -1137,7 +1342,6 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "f12c57b9-6e1b-4c55-9d33-b42319bc5825",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -1147,7 +1351,6 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "e42bcd55-1ede-4ced-a07a-6197da4e9d2c",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -1170,10 +1373,6 @@
 								"type": "text"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{base-api-url}}/jobcodes",
 							"host": [
@@ -1302,7 +1501,6 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "8a2423db-218f-418a-9184-cb5f363ada49",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -1312,7 +1510,6 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "c133edd1-5fdc-4e83-af78-a034aa744b0c",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -1335,10 +1532,6 @@
 								"type": "text"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{base-api-url}}/jobcode_assignments",
 							"host": [
@@ -1473,7 +1666,6 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "57a00eb4-c49b-4429-9b0e-f54cd3a9eae7",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -1483,7 +1675,6 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "b34992ed-437c-4c81-839e-3601878a72f1",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -1506,10 +1697,6 @@
 								"value": "Bearer {{tsheets-bearer-token}}"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{base-api-url}}/last_modified_timestamps",
 							"host": [
@@ -1534,7 +1721,6 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "6b908249-e6f4-458d-9e55-a6ce61893e93",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -1544,7 +1730,6 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "92658ef2-69d7-474e-887c-d85ae1a96215",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -1567,10 +1752,6 @@
 								"type": "text"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{base-api-url}}/locations",
 							"host": [
@@ -1635,7 +1816,6 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "903d709e-b016-4b7f-a41e-6c35c9c0e66a",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -1645,7 +1825,6 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "ce632e05-505c-44c4-9e1f-087a41eaee5b",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -1655,7 +1834,7 @@
 			]
 		},
 		{
-			"name": "Locations_Maps",
+			"name": "Locations Maps",
 			"item": [
 				{
 					"name": "List Locations_Maps",
@@ -1668,10 +1847,6 @@
 								"type": "text"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{base-api-url}}/locations_map",
 							"host": [
@@ -1726,7 +1901,6 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "e9b34e47-9922-41a6-864d-3624d682ef51",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -1736,7 +1910,6 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "ce83a955-b2a5-49fc-8de0-aa4d406a3681",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -1759,10 +1932,6 @@
 								"type": "text"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{base-api-url}}/managed_clients",
 							"host": [
@@ -1797,7 +1966,6 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "04dfc5e8-1f7a-4edd-8b75-52908a70d0bc",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -1807,7 +1975,6 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "b7f4bd22-6763-464c-bcd6-a803fe26ce77",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -1830,10 +1997,6 @@
 								"type": "text"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{base-api-url}}/notifications",
 							"host": [
@@ -1953,7 +2116,6 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "1f360987-a624-4997-9e20-4367b33dad88",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -1963,12 +2125,582 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "d6a6a58f-9aa8-4179-ba71-f90a81a91f2f",
 						"type": "text/javascript",
 						"exec": [
 							""
 						]
 					}
+				}
+			]
+		},
+		{
+			"name": "Projects",
+			"item": [
+				{
+					"name": "List Projects",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{tsheets-bearer-token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base-api-url}}/projects",
+							"host": [
+								"{{base-api-url}}"
+							],
+							"path": [
+								"projects"
+							],
+							"query": [
+								{
+									"key": "ids",
+									"value": "<value>",
+									"disabled": true
+								},
+								{
+									"key": "jobcode_ids",
+									"value": "<value>",
+									"disabled": true
+								},
+								{
+									"key": "parent_jobcode_id",
+									"value": "<value>",
+									"disabled": true
+								},
+								{
+									"key": "name",
+									"value": "<value>",
+									"disabled": true
+								},
+								{
+									"key": "active",
+									"value": "<value>",
+									"disabled": true
+								},
+								{
+									"key": "by_jobcode_assignment",
+									"value": "<value>",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Projects",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{tsheets-bearer-token}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "# Note: structure is not complete.  Add\r\n# properties as needed, per documentation.\r\n\r\n{\r\n \"data\":\r\n  [\r\n    {\r\n      \"name\": \"<value>\"\r\n    }\r\n  ]\r\n}"
+						},
+						"url": {
+							"raw": "{{base-api-url}}/projects",
+							"host": [
+								"{{base-api-url}}"
+							],
+							"path": [
+								"projects"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit Projects",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{tsheets-bearer-token}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "# Note: structure is not complete.  Add\r\n# properties as needed, per documentation.\r\n\r\n{\r\n  \"data\":\r\n  [\r\n    {\r\n      \"id\": <value>,\r\n    }\r\n  ]\r\n}"
+						},
+						"url": {
+							"raw": "{{base-api-url}}/projects",
+							"host": [
+								"{{base-api-url}}"
+							],
+							"path": [
+								"projects"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Project Activities",
+			"item": [
+				{
+					"name": "List Project Activities",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{tsheets-bearer-token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base-api-url}}/project_activities",
+							"host": [
+								"{{base-api-url}}"
+							],
+							"path": [
+								"project_activities"
+							],
+							"query": [
+								{
+									"key": "project_id",
+									"value": "<value>",
+									"disabled": true
+								},
+								{
+									"key": "ids",
+									"value": "<<value>>",
+									"disabled": true
+								},
+								{
+									"key": "activity_types",
+									"value": "<value>",
+									"disabled": true
+								},
+								{
+									"key": "modified_before",
+									"value": "<value>",
+									"disabled": true
+								},
+								{
+									"key": "modified_since",
+									"value": "<value>",
+									"disabled": true
+								},
+								{
+									"key": "supplemental_data",
+									"value": "<value>",
+									"disabled": true
+								},
+								{
+									"key": "per_page",
+									"value": "<value>",
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": "<value>",
+									"disabled": true
+								},
+								{
+									"key": "max_id",
+									"value": "<value>",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Project Activity Read Times",
+			"item": [
+				{
+					"name": "List Project Activity Read Times",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{tsheets-bearer-token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base-api-url}}/project_activity_read_times",
+							"host": [
+								"{{base-api-url}}"
+							],
+							"path": [
+								"project_activity_read_times"
+							],
+							"query": [
+								{
+									"key": "ids",
+									"value": "<value>",
+									"disabled": true
+								},
+								{
+									"key": "modified_before",
+									"value": "<value>",
+									"disabled": true
+								},
+								{
+									"key": "modified_since",
+									"value": "<value>",
+									"disabled": true
+								},
+								{
+									"key": "supplemental_data",
+									"value": "<value>",
+									"disabled": true
+								},
+								{
+									"key": "per_page",
+									"value": "<value>",
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": "<value>",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Project Activity Read Times",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{tsheets-bearer-token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "# Note: structure is not complete.  Add\r\n# properties as needed, per documentation.\r\n\r\n{\r\n \"data\":\r\n  [\r\n    {\r\n      \"project_id\": \"<value>\"\r\n    }\r\n  ]\r\n}"
+						},
+						"url": {
+							"raw": "{{base-api-url}}/project_activity_read_times",
+							"host": [
+								"{{base-api-url}}"
+							],
+							"path": [
+								"project_activity_read_times"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit Project Activity Read Times",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{tsheets-bearer-token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "# Note: structure is not complete.  Add\r\n# properties as needed, per documentation.\r\n\r\n{\r\n \"data\":\r\n  [\r\n    {\r\n      \"project_id\": \"<value>\"\r\n    }\r\n  ]\r\n}"
+						},
+						"url": {
+							"raw": "{{base-api-url}}/project_activity_read_times",
+							"host": [
+								"{{base-api-url}}"
+							],
+							"path": [
+								"project_activity_read_times"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Project Activity Replies",
+			"item": [
+				{
+					"name": "List Project Activity Replies",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{tsheets-bearer-token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base-api-url}}/project_activity_replies",
+							"host": [
+								"{{base-api-url}}"
+							],
+							"path": [
+								"project_activity_replies"
+							],
+							"query": [
+								{
+									"key": "project_activity_id",
+									"value": "<value>",
+									"disabled": true
+								},
+								{
+									"key": "ids",
+									"value": "<value>",
+									"disabled": true
+								},
+								{
+									"key": "user_ids",
+									"value": "<value>",
+									"disabled": true
+								},
+								{
+									"key": "active",
+									"value": "<value>",
+									"disabled": true
+								},
+								{
+									"key": "modified_before",
+									"value": "<value>",
+									"disabled": true
+								},
+								{
+									"key": "modified_since",
+									"value": "<value>",
+									"disabled": true
+								},
+								{
+									"key": "supplemental_data",
+									"value": "<value>",
+									"disabled": true
+								},
+								{
+									"key": "per_page",
+									"value": "<value>",
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": "<value>",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Project Activity Replies",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{tsheets-bearer-token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "# Note: structure is not complete.  Add\r\n# properties as needed, per documentation.\r\n\r\n{\r\n  \"data\":\r\n  [\r\n    {\r\n      \"note\": <value>,\r\n      \"project_activity_id\": <value>\r\n    }\r\n  ]\r\n}"
+						},
+						"url": {
+							"raw": "{{base-api-url}}/project_activity_replies",
+							"host": [
+								"{{base-api-url}}"
+							],
+							"path": [
+								"project_activity_replies"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit Project Activity Replies",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{tsheets-bearer-token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "# Note: structure is not complete.  Add\r\n# properties as needed, per documentation.\r\n\r\n{\r\n  \"data\":\r\n  [\r\n    {\r\n      \"id\": <value>,\r\n    }\r\n  ]\r\n}"
+						},
+						"url": {
+							"raw": "{{base-api-url}}/project_activity_replies",
+							"host": [
+								"{{base-api-url}}"
+							],
+							"path": [
+								"project_activity_replies"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Project Notes",
+			"item": [
+				{
+					"name": "List Project Notes",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{tsheets-bearer-token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base-api-url}}/project_notes",
+							"host": [
+								"{{base-api-url}}"
+							],
+							"path": [
+								"project_notes"
+							],
+							"query": [
+								{
+									"key": "project_id",
+									"value": "<value>",
+									"disabled": true
+								},
+								{
+									"key": "ids",
+									"value": "<value>",
+									"disabled": true
+								},
+								{
+									"key": "user_ids",
+									"value": "<value>",
+									"disabled": true
+								},
+								{
+									"key": "active",
+									"value": "<value>",
+									"disabled": true
+								},
+								{
+									"key": "modified_before",
+									"value": "<value>",
+									"disabled": true
+								},
+								{
+									"key": "modified_since",
+									"value": "<value>",
+									"disabled": true
+								},
+								{
+									"key": "supplemental_data",
+									"value": "<value>",
+									"disabled": true
+								},
+								{
+									"key": "per_page",
+									"value": "<value>",
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": "<value>",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Projects Notes",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{tsheets-bearer-token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "# Note: structure is not complete.  Add\r\n# properties as needed, per documentation.\r\n\r\n{\r\n  \"data\":\r\n  [\r\n    {\r\n      \"note\": <value>,\r\n      \"project_id\": <value>\r\n    }\r\n  ]\r\n}"
+						},
+						"url": {
+							"raw": "{{base-api-url}}/project_notes",
+							"host": [
+								"{{base-api-url}}"
+							],
+							"path": [
+								"project_notes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit Project Notes",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{tsheets-bearer-token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "# Note: structure is not complete.  Add\r\n# properties as needed, per documentation.\r\n\r\n{\r\n  \"data\":\r\n  [\r\n    {\r\n      \"id\": <value>,\r\n    }\r\n  ]\r\n}"
+						},
+						"url": {
+							"raw": "{{base-api-url}}/project_notes",
+							"host": [
+								"{{base-api-url}}"
+							],
+							"path": [
+								"project_notes"
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		},
@@ -1986,10 +2718,6 @@
 								"type": "text"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{base-api-url}}/reminders?user_ids=<value>",
 							"host": [
@@ -2092,7 +2820,6 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "25e9fa81-ffb6-48ba-baa9-61f7fcb4aac0",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -2102,7 +2829,6 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "680491cc-7aee-42a6-957d-8a174eae2797",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -2214,6 +2940,72 @@
 					"response": []
 				},
 				{
+					"name": "Project Estimate",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{tsheets-bearer-token}}"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "# Note: structure is not complete.  Add\r\n# properties as needed, per documentation.\r\n\r\n{\r\n  \"data\":\r\n  {\r\n    \"project_ids\": \"<value>\"\r\n  }\r\n}"
+						},
+						"url": {
+							"raw": "{{base-api-url}}/reports/project_estimate",
+							"host": [
+								"{{base-api-url}}"
+							],
+							"path": [
+								"reports",
+								"project_estimate"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Project Estimate Detail",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{tsheets-bearer-token}}"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "# Note: structure is not complete.  Add\r\n# properties as needed, per documentation.\r\n\r\n{\r\n  \"data\":\r\n  {\r\n    \"project_id\": \"<value>\"\r\n  }\r\n}"
+						},
+						"url": {
+							"raw": "{{base-api-url}}/reports/project_estimate_detail",
+							"host": [
+								"{{base-api-url}}"
+							],
+							"path": [
+								"reports",
+								"project_estimate_detail"
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "Project Report",
 					"request": {
 						"method": "POST",
@@ -2262,10 +3054,6 @@
 								"type": "text"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{base-api-url}}/schedule_calendars",
 							"host": [
@@ -2315,7 +3103,6 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "b9c926a0-b0bd-447c-8f62-af2d5c2b5b0a",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -2325,7 +3112,6 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "e40e44bf-83cc-4a65-86b3-566d25c0b448",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -2348,10 +3134,6 @@
 								"type": "text"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{base-api-url}}/schedule_events?ids=<value>&schedule_calendar_ids=<value>&start=<value>&modified_before=<value>&modified_since=<value>",
 							"host": [
@@ -2500,7 +3282,6 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "e3265a2b-44c5-46f2-915b-cfe4f82ba6e8",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -2510,7 +3291,6 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "6f720cf5-ff52-4fad-ad36-8cbc5dc14631",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -2533,10 +3313,6 @@
 								"type": "text"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{base-api-url}}/timesheets?ids=<value>&start_date=<value>",
 							"host": [
@@ -2721,7 +3497,6 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "b192858b-d112-4b3a-a49e-6a9d8e60fe85",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -2731,7 +3506,6 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "6d6a0067-0b64-47a7-b03e-f50a0618bf63",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -2754,10 +3528,6 @@
 								"type": "text"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{base-api-url}}/timesheets_deleted?start_date=<value>&end_date=<value>&ids=<value>&modified_since=<value>&modified_before=<value>",
 							"host": [
@@ -2852,7 +3622,6 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "a65f7438-8f3f-4828-8fa9-d11182070f01",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -2862,7 +3631,6 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "083b5c90-4dfc-43dc-8e7f-fb62403fb523",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -2885,10 +3653,6 @@
 								"type": "text"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{base-api-url}}/users",
 							"host": [
@@ -3047,7 +3811,6 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "95bb8499-7afb-4daf-b77a-ce778cf62584",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -3057,7 +3820,6 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "62ed3e00-32a4-4dce-b32a-0d126c73d892",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -3071,7 +3833,6 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "f3010d3b-3cb7-4295-85bb-7d172e2960d4",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -3081,7 +3842,6 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "c65257b5-e882-4d6e-8553-d99527ae0690",
 				"type": "text/javascript",
 				"exec": [
 					""

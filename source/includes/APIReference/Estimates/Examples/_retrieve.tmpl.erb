@@ -1,0 +1,10 @@
+<% @response_body = File.read("source/includes/APIReference/Estimates/Examples/_retrieve-response.md.erb") -%>
+
+<%= partial "includes/CodeTemplates/get.md.erb",
+  :locals => {
+    :endpoint => "estimates",
+    :description => "Retrieve a list of estimates based on the provided filter.",
+    :request_body => @request_body,
+    :response_body => @response_body
+  }
+%>

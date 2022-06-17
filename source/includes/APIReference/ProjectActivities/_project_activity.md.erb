@@ -1,0 +1,40 @@
+# Project Activities
+
+## The Project Activity Object
+
+<%= partial "includes/APIReference/ProjectActivities/Examples/project_activity.tmpl.erb" %>
+
+Following is a list of the properties that belong to a project_activity object, and a description of each.
+
+|                |             |             |
+| -------------: | :---------: | ----------- |
+| **id**<br/>read-only | _Int_ | ID of this project_activity. |
+| **active**<br/>read-write | _Boolean_ | true or false. If false, this project activity is considered archived. |
+| **user_id**<br/>read-only | _Int_ | ID of the associated user. |
+| **project_id**<br/>read-only | _Int_ | ID of the associated project. |
+| **activity_type**<br/>read-write | _String_ | Options - 'clock_in', 'clock_out', 'note', 'attachment', 'project_update', 'location_update', 'estimate_item_added', 'estimate_item_removed', 'estimate_item_updated', 'assignment', 'unassignment'
+| **last_modified**<br/>read-only | _String_ | Date/time when this project activity was last modified, in ISO 8601 format (YYYY-MM-DDThh:mm:ss±hh:mm). |
+| **created**<br/>read-only | _String_ | Date/time when this project activity was created, in ISO 8601 format (`YYYY-MM-DDThh:mm:ss±hh:mm`) |
+| **linked_objects**<br/>read-write | _Object_ | A key/value map of all the objects linked to this project activity and the corresponding object ids. |
+
+
+### Activity Types
+
+Following is a list of valid <code>activity_type</code> values.
+
+|                |             |
+| -------------: | :---------- |
+| **<code>activity_type</code>**  | **Description** |
+| **clock_in** | One or more employees have clocked into a Project task. |
+| **clock_out** | One or more employees have clocked out of a Project task. |
+| **note** | A team member assigned to the Project has added a Note to the Project. |
+| **attachment** | A team member assigned to the Project has uploaded an attachment to the Project. |
+| **project_update** | A team member assigned to the Project has updated properties of the Project. |
+| **project_created** | A team member assigned to the Project has created the Project. |
+| **location_update** | A team member assigned to the Project is on the clock in a given Location. |
+| **estimate_item_added** | An Estimate Item has been added to the Project. |
+| **estimate_item_removed** | An Estimate Item has been removed from the Project. |
+| **estimate_item_updated** | An Estimate Item has been updated for the Project. |
+| **assignment** | One or more team members have been assigned to the Project. |
+| **unassignment** | One or more team members have been unassigned from the Project. |
+

@@ -1,0 +1,21 @@
+# Project Notes
+
+## The Project Note Object
+
+<%= partial "includes/APIReference/ProjectNotes/Examples/project_note.tmpl.erb" %>
+
+Following is a list of the properties that belong to a project_note object, and a description of each.
+
+|                |             |             |
+| -------------: | :---------: | ----------- |
+| **id**<br/>read-only | _Int_ | ID of this project_note. |
+| **project_id**<br/>read-only | _Int_ | ID of the associated project. |
+| **user_id**<br/>read-only | _Int_ | ID of the associated user. |
+| **note**<br/>read-only | _String_ | Content of note. |
+| **active**<br/>read-write | _Boolean_ | true or false. If false, this project note is considered archived. |
+| **created**<br/>read-only | _String_ | Date/time when this project note was created, in ISO 8601 format (`YYYY-MM-DDThh:mm:ss±hh:mm`) |
+| **last_modified**<br/>read-only | _String_ | Date/time when this project note was last modified, in ISO 8601 format (YYYY-MM-DDThh:mm:ss±hh:mm). |
+| **files**<br/>read-only | _Array_ | List of ids for file attached to this note. |
+| **linked_objects**<br/>read-write | _Object_ | A key/value map of all the objects linked to this project note and the corresponding object ids. |
+
+

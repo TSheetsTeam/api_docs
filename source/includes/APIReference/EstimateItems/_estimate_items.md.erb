@@ -1,0 +1,18 @@
+# Estimate Items
+
+## The Estimate Item Object
+
+<%= partial "includes/APIReference/EstimateItems/Examples/estimate_items.tmpl.erb" %>
+
+Following is a list of the properties that belong to an estimate item object, and a description of each.
+
+|                |             |             |
+| -------------: | :---------: | ----------- |
+| **id**<br/>read-only | _Int_ | ID of this estimate item. |
+| **estimated_seconds**<br/>read-write | _Int_ | The estimated number of seconds. |
+| **estimate_id**<br/>write-once | _Int_ | The estimate this estimate item belongs to. |
+| **active**<br/>read-write | _Boolean_ | True or false. If false, this estimate is considered deleted. |
+| **created**<br/>read | _String_ | Date/time when this estimate was created, in ISO 8601 format (`YYYY-MM-DDThh:mm:ss±hh:mm`). 
+| **last_modified**<br/>read | _String_ | Date/time when this estimate was last modified, in ISO 8601 format (`YYYY-MM-DDThh:mm:ss±hh:mm`). |
+| **type**<br/>read-write | _String_ | The estimate item type. One of 'none' or 'tag_clouds'. **NOTE:** A type of 'tag_clouds' should be 'customfields' instead. This will be corrected soon. |
+| **type_id**<br/>read-write | _Int_ | The customfielditem id if type is 'tag_clouds'. |

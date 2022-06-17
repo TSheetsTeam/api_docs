@@ -1,0 +1,20 @@
+<% @response_body = File.read("source/includes/APIReference/ProjectActivities/Examples/_retrieve-response.md.erb") -%>
+
+<%= partial "includes/CodeTemplates/get.md.erb",
+  :locals => {
+    :endpoint => "project_activities",
+    :description => "Retrieve a list of project activities having the given project_id.",
+    :parameters => [ ["project_id", 1234] ],
+    :response_body => @response_body
+  }
+%>
+
+<%= partial "includes/CodeTemplates/get.md.erb",
+  :locals => {
+    :endpoint => "project_activities",
+    :description => "Retrieve a list of project activities having the given project_id and having one of the given activity types.",
+    :parameters => [ ["project_id", 1234], ["activity_types", "clock_in,clock_out"] ],
+    :response_body => @response_body
+  }
+%>
+

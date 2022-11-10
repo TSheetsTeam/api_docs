@@ -37,7 +37,7 @@ article for more details about how to contribute.
 6. Obtain approval before your changes can be merged
 
 ### Steps to Build and Validate Changes
-1. Install and launch Podman (https://podman.io/getting-started/installation)
+1. Install and launch Docker for [Mac](https://hub.docker.com/editions/community/docker-ce-desktop-mac) or [Windows](https://hub.docker.com/editions/community/docker-ce-desktop-windows).
 2. Clone your forked repository (as above)
 3. Make your changes
 4. Build your changes: `./macbuild.sh` or `winbuild.cmd`

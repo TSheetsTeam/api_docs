@@ -7,7 +7,7 @@ Retrieves a list of all locations maps associated with your company, with option
 ### HTTP Request
 
 <img src="images/get.png" alt="get"/><api>https://rest.tsheets.com/api/v1/locations_map</api>
- 
+
 ### Filter Parameters
 |                |             |             |
 | -------------: | :---------: | ----------- |
@@ -15,7 +15,8 @@ Retrieves a list of all locations maps associated with your company, with option
 | **active**<br/>optional | _String_ | 'yes', 'no', or 'both'. Default is 'yes'. |
 | **modified_before**<br/>optional | _String_ | Only locations maps modified before this date/time will be returned, in ISO 8601 format (YYYY-MM-DDThh:mm:ss±hh:mm) |
 | **modified_since**<br/>optional | _String_ | Only locations maps modified since this date/time will be returned, in ISO 8601 format (YYYY-MM-DDThh:mm:ss±hh:mm) |
-| **per_page**<br/>optional | _Int_ | Represents how many results you'd like to retrieve per request (page). Default is 50. Max is 50. |
+| **~~per_page~~**<br/>~~optional~~ | ~~_Int_~~ | **_Deprecated. Use_ `limit` _for new code._**<br/>~~Represents how many results you'd like to retrieve per request. Default is 50. Max is 50.<br/>If a value over 50 is provided, it is ignored, and the max is used.~~ |
+| **limit**<br/>optional | _Int_ | Represents how many results you'd like to retrieve per request. Default is 200. Max is 200.<br/>If present, this value must be: an integer, greater than zero, and not greater than 200.<br/>Setting `limit` less than 1 or greater than 200 will result in an error. |
 | **page**<br/>optional | _Int_ | Represents the page of results you'd like to retrieve. |
 | **by_jobcode_assignment**<br/>optional | _Boolean_ | true or false. If specified only locations maps mapped to a jobcode the user is assigned to will be returned. |
 

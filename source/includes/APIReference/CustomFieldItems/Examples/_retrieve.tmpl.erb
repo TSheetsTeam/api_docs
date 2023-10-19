@@ -12,7 +12,7 @@
   :locals => {
     :endpoint => "customfielditems",
     :description => "Retrieve a list of all customfielditems (active or deleted) belonging to the given customfield, and set pagination to 10 results/page.",
-    :parameters => [ [ "customfield_id", "195923" ], [ "per_page", "10" ], [ "active", "both" ] ]
+    :parameters => [ [ "customfield_id", "195923" ], [ "limit", "10" ], [ "active", "both" ] ]
   }
 %>
 
@@ -28,7 +28,7 @@
   :locals => {
     :endpoint => "customfielditems",
     :description => "Retrieve a list of customfielditems belonging to a given customfield that have been modified since a particular date.",
-    :parameters => [ [ "customfield_id", "195923" ], ["modified_since", "2018-01-01T00:00:00-06:00"] ],    
+    :parameters => [ [ "customfield_id", "195923" ], ["modified_since", "2018-01-01T00:00:00-06:00"] ],
   }
 %>
 
@@ -36,7 +36,7 @@
   :locals => {
     :endpoint => "customfielditems",
     :description => "Retrieve a list of customfielditems belonging to a given customfield and using the name wildcard, end in the given string.",
-    :parameters => [ [ "customfield_id", "195923" ], ["name", "*ate"] ],    
+    :parameters => [ [ "customfield_id", "195923" ], ["name", "*ate"] ],
     :response_body => @response_body
   }
 %>

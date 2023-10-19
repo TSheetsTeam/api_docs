@@ -23,7 +23,8 @@ _Pass an an object of filters as the value to a 'data' property (see example)._
 | **jobcode_ids**<br/>optional | _Int Array_ | Array of one or more jobcode ids. Only time for projects associated with these jobcodes will be included. |
 | **statuses**<br/>optional | _String Array_ | Array of one or more project statuses. 'in_progress', 'complete'. |
 | **page**<br/>optional | _Int_ | A page number. Default is 1. |
-| **per_page**<br/>optional | _Int_ | The number of results per page. Default is 50. |
+| **~~per_page~~**<br/>~~optional~~ | ~~_Int_~~ | **_Deprecated. Use_ `limit` _for new code._**<br/>~~Represents how many results you'd like to retrieve per request. Default is 50. Max is 50.<br/>If a value over 50 is provided, it is ignored, and the max is used.~~ |
+| **limit**<br/>optional | _Int_ | Represents how many results you'd like to retrieve per request. Default is 200. Max is 200.<br/>If present, this value must be: an integer, greater than zero, and not greater than 200.<br/>Setting `limit` less than 1 or greater than 200 will result in an error. |
 | **active**<br/>optional | _String_ | 'yes', 'no', or 'both'. Default is 'yes'. |
 | **supplemental_data**<br/>optional | _String_ | 'yes' or 'no'. Default is 'yes'. Indicates whether supplemental data should be returned. |
 | **results_as_array**<br/>optional | _String_ | 'yes' or 'no'. Default is 'no'. Indicates whether results should be returned as an array instead of an object. |

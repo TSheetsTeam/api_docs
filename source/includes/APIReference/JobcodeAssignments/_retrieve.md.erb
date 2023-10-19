@@ -20,5 +20,6 @@ Retrieves a list of all jobcode assignments associated with users, with optional
 | **modified_before**<br/>optional | _String_ | Only jobcode assignments modified before this date/time will be returned, in ISO 8601 format (`YYYY-MM-DDThh:mm:ss±hh:mm`). |
 | **modified_since**<br/>optional | _String_ | Only jobcode assignments modified since this date/time will be returned, in ISO 8601 format (`YYYY-MM-DDThh:mm:ss±hh:mm`). |
 | **supplemental_data**<br/>optional | _String_ | 'yes' or 'no'. Default is 'yes'. Indicates whether supplemental data should be returned. |
-| **per_page**<br/>optional | _Int_ | Represents how many results you'd like to retrieve per request (page). Default is 50. Max is 50. |
+| **~~per_page~~**<br/>~~optional~~ | ~~_Int_~~ | **_Deprecated. Use_ `limit` _for new code._**<br/>~~Represents how many results you'd like to retrieve per request. Default is 50. Max is 50.<br/>If a value over 50 is provided, it is ignored, and the max is used.~~ |
+| **limit**<br/>optional | _Int_ | Represents how many results you'd like to retrieve per request. Default is 200. Max is 200.<br/>If present, this value must be: an integer, greater than zero, and not greater than 200.<br/>Setting `limit` less than 1 or greater than 200 will result in an error. |
 | **page**<br/>optional | _Int_ | Represents the page of results you'd like to retrieve. Default is 1. |

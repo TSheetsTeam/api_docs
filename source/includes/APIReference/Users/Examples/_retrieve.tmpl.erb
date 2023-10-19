@@ -11,8 +11,8 @@
   :locals => {
     :endpoint => "users",
     :description => "Retrieve a list of all users (active or deleted) whose last name starts with 'sm'. Set pagination to 30 results/page.",
-    :parameters => [ [ "per_page", "30" ], [ "last_name", "sm*" ] ],
-    :response_body => @response_body    
+    :parameters => [ [ "limit", "30" ], [ "last_name", "sm*" ] ],
+    :response_body => @response_body
   }
 %>
 

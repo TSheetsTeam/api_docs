@@ -79,7 +79,7 @@ To prevent abuse of the TSheets API, we limit requests to a maximum of 300 calls
 
 ## Response Size Limit
 
-Each request response will return a maximum of 50 results per page (regardless of whether the per_page parameter is sent with your request). To receive the full response, look for the `"more": true` attribute and iterate sending a new request with the page parameter incremented until you receive `"more": false` in the response payload.
+Each request response will return a maximum of 200 results per page (regardless of whether the `limit` parameter is sent with your request). To receive the full response, look for the `"more": true` attribute and iterate sending a new request with the page parameter incremented until you receive `"more": false` in the response payload.
 
 ## SDK's & Helper Libraries
 
@@ -121,7 +121,7 @@ Here are a few of the things we'll be looking for before allowing your applicati
  * How are changes to data being checked from your app? Polling? Manually? Both? If you're polling, how often?
  * If client doesn't have a TSheets account, are you utilizing the account creation mechanism available via the OAuth flow?
  * On initial sync, are you getting all data? On subsequent syncs, are you utilizing last_modified times to pull data?
- * When editing or creating multiple objects, are you doing so via batch operations (i.e. up to 50 with one request vs. a separate request for each)?
+ * When editing or creating multiple objects, are you doing so via batch operations (i.e. up to 200 with one request vs. a separate request for each)?
 
 ## Getting Help
 

@@ -20,7 +20,8 @@ _Pass an an object of filters as the value to a 'data' property (see example)._
 | **group_ids**<br/>optional | _Int_ | A comma-separated list of group ids. Only totals for users from these groups will be included. |
 | **on_the_clock**<br/>optional | _String_ | 'yes', 'no', or 'both'. Default is 'no'. If a user is `on_the_clock`, it means the user is currently working (has not clocked out yet). |
 | **page**<br/>optional | _Int_ | Represents the page of results you'd like to retrieve. Default is 1. |
-| **per_page**<br/>optional | _Int_ | Represents how many results you'd like to retrieve per request (page). Default is 50. Max is 50. Using this filter requires a page to be defined. |
+| **~~per_page~~**<br/>~~optional~~ | ~~_Int_~~ | **_Deprecated. Use_ `limit` _for new code._**<br/>~~Represents how many results you'd like to retrieve per request. Default is 50. Max is 50.<br/>If a value over 50 is provided, it is ignored, and the max is used.~~ |
+| **limit**<br/>optional | _Int_ | Represents how many results you'd like to retrieve per request. Default is 200. Max is 200.<br/>If present, this value must be: an integer, greater than zero, and not greater than 200.<br/>Setting `limit` less than 1 or greater than 200 will result in an error. |
 | **order_by**<br/>optional | _String_ | Attribute name by which to order the result data, one of: 'username', 'first_name', 'last_name', 'group_name', 'group_id', 'shift_seconds', or 'day_seconds'. |
 | **order_desc**<br/>optional | _Boolean_ | Either _true_ or _false_. If _true_, result data will be ordered descending by the attribute specified in the `order_by` filter. |
 
